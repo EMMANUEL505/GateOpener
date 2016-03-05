@@ -33,10 +33,7 @@ me@avinashgupta.com
 #include "usart_pic16.h"
 
 void USARTInit(uint16_t baud_rate)
-{
-    //Setup queue
-    UQFront=UQEnd=-1;
-        
+{       
     //SPBRG
     switch(baud_rate)
     {
@@ -81,7 +78,6 @@ void USARTInit(uint16_t baud_rate)
 void USARTWriteChar(char ch)
 {
   while(!PIR1bits.TXIF);
-
   TXREG=ch;
 }
 
@@ -98,7 +94,6 @@ void USARTWriteLine(const char *str)
 {
     USARTWriteChar('\r');//CR
     USARTWriteChar('\n');//LF
-
     USARTWriteString(str);
 }
 
@@ -107,69 +102,51 @@ void USARTHandleRxInt()
     LED_BLUE=ENABLED;
     //Read the data
     char data=RCREG;
-
-    //Now add it to q
-    if(((UQEnd==RECEIVE_BUFF_SIZE-1) && UQFront==0) || ((UQEnd+1)==UQFront))
+    SIM800L.busy=TRUE;
+    switch(data)
     {
-        //Q Full
-	UQFront++;
-	if(UQFront==RECEIVE_BUFF_SIZE) UQFront=0;
-    }
+        case '\r':      //Do nothing for first CR incomming character
+            if(SIM800L.uncomplete==TRUE && bufque==0){SIM800L.uncomplete=FALSE;}  //Used for lost of sync
+        break;
+        case '\n':
+            if(SIM800L.uncomplete==FALSE) SIM800L.uncomplete=TRUE;
+            else
+            {
+                SIM800L.uncomplete=FALSE;
+                if(SIM800L.buffer[0]=='+')                         //Case for unsolicited messages
+                {
+                   if(SIM800L.buffer[1]=='C' && SIM800L.buffer[2]=='L' && SIM800L.buffer[3]=='I'  )    //+CLIP, save caller's cellnumber
+                   {
+                       uint8_t ci=8;                               //Cell number initiates at eight position [+CLIP: "89..."
+                       while(SIM800L.buffer[ci]!='\"' && (ci-8)<SIM800L_CELL_LENGHT)             //Save characters until " arrive
+                       {
+                           SIM800L.cell[ci-8]=SIM800L.buffer[ci];  //Save cell number characters
+                           ci++;
+                           SIM800L.cell_lenght++;                  //Save cell number lenght
+                       }
+                       task=CALL_IN;                               //Configure task to CALL_IN
+                   }
+                  if(SIM800L.buffer[1]=='C' && SIM800L.buffer[2]=='M' && SIM800L.buffer[3]=='T' && SIM800L.buffer[4]=='I'  )    //+CMTI, save SMS
+                   {
 
-    if(UQEnd==RECEIVE_BUFF_SIZE-1)
-        UQEnd=0;
-    else
-	UQEnd++;
-
-    URBuff[UQEnd]=data;
-
-    if(UQFront==-1) UQFront=0;
+                       task=SMS_IN;                               //Configure task to SMS_IN
+                   }
+                }
+                bufque=0;
+             }
+             SIM800L.busy=FALSE;
+         break;
+         default:
+             SIM800L.buffer[bufque]=data;
+             bufque++;
+         break;
+     }
     LED_BLUE=DISABLED;
 }
-
-char USARTReadData()
-{
-    char data;
-
-    //Check if q is empty
-    if(UQFront==-1)
-	return 0;
-
-    data=URBuff[UQFront];
-
-    if(UQFront==UQEnd)
-    {
-        //If single data is left
-	//So empty q
-	UQFront=UQEnd=-1;
-    }
-    else
-    {
-	UQFront++;
-
-	if(UQFront==RECEIVE_BUFF_SIZE)
-            UQFront=0;
-    }
-
-    return data;
-}
-
-uint8_t USARTDataAvailable()
-{
-    if(UQFront==-1) return 0;
-    if(UQFront<UQEnd)
-	return(UQEnd-UQFront+1);
-    else if(UQFront>UQEnd)
-	return (RECEIVE_BUFF_SIZE-UQFront+UQEnd+1);
-    else
-	return 1;
-}
-
 void USARTWriteInt(int16_t val, int8_t field_length)
 {
     char str[5]={0,0,0,0,0};
     int8_t i=4,j=0;
-
     //Handle negative integers
     if(val<0)
     {
@@ -211,28 +188,12 @@ void USARTGotoNewLine()
     USARTWriteChar('\n');//LF
 }
 
-void USARTReadBuffer(char *buff,uint16_t len)
+void USARTClearSIM800L(void)
 {
-	uint16_t i;
-	for(i=0;i<len;i++)
-	{
-		buff[i]=USARTReadData();
-	}
-}
-void USARTFlushBuffer()
-{
-	while(USARTDataAvailable()>0)
-	{
-		USARTReadData();
-	}
-}
-
-void USARTClearBuffer()
-{
-	uint16_t i;
-	for(i=0;i<RECEIVE_BUFF_SIZE;i++)
-	{
-		URBuff[i]=0;
-	}
-        UQFront=UQEnd=-1;
+    uint8_t i;
+    SIM800L.busy=FALSE;
+    SIM800L.uncomplete=FALSE;
+    SIM800L.cell_lenght=FALSE;
+    for(i=0;i<SIM800L_CELL_LENGHT;i++){SIM800L.cell[i]='\0';}
+    for(i=0;i<SIM800L_BUFFER_SIZE;i++) SIM800L.buffer[i]=0;
 }
