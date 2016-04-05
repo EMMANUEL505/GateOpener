@@ -3,7 +3,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _RCIE `Vb ~T0 @X0 0 e@1165 ]
 "7414
 [v _RCIF `Vb ~T0 @X0 0 e@141 ]
-"47 usart_pic16.h
+"21 usart.h
 [v _USARTHandleRxInt `(v ~T0 @X0 0 ef ]
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
@@ -2903,30 +2903,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom_routines.h: 43: extern void eecpymem(volatile unsigned char *to, __eeprom unsigned char *from, unsigned char size);
 [; ;eeprom_routines.h: 44: extern void memcpyee(__eeprom unsigned char *to, const unsigned char *from, unsigned char size);
 [; ;pic.h: 154: extern __nonreentrant void _delay(unsigned long);
-"38 usart_pic16.h
-[v _URBuff `Vuc ~T0 @X0 -> 128 `i e ]
-[; ;usart_pic16.h: 38: volatile char URBuff[128];
-"39
-[v _UQFront `Vi ~T0 @X0 1 e ]
-[; ;usart_pic16.h: 39: volatile int16_t UQFront;
-"40
-[v _UQEnd `Vi ~T0 @X0 1 e ]
-[; ;usart_pic16.h: 40: volatile int16_t UQEnd;
-[; ;usart_pic16.h: 42: void USARTInit(uint16_t baud_rate);
-[; ;usart_pic16.h: 43: void USARTWriteChar(char ch);
-[; ;usart_pic16.h: 44: void USARTWriteString(const char *str);
-[; ;usart_pic16.h: 45: void USARTWriteLine(const char *str);
-[; ;usart_pic16.h: 46: void USARTWriteInt(int16_t val, int8_t field_length);
-[; ;usart_pic16.h: 47: void USARTHandleRxInt();
-[; ;usart_pic16.h: 48: char USARTReadData();
-[; ;usart_pic16.h: 49: uint8_t USARTDataAvailable();
-[; ;usart_pic16.h: 50: void USARTGotoNewLine();
-[; ;usart_pic16.h: 51: void USARTReadBuffer(char *buff,uint16_t len);
-[; ;usart_pic16.h: 52: void USARTFlushBuffer();
-[; ;usart_pic16.h: 53: void USARTClearBuffer();
-[v F2997 `(v ~T0 @X0 1 tf ]
+[; ;usart.h: 16: void USARTInit(uint16_t baud_rate);
+[; ;usart.h: 17: void USARTWriteChar(char ch);
+[; ;usart.h: 18: void USARTWriteString(const char *str);
+[; ;usart.h: 19: void USARTWriteLine(const char *str);
+[; ;usart.h: 20: void USARTWriteInt(int16_t val, int8_t field_length);
+[; ;usart.h: 21: void USARTHandleRxInt();
+[; ;usart.h: 22: void USARTGotoNewLine();
+[; ;usart.h: 23: void USARTClearSIM800L(void);
+[v F2989 `(v ~T0 @X0 1 tf ]
 "6 isr.c
-[v _ISR `IF2997 ~T0 @X0 1 e ]
+[v _ISR `IF2989 ~T0 @X0 1 e ]
 "7
 {
 [; ;isr.c: 6: void interrupt ISR(void)

@@ -1,84 +1,6 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"3200 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic16f1828.h
-[v _SPBRG `Vuc ~T0 @X0 0 e@411 ]
-"3413
-[s S185 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S185 . ABDEN WUE . BRG16 SCKP . RCIDL ABDOVF ]
-"3412
-[u S184 `S185 1 ]
-[n S184 . . ]
-"3424
-[v _BAUDCONbits `VS184 ~T0 @X0 0 e@415 ]
-"3352
-[s S183 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S183 . TX9D TRMT BRGH SENDB SYNC TXEN TX9 CSRC ]
-"3351
-[u S182 `S183 1 ]
-[n S182 . . ]
-"3363
-[v _TXSTAbits `VS182 ~T0 @X0 0 e@414 ]
-"3291
-[s S181 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S181 . RX9D OERR FERR ADDEN CREN SREN RX9 SPEN ]
-"3290
-[u S180 `S181 1 ]
-[n S180 . . ]
-"3302
-[v _RCSTAbits `VS180 ~T0 @X0 0 e@413 ]
-"7412
-[v _RCIE `Vb ~T0 @X0 0 e@1165 ]
-"7342
-[v _PEIE `Vb ~T0 @X0 0 e@94 ]
-"7066
-[v _GIE `Vb ~T0 @X0 0 e@95 ]
-"566
-[s S36 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S36 . TMR1IF TMR2IF CCP1IF SSP1IF TXIF RCIF ADIF TMR1GIF ]
-"565
-[u S35 `S36 1 ]
-[n S35 . . ]
-"577
-[v _PIR1bits `VS35 ~T0 @X0 0 e@17 ]
-"3170
-[v _TXREG `Vuc ~T0 @X0 0 e@410 ]
-"2091
-[s S110 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S110 . LATC0 LATC1 LATC2 LATC3 LATC4 LATC5 LATC6 LATC7 ]
-"2090
-[u S109 `S110 1 ]
-[n S109 . . ]
-"2102
-[v _LATCbits `VS109 ~T0 @X0 0 e@270 ]
-"3151
-[v _RCREG `Vuc ~T0 @X0 0 e@409 ]
-[; ;stdint.h: 13: typedef signed char int8_t;
-[; ;stdint.h: 20: typedef signed int int16_t;
-[; ;stdint.h: 28: typedef signed short long int int24_t;
-[; ;stdint.h: 36: typedef signed long int int32_t;
-[; ;stdint.h: 43: typedef unsigned char uint8_t;
-[; ;stdint.h: 49: typedef unsigned int uint16_t;
-[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
-[; ;stdint.h: 63: typedef unsigned long int uint32_t;
-[; ;stdint.h: 71: typedef signed char int_least8_t;
-[; ;stdint.h: 78: typedef signed int int_least16_t;
-[; ;stdint.h: 90: typedef signed short long int int_least24_t;
-[; ;stdint.h: 98: typedef signed long int int_least32_t;
-[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
-[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
-[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
-[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
-[; ;stdint.h: 137: typedef signed char int_fast8_t;
-[; ;stdint.h: 144: typedef signed int int_fast16_t;
-[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
-[; ;stdint.h: 164: typedef signed long int int_fast32_t;
-[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
-[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
-[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
-[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
-[; ;stdint.h: 200: typedef int32_t intmax_t;
-[; ;stdint.h: 205: typedef uint32_t uintmax_t;
-[; ;stdint.h: 210: typedef int16_t intptr_t;
-[; ;stdint.h: 215: typedef uint16_t uintptr_t;
+"1677 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic16f1828.h
+[v _OSCCON `Vuc ~T0 @X0 0 e@153 ]
 [; ;htc.h: 21: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 24: extern void __builtin_software_breakpoint(void);
 [; ;pic16f1828.h: 47: extern volatile unsigned char INDF0 @ 0x000;
@@ -3033,704 +2955,132 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdlib.h: 109: extern char * ltoa(char * buf, long val, int base);
 [; ;stdlib.h: 110: extern char * ultoa(char * buf, unsigned long val, int base);
 [; ;stdlib.h: 112: extern char * ftoa(float f, int * status);
-[; ;stdlib.h: 103: extern char * itoa(char * buf, int val, int base);
-[; ;stdlib.h: 104: extern char * utoa(char * buf, unsigned val, int base);
-[; ;stdlib.h: 109: extern char * ltoa(char * buf, long val, int base);
-[; ;stdlib.h: 110: extern char * ultoa(char * buf, unsigned long val, int base);
-[; ;stdlib.h: 112: extern char * ftoa(float f, int * status);
-"38 usart_pic16.h
-[v _URBuff `Vuc ~T0 @X0 -> 128 `i e ]
-[; ;usart_pic16.h: 38: volatile char URBuff[128];
-"39
-[v _UQFront `Vi ~T0 @X0 1 e ]
-[; ;usart_pic16.h: 39: volatile int16_t UQFront;
-"40
-[v _UQEnd `Vi ~T0 @X0 1 e ]
-[; ;usart_pic16.h: 40: volatile int16_t UQEnd;
-[; ;usart_pic16.h: 42: void USARTInit(uint16_t baud_rate);
-[; ;usart_pic16.h: 43: void USARTWriteChar(char ch);
-[; ;usart_pic16.h: 44: void USARTWriteString(const char *str);
-[; ;usart_pic16.h: 45: void USARTWriteLine(const char *str);
-[; ;usart_pic16.h: 46: void USARTWriteInt(int16_t val, int8_t field_length);
-[; ;usart_pic16.h: 47: void USARTHandleRxInt();
-[; ;usart_pic16.h: 48: char USARTReadData();
-[; ;usart_pic16.h: 49: uint8_t USARTDataAvailable();
-[; ;usart_pic16.h: 50: void USARTGotoNewLine();
-[; ;usart_pic16.h: 51: void USARTReadBuffer(char *buff,uint16_t len);
-[; ;usart_pic16.h: 52: void USARTFlushBuffer();
-[; ;usart_pic16.h: 53: void USARTClearBuffer();
-"37 config.h
+[; ;stdint.h: 13: typedef signed char int8_t;
+[; ;stdint.h: 20: typedef signed int int16_t;
+[; ;stdint.h: 28: typedef signed short long int int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 43: typedef unsigned char uint8_t;
+[; ;stdint.h: 49: typedef unsigned int uint16_t;
+[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
+[; ;stdint.h: 63: typedef unsigned long int uint32_t;
+[; ;stdint.h: 71: typedef signed char int_least8_t;
+[; ;stdint.h: 78: typedef signed int int_least16_t;
+[; ;stdint.h: 90: typedef signed short long int int_least24_t;
+[; ;stdint.h: 98: typedef signed long int int_least32_t;
+[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
+[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 137: typedef signed char int_fast8_t;
+[; ;stdint.h: 144: typedef signed int int_fast16_t;
+[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
+[; ;stdint.h: 164: typedef signed long int int_fast32_t;
+[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
+[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 200: typedef int32_t intmax_t;
+[; ;stdint.h: 205: typedef uint32_t uintmax_t;
+[; ;stdint.h: 210: typedef int16_t intptr_t;
+[; ;stdint.h: 215: typedef uint16_t uintptr_t;
+"36 general.h
 [p x FOSC=INTOSC ]
-"38
+"37
 [p x WDTE=OFF ]
-"39
-[p x PWRTE=OFF ]
-"40
-[p x MCLRE=OFF ]
-"41
-[p x CP=OFF ]
-"42
-[p x CPD=OFF ]
-"43
-[p x BOREN=OFF ]
-"44
-[p x CLKOUTEN=OFF ]
-"45
-[p x IESO=ON ]
-"46
-[p x FCMEN=ON ]
-"49
-[p x WRT=OFF ]
-"50
-[p x PLLEN=OFF ]
-"51
-[p x STVREN=ON ]
-"52
-[p x BORV=LO ]
-"53
-[p x LVP=ON ]
-"35 usart_pic16.c
-[v _USARTInit `(v ~T0 @X0 1 ef1`ui ]
-"36
-{
-[; ;usart_pic16.c: 35: void USARTInit(uint16_t baud_rate)
-[; ;usart_pic16.c: 36: {
-[e :U _USARTInit ]
-"35
-[v _baud_rate `ui ~T0 @X0 1 r1 ]
-"36
-[f ]
-[; ;usart_pic16.c: 38: UQFront=UQEnd=-1;
 "38
-[e = _UQFront = _UQEnd -U -> 1 `i ]
-[; ;usart_pic16.c: 41: switch(baud_rate)
+[p x PWRTE=OFF ]
+"39
+[p x MCLRE=OFF ]
+"40
+[p x CP=OFF ]
 "41
-[e $U 368  ]
-[; ;usart_pic16.c: 42: {
+[p x CPD=OFF ]
 "42
-{
-[; ;usart_pic16.c: 43: case 9600:
+[p x BOREN=OFF ]
 "43
-[e :U 369 ]
-[; ;usart_pic16.c: 44: SPBRG=51;
+[p x CLKOUTEN=OFF ]
 "44
-[e = _SPBRG -> -> 51 `i `uc ]
-[; ;usart_pic16.c: 45: break;
+[p x IESO=ON ]
 "45
-[e $U 367  ]
-[; ;usart_pic16.c: 46: case 19200:
-"46
-[e :U 370 ]
-[; ;usart_pic16.c: 47: SPBRG=64;
-"47
-[e = _SPBRG -> -> 64 `i `uc ]
-[; ;usart_pic16.c: 48: break;
+[p x FCMEN=ON ]
 "48
-[e $U 367  ]
-[; ;usart_pic16.c: 49: case 28800:
+[p x WRT=OFF ]
 "49
-[e :U 371 ]
-[; ;usart_pic16.c: 50: SPBRG=42;
+[p x PLLEN=OFF ]
 "50
-[e = _SPBRG -> -> 42 `i `uc ]
-[; ;usart_pic16.c: 51: break;
+[p x STVREN=ON ]
 "51
-[e $U 367  ]
-[; ;usart_pic16.c: 52: case 33600:
+[p x BORV=LO ]
 "52
+[p x LVP=ON ]
+"67
+[v _task `uc ~T0 @X0 1 e ]
+[v _i `uc ~T0 @X0 1 e ]
+[; ;general.h: 67: uint8_t task,i;
+[; ;system.h: 29: void SYSTEMInit(uint8_t freq);
+"5 system.c
+[v _SYSTEMInit `(v ~T0 @X0 1 ef1`uc ]
+"6
+{
+[; ;system.c: 5: void SYSTEMInit(uint8_t freq)
+[; ;system.c: 6: {
+[e :U _SYSTEMInit ]
+"5
+[v _freq `uc ~T0 @X0 1 r1 ]
+"6
+[f ]
+[; ;system.c: 7: switch(freq)
+"7
+[e $U 368  ]
+[; ;system.c: 8: {
+"8
+{
+[; ;system.c: 9: case 4:
+"9
+[e :U 369 ]
+[; ;system.c: 10: OSCCON=0b01101010;
+"10
+[e = _OSCCON -> -> 106 `i `uc ]
+[; ;system.c: 11: break;
+"11
+[e $U 367  ]
+[; ;system.c: 12: case 8:
+"12
+[e :U 370 ]
+[; ;system.c: 13: OSCCON=0b01110010;
+"13
+[e = _OSCCON -> -> 114 `i `uc ]
+[; ;system.c: 14: break;
+"14
+[e $U 367  ]
+[; ;system.c: 15: case 16:
+"15
+[e :U 371 ]
+[; ;system.c: 16: OSCCON=0b01111010;
+"16
+[e = _OSCCON -> -> 122 `i `uc ]
+[; ;system.c: 17: break;
+"17
+[e $U 367  ]
+[; ;system.c: 18: default:
+"18
 [e :U 372 ]
-[; ;usart_pic16.c: 53: SPBRG=36;
-"53
-[e = _SPBRG -> -> 36 `i `uc ]
-[; ;usart_pic16.c: 54: break;
-"54
+[; ;system.c: 19: break;
+"19
 [e $U 367  ]
-[; ;usart_pic16.c: 55: case 115:
-"55
-[e :U 373 ]
-[; ;usart_pic16.c: 56: SPBRG=16;
-"56
-[e = _SPBRG -> -> 16 `i `uc ]
-[; ;usart_pic16.c: 57: break;
-"57
-[e $U 367  ]
-"58
+"20
 }
-[; ;usart_pic16.c: 58: }
+[; ;system.c: 20: }
 [e $U 367  ]
-"41
+"7
 [e :U 368 ]
-[e [\ _baud_rate , $ -> -> 9600 `i `ui 369
- , $ -> -> 19200 `i `ui 370
- , $ -> -> 28800 `i `ui 371
- , $ -> -> 33600 `l `ui 372
- , $ -> -> 115 `i `ui 373
- 367 ]
-"58
+[e [\ _freq , $ -> -> 4 `i `uc 369
+ , $ -> -> 8 `i `uc 370
+ , $ -> -> 16 `i `uc 371
+ 372 ]
+"20
 [e :U 367 ]
-[; ;usart_pic16.c: 60: BAUDCONbits.BRG16=1;
-"60
-[e = . . _BAUDCONbits 0 3 -> -> 1 `i `uc ]
-[; ;usart_pic16.c: 62: TXSTAbits.TX9=0;
-"62
-[e = . . _TXSTAbits 0 6 -> -> 0 `i `uc ]
-[; ;usart_pic16.c: 63: TXSTAbits.TXEN=1;
-"63
-[e = . . _TXSTAbits 0 5 -> -> 1 `i `uc ]
-[; ;usart_pic16.c: 64: TXSTAbits.SYNC=0;
-"64
-[e = . . _TXSTAbits 0 4 -> -> 0 `i `uc ]
-[; ;usart_pic16.c: 65: TXSTAbits.BRGH=1;
-"65
-[e = . . _TXSTAbits 0 2 -> -> 1 `i `uc ]
-[; ;usart_pic16.c: 68: RCSTAbits.SPEN=1;
-"68
-[e = . . _RCSTAbits 0 7 -> -> 1 `i `uc ]
-[; ;usart_pic16.c: 69: RCSTAbits.RX9=0;
-"69
-[e = . . _RCSTAbits 0 6 -> -> 0 `i `uc ]
-[; ;usart_pic16.c: 70: RCSTAbits.CREN=1;
-"70
-[e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
-[; ;usart_pic16.c: 71: RCSTAbits.ADDEN=0;
-"71
-[e = . . _RCSTAbits 0 3 -> -> 0 `i `uc ]
-[; ;usart_pic16.c: 74: RCIE=1;
-"74
-[e = _RCIE -> -> 1 `i `b ]
-[; ;usart_pic16.c: 75: PEIE=1;
-"75
-[e = _PEIE -> -> 1 `i `b ]
-[; ;usart_pic16.c: 77: (GIE = 1);
-"77
-[e = _GIE -> -> 1 `i `b ]
-[; ;usart_pic16.c: 79: }
-"79
+[; ;system.c: 21: }
+"21
 [e :UE 366 ]
-}
-"81
-[v _USARTWriteChar `(v ~T0 @X0 1 ef1`uc ]
-"82
-{
-[; ;usart_pic16.c: 81: void USARTWriteChar(char ch)
-[; ;usart_pic16.c: 82: {
-[e :U _USARTWriteChar ]
-"81
-[v _ch `uc ~T0 @X0 1 r1 ]
-"82
-[f ]
-[; ;usart_pic16.c: 83: while(!PIR1bits.TXIF);
-"83
-[e $U 375  ]
-[e :U 376 ]
-[e :U 375 ]
-[e $ ! != -> . . _PIR1bits 0 4 `i -> -> -> 0 `i `Vuc `i 376  ]
-[e :U 377 ]
-[; ;usart_pic16.c: 85: TXREG=ch;
-"85
-[e = _TXREG _ch ]
-[; ;usart_pic16.c: 86: }
-"86
-[e :UE 374 ]
-}
-"88
-[v _USARTWriteString `(v ~T0 @X0 1 ef1`*Cuc ]
-"89
-{
-[; ;usart_pic16.c: 88: void USARTWriteString(const char *str)
-[; ;usart_pic16.c: 89: {
-[e :U _USARTWriteString ]
-"88
-[v _str `*Cuc ~T0 @X0 1 r1 ]
-"89
-[f ]
-[; ;usart_pic16.c: 90: while(*str!='\0')
-"90
-[e $U 379  ]
-[e :U 380 ]
-[; ;usart_pic16.c: 91: {
-"91
-{
-[; ;usart_pic16.c: 92: USARTWriteChar(*str);
-"92
-[e ( _USARTWriteChar (1 *U _str ]
-[; ;usart_pic16.c: 93: str++;
-"93
-[e ++ _str * -> -> 1 `i `x -> -> # *U _str `i `x ]
-"94
-}
-[e :U 379 ]
-"90
-[e $ != -> *U _str `ui -> 0 `ui 380  ]
-[e :U 381 ]
-[; ;usart_pic16.c: 94: }
-[; ;usart_pic16.c: 95: }
-"95
-[e :UE 378 ]
-}
-"97
-[v _USARTWriteLine `(v ~T0 @X0 1 ef1`*Cuc ]
-"98
-{
-[; ;usart_pic16.c: 97: void USARTWriteLine(const char *str)
-[; ;usart_pic16.c: 98: {
-[e :U _USARTWriteLine ]
-"97
-[v _str `*Cuc ~T0 @X0 1 r1 ]
-"98
-[f ]
-[; ;usart_pic16.c: 99: USARTWriteChar('\r');
-"99
-[e ( _USARTWriteChar (1 -> -> 13 `ui `uc ]
-[; ;usart_pic16.c: 100: USARTWriteChar('\n');
-"100
-[e ( _USARTWriteChar (1 -> -> 10 `ui `uc ]
-[; ;usart_pic16.c: 102: USARTWriteString(str);
-"102
-[e ( _USARTWriteString (1 _str ]
-[; ;usart_pic16.c: 103: }
-"103
-[e :UE 382 ]
-}
-"105
-[v _USARTHandleRxInt `(v ~T0 @X0 1 ef ]
-"106
-{
-[; ;usart_pic16.c: 105: void USARTHandleRxInt()
-[; ;usart_pic16.c: 106: {
-[e :U _USARTHandleRxInt ]
-[f ]
-[; ;usart_pic16.c: 107: LATCbits.LATC2=1;
-"107
-[e = . . _LATCbits 0 2 -> -> 1 `i `uc ]
-"109
-[v _data `uc ~T0 @X0 1 a ]
-[; ;usart_pic16.c: 109: char data=RCREG;
-[e = _data _RCREG ]
-[; ;usart_pic16.c: 112: if(((UQEnd==128-1) && UQFront==0) || ((UQEnd+1)==UQFront))
-"112
-[e $ ! || && == _UQEnd - -> 128 `i -> 1 `i == _UQFront -> 0 `i == + _UQEnd -> 1 `i _UQFront 384  ]
-[; ;usart_pic16.c: 113: {
-"113
-{
-[; ;usart_pic16.c: 115: UQFront++;
-"115
-[e ++ _UQFront -> 1 `i ]
-[; ;usart_pic16.c: 116: if(UQFront==128) UQFront=0;
-"116
-[e $ ! == _UQFront -> 128 `i 385  ]
-[e = _UQFront -> 0 `i ]
-[e :U 385 ]
-"117
-}
-[e :U 384 ]
-[; ;usart_pic16.c: 117: }
-[; ;usart_pic16.c: 119: if(UQEnd==128-1)
-"119
-[e $ ! == _UQEnd - -> 128 `i -> 1 `i 386  ]
-[; ;usart_pic16.c: 120: UQEnd=0;
-"120
-[e = _UQEnd -> 0 `i ]
-[e $U 387  ]
-"121
-[e :U 386 ]
-[; ;usart_pic16.c: 121: else
-[; ;usart_pic16.c: 122: UQEnd++;
-"122
-[e ++ _UQEnd -> 1 `i ]
-[e :U 387 ]
-[; ;usart_pic16.c: 124: URBuff[UQEnd]=data;
-"124
-[e = *U + &U _URBuff * -> -> _UQEnd `ui `ux -> -> # *U &U _URBuff `ui `ux _data ]
-[; ;usart_pic16.c: 126: if(UQFront==-1) UQFront=0;
-"126
-[e $ ! == _UQFront -U -> 1 `i 388  ]
-[e = _UQFront -> 0 `i ]
-[e :U 388 ]
-[; ;usart_pic16.c: 127: LATCbits.LATC2=0;
-"127
-[e = . . _LATCbits 0 2 -> -> 0 `i `uc ]
-[; ;usart_pic16.c: 128: }
-"128
-[e :UE 383 ]
-}
-"130
-[v _USARTReadData `(uc ~T0 @X0 1 ef ]
-"131
-{
-[; ;usart_pic16.c: 130: char USARTReadData()
-[; ;usart_pic16.c: 131: {
-[e :U _USARTReadData ]
-[f ]
-"132
-[v _data `uc ~T0 @X0 1 a ]
-[; ;usart_pic16.c: 132: char data;
-[; ;usart_pic16.c: 135: if(UQFront==-1)
-"135
-[e $ ! == _UQFront -U -> 1 `i 390  ]
-[; ;usart_pic16.c: 136: return 0;
-"136
-[e ) -> -> 0 `i `uc ]
-[e $UE 389  ]
-[e :U 390 ]
-[; ;usart_pic16.c: 138: data=URBuff[UQFront];
-"138
-[e = _data *U + &U _URBuff * -> -> _UQFront `ui `ux -> -> # *U &U _URBuff `ui `ux ]
-[; ;usart_pic16.c: 140: if(UQFront==UQEnd)
-"140
-[e $ ! == _UQFront _UQEnd 391  ]
-[; ;usart_pic16.c: 141: {
-"141
-{
-[; ;usart_pic16.c: 144: UQFront=UQEnd=-1;
-"144
-[e = _UQFront = _UQEnd -U -> 1 `i ]
-"145
-}
-[; ;usart_pic16.c: 145: }
-[e $U 392  ]
-"146
-[e :U 391 ]
-[; ;usart_pic16.c: 146: else
-[; ;usart_pic16.c: 147: {
-"147
-{
-[; ;usart_pic16.c: 148: UQFront++;
-"148
-[e ++ _UQFront -> 1 `i ]
-[; ;usart_pic16.c: 150: if(UQFront==128)
-"150
-[e $ ! == _UQFront -> 128 `i 393  ]
-[; ;usart_pic16.c: 151: UQFront=0;
-"151
-[e = _UQFront -> 0 `i ]
-[e :U 393 ]
-"152
-}
-[e :U 392 ]
-[; ;usart_pic16.c: 152: }
-[; ;usart_pic16.c: 154: return data;
-"154
-[e ) _data ]
-[e $UE 389  ]
-[; ;usart_pic16.c: 155: }
-"155
-[e :UE 389 ]
-}
-"157
-[v _USARTDataAvailable `(uc ~T0 @X0 1 ef ]
-"158
-{
-[; ;usart_pic16.c: 157: uint8_t USARTDataAvailable()
-[; ;usart_pic16.c: 158: {
-[e :U _USARTDataAvailable ]
-[f ]
-[; ;usart_pic16.c: 159: if(UQFront==-1) return 0;
-"159
-[e $ ! == _UQFront -U -> 1 `i 395  ]
-[e ) -> -> 0 `i `uc ]
-[e $UE 394  ]
-[e :U 395 ]
-[; ;usart_pic16.c: 160: if(UQFront<UQEnd)
-"160
-[e $ ! < _UQFront _UQEnd 396  ]
-[; ;usart_pic16.c: 161: return(UQEnd-UQFront+1);
-"161
-[e ) -> + - _UQEnd _UQFront -> 1 `i `uc ]
-[e $UE 394  ]
-[e $U 397  ]
-"162
-[e :U 396 ]
-[; ;usart_pic16.c: 162: else if(UQFront>UQEnd)
-[e $ ! > _UQFront _UQEnd 398  ]
-[; ;usart_pic16.c: 163: return (128-UQFront+UQEnd+1);
-"163
-[e ) -> + + - -> 128 `i _UQFront _UQEnd -> 1 `i `uc ]
-[e $UE 394  ]
-[e $U 399  ]
-"164
-[e :U 398 ]
-[; ;usart_pic16.c: 164: else
-[; ;usart_pic16.c: 165: return 1;
-"165
-[e ) -> -> 1 `i `uc ]
-[e $UE 394  ]
-[e :U 399 ]
-[e :U 397 ]
-[; ;usart_pic16.c: 166: }
-"166
-[e :UE 394 ]
-}
-"168
-[v _USARTWriteInt `(v ~T0 @X0 1 ef2`i`c ]
-"169
-{
-[; ;usart_pic16.c: 168: void USARTWriteInt(int16_t val, int8_t field_length)
-[; ;usart_pic16.c: 169: {
-[e :U _USARTWriteInt ]
-"168
-[v _val `i ~T0 @X0 1 r1 ]
-[v _field_length `c ~T0 @X0 1 r2 ]
-"169
-[f ]
-[v F3204 `uc ~T0 @X0 -> 5 `i s ]
-[i F3204
-:U ..
-"170
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
-..
-]
-[v _str `uc ~T0 @X0 -> 5 `i a ]
-[; ;usart_pic16.c: 170: char str[5]={0,0,0,0,0};
-[e = _str F3204 ]
-"171
-[v _i `c ~T0 @X0 1 a ]
-[; ;usart_pic16.c: 171: int8_t i=4,j=0;
-[e = _i -> -> 4 `i `c ]
-[v _j `c ~T0 @X0 1 a ]
-[e = _j -> -> 0 `i `c ]
-[; ;usart_pic16.c: 174: if(val<0)
-"174
-[e $ ! < _val -> 0 `i 401  ]
-[; ;usart_pic16.c: 175: {
-"175
-{
-[; ;usart_pic16.c: 176: USARTWriteChar('-');
-"176
-[e ( _USARTWriteChar (1 -> -> 45 `ui `uc ]
-[; ;usart_pic16.c: 177: val=val*-1;
-"177
-[e = _val * _val -U -> 1 `i ]
-"178
-}
-[; ;usart_pic16.c: 178: }
-[e $U 402  ]
-"179
-[e :U 401 ]
-[; ;usart_pic16.c: 179: else
-[; ;usart_pic16.c: 180: {
-"180
-{
-[; ;usart_pic16.c: 181: USARTWriteChar(' ');
-"181
-[e ( _USARTWriteChar (1 -> -> 32 `ui `uc ]
-"182
-}
-[e :U 402 ]
-[; ;usart_pic16.c: 182: }
-[; ;usart_pic16.c: 184: if(val==0 && field_length<1)
-"184
-[e $ ! && == _val -> 0 `i < -> _field_length `i -> 1 `i 403  ]
-[; ;usart_pic16.c: 185: {
-"185
-{
-[; ;usart_pic16.c: 186: USARTWriteChar('0');
-"186
-[e ( _USARTWriteChar (1 -> -> 48 `ui `uc ]
-[; ;usart_pic16.c: 187: return;
-"187
-[e $UE 400  ]
-"188
-}
-[e :U 403 ]
-[; ;usart_pic16.c: 188: }
-[; ;usart_pic16.c: 189: while(val)
-"189
-[e $U 404  ]
-[e :U 405 ]
-[; ;usart_pic16.c: 190: {
-"190
-{
-[; ;usart_pic16.c: 191: str[i]=val%10;
-"191
-[e = *U + &U _str * -> -> _i `uc `ux -> -> # *U &U _str `ui `ux -> % _val -> 10 `i `uc ]
-[; ;usart_pic16.c: 192: val=val/10;
-"192
-[e = _val / _val -> 10 `i ]
-[; ;usart_pic16.c: 193: i--;
-"193
-[e -- _i -> -> 1 `i `c ]
-"194
-}
-[e :U 404 ]
-"189
-[e $ != _val -> 0 `i 405  ]
-[e :U 406 ]
-[; ;usart_pic16.c: 194: }
-[; ;usart_pic16.c: 196: if(field_length==-1)
-"196
-[e $ ! == -> _field_length `i -U -> 1 `i 407  ]
-[; ;usart_pic16.c: 197: while(str[j]==0) j++;
-"197
-[e $U 408  ]
-[e :U 409 ]
-[e ++ _j -> -> 1 `i `c ]
-[e :U 408 ]
-[e $ == -> *U + &U _str * -> -> _j `uc `ux -> -> # *U &U _str `ui `ux `i -> 0 `i 409  ]
-[e :U 410 ]
-[e $U 411  ]
-"198
-[e :U 407 ]
-[; ;usart_pic16.c: 198: else
-[; ;usart_pic16.c: 199: j=5-field_length;
-"199
-[e = _j -> - -> 5 `i -> _field_length `i `c ]
-[e :U 411 ]
-[; ;usart_pic16.c: 202: for(i=j;i<5;i++)
-"202
-{
-[e = _i _j ]
-[e $ < -> _i `i -> 5 `i 412  ]
-[e $U 413  ]
-"203
-[e :U 412 ]
-[; ;usart_pic16.c: 203: {
-{
-[; ;usart_pic16.c: 204: USARTWriteChar('0'+str[i]);
-"204
-[e ( _USARTWriteChar (1 -> + -> 48 `ui -> *U + &U _str * -> -> _i `uc `ux -> -> # *U &U _str `ui `ux `ui `uc ]
-"205
-}
-"202
-[e ++ _i -> -> 1 `i `c ]
-[e $ < -> _i `i -> 5 `i 412  ]
-[e :U 413 ]
-"205
-}
-[; ;usart_pic16.c: 205: }
-[; ;usart_pic16.c: 206: }
-"206
-[e :UE 400 ]
-}
-"208
-[v _USARTGotoNewLine `(v ~T0 @X0 1 ef ]
-"209
-{
-[; ;usart_pic16.c: 208: void USARTGotoNewLine()
-[; ;usart_pic16.c: 209: {
-[e :U _USARTGotoNewLine ]
-[f ]
-[; ;usart_pic16.c: 210: USARTWriteChar('\r');
-"210
-[e ( _USARTWriteChar (1 -> -> 13 `ui `uc ]
-[; ;usart_pic16.c: 211: USARTWriteChar('\n');
-"211
-[e ( _USARTWriteChar (1 -> -> 10 `ui `uc ]
-[; ;usart_pic16.c: 212: }
-"212
-[e :UE 415 ]
-}
-"214
-[v _USARTReadBuffer `(v ~T0 @X0 1 ef2`*uc`ui ]
-"215
-{
-[; ;usart_pic16.c: 214: void USARTReadBuffer(char *buff,uint16_t len)
-[; ;usart_pic16.c: 215: {
-[e :U _USARTReadBuffer ]
-"214
-[v _buff `*uc ~T0 @X0 1 r1 ]
-[v _len `ui ~T0 @X0 1 r2 ]
-"215
-[f ]
-"216
-[v _i `ui ~T0 @X0 1 a ]
-[; ;usart_pic16.c: 216: uint16_t i;
-[; ;usart_pic16.c: 217: for(i=0;i<len;i++)
-"217
-{
-[e = _i -> -> 0 `i `ui ]
-[e $U 420  ]
-"218
-[e :U 417 ]
-[; ;usart_pic16.c: 218: {
-{
-[; ;usart_pic16.c: 219: buff[i]=USARTReadData();
-"219
-[e = *U + _buff * -> _i `ux -> -> # *U _buff `ui `ux ( _USARTReadData ..  ]
-"220
-}
-"217
-[e ++ _i -> -> 1 `i `ui ]
-[e :U 420 ]
-[e $ < _i _len 417  ]
-[e :U 418 ]
-"220
-}
-[; ;usart_pic16.c: 220: }
-[; ;usart_pic16.c: 221: }
-"221
-[e :UE 416 ]
-}
-"222
-[v _USARTFlushBuffer `(v ~T0 @X0 1 ef ]
-"223
-{
-[; ;usart_pic16.c: 222: void USARTFlushBuffer()
-[; ;usart_pic16.c: 223: {
-[e :U _USARTFlushBuffer ]
-[f ]
-[; ;usart_pic16.c: 224: while(USARTDataAvailable()>0)
-"224
-[e $U 422  ]
-[e :U 423 ]
-[; ;usart_pic16.c: 225: {
-"225
-{
-[; ;usart_pic16.c: 226: USARTReadData();
-"226
-[e ( _USARTReadData ..  ]
-"227
-}
-[e :U 422 ]
-"224
-[e $ > -> ( _USARTDataAvailable ..  `i -> 0 `i 423  ]
-[e :U 424 ]
-[; ;usart_pic16.c: 227: }
-[; ;usart_pic16.c: 228: }
-"228
-[e :UE 421 ]
-}
-"230
-[v _USARTClearBuffer `(v ~T0 @X0 1 ef ]
-"231
-{
-[; ;usart_pic16.c: 230: void USARTClearBuffer()
-[; ;usart_pic16.c: 231: {
-[e :U _USARTClearBuffer ]
-[f ]
-"232
-[v _i `ui ~T0 @X0 1 a ]
-[; ;usart_pic16.c: 232: uint16_t i;
-[; ;usart_pic16.c: 233: for(i=0;i<128;i++)
-"233
-{
-[e = _i -> -> 0 `i `ui ]
-[e $ < _i -> -> 128 `i `ui 426  ]
-[e $U 427  ]
-"234
-[e :U 426 ]
-[; ;usart_pic16.c: 234: {
-{
-[; ;usart_pic16.c: 235: URBuff[i]=0;
-"235
-[e = *U + &U _URBuff * -> _i `ux -> -> # *U &U _URBuff `ui `ux -> -> 0 `i `uc ]
-"236
-}
-"233
-[e ++ _i -> -> 1 `i `ui ]
-[e $ < _i -> -> 128 `i `ui 426  ]
-[e :U 427 ]
-"236
-}
-[; ;usart_pic16.c: 236: }
-[; ;usart_pic16.c: 237: UQFront=UQEnd=-1;
-"237
-[e = _UQFront = _UQEnd -U -> 1 `i ]
-[; ;usart_pic16.c: 238: }
-"238
-[e :UE 425 ]
 }

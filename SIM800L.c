@@ -1,17 +1,16 @@
-#include <stdint.h>
-#include <xc.h>
-#include <stdio.h>
-#include "config.h"
-#include <stdlib.h>
-#include "SIM800L.h"
+#include "general.h"
+#include "sim800l.h"
+#include "usart.h"
+#include "gpio.h"
+#include "eeprom.h"
 
 uint8_t SIM800init()
 {
-    RESET_PIN(HIGH);
+    SIM800_RST_PIN=HIGH;
     __delay_ms(10);
-    RESET_PIN(LOW);
+    SIM800_RST_PIN=LOW;
     __delay_ms(500);
-    RESET_PIN(HIGH);
+    SIM800_RST_PIN=HIGH;
     __delay_ms(10000);
     USARTWriteLine("AT\r\n");       //Test connection
     __delay_ms(2000);
@@ -30,4 +29,75 @@ uint8_t SIM800sendCommand()
 {
     USARTWriteLine("AT\n\r");       //Test connection
     return 0;
+}
+
+uint8_t SIM800SendSms(const char *nmbr, const char *msg)
+{
+    __delay_ms(2000);
+    USARTWriteLine("AT+CMGF = 1\r\n");       //Text format
+    __delay_ms(2000);
+    USARTWriteLine("AT+CMGS=\"");     //Send SMS
+    USARTWriteString(nmbr);
+    USARTWriteString("\"\r\n");
+    //Wait for >
+    __delay_ms(2000);
+    USARTWriteString(msg);
+    USARTWriteChar(CTRLZ);
+    __delay_ms(2000);
+
+    return 1;
+}
+uint8_t SIM800ReadSms(const char *mem)
+{
+    __delay_ms(2000);
+    USARTWriteLine("AT+CMGF = 1\r\n");       //Text format
+    __delay_ms(2000);
+    USARTWriteLine("AT+CMGR=");     //Read SMS
+    USARTWriteString(mem);
+    USARTWriteString("\r\n");
+    return 1;
+}
+uint8_t SIM800DeleteSms(const char *index, const char *flag)
+{
+    __delay_ms(2000);
+    USARTWriteLine("AT+CMGF = 1\r\n");       //Text format
+    __delay_ms(2000);
+    USARTWriteLine("AT+CMGD=");     //Delete SMS
+    USARTWriteString(index);
+    USARTWriteChar(',');
+    USARTWriteString(flag);
+    USARTWriteString("\r\n");
+    return 1;
+}
+uint8_t SIM800Process()
+{
+    if(SIM800L.buffer[0]=='+')                         //Case for unsolicited messages
+    {
+        if(SIM800L.buffer[1]=='C' && SIM800L.buffer[2]=='L' && SIM800L.buffer[3]=='I'  )    //+CLIP, save caller's cellnumber
+        {
+            uint8_t ci=8;                               //Cell number initiates at eight position [+CLIP: "89..."
+            while(SIM800L.buffer[ci]!='\"' && (ci-8)<SIM800L_CELL_LENGHT)             //Save characters until " arrive
+            {
+                SIM800L.cell[ci-8]=SIM800L.buffer[ci];  //Save cell number characters
+                ci++;
+                SIM800L.cell_lenght++;                  //Save cell number lenght
+            }
+            task=CALL_IN;                               //Configure task to CALL_IN
+        }
+        if(SIM800L.buffer[1]=='C' && SIM800L.buffer[2]=='M' && SIM800L.buffer[3]=='T' && SIM800L.buffer[4]=='I'  )    //+CMTI, save SMS
+         {
+            task=SMS_IN;                               //Configure task to SMS_IN
+         }
+         if(SIM800L.buffer[1]=='C' && SIM800L.buffer[2]=='S' && SIM800L.buffer[3]=='Q')    //+CSQ, save CSQ
+         {
+            uint8_t ci=6;
+            while(SIM800L.buffer[ci]!=',' && (ci)<8)             //Save characters until , arrive
+            {
+               SIM800L.csq[ci-6]=SIM800L.buffer[ci];  //Save cell number characters
+               ci++;
+            }
+            SIM800L.csq[ci-6]=0;
+          }
+    }
+    return TRUE;
 }

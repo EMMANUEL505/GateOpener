@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=GarageOpener.X
+PROJECTNAME=GateOpener.git
 
 # Active Configuration
 DEFAULTCONF=default

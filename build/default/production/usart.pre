@@ -1,5 +1,5 @@
 
-# 1 "main.c"
+# 1 "usart.c"
 
 # 21 "C:\Program Files (x86)\Microchip\xc8\v1.33\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -4148,20 +4148,19 @@ typedef uint16_t uintptr_t;
 # 67
 uint8_t task,i;
 
-# 29 "system.h"
-void SYSTEMInit(uint8_t freq);
+# 16 "usart.h"
+void USARTInit(uint16_t baud_rate);
+void USARTWriteChar(char ch);
+void USARTWriteString(const char *str);
+void USARTWriteLine(const char *str);
+void USARTWriteInt(int16_t val, int8_t field_length);
+void USARTHandleRxInt();
+void USARTGotoNewLine();
+void USARTClearSIM800L(void);
 
-# 43 "eeprom.h"
-void EepromStart();
-void EepromEnd();
-void EepromSend(uint8_t b);
-uint8_t EepromReceive();
-uint8_t EepromRead(uint16_t address);
-void EepromOpCode(uint8_t opcode, uint16_t address);
-void EepromWrite(uint16_t address, uint8_t data);
-uint8_t EEPROMSaveNumber(const char *nmbr, uint8_t nmbrLenght, uint16_t position);
-uint8_t EEPROMSearchNumber(const char *nmbr, uint8_t nmbrLenght);
-void EEPROMEraseAll(void);
+# 61 "gpio.h"
+void GPIOPortInit();
+void GPIORedLedBlink(uint8_t times);
 
 # 51 "sim800l.h"
 typedef struct{
@@ -4187,77 +4186,197 @@ uint8_t SIM800ReadSms(const char *mem);
 uint8_t SIM800DeleteSms(const char *index, const char *flag);
 uint8_t SIM800Process();
 
-# 61 "gpio.h"
-void GPIOPortInit();
-void GPIORedLedBlink(uint8_t times);
-
-# 16 "usart.h"
-void USARTInit(uint16_t baud_rate);
-void USARTWriteChar(char ch);
-void USARTWriteString(const char *str);
-void USARTWriteLine(const char *str);
-void USARTWriteInt(int16_t val, int8_t field_length);
-void USARTHandleRxInt();
-void USARTGotoNewLine();
-void USARTClearSIM800L(void);
-
-# 16 "main.c"
-void main()
+# 6 "usart.c"
+void USARTInit(uint16_t baud_rate)
 {
-SYSTEMInit(8);
-USARTInit(115);
-GPIOPortInit();
-SIM800init();
 
-EEPROMEraseAll();
-
-EEPROMSaveNumber("6141654818",10,10);
-EEPROMSaveNumber("6145136845",10,11);
-
-while(1)
+switch(baud_rate)
 {
-(GIE = 1);
-RCSTAbits.CREN=1;
-
-USARTWriteLine("AT+CSQ\r\n");
-_delay((unsigned long)((2000)*(8000000/4000.0)));
-
-while(SIM800L.busy==1);
-(GIE = 0);
-RCSTAbits.CREN=0;
-
-switch(task)
-{
-case 0:
-USARTClearSIM800L();
+case 9600:
+SPBRG=51;
 break;
-case 1:
-USARTWriteLine("ATH\r\n");
-if(EEPROMSearchNumber(SIM800L.cell,SIM800L.cell_lenght))
+case 19200:
+SPBRG=64;
+break;
+case 28800:
+SPBRG=42;
+break;
+case 33600:
+SPBRG=36;
+break;
+case 115:
+SPBRG=16;
+break;
+}
+
+APFCON0bits.RXDTSEL=1;
+APFCON0bits.TXCKSEL=1;
+BAUDCONbits.BRG16=1;
+
+TXSTAbits.TX9=0;
+TXSTAbits.TXEN=1;
+TXSTAbits.SYNC=0;
+TXSTAbits.BRGH=1;
+
+
+RCSTAbits.SPEN=1;
+RCSTAbits.RX9=0;
+RCSTAbits.CREN=1;
+RCSTAbits.ADDEN=0;
+
+
+RCIE=1;
+PEIE=1;
+
+(GIE = 1);
+
+}
+
+void USARTWriteChar(char ch)
 {
-LATCbits.LATC2=!LATCbits.LATC2;
-LATAbits.LATA4=!LATAbits.LATA4;
-SIM800SendSms(SIM800L.cell,SIM800L.csq);
+while(!PIR1bits.TXIF);
+TXREG=ch;
+}
+
+void USARTWriteString(const char *str)
+{
+while(*str!='\0')
+{
+USARTWriteChar(*str);
+str++;
+}
+}
+
+void USARTWriteLine(const char *str)
+{
+USARTWriteChar('\r');
+USARTWriteChar('\n');
+USARTWriteString(str);
+}
+
+void USARTHandleRxInt()
+{
+LATCbits.LATC1=1;
+
+char data=RCREG;
+SIM800L.busy=1;
+switch(data)
+{
+case '\r':
+if(SIM800L.uncomplete==1 && bufque==0){SIM800L.uncomplete=0;}
+break;
+case '\n':
+if(SIM800L.uncomplete==0) SIM800L.uncomplete=1;
+else
+{
+SIM800L.buffer[bufque]=0;
+
+SIM800L.uncomplete=0;
+if(SIM800L.buffer[0]=='+')
+{
+if(SIM800L.buffer[1]=='C' && SIM800L.buffer[2]=='L' && SIM800L.buffer[3]=='I' )
+{
+uint8_t ci=8;
+while(SIM800L.buffer[ci]!='\"' && (ci-8)<15)
+{
+SIM800L.cell[ci-8]=SIM800L.buffer[ci];
+ci++;
+SIM800L.cell_lenght++;
+}
+task=1;
+}
+if(SIM800L.buffer[1]=='C' && SIM800L.buffer[2]=='M' && SIM800L.buffer[3]=='T' && SIM800L.buffer[4]=='I' )
+{
+uint8_t ci=12;
+while(SIM800L.buffer[ci]>='0' && SIM800L.buffer[ci]<='9' )
+{
+SIM800L.smsmem[ci-12]=SIM800L.buffer[ci];
+ci++;
+}
+SIM800L.smsmem[ci-12]=0;
+SIM800L.unreadsms=1;
+task=2;
+}
+if(SIM800L.buffer[1]=='C' && SIM800L.buffer[2]=='S' && SIM800L.buffer[3]=='Q')
+{
+uint8_t ci=6;
+while(SIM800L.buffer[ci]!=',' && (ci)<8)
+{
+SIM800L.csq[ci-6]=SIM800L.buffer[ci];
+ci++;
+}
+SIM800L.csq[ci-6]=0;
+}
+if(SIM800L.buffer[1]=='T' && SIM800L.buffer[2]=='E' && SIM800L.buffer[3]=='L')
+{
+task=3;
+}
+}
+bufque=0;
+}
+SIM800L.busy=0;
+break;
+default:
+if(bufque<(128-1))
+{
+SIM800L.buffer[bufque]=data;
+bufque++;
+}
+break;
+}
+LATCbits.LATC1=0;
+}
+void USARTWriteInt(int16_t val, int8_t field_length)
+{
+char str[5]={0,0,0,0,0};
+int8_t i=4,j=0;
+
+if(val<0)
+{
+USARTWriteChar('-');
+val=val*-1;
 }
 else
 {
-GPIORedLedBlink(5);
-SIM800SendSms(SIM800L.cell, "Received-Unauthorized");}
-task=0;
-break;
-case 2:
-for(i=0;i<10;i++){LATCbits.LATC1=!LATCbits.LATC1; _delay((unsigned long)((200)*(8000000/4000.0)));}
-SIM800ReadSms(SIM800L.smsmem);
-SIM800DeleteSms("1", "4");
-task=0;
-break;
-case 3:
-SIM800SendSms("+526141654818", "Command received");
-task=0;
-break;
-default:
-break;
+USARTWriteChar(' ');
 }
+
+if(val==0 && field_length<1)
+{
+USARTWriteChar('0');
+return;
+}
+while(val)
+{
+str[i]=val%10;
+val=val/10;
+i--;
+}
+
+if(field_length==-1)
+while(str[j]==0) j++;
+else
+j=5-field_length;
+
+
+for(i=j;i<5;i++)
+{
+USARTWriteChar('0'+str[i]);
 }
 }
 
+void USARTGotoNewLine()
+{
+USARTWriteChar('\r');
+USARTWriteChar('\n');
+}
+
+void USARTClearSIM800L(void)
+{
+uint8_t i;
+SIM800L.busy=0;
+SIM800L.uncomplete=0;
+SIM800L.cell_lenght=0;
+for(i=0;i<15;i++){SIM800L.cell[i]='\0';}
+for(i=0;i<128;i++) SIM800L.buffer[i]=0;
+}

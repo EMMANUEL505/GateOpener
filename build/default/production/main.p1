@@ -1,31 +1,40 @@
 Version 3.2 HI-TECH Software Intermediate Code
+"51 sim800l.h
+[s S366 `uc 1 `uc 1 `uc 1 `uc -> 15 `i `uc 1 `uc 1 `uc -> 5 `i `uc -> 128 `i `uc -> 5 `i ]
+[n S366 . busy uncomplete resp cell cell_lenght unreadsms smsmem buffer csq ]
 [p mainexit ]
-"7664 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic16f1828.h
-[v _TRISC0 `Vb ~T0 @X0 0 e@1136 ]
-"7666
-[v _TRISC1 `Vb ~T0 @X0 0 e@1137 ]
-"7668
-[v _TRISC2 `Vb ~T0 @X0 0 e@1138 ]
-"7672
-[v _TRISC4 `Vb ~T0 @X0 0 e@1140 ]
-"7674
-[v _TRISC5 `Vb ~T0 @X0 0 e@1141 ]
-"7656
-[v _TRISB4 `Vb ~T0 @X0 0 e@1132 ]
-"1677
-[v _OSCCON `Vuc ~T0 @X0 0 e@153 ]
-"2762
-[s S140 :2 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 ]
-[n S140 . . TXCKSEL T1GSEL . RXDTSEL ]
-"2761
-[u S139 `S140 1 ]
-[n S139 . . ]
-"2770
-[v _APFCON0bits `VS139 ~T0 @X0 0 e@285 ]
-"42 usart_pic16.h
+"29 system.h
+[v _SYSTEMInit `(v ~T0 @X0 0 ef1`uc ]
+"16 usart.h
 [v _USARTInit `(v ~T0 @X0 0 ef1`ui ]
-"38 SIM800L.h
+"61 gpio.h
+[v _GPIOPortInit `(v ~T0 @X0 0 ef ]
+"67 sim800l.h
 [v _SIM800init `(uc ~T0 @X0 0 ef ]
+"52 eeprom.h
+[v _EEPROMEraseAll `(v ~T0 @X0 0 ef ]
+"50
+[v _EEPROMSaveNumber `(uc ~T0 @X0 0 ef3`*Cuc`uc`ui ]
+"7066 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic16f1828.h
+[v _GIE `Vb ~T0 @X0 0 e@95 ]
+"3291
+[s S181 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S181 . RX9D OERR FERR ADDEN CREN SREN RX9 SPEN ]
+"3290
+[u S180 `S181 1 ]
+[n S180 . . ]
+"3302
+[v _RCSTAbits `VS180 ~T0 @X0 0 e@413 ]
+"19 usart.h
+[v _USARTWriteLine `(v ~T0 @X0 0 ef1`*Cuc ]
+[v F2943 `(v ~T0 @X0 1 tf1`ul ]
+"154 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic.h
+[v __delay `JF2943 ~T0 @X0 0 e ]
+[p i __delay ]
+"23 usart.h
+[v _USARTClearSIM800L `(v ~T0 @X0 0 ef ]
+"51 eeprom.h
+[v _EEPROMSearchNumber `(uc ~T0 @X0 0 ef2`*Cuc`uc ]
 "2091 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic16f1828.h
 [s S110 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S110 . LATC0 LATC1 LATC2 LATC3 LATC4 LATC5 LATC6 LATC7 ]
@@ -34,36 +43,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S109 . . ]
 "2102
 [v _LATCbits `VS109 ~T0 @X0 0 e@270 ]
-"2053
-[s S108 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S108 . . LATB4 LATB5 LATB6 LATB7 ]
-"2052
-[u S107 `S108 1 ]
-[n S107 . . ]
-"2061
-[v _LATBbits `VS107 ~T0 @X0 0 e@269 ]
-"7066
-[v _GIE `Vb ~T0 @X0 0 e@95 ]
-"45 usart_pic16.h
-[v _USARTWriteLine `(v ~T0 @X0 0 ef1`*Cuc ]
-[v F2943 `(v ~T0 @X0 1 tf1`ul ]
-"154 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic.h
-[v __delay `JF2943 ~T0 @X0 0 e ]
-[p i __delay ]
-"566 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic16f1828.h
-[s S36 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S36 . TMR1IF TMR2IF CCP1IF SSP1IF TXIF RCIF ADIF TMR1GIF ]
-"565
-[u S35 `S36 1 ]
-[n S35 . . ]
-"577
-[v _PIR1bits `VS35 ~T0 @X0 0 e@17 ]
-"48 usart_pic16.h
-[v _USARTReadData `(uc ~T0 @X0 0 ef ]
-"52
-[v _USARTFlushBuffer `(v ~T0 @X0 0 ef ]
-"49
-[v _USARTDataAvailable `(uc ~T0 @X0 0 ef ]
+"2009
+[s S106 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S106 . LATA0 LATA1 LATA2 . LATA4 LATA5 ]
+"2008
+[u S105 `S106 1 ]
+[n S105 . . ]
+"2018
+[v _LATAbits `VS105 ~T0 @X0 0 e@268 ]
+"69 sim800l.h
+[v _SIM800SendSms `(uc ~T0 @X0 0 ef2`*Cuc`*Cuc ]
+"62 gpio.h
+[v _GPIORedLedBlink `(v ~T0 @X0 0 ef1`uc ]
+"70 sim800l.h
+[v _SIM800ReadSms `(uc ~T0 @X0 0 ef1`*Cuc ]
+"71
+[v _SIM800DeleteSms `(uc ~T0 @X0 0 ef2`*Cuc`*Cuc ]
 [; ;htc.h: 21: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 24: extern void __builtin_software_breakpoint(void);
 [; ;pic16f1828.h: 47: extern volatile unsigned char INDF0 @ 0x000;
@@ -3046,191 +3041,282 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 205: typedef uint32_t uintmax_t;
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
-"38 usart_pic16.h
-[v _URBuff `Vuc ~T0 @X0 -> 128 `i e ]
-[; ;usart_pic16.h: 38: volatile char URBuff[128];
-"39
-[v _UQFront `Vi ~T0 @X0 1 e ]
-[; ;usart_pic16.h: 39: volatile int16_t UQFront;
-"40
-[v _UQEnd `Vi ~T0 @X0 1 e ]
-[; ;usart_pic16.h: 40: volatile int16_t UQEnd;
-[; ;usart_pic16.h: 42: void USARTInit(uint16_t baud_rate);
-[; ;usart_pic16.h: 43: void USARTWriteChar(char ch);
-[; ;usart_pic16.h: 44: void USARTWriteString(const char *str);
-[; ;usart_pic16.h: 45: void USARTWriteLine(const char *str);
-[; ;usart_pic16.h: 46: void USARTWriteInt(int16_t val, int8_t field_length);
-[; ;usart_pic16.h: 47: void USARTHandleRxInt();
-[; ;usart_pic16.h: 48: char USARTReadData();
-[; ;usart_pic16.h: 49: uint8_t USARTDataAvailable();
-[; ;usart_pic16.h: 50: void USARTGotoNewLine();
-[; ;usart_pic16.h: 51: void USARTReadBuffer(char *buff,uint16_t len);
-[; ;usart_pic16.h: 52: void USARTFlushBuffer();
-[; ;usart_pic16.h: 53: void USARTClearBuffer();
-"37 config.h
+"36 general.h
 [p x FOSC=INTOSC ]
-"38
+"37
 [p x WDTE=OFF ]
-"39
+"38
 [p x PWRTE=OFF ]
-"40
+"39
 [p x MCLRE=OFF ]
-"41
+"40
 [p x CP=OFF ]
-"42
+"41
 [p x CPD=OFF ]
-"43
+"42
 [p x BOREN=OFF ]
-"44
+"43
 [p x CLKOUTEN=OFF ]
-"45
+"44
 [p x IESO=ON ]
-"46
+"45
 [p x FCMEN=ON ]
-"49
+"48
 [p x WRT=OFF ]
-"50
+"49
 [p x PLLEN=OFF ]
-"51
+"50
 [p x STVREN=ON ]
-"52
+"51
 [p x BORV=LO ]
-"53
+"52
 [p x LVP=ON ]
-[; ;SIM800L.h: 38: uint8_t SIM800init();
-[; ;SIM800L.h: 39: uint8_t SIM800sendCommand();
-"10 main.c
-[v _c `uc ~T0 @X0 1 e ]
-[i _c
--> -> 0 `i `uc
-]
-[v _y `uc ~T0 @X0 1 e ]
-[; ;main.c: 10: char c=0,y;
-"14
-[v _main `(i ~T0 @X0 1 ef ]
+"67
+[v _task `uc ~T0 @X0 1 e ]
+[v _i `uc ~T0 @X0 1 e ]
+[; ;general.h: 67: uint8_t task,i;
+[; ;system.h: 29: void SYSTEMInit(uint8_t freq);
+[; ;eeprom.h: 43: void EepromStart();
+[; ;eeprom.h: 44: void EepromEnd();
+[; ;eeprom.h: 45: void EepromSend(uint8_t b);
+[; ;eeprom.h: 46: uint8_t EepromReceive();
+[; ;eeprom.h: 47: uint8_t EepromRead(uint16_t address);
+[; ;eeprom.h: 48: void EepromOpCode(uint8_t opcode, uint16_t address);
+[; ;eeprom.h: 49: void EepromWrite(uint16_t address, uint8_t data);
+[; ;eeprom.h: 50: uint8_t EEPROMSaveNumber(const char *nmbr, uint8_t nmbrLenght, uint16_t position);
+[; ;eeprom.h: 51: uint8_t EEPROMSearchNumber(const char *nmbr, uint8_t nmbrLenght);
+[; ;eeprom.h: 52: void EEPROMEraseAll(void);
+[; ;sim800l.h: 51: typedef struct{
+[; ;sim800l.h: 52: uint8_t busy;
+[; ;sim800l.h: 53: uint8_t uncomplete;
+[; ;sim800l.h: 54: uint8_t resp;
+[; ;sim800l.h: 55: uint8_t cell[15];
+[; ;sim800l.h: 56: uint8_t cell_lenght;
+[; ;sim800l.h: 57: uint8_t unreadsms;
+[; ;sim800l.h: 58: char smsmem[5];
+[; ;sim800l.h: 59: char buffer[128];
+[; ;sim800l.h: 60: char csq[5];
+[; ;sim800l.h: 61: }AT;
+"63 sim800l.h
+[v _SIM800L `S366 ~T0 @X0 1 e ]
+[; ;sim800l.h: 63: AT SIM800L;
+"64
+[v _bufque `uc ~T0 @X0 1 e ]
+[; ;sim800l.h: 64: uint8_t bufque;
+[; ;sim800l.h: 67: uint8_t SIM800init();
+[; ;sim800l.h: 68: uint8_t SIM800sendCommand();
+[; ;sim800l.h: 69: uint8_t SIM800SendSms(const char *nmbr, const char *msg);
+[; ;sim800l.h: 70: uint8_t SIM800ReadSms(const char *mem);
+[; ;sim800l.h: 71: uint8_t SIM800DeleteSms(const char *index, const char *flag);
+[; ;sim800l.h: 72: uint8_t SIM800Process();
+[; ;gpio.h: 61: void GPIOPortInit();
+[; ;gpio.h: 62: void GPIORedLedBlink(uint8_t times);
+[; ;usart.h: 16: void USARTInit(uint16_t baud_rate);
+[; ;usart.h: 17: void USARTWriteChar(char ch);
+[; ;usart.h: 18: void USARTWriteString(const char *str);
+[; ;usart.h: 19: void USARTWriteLine(const char *str);
+[; ;usart.h: 20: void USARTWriteInt(int16_t val, int8_t field_length);
+[; ;usart.h: 21: void USARTHandleRxInt();
+[; ;usart.h: 22: void USARTGotoNewLine();
+[; ;usart.h: 23: void USARTClearSIM800L(void);
+"16 main.c
+[v _main `(v ~T0 @X0 1 ef ]
+"17
 {
-[; ;main.c: 14: int main(void) {
+[; ;main.c: 16: void main()
+[; ;main.c: 17: {
 [e :U _main ]
 [f ]
-[; ;main.c: 16: TRISC0=0;
-"16
-[e = _TRISC0 -> -> 0 `i `b ]
-[; ;main.c: 17: TRISC1=0;
-"17
-[e = _TRISC1 -> -> 0 `i `b ]
-[; ;main.c: 18: TRISC2=0;
+[; ;main.c: 18: SYSTEMInit(8);
 "18
-[e = _TRISC2 -> -> 0 `i `b ]
-[; ;main.c: 19: TRISC4=0;
+[e ( _SYSTEMInit (1 -> -> 8 `i `uc ]
+[; ;main.c: 19: USARTInit(115);
 "19
-[e = _TRISC4 -> -> 0 `i `b ]
-[; ;main.c: 20: TRISC5=1;
-"20
-[e = _TRISC5 -> -> 1 `i `b ]
-[; ;main.c: 21: TRISB4=0;
-"21
-[e = _TRISB4 -> -> 0 `i `b ]
-[; ;main.c: 23: OSCCON=0b01110010;
-"23
-[e = _OSCCON -> -> 114 `i `uc ]
-[; ;main.c: 24: APFCON0bits.RXDTSEL=1;
-"24
-[e = . . _APFCON0bits 0 4 -> -> 1 `i `uc ]
-[; ;main.c: 25: APFCON0bits.TXCKSEL=1;
-"25
-[e = . . _APFCON0bits 0 1 -> -> 1 `i `uc ]
-[; ;main.c: 27: USARTInit(115);
-"27
 [e ( _USARTInit (1 -> -> 115 `i `ui ]
-[; ;main.c: 28: SIM800init();
-"28
+[; ;main.c: 20: GPIOPortInit();
+"20
+[e ( _GPIOPortInit ..  ]
+[; ;main.c: 21: SIM800init();
+"21
 [e ( _SIM800init ..  ]
-[; ;main.c: 30: LATCbits.LATC0=1;
-"30
-[e = . . _LATCbits 0 0 -> -> 1 `i `uc ]
-[; ;main.c: 31: LATCbits.LATC1=0;
-"31
-[e = . . _LATCbits 0 1 -> -> 0 `i `uc ]
-[; ;main.c: 32: LATCbits.LATC2=0;
-"32
-[e = . . _LATCbits 0 2 -> -> 0 `i `uc ]
-[; ;main.c: 33: LATBbits.LATB4=0;
-"33
-[e = . . _LATBbits 0 1 -> -> 0 `i `uc ]
-[; ;main.c: 34: while(1)
-"34
-[e :U 368 ]
-[; ;main.c: 35: {
-"35
-{
-[; ;main.c: 37: (GIE = 1);
-"37
-[e = _GIE -> -> 1 `i `b ]
-[; ;main.c: 38: USARTWriteLine("AT+CSQ\r\n");
-"38
-[e ( _USARTWriteLine (1 :s 1C ]
-[; ;main.c: 39: _delay((unsigned long)((2000)*(8000000/4000.0)));
-"39
-[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;main.c: 40: while(PIR1bits.RCIF);
-"40
-[e $U 370  ]
-[e :U 371 ]
-[e :U 370 ]
-[e $ != -> . . _PIR1bits 0 5 `i -> -> -> 0 `i `Vuc `i 371  ]
-[e :U 372 ]
-[; ;main.c: 41: (GIE = 0);
-"41
-[e = _GIE -> -> 0 `i `b ]
-[; ;main.c: 45: while(USARTDataAvailable()>30)
-"45
-[e $U 373  ]
-[e :U 374 ]
-[; ;main.c: 46: {
-"46
-{
-[; ;main.c: 47: c= USARTReadData();
-"47
-[e = _c ( _USARTReadData ..  ]
-[; ;main.c: 49: if(c=='+' && USARTReadData()=='C' && USARTReadData()=='L' && USARTReadData()=='I')
-"49
-[e $ ! && && && == -> _c `ui -> 43 `ui == -> ( _USARTReadData ..  `ui -> 67 `ui == -> ( _USARTReadData ..  `ui -> 76 `ui == -> ( _USARTReadData ..  `ui -> 73 `ui 376  ]
-[; ;main.c: 50: {
-"50
-{
-[; ;main.c: 51: USARTWriteLine("ATH\r\n");
-"51
-[e ( _USARTWriteLine (1 :s 2C ]
-[; ;main.c: 52: LATCbits.LATC1=!LATCbits.LATC1;
-"52
-[e = . . _LATCbits 0 1 -> -> ! != -> . . _LATCbits 0 1 `i -> -> -> 0 `i `Vuc `i `i `uc ]
-[; ;main.c: 53: LATBbits.LATB4=!LATBbits.LATB4;
-"53
-[e = . . _LATBbits 0 1 -> -> ! != -> . . _LATBbits 0 1 `i -> -> -> 0 `i `Vuc `i `i `uc ]
-[; ;main.c: 54: USARTFlushBuffer();
-"54
-[e ( _USARTFlushBuffer ..  ]
-"55
-}
-[e :U 376 ]
-"56
-}
-[e :U 373 ]
-"45
-[e $ > -> ( _USARTDataAvailable ..  `i -> 30 `i 374  ]
-[e :U 375 ]
-"59
-}
-[e :U 367 ]
-"34
-[e $U 368  ]
+[; ;main.c: 23: EEPROMEraseAll();
+"23
+[e ( _EEPROMEraseAll ..  ]
+[; ;main.c: 25: EEPROMSaveNumber("6141654818",10,10);
+"25
+[e ( _EEPROMSaveNumber (3 , , :s 1C -> -> 10 `i `uc -> -> 10 `i `ui ]
+[; ;main.c: 26: EEPROMSaveNumber("6145136845",10,11);
+"26
+[e ( _EEPROMSaveNumber (3 , , :s 2C -> -> 10 `i `uc -> -> 11 `i `ui ]
+[; ;main.c: 28: while(1)
+"28
 [e :U 369 ]
-[; ;main.c: 55: }
-[; ;main.c: 56: }
-[; ;main.c: 59: }
-[; ;main.c: 60: }
-"60
-[e :UE 366 ]
+[; ;main.c: 29: {
+"29
+{
+[; ;main.c: 30: (GIE = 1);
+"30
+[e = _GIE -> -> 1 `i `b ]
+[; ;main.c: 31: RCSTAbits.CREN=1;
+"31
+[e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
+[; ;main.c: 33: USARTWriteLine("AT+CSQ\r\n");
+"33
+[e ( _USARTWriteLine (1 :s 3C ]
+[; ;main.c: 34: _delay((unsigned long)((2000)*(8000000/4000.0)));
+"34
+[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;main.c: 36: while(SIM800L.busy==1);
+"36
+[e $U 371  ]
+[e :U 372 ]
+[e :U 371 ]
+[e $ == -> . _SIM800L 0 `i -> 1 `i 372  ]
+[e :U 373 ]
+[; ;main.c: 37: (GIE = 0);
+"37
+[e = _GIE -> -> 0 `i `b ]
+[; ;main.c: 38: RCSTAbits.CREN=0;
+"38
+[e = . . _RCSTAbits 0 4 -> -> 0 `i `uc ]
+[; ;main.c: 40: switch(task)
+"40
+[e $U 375  ]
+[; ;main.c: 41: {
+"41
+{
+[; ;main.c: 42: case 0:
+"42
+[e :U 376 ]
+[; ;main.c: 43: USARTClearSIM800L();
+"43
+[e ( _USARTClearSIM800L ..  ]
+[; ;main.c: 44: break;
+"44
+[e $U 374  ]
+[; ;main.c: 45: case 1:
+"45
+[e :U 377 ]
+[; ;main.c: 46: USARTWriteLine("ATH\r\n");
+"46
+[e ( _USARTWriteLine (1 :s 4C ]
+[; ;main.c: 47: if(EEPROMSearchNumber(SIM800L.cell,SIM800L.cell_lenght))
+"47
+[e $ ! != -> ( _EEPROMSearchNumber (2 , -> &U . _SIM800L 3 `*Cuc . _SIM800L 4 `i -> -> -> 0 `i `uc `i 378  ]
+[; ;main.c: 48: {
+"48
+{
+[; ;main.c: 49: LATCbits.LATC2=!LATCbits.LATC2;
+"49
+[e = . . _LATCbits 0 2 -> -> ! != -> . . _LATCbits 0 2 `i -> -> -> 0 `i `Vuc `i `i `uc ]
+[; ;main.c: 50: LATAbits.LATA4=!LATAbits.LATA4;
+"50
+[e = . . _LATAbits 0 4 -> -> ! != -> . . _LATAbits 0 4 `i -> -> -> 0 `i `Vuc `i `i `uc ]
+[; ;main.c: 51: SIM800SendSms(SIM800L.cell,SIM800L.csq);
+"51
+[e ( _SIM800SendSms (2 , -> &U . _SIM800L 3 `*Cuc -> &U . _SIM800L 8 `*Cuc ]
+"52
 }
-[a 1C 65 84 43 67 83 81 13 10 0 ]
-[a 2C 65 84 72 13 10 0 ]
+[; ;main.c: 52: }
+[e $U 379  ]
+"53
+[e :U 378 ]
+[; ;main.c: 53: else
+[; ;main.c: 54: {
+"54
+{
+[; ;main.c: 55: GPIORedLedBlink(5);
+"55
+[e ( _GPIORedLedBlink (1 -> -> 5 `i `uc ]
+[; ;main.c: 56: SIM800SendSms(SIM800L.cell, "Received-Unauthorized");}
+"56
+[e ( _SIM800SendSms (2 , -> &U . _SIM800L 3 `*Cuc :s 5C ]
+}
+[e :U 379 ]
+[; ;main.c: 57: task=0;
+"57
+[e = _task -> -> 0 `i `uc ]
+[; ;main.c: 58: break;
+"58
+[e $U 374  ]
+[; ;main.c: 59: case 2:
+"59
+[e :U 380 ]
+[; ;main.c: 60: for(i=0;i<10;i++){LATCbits.LATC1=!LATCbits.LATC1; _delay((unsigned long)((200)*(8000000/4000.0)));}
+"60
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 10 `i 381  ]
+[e $U 382  ]
+[e :U 381 ]
+{
+[e = . . _LATCbits 0 1 -> -> ! != -> . . _LATCbits 0 1 `i -> -> -> 0 `i `Vuc `i `i `uc ]
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 10 `i 381  ]
+[e :U 382 ]
+}
+[; ;main.c: 61: SIM800ReadSms(SIM800L.smsmem);
+"61
+[e ( _SIM800ReadSms (1 -> &U . _SIM800L 6 `*Cuc ]
+[; ;main.c: 62: SIM800DeleteSms("1", "4");
+"62
+[e ( _SIM800DeleteSms (2 , :s 6C :s 7C ]
+[; ;main.c: 63: task=0;
+"63
+[e = _task -> -> 0 `i `uc ]
+[; ;main.c: 64: break;
+"64
+[e $U 374  ]
+[; ;main.c: 65: case 3:
+"65
+[e :U 384 ]
+[; ;main.c: 66: SIM800SendSms("+526141654818", "Command received");
+"66
+[e ( _SIM800SendSms (2 , :s 8C :s 9C ]
+[; ;main.c: 67: task=0;
+"67
+[e = _task -> -> 0 `i `uc ]
+[; ;main.c: 68: break;
+"68
+[e $U 374  ]
+[; ;main.c: 69: default:
+"69
+[e :U 385 ]
+[; ;main.c: 70: break;
+"70
+[e $U 374  ]
+"71
+}
+[; ;main.c: 71: }
+[e $U 374  ]
+"40
+[e :U 375 ]
+[e [\ _task , $ -> -> 0 `i `uc 376
+ , $ -> -> 1 `i `uc 377
+ , $ -> -> 2 `i `uc 380
+ , $ -> -> 3 `i `uc 384
+ 385 ]
+"71
+[e :U 374 ]
+"72
+}
+[e :U 368 ]
+"28
+[e $U 369  ]
+[e :U 370 ]
+[; ;main.c: 72: }
+[; ;main.c: 73: }
+"73
+[e :UE 367 ]
+}
+[a 5C 82 101 99 101 105 118 101 100 45 85 110 97 117 116 104 111 114 105 122 101 100 0 ]
+[a 9C 67 111 109 109 97 110 100 32 114 101 99 101 105 118 101 100 0 ]
+[a 8C 43 53 50 54 49 52 49 54 53 52 56 49 56 0 ]
+[a 1C 54 49 52 49 54 53 52 56 49 56 0 ]
+[a 2C 54 49 52 53 49 51 54 56 52 53 0 ]
+[a 7C 52 0 ]
+[a 6C 49 0 ]
+[a 3C 65 84 43 67 83 81 13 10 0 ]
+[a 4C 65 84 72 13 10 0 ]

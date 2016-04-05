@@ -1,8 +1,13 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"51 sim800l.h
-[s S366 `uc 1 `uc 1 `uc 1 `uc -> 15 `i `uc 1 `uc 1 `uc -> 5 `i `uc -> 128 `i `uc -> 5 `i ]
-[n S366 . busy uncomplete resp cell cell_lenght unreadsms smsmem buffer csq ]
-"2091 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic16f1828.h
+"2053 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic16f1828.h
+[s S108 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S108 . . LATB4 LATB5 LATB6 LATB7 ]
+"2052
+[u S107 `S108 1 ]
+[n S107 . . ]
+"2061
+[v _LATBbits `VS107 ~T0 @X0 0 e@269 ]
+"2091
 [s S110 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S110 . LATC0 LATC1 LATC2 LATC3 LATC4 LATC5 LATC6 LATC7 ]
 "2090
@@ -14,12 +19,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 "154 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic.h
 [v __delay `JF2943 ~T0 @X0 0 e ]
 [p i __delay ]
-"19 usart.h
-[v _USARTWriteLine `(v ~T0 @X0 0 ef1`*Cuc ]
-"18
-[v _USARTWriteString `(v ~T0 @X0 0 ef1`*Cuc ]
-"17
-[v _USARTWriteChar `(v ~T0 @X0 0 ef1`uc ]
+"467 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic16f1828.h
+[s S32 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S32 . . RB4 RB5 RB6 RB7 ]
+"466
+[u S31 `S32 1 ]
+[n S31 . . ]
+"475
+[v _PORTBbits `VS31 ~T0 @X0 0 e@13 ]
 [; ;htc.h: 21: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 24: extern void __builtin_software_breakpoint(void);
 [; ;pic16f1828.h: 47: extern volatile unsigned char INDF0 @ 0x000;
@@ -3036,37 +3043,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _task `uc ~T0 @X0 1 e ]
 [v _i `uc ~T0 @X0 1 e ]
 [; ;general.h: 67: uint8_t task,i;
-[; ;sim800l.h: 51: typedef struct{
-[; ;sim800l.h: 52: uint8_t busy;
-[; ;sim800l.h: 53: uint8_t uncomplete;
-[; ;sim800l.h: 54: uint8_t resp;
-[; ;sim800l.h: 55: uint8_t cell[15];
-[; ;sim800l.h: 56: uint8_t cell_lenght;
-[; ;sim800l.h: 57: uint8_t unreadsms;
-[; ;sim800l.h: 58: char smsmem[5];
-[; ;sim800l.h: 59: char buffer[128];
-[; ;sim800l.h: 60: char csq[5];
-[; ;sim800l.h: 61: }AT;
-"63 sim800l.h
-[v _SIM800L `S366 ~T0 @X0 1 e ]
-[; ;sim800l.h: 63: AT SIM800L;
-"64
-[v _bufque `uc ~T0 @X0 1 e ]
-[; ;sim800l.h: 64: uint8_t bufque;
-[; ;sim800l.h: 67: uint8_t SIM800init();
-[; ;sim800l.h: 68: uint8_t SIM800sendCommand();
-[; ;sim800l.h: 69: uint8_t SIM800SendSms(const char *nmbr, const char *msg);
-[; ;sim800l.h: 70: uint8_t SIM800ReadSms(const char *mem);
-[; ;sim800l.h: 71: uint8_t SIM800DeleteSms(const char *index, const char *flag);
-[; ;sim800l.h: 72: uint8_t SIM800Process();
-[; ;usart.h: 16: void USARTInit(uint16_t baud_rate);
-[; ;usart.h: 17: void USARTWriteChar(char ch);
-[; ;usart.h: 18: void USARTWriteString(const char *str);
-[; ;usart.h: 19: void USARTWriteLine(const char *str);
-[; ;usart.h: 20: void USARTWriteInt(int16_t val, int8_t field_length);
-[; ;usart.h: 21: void USARTHandleRxInt();
-[; ;usart.h: 22: void USARTGotoNewLine();
-[; ;usart.h: 23: void USARTClearSIM800L(void);
 [; ;gpio.h: 61: void GPIOPortInit();
 [; ;gpio.h: 62: void GPIORedLedBlink(uint8_t times);
 [; ;eeprom.h: 43: void EepromStart();
@@ -3079,327 +3055,686 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom.h: 50: uint8_t EEPROMSaveNumber(const char *nmbr, uint8_t nmbrLenght, uint16_t position);
 [; ;eeprom.h: 51: uint8_t EEPROMSearchNumber(const char *nmbr, uint8_t nmbrLenght);
 [; ;eeprom.h: 52: void EEPROMEraseAll(void);
-"7 sim800l.c
-[v _SIM800init `(uc ~T0 @X0 1 ef ]
-"8
+"5 eeprom.c
+[v _EepromStart `(v ~T0 @X0 1 ef ]
+"6
 {
-[; ;sim800l.c: 7: uint8_t SIM800init()
-[; ;sim800l.c: 8: {
-[e :U _SIM800init ]
+[; ;eeprom.c: 5: void EepromStart()
+[; ;eeprom.c: 6: {
+[e :U _EepromStart ]
 [f ]
-[; ;sim800l.c: 9: LATCbits.LATC6=1;
-"9
-[e = . . _LATCbits 0 6 -> -> 1 `i `uc ]
-[; ;sim800l.c: 10: _delay((unsigned long)((10)*(8000000/4000.0)));
+[; ;eeprom.c: 10: LATBbits.LATB6=0;
 "10
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;sim800l.c: 11: LATCbits.LATC6=0;
+[e = . . _LATBbits 0 3 -> -> 0 `i `uc ]
+[; ;eeprom.c: 11: LATBbits.LATB7=1;
 "11
-[e = . . _LATCbits 0 6 -> -> 0 `i `uc ]
-[; ;sim800l.c: 12: _delay((unsigned long)((500)*(8000000/4000.0)));
+[e = . . _LATBbits 0 4 -> -> 1 `i `uc ]
+[; ;eeprom.c: 12: LATCbits.LATC7=1;
 "12
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;sim800l.c: 13: LATCbits.LATC6=1;
+[e = . . _LATCbits 0 7 -> -> 1 `i `uc ]
+[; ;eeprom.c: 13: _delay((unsigned long)((4)*(8000000/4000000.0)));
 "13
-[e = . . _LATCbits 0 6 -> -> 1 `i `uc ]
-[; ;sim800l.c: 14: _delay((unsigned long)((10000)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 4 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[; ;eeprom.c: 14: LATBbits.LATB6=1;
 "14
-[e ( __delay (1 -> * -> -> 10000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;sim800l.c: 15: USARTWriteLine("AT\r\n");
+[e = . . _LATBbits 0 3 -> -> 1 `i `uc ]
+[; ;eeprom.c: 15: _delay((unsigned long)((4)*(8000000/4000000.0)));
 "15
-[e ( _USARTWriteLine (1 :s 1C ]
-[; ;sim800l.c: 16: _delay((unsigned long)((2000)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 4 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[; ;eeprom.c: 16: LATBbits.LATB6=0;
 "16
-[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;sim800l.c: 17: USARTWriteLine("ATE0\r\n");
+[e = . . _LATBbits 0 3 -> -> 0 `i `uc ]
+[; ;eeprom.c: 17: _delay((unsigned long)((4/2)*(8000000/4000000.0)));
 "17
-[e ( _USARTWriteLine (1 :s 2C ]
-[; ;sim800l.c: 18: _delay((unsigned long)((2000)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> / -> 4 `i -> 2 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[; ;eeprom.c: 18: }
 "18
-[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;sim800l.c: 25: return 0;
+[e :UE 366 ]
+}
+"19
+[v _EepromEnd `(v ~T0 @X0 1 ef ]
+"20
+{
+[; ;eeprom.c: 19: void EepromEnd()
+[; ;eeprom.c: 20: {
+[e :U _EepromEnd ]
+[f ]
+[; ;eeprom.c: 21: LATBbits.LATB6=0;
+"21
+[e = . . _LATBbits 0 3 -> -> 0 `i `uc ]
+[; ;eeprom.c: 22: LATBbits.LATB7=0;
+"22
+[e = . . _LATBbits 0 4 -> -> 0 `i `uc ]
+[; ;eeprom.c: 23: LATCbits.LATC7=0;
+"23
+[e = . . _LATCbits 0 7 -> -> 0 `i `uc ]
+[; ;eeprom.c: 24: _delay((unsigned long)((4)*(8000000/4000000.0)));
+"24
+[e ( __delay (1 -> * -> -> 4 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[; ;eeprom.c: 25: }
 "25
-[e ) -> -> 0 `i `uc ]
-[e $UE 367  ]
-[; ;sim800l.c: 26: }
-"26
 [e :UE 367 ]
 }
+"26
+[v _EepromSend `(v ~T0 @X0 1 ef1`uc ]
+"27
+{
+[; ;eeprom.c: 26: void EepromSend(uint8_t b)
+[; ;eeprom.c: 27: {
+[e :U _EepromSend ]
+"26
+[v _b `uc ~T0 @X0 1 r1 ]
+"27
+[f ]
+[v _i `c ~T0 @X0 1 a ]
+[; ;eeprom.c: 28: int8_t i=0;
 "28
-[v _SIM800sendCommand `(uc ~T0 @X0 1 ef ]
+[e = _i -> -> 0 `i `c ]
+[; ;eeprom.c: 29: for(i=7;i>=0;i--)
 "29
 {
-[; ;sim800l.c: 28: uint8_t SIM800sendCommand()
-[; ;sim800l.c: 29: {
-[e :U _SIM800sendCommand ]
-[f ]
-[; ;sim800l.c: 30: USARTWriteLine("AT\n\r");
+[e = _i -> -> 7 `i `c ]
+[e $ >= -> _i `i -> 0 `i 369  ]
+[e $U 370  ]
 "30
-[e ( _USARTWriteLine (1 :s 3C ]
-[; ;sim800l.c: 31: return 0;
+[e :U 369 ]
+[; ;eeprom.c: 30: {
+{
+[; ;eeprom.c: 31: LATCbits.LATC7=b>>i;
 "31
-[e ) -> -> 0 `i `uc ]
-[e $UE 368  ]
-[; ;sim800l.c: 32: }
+[e = . . _LATCbits 0 7 -> >> -> _b `i _i `uc ]
+[; ;eeprom.c: 32: _delay((unsigned long)((4/2)*(8000000/4000000.0)));
 "32
+[e ( __delay (1 -> * -> / -> 4 `i -> 2 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[; ;eeprom.c: 33: LATBbits.LATB6=1;
+"33
+[e = . . _LATBbits 0 3 -> -> 1 `i `uc ]
+[; ;eeprom.c: 34: _delay((unsigned long)((4)*(8000000/4000000.0)));
+"34
+[e ( __delay (1 -> * -> -> 4 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[; ;eeprom.c: 35: LATBbits.LATB6=0;
+"35
+[e = . . _LATBbits 0 3 -> -> 0 `i `uc ]
+[; ;eeprom.c: 36: _delay((unsigned long)((4/2)*(8000000/4000000.0)));
+"36
+[e ( __delay (1 -> * -> / -> 4 `i -> 2 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"37
+}
+"29
+[e -- _i -> -> 1 `i `c ]
+[e $ >= -> _i `i -> 0 `i 369  ]
+[e :U 370 ]
+"37
+}
+[; ;eeprom.c: 37: }
+[; ;eeprom.c: 38: }
+"38
 [e :UE 368 ]
 }
-"34
-[v _SIM800SendSms `(uc ~T0 @X0 1 ef2`*Cuc`*Cuc ]
-"35
-{
-[; ;sim800l.c: 34: uint8_t SIM800SendSms(const char *nmbr, const char *msg)
-[; ;sim800l.c: 35: {
-[e :U _SIM800SendSms ]
-"34
-[v _nmbr `*Cuc ~T0 @X0 1 r1 ]
-[v _msg `*Cuc ~T0 @X0 1 r2 ]
-"35
-[f ]
-[; ;sim800l.c: 36: _delay((unsigned long)((2000)*(8000000/4000.0)));
-"36
-[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;sim800l.c: 37: USARTWriteLine("AT+CMGF = 1\r\n");
-"37
-[e ( _USARTWriteLine (1 :s 4C ]
-[; ;sim800l.c: 38: _delay((unsigned long)((2000)*(8000000/4000.0)));
-"38
-[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;sim800l.c: 39: USARTWriteLine("AT+CMGS=\"");
 "39
-[e ( _USARTWriteLine (1 :s 5C ]
-[; ;sim800l.c: 40: USARTWriteString(nmbr);
+[v _EepromReceive `(uc ~T0 @X0 1 ef ]
 "40
-[e ( _USARTWriteString (1 _nmbr ]
-[; ;sim800l.c: 41: USARTWriteString("\"\r\n");
+{
+[; ;eeprom.c: 39: uint8_t EepromReceive()
+[; ;eeprom.c: 40: {
+[e :U _EepromReceive ]
+[f ]
 "41
-[e ( _USARTWriteString (1 :s 6C ]
-[; ;sim800l.c: 43: _delay((unsigned long)((2000)*(8000000/4000.0)));
+[v _b `uc ~T0 @X0 1 a ]
+[; ;eeprom.c: 41: uint8_t b=0;
+[e = _b -> -> 0 `i `uc ]
+[v _i `c ~T0 @X0 1 a ]
+[; ;eeprom.c: 42: int8_t i=0;
+"42
+[e = _i -> -> 0 `i `c ]
+[; ;eeprom.c: 43: for(i=7;i>=0;i--)
 "43
-[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;sim800l.c: 44: USARTWriteString(msg);
+{
+[e = _i -> -> 7 `i `c ]
+[e $ >= -> _i `i -> 0 `i 373  ]
+[e $U 374  ]
 "44
-[e ( _USARTWriteString (1 _msg ]
-[; ;sim800l.c: 45: USARTWriteChar(0x1A);
-"45
-[e ( _USARTWriteChar (1 -> -> 26 `i `uc ]
-[; ;sim800l.c: 46: _delay((unsigned long)((2000)*(8000000/4000.0)));
-"46
-[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;sim800l.c: 48: return 1;
-"48
-[e ) -> -> 1 `i `uc ]
-[e $UE 369  ]
-[; ;sim800l.c: 49: }
-"49
-[e :UE 369 ]
-}
-"50
-[v _SIM800ReadSms `(uc ~T0 @X0 1 ef1`*Cuc ]
-"51
-{
-[; ;sim800l.c: 50: uint8_t SIM800ReadSms(const char *mem)
-[; ;sim800l.c: 51: {
-[e :U _SIM800ReadSms ]
-"50
-[v _mem `*Cuc ~T0 @X0 1 r1 ]
-"51
-[f ]
-[; ;sim800l.c: 52: _delay((unsigned long)((2000)*(8000000/4000.0)));
-"52
-[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;sim800l.c: 53: USARTWriteLine("AT+CMGF = 1\r\n");
-"53
-[e ( _USARTWriteLine (1 :s 7C ]
-[; ;sim800l.c: 54: _delay((unsigned long)((2000)*(8000000/4000.0)));
-"54
-[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;sim800l.c: 55: USARTWriteLine("AT+CMGR=");
-"55
-[e ( _USARTWriteLine (1 :s 8C ]
-[; ;sim800l.c: 56: USARTWriteString(mem);
-"56
-[e ( _USARTWriteString (1 _mem ]
-[; ;sim800l.c: 57: USARTWriteString("\r\n");
-"57
-[e ( _USARTWriteString (1 :s 9C ]
-[; ;sim800l.c: 58: return 1;
-"58
-[e ) -> -> 1 `i `uc ]
-[e $UE 370  ]
-[; ;sim800l.c: 59: }
-"59
-[e :UE 370 ]
-}
-"60
-[v _SIM800DeleteSms `(uc ~T0 @X0 1 ef2`*Cuc`*Cuc ]
-"61
-{
-[; ;sim800l.c: 60: uint8_t SIM800DeleteSms(const char *index, const char *flag)
-[; ;sim800l.c: 61: {
-[e :U _SIM800DeleteSms ]
-"60
-[v _index `*Cuc ~T0 @X0 1 r1 ]
-[v _flag `*Cuc ~T0 @X0 1 r2 ]
-"61
-[f ]
-[; ;sim800l.c: 62: _delay((unsigned long)((2000)*(8000000/4000.0)));
-"62
-[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;sim800l.c: 63: USARTWriteLine("AT+CMGF = 1\r\n");
-"63
-[e ( _USARTWriteLine (1 :s 10C ]
-[; ;sim800l.c: 64: _delay((unsigned long)((2000)*(8000000/4000.0)));
-"64
-[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;sim800l.c: 65: USARTWriteLine("AT+CMGD=");
-"65
-[e ( _USARTWriteLine (1 :s 11C ]
-[; ;sim800l.c: 66: USARTWriteString(index);
-"66
-[e ( _USARTWriteString (1 _index ]
-[; ;sim800l.c: 67: USARTWriteChar(',');
-"67
-[e ( _USARTWriteChar (1 -> -> 44 `ui `uc ]
-[; ;sim800l.c: 68: USARTWriteString(flag);
-"68
-[e ( _USARTWriteString (1 _flag ]
-[; ;sim800l.c: 69: USARTWriteString("\r\n");
-"69
-[e ( _USARTWriteString (1 :s 12C ]
-[; ;sim800l.c: 70: return 1;
-"70
-[e ) -> -> 1 `i `uc ]
-[e $UE 371  ]
-[; ;sim800l.c: 71: }
-"71
-[e :UE 371 ]
-}
-"72
-[v _SIM800Process `(uc ~T0 @X0 1 ef ]
-"73
-{
-[; ;sim800l.c: 72: uint8_t SIM800Process()
-[; ;sim800l.c: 73: {
-[e :U _SIM800Process ]
-[f ]
-[; ;sim800l.c: 74: if(SIM800L.buffer[0]=='+')
-"74
-[e $ ! == -> *U + &U . _SIM800L 7 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _SIM800L 7 `ui `ux `ui -> 43 `ui 373  ]
-[; ;sim800l.c: 75: {
-"75
-{
-[; ;sim800l.c: 76: if(SIM800L.buffer[1]=='C' && SIM800L.buffer[2]=='L' && SIM800L.buffer[3]=='I' )
-"76
-[e $ ! && && == -> *U + &U . _SIM800L 7 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _SIM800L 7 `ui `ux `ui -> 67 `ui == -> *U + &U . _SIM800L 7 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _SIM800L 7 `ui `ux `ui -> 76 `ui == -> *U + &U . _SIM800L 7 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _SIM800L 7 `ui `ux `ui -> 73 `ui 374  ]
-[; ;sim800l.c: 77: {
-"77
-{
-"78
-[v _ci `uc ~T0 @X0 1 a ]
-[; ;sim800l.c: 78: uint8_t ci=8;
-[e = _ci -> -> 8 `i `uc ]
-[; ;sim800l.c: 79: while(SIM800L.buffer[ci]!='\"' && (ci-8)<15)
-"79
-[e $U 375  ]
-[e :U 376 ]
-[; ;sim800l.c: 80: {
-"80
-{
-[; ;sim800l.c: 81: SIM800L.cell[ci-8]=SIM800L.buffer[ci];
-"81
-[e = *U + &U . _SIM800L 3 * -> -> - -> _ci `i -> 8 `i `ui `ux -> -> # *U &U . _SIM800L 3 `ui `ux *U + &U . _SIM800L 7 * -> _ci `ux -> -> # *U &U . _SIM800L 7 `ui `ux ]
-[; ;sim800l.c: 82: ci++;
-"82
-[e ++ _ci -> -> 1 `i `uc ]
-[; ;sim800l.c: 83: SIM800L.cell_lenght++;
-"83
-[e ++ . _SIM800L 4 -> -> 1 `i `uc ]
-"84
-}
-[e :U 375 ]
-"79
-[e $ && != -> *U + &U . _SIM800L 7 * -> _ci `ux -> -> # *U &U . _SIM800L 7 `ui `ux `ui -> 34 `ui < - -> _ci `i -> 8 `i -> 15 `i 376  ]
-[e :U 377 ]
-[; ;sim800l.c: 84: }
-[; ;sim800l.c: 85: task=1;
-"85
-[e = _task -> -> 1 `i `uc ]
-"86
-}
-[e :U 374 ]
-[; ;sim800l.c: 86: }
-[; ;sim800l.c: 87: if(SIM800L.buffer[1]=='C' && SIM800L.buffer[2]=='M' && SIM800L.buffer[3]=='T' && SIM800L.buffer[4]=='I' )
-"87
-[e $ ! && && && == -> *U + &U . _SIM800L 7 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _SIM800L 7 `ui `ux `ui -> 67 `ui == -> *U + &U . _SIM800L 7 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _SIM800L 7 `ui `ux `ui -> 77 `ui == -> *U + &U . _SIM800L 7 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _SIM800L 7 `ui `ux `ui -> 84 `ui == -> *U + &U . _SIM800L 7 * -> -> -> 4 `i `ui `ux -> -> # *U &U . _SIM800L 7 `ui `ux `ui -> 73 `ui 378  ]
-[; ;sim800l.c: 88: {
-"88
-{
-[; ;sim800l.c: 89: task=2;
-"89
-[e = _task -> -> 2 `i `uc ]
-"90
-}
-[e :U 378 ]
-[; ;sim800l.c: 90: }
-[; ;sim800l.c: 91: if(SIM800L.buffer[1]=='C' && SIM800L.buffer[2]=='S' && SIM800L.buffer[3]=='Q')
-"91
-[e $ ! && && == -> *U + &U . _SIM800L 7 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _SIM800L 7 `ui `ux `ui -> 67 `ui == -> *U + &U . _SIM800L 7 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _SIM800L 7 `ui `ux `ui -> 83 `ui == -> *U + &U . _SIM800L 7 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _SIM800L 7 `ui `ux `ui -> 81 `ui 379  ]
-[; ;sim800l.c: 92: {
-"92
-{
-"93
-[v _ci `uc ~T0 @X0 1 a ]
-[; ;sim800l.c: 93: uint8_t ci=6;
-[e = _ci -> -> 6 `i `uc ]
-[; ;sim800l.c: 94: while(SIM800L.buffer[ci]!=',' && (ci)<8)
-"94
-[e $U 380  ]
-[e :U 381 ]
-[; ;sim800l.c: 95: {
-"95
-{
-[; ;sim800l.c: 96: SIM800L.csq[ci-6]=SIM800L.buffer[ci];
-"96
-[e = *U + &U . _SIM800L 8 * -> -> - -> _ci `i -> 6 `i `ui `ux -> -> # *U &U . _SIM800L 8 `ui `ux *U + &U . _SIM800L 7 * -> _ci `ux -> -> # *U &U . _SIM800L 7 `ui `ux ]
-[; ;sim800l.c: 97: ci++;
-"97
-[e ++ _ci -> -> 1 `i `uc ]
-"98
-}
-[e :U 380 ]
-"94
-[e $ && != -> *U + &U . _SIM800L 7 * -> _ci `ux -> -> # *U &U . _SIM800L 7 `ui `ux `ui -> 44 `ui < -> _ci `i -> 8 `i 381  ]
-[e :U 382 ]
-[; ;sim800l.c: 98: }
-[; ;sim800l.c: 99: SIM800L.csq[ci-6]=0;
-"99
-[e = *U + &U . _SIM800L 8 * -> -> - -> _ci `i -> 6 `i `ui `ux -> -> # *U &U . _SIM800L 8 `ui `ux -> -> 0 `i `uc ]
-"100
-}
-[e :U 379 ]
-"101
-}
 [e :U 373 ]
-[; ;sim800l.c: 100: }
-[; ;sim800l.c: 101: }
-[; ;sim800l.c: 102: return 1;
-"102
-[e ) -> -> 1 `i `uc ]
+[; ;eeprom.c: 44: {
+{
+[; ;eeprom.c: 45: _delay((unsigned long)((4/2)*(8000000/4000000.0)));
+"45
+[e ( __delay (1 -> * -> / -> 4 `i -> 2 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[; ;eeprom.c: 46: LATBbits.LATB6=1;
+"46
+[e = . . _LATBbits 0 3 -> -> 1 `i `uc ]
+[; ;eeprom.c: 47: _delay((unsigned long)((4/2)*(8000000/4000000.0)));
+"47
+[e ( __delay (1 -> * -> / -> 4 `i -> 2 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[; ;eeprom.c: 48: b=b+(PORTBbits.RB4<<i);
+"48
+[e = _b -> + -> _b `i << -> . . _PORTBbits 0 1 `i _i `uc ]
+[; ;eeprom.c: 49: _delay((unsigned long)((4/2)*(8000000/4000000.0)));
+"49
+[e ( __delay (1 -> * -> / -> 4 `i -> 2 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[; ;eeprom.c: 50: LATBbits.LATB6=0;
+"50
+[e = . . _LATBbits 0 3 -> -> 0 `i `uc ]
+[; ;eeprom.c: 51: _delay((unsigned long)((4/2)*(8000000/4000000.0)));
+"51
+[e ( __delay (1 -> * -> / -> 4 `i -> 2 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"52
+}
+"43
+[e -- _i -> -> 1 `i `c ]
+[e $ >= -> _i `i -> 0 `i 373  ]
+[e :U 374 ]
+"52
+}
+[; ;eeprom.c: 52: }
+[; ;eeprom.c: 53: return b;
+"53
+[e ) _b ]
 [e $UE 372  ]
-[; ;sim800l.c: 103: }
-"103
+[; ;eeprom.c: 54: }
+"54
 [e :UE 372 ]
 }
-[a 8C 65 84 43 67 77 71 82 61 0 ]
-[a 11C 65 84 43 67 77 71 68 61 0 ]
-[a 5C 65 84 43 67 77 71 83 61 34 0 ]
-[a 3C 65 84 10 13 0 ]
-[a 1C 65 84 13 10 0 ]
-[a 4C 65 84 43 67 77 71 70 32 61 32 49 13 10 0 ]
-[a 7C 65 84 43 67 77 71 70 32 61 32 49 13 10 0 ]
-[a 10C 65 84 43 67 77 71 70 32 61 32 49 13 10 0 ]
-[a 2C 65 84 69 48 13 10 0 ]
-[a 6C 34 13 10 0 ]
-[a 9C 13 10 0 ]
-[a 12C 13 10 0 ]
+"55
+[v _EepromOpCode `(v ~T0 @X0 1 ef2`uc`ui ]
+"56
+{
+[; ;eeprom.c: 55: void EepromOpCode(uint8_t opcode, uint16_t address)
+[; ;eeprom.c: 56: {
+[e :U _EepromOpCode ]
+"55
+[v _opcode `uc ~T0 @X0 1 r1 ]
+[v _address `ui ~T0 @X0 1 r2 ]
+"56
+[f ]
+[v _i `c ~T0 @X0 1 a ]
+[; ;eeprom.c: 57: int8_t i=0;
+"57
+[e = _i -> -> 0 `i `c ]
+[; ;eeprom.c: 58: LATCbits.LATC7=opcode>>1&0b00000001;
+"58
+[e = . . _LATCbits 0 7 -> & >> -> _opcode `i -> 1 `i -> 1 `i `uc ]
+[; ;eeprom.c: 59: _delay((unsigned long)((4/2)*(8000000/4000000.0)));
+"59
+[e ( __delay (1 -> * -> / -> 4 `i -> 2 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[; ;eeprom.c: 60: LATBbits.LATB6=1;
+"60
+[e = . . _LATBbits 0 3 -> -> 1 `i `uc ]
+[; ;eeprom.c: 61: _delay((unsigned long)((4)*(8000000/4000000.0)));
+"61
+[e ( __delay (1 -> * -> -> 4 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[; ;eeprom.c: 62: LATBbits.LATB6=0;
+"62
+[e = . . _LATBbits 0 3 -> -> 0 `i `uc ]
+[; ;eeprom.c: 63: _delay((unsigned long)((4/2)*(8000000/4000000.0)));
+"63
+[e ( __delay (1 -> * -> / -> 4 `i -> 2 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[; ;eeprom.c: 65: LATCbits.LATC7=opcode&0b00000001;
+"65
+[e = . . _LATCbits 0 7 -> & -> _opcode `i -> 1 `i `uc ]
+[; ;eeprom.c: 66: _delay((unsigned long)((4/2)*(8000000/4000000.0)));
+"66
+[e ( __delay (1 -> * -> / -> 4 `i -> 2 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[; ;eeprom.c: 67: LATBbits.LATB6=1;
+"67
+[e = . . _LATBbits 0 3 -> -> 1 `i `uc ]
+[; ;eeprom.c: 68: _delay((unsigned long)((4)*(8000000/4000000.0)));
+"68
+[e ( __delay (1 -> * -> -> 4 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[; ;eeprom.c: 69: LATBbits.LATB6=0;
+"69
+[e = . . _LATBbits 0 3 -> -> 0 `i `uc ]
+[; ;eeprom.c: 70: _delay((unsigned long)((4/2)*(8000000/4000000.0)));
+"70
+[e ( __delay (1 -> * -> / -> 4 `i -> 2 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[; ;eeprom.c: 72: for(i=10;i>=0;i--)
+"72
+{
+[e = _i -> -> 10 `i `c ]
+[e $ >= -> _i `i -> 0 `i 377  ]
+[e $U 378  ]
+"73
+[e :U 377 ]
+[; ;eeprom.c: 73: {
+{
+[; ;eeprom.c: 74: LATCbits.LATC7=address>>i&0b00000001;
+"74
+[e = . . _LATCbits 0 7 -> & >> _address _i -> -> 1 `i `ui `uc ]
+[; ;eeprom.c: 75: _delay((unsigned long)((4/2)*(8000000/4000000.0)));
+"75
+[e ( __delay (1 -> * -> / -> 4 `i -> 2 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[; ;eeprom.c: 76: LATBbits.LATB6=1;
+"76
+[e = . . _LATBbits 0 3 -> -> 1 `i `uc ]
+[; ;eeprom.c: 77: _delay((unsigned long)((4)*(8000000/4000000.0)));
+"77
+[e ( __delay (1 -> * -> -> 4 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[; ;eeprom.c: 78: LATBbits.LATB6=0;
+"78
+[e = . . _LATBbits 0 3 -> -> 0 `i `uc ]
+[; ;eeprom.c: 79: _delay((unsigned long)((4/2)*(8000000/4000000.0)));
+"79
+[e ( __delay (1 -> * -> / -> 4 `i -> 2 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"80
+}
+"72
+[e -- _i -> -> 1 `i `c ]
+[e $ >= -> _i `i -> 0 `i 377  ]
+[e :U 378 ]
+"80
+}
+[; ;eeprom.c: 80: }
+[; ;eeprom.c: 81: }
+"81
+[e :UE 376 ]
+}
+"82
+[v _EepromWrite `(v ~T0 @X0 1 ef2`ui`uc ]
+"83
+{
+[; ;eeprom.c: 82: void EepromWrite(uint16_t address, uint8_t data)
+[; ;eeprom.c: 83: {
+[e :U _EepromWrite ]
+"82
+[v _address `ui ~T0 @X0 1 r1 ]
+[v _data `uc ~T0 @X0 1 r2 ]
+"83
+[f ]
+[; ;eeprom.c: 84: EepromStart();
+"84
+[e ( _EepromStart ..  ]
+[; ;eeprom.c: 85: EepromOpCode(0b00000100, 0x600);
+"85
+[e ( _EepromOpCode (2 , -> -> 4 `i `uc -> -> 1536 `i `ui ]
+[; ;eeprom.c: 86: EepromEnd();
+"86
+[e ( _EepromEnd ..  ]
+[; ;eeprom.c: 88: EepromStart();
+"88
+[e ( _EepromStart ..  ]
+[; ;eeprom.c: 89: EepromOpCode(0b00000101, address);
+"89
+[e ( _EepromOpCode (2 , -> -> 5 `i `uc _address ]
+[; ;eeprom.c: 90: EepromSend(data);
+"90
+[e ( _EepromSend (1 _data ]
+[; ;eeprom.c: 91: EepromEnd();
+"91
+[e ( _EepromEnd ..  ]
+[; ;eeprom.c: 92: }
+"92
+[e :UE 380 ]
+}
+"94
+[v _EepromRead `(uc ~T0 @X0 1 ef1`ui ]
+"95
+{
+[; ;eeprom.c: 94: uint8_t EepromRead(uint16_t address)
+[; ;eeprom.c: 95: {
+[e :U _EepromRead ]
+"94
+[v _address `ui ~T0 @X0 1 r1 ]
+"95
+[f ]
+"96
+[v _data `uc ~T0 @X0 1 a ]
+[; ;eeprom.c: 96: uint8_t data=0;
+[e = _data -> -> 0 `i `uc ]
+[; ;eeprom.c: 98: EepromStart();
+"98
+[e ( _EepromStart ..  ]
+[; ;eeprom.c: 99: EepromOpCode(0b00000110, address);
+"99
+[e ( _EepromOpCode (2 , -> -> 6 `i `uc _address ]
+[; ;eeprom.c: 100: data=EepromReceive();
+"100
+[e = _data ( _EepromReceive ..  ]
+[; ;eeprom.c: 101: EepromEnd();
+"101
+[e ( _EepromEnd ..  ]
+[; ;eeprom.c: 102: return data;
+"102
+[e ) _data ]
+[e $UE 381  ]
+[; ;eeprom.c: 103: }
+"103
+[e :UE 381 ]
+}
+"105
+[v _EEPROMSaveNumber `(uc ~T0 @X0 1 ef3`*Cuc`uc`ui ]
+"106
+{
+[; ;eeprom.c: 105: uint8_t EEPROMSaveNumber(const char *nmbr, uint8_t nmbrLenght, uint16_t position)
+[; ;eeprom.c: 106: {
+[e :U _EEPROMSaveNumber ]
+"105
+[v _nmbr `*Cuc ~T0 @X0 1 r1 ]
+[v _nmbrLenght `uc ~T0 @X0 1 r2 ]
+[v _position `ui ~T0 @X0 1 r3 ]
+"106
+[f ]
+"107
+[v _count `uc ~T0 @X0 1 a ]
+[; ;eeprom.c: 107: uint8_t count=0, value=0,result=1;
+[e = _count -> -> 0 `i `uc ]
+[v _value `uc ~T0 @X0 1 a ]
+[e = _value -> -> 0 `i `uc ]
+[v _result `uc ~T0 @X0 1 a ]
+[e = _result -> -> 1 `i `uc ]
+"108
+[v _address `ui ~T0 @X0 1 a ]
+[; ;eeprom.c: 108: uint16_t address=0;
+[e = _address -> -> 0 `i `ui ]
+[; ;eeprom.c: 109: address=position*5;
+"109
+[e = _address * _position -> -> 5 `i `ui ]
+[; ;eeprom.c: 110: address=address+(5-1);
+"110
+[e = _address + _address -> - -> 5 `i -> 1 `i `ui ]
+[; ;eeprom.c: 112: for(count=5;count>0;count--)
+"112
+{
+[e = _count -> -> 5 `i `uc ]
+[e $ > -> _count `i -> 0 `i 383  ]
+[e $U 384  ]
+"113
+[e :U 383 ]
+[; ;eeprom.c: 113: {
+{
+[; ;eeprom.c: 114: if(nmbrLenght)
+"114
+[e $ ! != -> _nmbrLenght `i -> -> -> 0 `i `uc `i 386  ]
+[; ;eeprom.c: 115: {
+"115
+{
+[; ;eeprom.c: 116: nmbrLenght--;
+"116
+[e -- _nmbrLenght -> -> 1 `i `uc ]
+[; ;eeprom.c: 117: if(*(nmbr+nmbrLenght)>='0')
+"117
+[e $ ! >= -> *U + _nmbr * -> _nmbrLenght `ux -> -> # *U _nmbr `ui `ux `ui -> 48 `ui 387  ]
+[; ;eeprom.c: 118: {value=*(nmbr+nmbrLenght)-'0';}
+"118
+{
+[e = _value -> - -> *U + _nmbr * -> _nmbrLenght `ux -> -> # *U _nmbr `ui `ux `ui -> 48 `ui `uc ]
+}
+[e $U 388  ]
+"119
+[e :U 387 ]
+[; ;eeprom.c: 119: else result=0;
+[e = _result -> -> 0 `i `uc ]
+[e :U 388 ]
+[; ;eeprom.c: 120: if(nmbrLenght)
+"120
+[e $ ! != -> _nmbrLenght `i -> -> -> 0 `i `uc `i 389  ]
+[; ;eeprom.c: 121: {
+"121
+{
+[; ;eeprom.c: 122: nmbrLenght--;
+"122
+[e -- _nmbrLenght -> -> 1 `i `uc ]
+[; ;eeprom.c: 123: if(*(nmbr+nmbrLenght)>='0')
+"123
+[e $ ! >= -> *U + _nmbr * -> _nmbrLenght `ux -> -> # *U _nmbr `ui `ux `ui -> 48 `ui 390  ]
+[; ;eeprom.c: 124: {value=value+((*(nmbr+nmbrLenght)-'0')<<4);}
+"124
+{
+[e = _value -> + -> _value `ui << - -> *U + _nmbr * -> _nmbrLenght `ux -> -> # *U _nmbr `ui `ux `ui -> 48 `ui -> 4 `i `uc ]
+}
+[e $U 391  ]
+"125
+[e :U 390 ]
+[; ;eeprom.c: 125: else result=0;
+[e = _result -> -> 0 `i `uc ]
+[e :U 391 ]
+"126
+}
+[e :U 389 ]
+"127
+}
+[; ;eeprom.c: 126: }
+[; ;eeprom.c: 127: }
+[e $U 392  ]
+"128
+[e :U 386 ]
+[; ;eeprom.c: 128: else
+[; ;eeprom.c: 129: {value='\0';}
+"129
+{
+[e = _value -> -> 0 `ui `uc ]
+}
+[e :U 392 ]
+[; ;eeprom.c: 131: EepromWrite(address,value);
+"131
+[e ( _EepromWrite (2 , _address _value ]
+[; ;eeprom.c: 132: address--;
+"132
+[e -- _address -> -> 1 `i `ui ]
+[; ;eeprom.c: 133: _delay((unsigned long)((5)*(8000000/4000.0)));
+"133
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;eeprom.c: 134: value=0;
+"134
+[e = _value -> -> 0 `i `uc ]
+"135
+}
+"112
+[e -- _count -> -> 1 `i `uc ]
+[e $ > -> _count `i -> 0 `i 383  ]
+[e :U 384 ]
+"135
+}
+[; ;eeprom.c: 135: }
+[; ;eeprom.c: 136: return result;
+"136
+[e ) _result ]
+[e $UE 382  ]
+[; ;eeprom.c: 137: }
+"137
+[e :UE 382 ]
+}
+"139
+[v _EEPROMSearchNumber `(uc ~T0 @X0 1 ef2`*Cuc`uc ]
+"140
+{
+[; ;eeprom.c: 139: uint8_t EEPROMSearchNumber(const char *nmbr, uint8_t nmbrLenght)
+[; ;eeprom.c: 140: {
+[e :U _EEPROMSearchNumber ]
+"139
+[v _nmbr `*Cuc ~T0 @X0 1 r1 ]
+[v _nmbrLenght `uc ~T0 @X0 1 r2 ]
+"140
+[f ]
+"141
+[v _convNmbr `uc ~T0 @X0 -> 5 `i a ]
+"142
+[v _aux `ui ~T0 @X0 1 a ]
+[; ;eeprom.c: 141: char convNmbr[5];
+[; ;eeprom.c: 142: uint16_t aux=0;
+[e = _aux -> -> 0 `i `ui ]
+"143
+[v _value `uc ~T0 @X0 1 a ]
+[; ;eeprom.c: 143: uint8_t value=0,count=0, result=0;
+[e = _value -> -> 0 `i `uc ]
+[v _count `uc ~T0 @X0 1 a ]
+[e = _count -> -> 0 `i `uc ]
+[v _result `uc ~T0 @X0 1 a ]
+[e = _result -> -> 0 `i `uc ]
+[; ;eeprom.c: 144: for(count=5;count>0;count--)
+"144
+{
+[e = _count -> -> 5 `i `uc ]
+[e $ > -> _count `i -> 0 `i 394  ]
+[e $U 395  ]
+"145
+[e :U 394 ]
+[; ;eeprom.c: 145: {
+{
+[; ;eeprom.c: 146: if(nmbrLenght)
+"146
+[e $ ! != -> _nmbrLenght `i -> -> -> 0 `i `uc `i 397  ]
+[; ;eeprom.c: 147: {
+"147
+{
+[; ;eeprom.c: 148: nmbrLenght--;
+"148
+[e -- _nmbrLenght -> -> 1 `i `uc ]
+[; ;eeprom.c: 149: if(*(nmbr+nmbrLenght)>='0')
+"149
+[e $ ! >= -> *U + _nmbr * -> _nmbrLenght `ux -> -> # *U _nmbr `ui `ux `ui -> 48 `ui 398  ]
+[; ;eeprom.c: 150: {value=*(nmbr+nmbrLenght)-'0';}
+"150
+{
+[e = _value -> - -> *U + _nmbr * -> _nmbrLenght `ux -> -> # *U _nmbr `ui `ux `ui -> 48 `ui `uc ]
+}
+[e :U 398 ]
+[; ;eeprom.c: 151: if(nmbrLenght)
+"151
+[e $ ! != -> _nmbrLenght `i -> -> -> 0 `i `uc `i 399  ]
+[; ;eeprom.c: 152: {
+"152
+{
+[; ;eeprom.c: 153: nmbrLenght--;
+"153
+[e -- _nmbrLenght -> -> 1 `i `uc ]
+[; ;eeprom.c: 154: if(*(nmbr+nmbrLenght)>='0')
+"154
+[e $ ! >= -> *U + _nmbr * -> _nmbrLenght `ux -> -> # *U _nmbr `ui `ux `ui -> 48 `ui 400  ]
+[; ;eeprom.c: 155: {value=value+((*(nmbr+nmbrLenght)-'0')<<4);}
+"155
+{
+[e = _value -> + -> _value `ui << - -> *U + _nmbr * -> _nmbrLenght `ux -> -> # *U _nmbr `ui `ux `ui -> 48 `ui -> 4 `i `uc ]
+}
+[e :U 400 ]
+"156
+}
+[e :U 399 ]
+"157
+}
+[; ;eeprom.c: 156: }
+[; ;eeprom.c: 157: }
+[e $U 401  ]
+"158
+[e :U 397 ]
+[; ;eeprom.c: 158: else
+[; ;eeprom.c: 159: {value='\0';}
+"159
+{
+[e = _value -> -> 0 `ui `uc ]
+}
+[e :U 401 ]
+[; ;eeprom.c: 161: convNmbr[count-1]=value;
+"161
+[e = *U + &U _convNmbr * -> -> - -> _count `i -> 1 `i `ui `ux -> -> # *U &U _convNmbr `ui `ux _value ]
+[; ;eeprom.c: 162: value=0;
+"162
+[e = _value -> -> 0 `i `uc ]
+"163
+}
+"144
+[e -- _count -> -> 1 `i `uc ]
+[e $ > -> _count `i -> 0 `i 394  ]
+[e :U 395 ]
+"163
+}
+[; ;eeprom.c: 163: }
+[; ;eeprom.c: 164: aux=5-1;
+"164
+[e = _aux -> - -> 5 `i -> 1 `i `ui ]
+[; ;eeprom.c: 166: while(!result && aux<(600-5))
+"166
+[e $U 402  ]
+[e :U 403 ]
+[; ;eeprom.c: 167: {
+"167
+{
+[; ;eeprom.c: 168: count=0;
+"168
+[e = _count -> -> 0 `i `uc ]
+[; ;eeprom.c: 169: do{
+"169
+[e :U 407 ]
+{
+[; ;eeprom.c: 170: if(EepromRead(aux-count)==convNmbr[5-(count+1)])
+"170
+[e $ ! == -> ( _EepromRead (1 - _aux -> _count `ui `i -> *U + &U _convNmbr * -> -> - -> 5 `i + -> _count `i -> 1 `i `ui `ux -> -> # *U &U _convNmbr `ui `ux `i 408  ]
+[; ;eeprom.c: 171: {result=1;}
+"171
+{
+[e = _result -> -> 1 `i `uc ]
+}
+[e $U 409  ]
+"172
+[e :U 408 ]
+[; ;eeprom.c: 172: else
+[; ;eeprom.c: 173: {result=0;}
+"173
+{
+[e = _result -> -> 0 `i `uc ]
+}
+[e :U 409 ]
+[; ;eeprom.c: 174: count++;
+"174
+[e ++ _count -> -> 1 `i `uc ]
+"175
+}
+[; ;eeprom.c: 175: }while(result && count<(5));
+[e $ && != -> _result `i -> -> -> 0 `i `uc `i < -> _count `i -> 5 `i 407  ]
+[e :U 406 ]
+[; ;eeprom.c: 176: aux=aux+5;
+"176
+[e = _aux + _aux -> -> 5 `i `ui ]
+"177
+}
+[e :U 402 ]
+"166
+[e $ && ! != -> _result `i -> -> -> 0 `i `uc `i < _aux -> - -> 600 `i -> 5 `i `ui 403  ]
+[e :U 404 ]
+[; ;eeprom.c: 177: }
+[; ;eeprom.c: 178: return result;
+"178
+[e ) _result ]
+[e $UE 393  ]
+[; ;eeprom.c: 179: }
+"179
+[e :UE 393 ]
+}
+"181
+[v _EEPROMEraseAll `(v ~T0 @X0 1 ef ]
+"182
+{
+[; ;eeprom.c: 181: void EEPROMEraseAll(void)
+[; ;eeprom.c: 182: {
+[e :U _EEPROMEraseAll ]
+[f ]
+[; ;eeprom.c: 183: LATBbits.LATB7=0;
+"183
+[e = . . _LATBbits 0 4 -> -> 0 `i `uc ]
+[; ;eeprom.c: 184: _delay((unsigned long)((100)*(8000000/4000.0)));
+"184
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;eeprom.c: 185: EepromStart();
+"185
+[e ( _EepromStart ..  ]
+[; ;eeprom.c: 186: EepromOpCode(0b00000100, 0x600);
+"186
+[e ( _EepromOpCode (2 , -> -> 4 `i `uc -> -> 1536 `i `ui ]
+[; ;eeprom.c: 187: EepromEnd();
+"187
+[e ( _EepromEnd ..  ]
+[; ;eeprom.c: 189: EepromStart();
+"189
+[e ( _EepromStart ..  ]
+[; ;eeprom.c: 190: EepromOpCode(0b00000100, 0x400);
+"190
+[e ( _EepromOpCode (2 , -> -> 4 `i `uc -> -> 1024 `i `ui ]
+[; ;eeprom.c: 191: EepromEnd();
+"191
+[e ( _EepromEnd ..  ]
+[; ;eeprom.c: 192: _delay((unsigned long)((500)*(8000000/4000.0)));
+"192
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;eeprom.c: 193: }
+"193
+[e :UE 410 ]
+}

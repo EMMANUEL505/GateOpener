@@ -1,36 +1,7 @@
-/******************************************************************************
-
- Serial communication library for PIC16F series MCUs.
-
- Compiler: Microchip XC8 v1.12 (http://www.microchip.com/xc)
-
- Version: 1.0 (21 July 2013)
-
- MCU: PIC16F877A
- Frequency: 20MHz
-
-                                     NOTICE
-
-NO PART OF THIS WORK CAN BE COPIED, DISTRIBUTED OR PUBLISHED WITHOUT A
-WRITTEN PERMISSION FROM EXTREME ELECTRONICS INDIA. THE LIBRARY, NOR ANY PART
-OF IT CAN BE USED IN COMMERCIAL APPLICATIONS. IT IS INTENDED TO BE USED FOR
-HOBBY, LEARNING AND EDUCATIONAL PURPOSE ONLY. IF YOU WANT TO USE THEM IN
-COMMERCIAL APPLICATION PLEASE WRITE TO THE AUTHOR.
-
-
-WRITTEN BY:
-AVINASH GUPTA
-me@avinashgupta.com
-
-*******************************************************************************/
-#include <stdint.h>
-#include <xc.h>
-#include <stdio.h>
-
-#include <stdlib.h>
-#include "config.h"
-
-#include "usart_pic16.h"
+#include "general.h"
+#include "usart.h"
+#include "gpio.h"
+#include "sim800l.h"
 
 void USARTInit(uint16_t baud_rate)
 {       
@@ -54,6 +25,8 @@ void USARTInit(uint16_t baud_rate)
         break;
     }
 
+    APFCON0bits.RXDTSEL=TRUE;          //Configure RX function on PORTC pin
+    APFCON0bits.TXCKSEL=TRUE;          //Configure TX function on PORTC pin
     BAUDCONbits.BRG16=1;
     //TXSTA
     TXSTAbits.TX9=0;  //8 bit transmission
@@ -99,7 +72,7 @@ void USARTWriteLine(const char *str)
 
 void USARTHandleRxInt()
 {
-    LED_BLUE=ENABLED;
+    GPIOBlueLedSet();
     //Read the data
     char data=RCREG;
     SIM800L.busy=TRUE;
@@ -112,6 +85,8 @@ void USARTHandleRxInt()
             if(SIM800L.uncomplete==FALSE) SIM800L.uncomplete=TRUE;
             else
             {
+                SIM800L.buffer[bufque]=0;   //End of string
+
                 SIM800L.uncomplete=FALSE;
                 if(SIM800L.buffer[0]=='+')                         //Case for unsolicited messages
                 {
@@ -128,8 +103,29 @@ void USARTHandleRxInt()
                    }
                   if(SIM800L.buffer[1]=='C' && SIM800L.buffer[2]=='M' && SIM800L.buffer[3]=='T' && SIM800L.buffer[4]=='I'  )    //+CMTI, save SMS
                    {
-
+                       uint8_t ci=12;                               //SMS memory location initiates at twelve position [+CMTI: "SM",XX..
+                       while(SIM800L.buffer[ci]>='0' && SIM800L.buffer[ci]<='9' )             //Save sms location
+                       {
+                           SIM800L.smsmem[ci-12]=SIM800L.buffer[ci];  //Save memory location
+                           ci++;
+                       }
+                       SIM800L.smsmem[ci-12]=0;
+                       SIM800L.unreadsms=1;
                        task=SMS_IN;                               //Configure task to SMS_IN
+                   }
+                  if(SIM800L.buffer[1]=='C' && SIM800L.buffer[2]=='S' && SIM800L.buffer[3]=='Q')    //+CSQ, save CSQ
+                   {
+                     uint8_t ci=6;
+                     while(SIM800L.buffer[ci]!=',' && (ci)<8)             //Save characters until , arrive
+                     {
+                         SIM800L.csq[ci-6]=SIM800L.buffer[ci];  //Save cell number characters
+                         ci++;
+                     }
+                     SIM800L.csq[ci-6]=0;
+                   }
+                   if(SIM800L.buffer[1]=='T' && SIM800L.buffer[2]=='E' && SIM800L.buffer[3]=='L')
+                   {
+                       task=COMMAND;
                    }
                 }
                 bufque=0;
@@ -137,11 +133,14 @@ void USARTHandleRxInt()
              SIM800L.busy=FALSE;
          break;
          default:
-             SIM800L.buffer[bufque]=data;
-             bufque++;
+             if(bufque<(SIM800L_BUFFER_SIZE-1))
+             {
+                SIM800L.buffer[bufque]=data;
+                bufque++;
+             }
          break;
      }
-    LED_BLUE=DISABLED;
+    GPIOBlueLedClear();
 }
 void USARTWriteInt(int16_t val, int8_t field_length)
 {

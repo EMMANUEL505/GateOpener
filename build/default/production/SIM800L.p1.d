@@ -1,6 +1,8 @@
- build/default/production/SIM800L.d  \
- build/default/production/SIM800L.p1:  \
- SIM800L.c  \
-usart_pic16.h  \
-config.h  \
-SIM800L.h 
+ build/default/production/sim800l.d  \
+ build/default/production/sim800l.p1:  \
+ sim800l.c  \
+general.h  \
+usart.h  \
+sim800l.h  \
+gpio.h  \
+eeprom.h 

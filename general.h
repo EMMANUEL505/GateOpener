@@ -1,29 +1,31 @@
 /* 
- * File:   config.h
- * Author: e882742
+ * File:   general.h
+ * Author: Emmanuel Sigala
  *
- * Created on February 29, 2016, 11:51 AM
+ * Created on March 15, 2016, 12:44 PM
  */
 
-#ifndef CONFIG_H
-#define	CONFIG_H
+#ifndef GENERAL_H
+#define	GENERAL_H
 
 #ifdef	__cplusplus
 extern "C" {
 #endif
 
+
+
+
 #ifdef	__cplusplus
 }
 #endif
 
-#endif	/* CONFIG_H */
+#endif	/* GENERAL_H */
 
 #include <xc.h>
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "usart_pic16.h"
-#include "functions.h"
+#include <stdint.h>
 
 #define _XTAL_FREQ  8000000        // oscillator frequency for _delay()
 
@@ -52,38 +54,14 @@ extern "C" {
 //  Ouput state definitions
 #define DISABLED                0
 #define ENABLED                 1
-#define LED_RED              LATCbits.LATC0
-#define LED_GREEN            LATCbits.LATC1
-#define LED_BLUE             LATCbits.LATC2
-#define RELAY                LATBbits.LATB4
+//
 #define FALSE                0
 #define TRUE                 1
 
 //  Task state definitions
-#define WAITING    0
+#define WAITING     0
 #define CALL_IN     1
 #define SMS_IN      2
+#define COMMAND     3
 
-//  EEPROM definitions
-#define EEPROM_SIZE             256
-#define EEPROM_NUMBER_LENGHT    4
-
-//  SIM800L definitions
-#define SIM800L_BUFFER_SIZE     128
-#define SIM800L_CELL_LENGHT     15
-
-typedef struct{
-    uint8_t busy;
-    uint8_t uncomplete;
-    uint8_t resp;
-    uint8_t cell[SIM800L_CELL_LENGHT];
-    uint8_t cell_lenght;
-    uint8_t unreadsms;
-    uint8_t smsmem[10];
-    char buffer[SIM800L_BUFFER_SIZE];
-}AT;
-
-AT SIM800L;
-uint8_t bufque;
-
-uint8_t task;
+uint8_t task,i;
