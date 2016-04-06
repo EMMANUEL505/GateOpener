@@ -1,11 +1,10 @@
 /*
  * File:   main.c
- * Author: e882742
+ * Author: Adolfo Sigala
  *
  * Created on March 15, 2016, 12:15 PM
  */
 
-//#include "general.h"
 #include "general.h"
 #include "system.h"
 #include "eeprom.h"
@@ -15,55 +14,52 @@
 
 void main()
 {
-    SYSTEMInit(_8MHZ);
-    USARTInit(115);
-    GPIOPortInit();
-    SIM800init();
+    SYSTEMInit(_8MHZ);  //Initialize core at 8MHz
+    USARTInit(115);     //Initialize USART at 115200 baudrate
+    GPIOPortInit();     //Initialize port directions (output,input)
+    SIM800init();       //Initialize GSM module
 
-    EEPROMEraseAll();
+    GPIORedLedClear();
+    GPIOBlueLedClear();
 
-    EEPROMSaveNumber("6141654818",10,10);
-    EEPROMSaveNumber("6145136845",10,11);
+    ei();                       //Enable interrupts
+    RCSTAbits.CREN=ENABLED;     //Enable USART receiver
 
     while(TRUE)
     {
-        ei();                       //Enable interrupts
-        RCSTAbits.CREN=ENABLED;     //Enable USART receiver
-
-        USARTWriteLine("AT+CSQ\r\n");       //Check signal Quality
-        __delay_ms(2000);                   //2 Second Delay
-
-        while(SIM800L.busy==TRUE);
-        di();                           //disable interrupts
-        RCSTAbits.CREN=DISABLED;        //Disable USART receiver
-
         switch(task)
         {
             case WAITING:
-                USARTClearSIM800L();
+                if(RCSTAbits.OERR==1)  {CREN=DISABLED;__delay_us(200);RCSTAbits.CREN=ENABLED; }
+                USARTWriteLine("AT+CSQ\r\n");       //Check signal Quality
+                __delay_ms(2000);
             break;
             case CALL_IN:
                 USARTWriteLine("ATH\r\n");   //Hang up
                 if(EEPROMSearchNumber(SIM800L.cell,SIM800L.cell_lenght))
                 {
-                    GPIOGreenLedToggle();
-                    GPIORelayToggle();
-                    SIM800SendSms(SIM800L.cell,SIM800L.csq);//SIM800L.csq);//"Received-Authorized");
-                } //"Received-Authorized"); }
+                    GPIORelaySet();
+                    __delay_ms(1000);
+                    GPIORelayClear();
+                } 
                 else
                 {
                     GPIORedLedBlink(5);
-                    SIM800SendSms(SIM800L.cell, "Received-Unauthorized");}
+                }
+                USARTClearSIM800L();
                 task=WAITING;
             break;
             case SMS_IN:
-                for(i=0;i<10;i++){GPIOBlueLedToggle(); __delay_ms(200);}
+                GPIOBlueLedBlink(5);
                 SIM800ReadSms(SIM800L.smsmem);
-                SIM800DeleteSms("1", ALL_MESSAGES);
-                task=WAITING;
+                //SIM800DeleteSms("1", ALL_MESSAGES);
+                task=COMMAND;
             break;
             case COMMAND:
+                GPIORedLedSet();
+                SIM800Command();
                 SIM800SendSms("+526141654818", "Command received");
+                USARTClearSIM800L();
                 task=WAITING;
             break;
             default:

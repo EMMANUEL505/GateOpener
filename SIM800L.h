@@ -24,7 +24,7 @@ extern "C" {
 
 
 //  SIM800L definitions
-#define SIM800L_BUFFER_SIZE     128
+#define SIM800L_BUFFER_SIZE     64
 #define SIM800L_CELL_LENGHT     15
 
 #define READ_MESSAGES               "1"
@@ -51,12 +51,14 @@ extern "C" {
 typedef struct{
     uint8_t busy;       //Flag
     uint8_t uncomplete;
+    uint8_t ok;
     uint8_t resp;
     uint8_t cell[SIM800L_CELL_LENGHT];
     uint8_t cell_lenght;
     uint8_t unreadsms;
     char smsmem[5];
     char buffer[SIM800L_BUFFER_SIZE];
+    char command[25];
     char csq[5];
 }AT;
 
@@ -70,3 +72,4 @@ uint8_t SIM800SendSms(const char *nmbr, const char *msg);
 uint8_t SIM800ReadSms(const char *mem);
 uint8_t SIM800DeleteSms(const char *index, const char *flag);
 uint8_t SIM800Process();
+uint8_t SIM800Command();

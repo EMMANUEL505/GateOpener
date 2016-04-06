@@ -104,7 +104,7 @@ uint8_t EepromRead(uint16_t address)
 
 uint8_t EEPROMSaveNumber(const char *nmbr, uint8_t nmbrLenght, uint16_t position)
 {
-    uint8_t count=0, value=0,result=1;
+    uint8_t count=0,result=1;
     uint16_t address=0;
     address=position*EEPROM_NUMBER_LENGHT;
     address=address+(EEPROM_NUMBER_LENGHT-1);
@@ -114,68 +114,46 @@ uint8_t EEPROMSaveNumber(const char *nmbr, uint8_t nmbrLenght, uint16_t position
         if(nmbrLenght)
         {
             nmbrLenght--;
-            if(*(nmbr+nmbrLenght)>='0')
-                {value=*(nmbr+nmbrLenght)-'0';}     //Convert from ASCII to decimal
-            else result=FALSE;      //Error if invalid character
-            if(nmbrLenght)
-            {
-                nmbrLenght--;
-                if(*(nmbr+nmbrLenght)>='0')
-                    {value=value+((*(nmbr+nmbrLenght)-'0')<<4);}     //Convert from ASCII to decimal
-                else result=FALSE;      //Error if invalid character
-            }
+            if(*(nmbr+nmbrLenght)>='0' && *(nmbr+nmbrLenght)<='9')
+                {
+                    EepromWrite(address,*(nmbr+nmbrLenght));
+                }
         }
-        else 
-            {value='\0';}
-
-        EepromWrite(address,value);
+        else
+        {
+            EepromWrite(address,'\0');
+        }
         address--;
         __delay_ms(TWC_DELAY);
-        value=0;       
     }
     return result;
 }
 
-uint8_t EEPROMSearchNumber(const char *nmbr, uint8_t nmbrLenght)
+int8_t EEPROMSearchNumber(const char *nmbr, uint8_t nmbrLenght)
 {
-    char convNmbr[EEPROM_NUMBER_LENGHT];
     uint16_t aux=0;
-    uint8_t value=0,count=0, result=0;
-    for(count=EEPROM_NUMBER_LENGHT;count>0;count--)
-    {
-        if(nmbrLenght)
-        {
-            nmbrLenght--;
-            if(*(nmbr+nmbrLenght)>='0')
-                {value=*(nmbr+nmbrLenght)-'0';}     //Convert from ASCII to decimal
-            if(nmbrLenght)
-            {
-                nmbrLenght--;
-                if(*(nmbr+nmbrLenght)>='0')
-                    {value=value+((*(nmbr+nmbrLenght)-'0')<<4);} //Convert from ASCII to decimal
-            }
-        }
-        else 
-            {value='\0';}
-        
-        convNmbr[count-1]=value;
-        value=0;
-    }
-    aux=EEPROM_NUMBER_LENGHT-1;
+    uint8_t count=0, result=0;
 
+    aux=EEPROM_NUMBER_LENGHT-1;
+    if(nmbrLenght>EEPROM_NUMBER_LENGHT) nmbrLenght=EEPROM_NUMBER_LENGHT;
+    
     while(!result && aux<(EEPROM_MAX-EEPROM_NUMBER_LENGHT))
     {
         count=0;
         do{
-            if(EepromRead(aux-count)==convNmbr[EEPROM_NUMBER_LENGHT-(count+1)])
+            if(EepromRead(aux-count)==*(nmbr+EEPROM_NUMBER_LENGHT-(count+1)))
                 {result=1;}
             else
                {result=0;}
             count++;
-        }while(result && count<(EEPROM_NUMBER_LENGHT));
+        }while(result && count<nmbrLenght);
         aux=aux+EEPROM_NUMBER_LENGHT;
     }
-    return result;
+    if(result==TRUE)
+    {
+        return (aux/EEPROM_NUMBER_LENGHT)+1;
+    }
+    else return FALSE;
 }
 
 void EEPROMEraseAll(void)
@@ -190,4 +168,21 @@ void EEPROMEraseAll(void)
     EepromOpCode(ERAL, 0x400);
     EepromEnd();
     __delay_ms(500);
+}
+
+
+uint8_t EEPROMAdd(const char *nmbr, uint8_t nmbrLenght)
+{
+    uint16_t empty=0;
+    do
+    {
+        if(EepromRead((empty*EEPROM_NUMBER_LENGHT))<'0' || EepromRead((empty*EEPROM_NUMBER_LENGHT))>'9')
+        {
+            empty=TRUE;
+        }
+        empty++;
+    }while(!empty && empty<EEPROM_MAX);
+    EEPROMSaveNumber(nmbr,nmbrLenght,empty);
+
+    return TRUE;
 }

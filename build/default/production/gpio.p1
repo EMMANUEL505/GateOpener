@@ -3053,6 +3053,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;general.h: 67: uint8_t task,i;
 [; ;gpio.h: 61: void GPIOPortInit();
 [; ;gpio.h: 62: void GPIORedLedBlink(uint8_t times);
+[; ;gpio.h: 63: void GPIOBlueLedBlink(uint8_t times);
 "5 gpio.c
 [v _GPIOPortInit `(v ~T0 @X0 1 ef ]
 "6
@@ -3150,4 +3151,54 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;gpio.c: 36: }
 "36
 [e :UE 367 ]
+}
+"38
+[v _GPIOBlueLedBlink `(v ~T0 @X0 1 ef1`uc ]
+"39
+{
+[; ;gpio.c: 38: void GPIOBlueLedBlink(uint8_t times)
+[; ;gpio.c: 39: {
+[e :U _GPIOBlueLedBlink ]
+"38
+[v _times `uc ~T0 @X0 1 r1 ]
+"39
+[f ]
+[v _i `uc ~T0 @X0 1 a ]
+[; ;gpio.c: 40: uint8_t i=0;
+"40
+[e = _i -> -> 0 `i `uc ]
+[; ;gpio.c: 41: for(i=0;i<times;i++)
+"41
+{
+[e = _i -> -> 0 `i `uc ]
+[e $U 376  ]
+"42
+[e :U 373 ]
+[; ;gpio.c: 42: {
+{
+[; ;gpio.c: 43: LATCbits.LATC1=1;
+"43
+[e = . . _LATCbits 0 1 -> -> 1 `i `uc ]
+[; ;gpio.c: 44: _delay((unsigned long)((100)*(8000000/4000.0)));
+"44
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;gpio.c: 45: LATCbits.LATC1=0;
+"45
+[e = . . _LATCbits 0 1 -> -> 0 `i `uc ]
+[; ;gpio.c: 46: _delay((unsigned long)((100)*(8000000/4000.0)));
+"46
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"47
+}
+"41
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 376 ]
+[e $ < -> _i `i -> _times `i 373  ]
+[e :U 374 ]
+"47
+}
+[; ;gpio.c: 47: }
+[; ;gpio.c: 48: }
+"48
+[e :UE 372 ]
 }

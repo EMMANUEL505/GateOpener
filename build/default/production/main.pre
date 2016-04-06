@@ -4160,19 +4160,22 @@ uint8_t EepromRead(uint16_t address);
 void EepromOpCode(uint8_t opcode, uint16_t address);
 void EepromWrite(uint16_t address, uint8_t data);
 uint8_t EEPROMSaveNumber(const char *nmbr, uint8_t nmbrLenght, uint16_t position);
-uint8_t EEPROMSearchNumber(const char *nmbr, uint8_t nmbrLenght);
+int8_t EEPROMSearchNumber(const char *nmbr, uint8_t nmbrLenght);
 void EEPROMEraseAll(void);
+uint8_t EEPROMAdd(const char *nmbr, uint8_t nmbrLenght);
 
 # 51 "sim800l.h"
 typedef struct{
 uint8_t busy;
 uint8_t uncomplete;
+uint8_t ok;
 uint8_t resp;
 uint8_t cell[15];
 uint8_t cell_lenght;
 uint8_t unreadsms;
 char smsmem[5];
-char buffer[128];
+char buffer[64];
+char command[25];
 char csq[5];
 }AT;
 
@@ -4186,10 +4189,12 @@ uint8_t SIM800SendSms(const char *nmbr, const char *msg);
 uint8_t SIM800ReadSms(const char *mem);
 uint8_t SIM800DeleteSms(const char *index, const char *flag);
 uint8_t SIM800Process();
+uint8_t SIM800Command();
 
 # 61 "gpio.h"
 void GPIOPortInit();
 void GPIORedLedBlink(uint8_t times);
+void GPIOBlueLedBlink(uint8_t times);
 
 # 16 "usart.h"
 void USARTInit(uint16_t baud_rate);
@@ -4201,7 +4206,7 @@ void USARTHandleRxInt();
 void USARTGotoNewLine();
 void USARTClearSIM800L(void);
 
-# 16 "main.c"
+# 15 "main.c"
 void main()
 {
 SYSTEMInit(8);
@@ -4209,50 +4214,46 @@ USARTInit(115);
 GPIOPortInit();
 SIM800init();
 
-EEPROMEraseAll();
+LATCbits.LATC0=0;
+LATCbits.LATC1=0;
 
-EEPROMSaveNumber("6141654818",10,10);
-EEPROMSaveNumber("6145136845",10,11);
-
-while(1)
-{
 (GIE = 1);
 RCSTAbits.CREN=1;
 
-USARTWriteLine("AT+CSQ\r\n");
-_delay((unsigned long)((2000)*(8000000/4000.0)));
-
-while(SIM800L.busy==1);
-(GIE = 0);
-RCSTAbits.CREN=0;
-
+while(1)
+{
 switch(task)
 {
 case 0:
-USARTClearSIM800L();
+USARTWriteLine("AT+CSQ\r\n");
+_delay((unsigned long)((2000)*(8000000/4000.0)));
 break;
 case 1:
 USARTWriteLine("ATH\r\n");
 if(EEPROMSearchNumber(SIM800L.cell,SIM800L.cell_lenght))
 {
-LATCbits.LATC2=!LATCbits.LATC2;
-LATAbits.LATA4=!LATAbits.LATA4;
-SIM800SendSms(SIM800L.cell,SIM800L.csq);
+LATAbits.LATA4=1;
+_delay((unsigned long)((1000)*(8000000/4000.0)));
+LATAbits.LATA4=0;
 }
 else
 {
 GPIORedLedBlink(5);
-SIM800SendSms(SIM800L.cell, "Received-Unauthorized");}
+}
+USARTClearSIM800L();
 task=0;
 break;
 case 2:
-for(i=0;i<10;i++){LATCbits.LATC1=!LATCbits.LATC1; _delay((unsigned long)((200)*(8000000/4000.0)));}
+GPIOBlueLedBlink(5);
 SIM800ReadSms(SIM800L.smsmem);
-SIM800DeleteSms("1", "4");
-task=0;
+
+task=3;
 break;
 case 3:
+LATCbits.LATC0=1;
+SIM800Command();
 SIM800SendSms("+526141654818", "Command received");
+USARTClearSIM800L();
 task=0;
 break;
 default:

@@ -4151,6 +4151,7 @@ uint8_t task,i;
 # 61 "gpio.h"
 void GPIOPortInit();
 void GPIORedLedBlink(uint8_t times);
+void GPIOBlueLedBlink(uint8_t times);
 
 # 43 "eeprom.h"
 void EepromStart();
@@ -4161,8 +4162,9 @@ uint8_t EepromRead(uint16_t address);
 void EepromOpCode(uint8_t opcode, uint16_t address);
 void EepromWrite(uint16_t address, uint8_t data);
 uint8_t EEPROMSaveNumber(const char *nmbr, uint8_t nmbrLenght, uint16_t position);
-uint8_t EEPROMSearchNumber(const char *nmbr, uint8_t nmbrLenght);
+int8_t EEPROMSearchNumber(const char *nmbr, uint8_t nmbrLenght);
 void EEPROMEraseAll(void);
+uint8_t EEPROMAdd(const char *nmbr, uint8_t nmbrLenght);
 
 # 5 "eeprom.c"
 void EepromStart()
@@ -4267,78 +4269,56 @@ return data;
 
 uint8_t EEPROMSaveNumber(const char *nmbr, uint8_t nmbrLenght, uint16_t position)
 {
-uint8_t count=0, value=0,result=1;
+uint8_t count=0,result=1;
 uint16_t address=0;
-address=position*5;
-address=address+(5-1);
+address=position*10;
+address=address+(10-1);
 
-for(count=5;count>0;count--)
+for(count=10;count>0;count--)
 {
 if(nmbrLenght)
 {
 nmbrLenght--;
-if(*(nmbr+nmbrLenght)>='0')
-{value=*(nmbr+nmbrLenght)-'0';}
-else result=0;
-if(nmbrLenght)
+if(*(nmbr+nmbrLenght)>='0' && *(nmbr+nmbrLenght)<='9')
 {
-nmbrLenght--;
-if(*(nmbr+nmbrLenght)>='0')
-{value=value+((*(nmbr+nmbrLenght)-'0')<<4);}
-else result=0;
+EepromWrite(address,*(nmbr+nmbrLenght));
 }
 }
 else
-{value='\0';}
-
-EepromWrite(address,value);
+{
+EepromWrite(address,'\0');
+}
 address--;
 _delay((unsigned long)((5)*(8000000/4000.0)));
-value=0;
 }
 return result;
 }
 
-uint8_t EEPROMSearchNumber(const char *nmbr, uint8_t nmbrLenght)
+int8_t EEPROMSearchNumber(const char *nmbr, uint8_t nmbrLenght)
 {
-char convNmbr[5];
 uint16_t aux=0;
-uint8_t value=0,count=0, result=0;
-for(count=5;count>0;count--)
-{
-if(nmbrLenght)
-{
-nmbrLenght--;
-if(*(nmbr+nmbrLenght)>='0')
-{value=*(nmbr+nmbrLenght)-'0';}
-if(nmbrLenght)
-{
-nmbrLenght--;
-if(*(nmbr+nmbrLenght)>='0')
-{value=value+((*(nmbr+nmbrLenght)-'0')<<4);}
-}
-}
-else
-{value='\0';}
+uint8_t count=0, result=0;
 
-convNmbr[count-1]=value;
-value=0;
-}
-aux=5-1;
+aux=10-1;
+if(nmbrLenght>10) nmbrLenght=10;
 
-while(!result && aux<(600-5))
+while(!result && aux<(300-10))
 {
 count=0;
 do{
-if(EepromRead(aux-count)==convNmbr[5-(count+1)])
+if(EepromRead(aux-count)==*(nmbr+10-(count+1)))
 {result=1;}
 else
 {result=0;}
 count++;
-}while(result && count<(5));
-aux=aux+5;
+}while(result && count<nmbrLenght);
+aux=aux+10;
 }
-return result;
+if(result==1)
+{
+return (aux/10)+1;
+}
+else return 0;
 }
 
 void EEPROMEraseAll(void)
@@ -4353,4 +4333,21 @@ EepromStart();
 EepromOpCode(0b00000100, 0x400);
 EepromEnd();
 _delay((unsigned long)((500)*(8000000/4000.0)));
+}
+
+
+uint8_t EEPROMAdd(const char *nmbr, uint8_t nmbrLenght)
+{
+uint16_t empty=0;
+do
+{
+if(EepromRead((empty*10))<'0' || EepromRead((empty*10))>'9')
+{
+empty=1;
+}
+empty++;
+}while(!empty && empty<300);
+EEPROMSaveNumber(nmbr,nmbrLenght,empty);
+
+return 1;
 }

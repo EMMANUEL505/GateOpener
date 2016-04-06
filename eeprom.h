@@ -37,8 +37,8 @@ extern "C" {
 
 //  EEPROM definitions
 
-#define EEPROM_NUMBER_LENGHT    5
-#define EEPROM_MAX             600
+#define EEPROM_NUMBER_LENGHT    10
+#define EEPROM_MAX             300
 
 void EepromStart();
 void EepromEnd();
@@ -48,5 +48,6 @@ uint8_t EepromRead(uint16_t address);
 void EepromOpCode(uint8_t opcode, uint16_t address);
 void EepromWrite(uint16_t address, uint8_t data);
 uint8_t EEPROMSaveNumber(const char *nmbr, uint8_t nmbrLenght, uint16_t position);
-uint8_t EEPROMSearchNumber(const char *nmbr, uint8_t nmbrLenght);
+int8_t EEPROMSearchNumber(const char *nmbr, uint8_t nmbrLenght);
 void EEPROMEraseAll(void);
+uint8_t EEPROMAdd(const char *nmbr, uint8_t nmbrLenght);

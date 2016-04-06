@@ -34,3 +34,15 @@ void GPIORedLedBlink(uint8_t times)
         __delay_ms(100);
     }
 }
+
+void GPIOBlueLedBlink(uint8_t times)
+{
+    uint8_t i=0;
+    for(i=0;i<times;i++)
+    {
+        GPIOBlueLedSet();
+        __delay_ms(100);
+        GPIOBlueLedClear();
+        __delay_ms(100);
+    }
+}

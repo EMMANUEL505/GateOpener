@@ -4152,12 +4152,14 @@ uint8_t task,i;
 typedef struct{
 uint8_t busy;
 uint8_t uncomplete;
+uint8_t ok;
 uint8_t resp;
 uint8_t cell[15];
 uint8_t cell_lenght;
 uint8_t unreadsms;
 char smsmem[5];
-char buffer[128];
+char buffer[64];
+char command[25];
 char csq[5];
 }AT;
 
@@ -4171,6 +4173,7 @@ uint8_t SIM800SendSms(const char *nmbr, const char *msg);
 uint8_t SIM800ReadSms(const char *mem);
 uint8_t SIM800DeleteSms(const char *index, const char *flag);
 uint8_t SIM800Process();
+uint8_t SIM800Command();
 
 # 16 "usart.h"
 void USARTInit(uint16_t baud_rate);
@@ -4185,6 +4188,7 @@ void USARTClearSIM800L(void);
 # 61 "gpio.h"
 void GPIOPortInit();
 void GPIORedLedBlink(uint8_t times);
+void GPIOBlueLedBlink(uint8_t times);
 
 # 43 "eeprom.h"
 void EepromStart();
@@ -4195,8 +4199,9 @@ uint8_t EepromRead(uint16_t address);
 void EepromOpCode(uint8_t opcode, uint16_t address);
 void EepromWrite(uint16_t address, uint8_t data);
 uint8_t EEPROMSaveNumber(const char *nmbr, uint8_t nmbrLenght, uint16_t position);
-uint8_t EEPROMSearchNumber(const char *nmbr, uint8_t nmbrLenght);
+int8_t EEPROMSearchNumber(const char *nmbr, uint8_t nmbrLenght);
 void EEPROMEraseAll(void);
+uint8_t EEPROMAdd(const char *nmbr, uint8_t nmbrLenght);
 
 # 7 "sim800l.c"
 uint8_t SIM800init()
@@ -4246,6 +4251,7 @@ _delay((unsigned long)((2000)*(8000000/4000.0)));
 USARTWriteLine("AT+CMGR=");
 USARTWriteString(mem);
 USARTWriteString("\r\n");
+_delay((unsigned long)((2000)*(8000000/4000.0)));
 return 1;
 }
 uint8_t SIM800DeleteSms(const char *index, const char *flag)
@@ -4277,6 +4283,7 @@ task=1;
 }
 if(SIM800L.buffer[1]=='C' && SIM800L.buffer[2]=='M' && SIM800L.buffer[3]=='T' && SIM800L.buffer[4]=='I' )
 {
+
 task=2;
 }
 if(SIM800L.buffer[1]=='C' && SIM800L.buffer[2]=='S' && SIM800L.buffer[3]=='Q')
@@ -4288,6 +4295,25 @@ SIM800L.csq[ci-6]=SIM800L.buffer[ci];
 ci++;
 }
 SIM800L.csq[ci-6]=0;
+}
+}
+return 1;
+}
+
+uint8_t SIM800Command()
+{
+if(SIM800L.command[0]==':')
+{
+if(SIM800L.command[1]=='A' && SIM800L.command[2]=='D' && SIM800L.command[3]=='D' )
+{
+i=5;
+while(SIM800L.command[i]>='0' && SIM800L.command[i]<='9' )
+{
+SIM800L.cell[i-5]=SIM800L.buffer[i];
+i++;
+SIM800L.cell_lenght++;
+}
+EEPROMAdd(SIM800L.cell, SIM800L.cell_lenght);
 }
 }
 return 1;

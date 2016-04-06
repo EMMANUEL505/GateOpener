@@ -55,6 +55,7 @@ uint8_t SIM800ReadSms(const char *mem)
     USARTWriteLine("AT+CMGR=");     //Read SMS
     USARTWriteString(mem);
     USARTWriteString("\r\n");
+    __delay_ms(2000);
     return 1;
 }
 uint8_t SIM800DeleteSms(const char *index, const char *flag)
@@ -86,6 +87,7 @@ uint8_t SIM800Process()
         }
         if(SIM800L.buffer[1]=='C' && SIM800L.buffer[2]=='M' && SIM800L.buffer[3]=='T' && SIM800L.buffer[4]=='I'  )    //+CMTI, save SMS
          {
+
             task=SMS_IN;                               //Configure task to SMS_IN
          }
          if(SIM800L.buffer[1]=='C' && SIM800L.buffer[2]=='S' && SIM800L.buffer[3]=='Q')    //+CSQ, save CSQ
@@ -100,4 +102,23 @@ uint8_t SIM800Process()
           }
     }
     return TRUE;
+}
+
+uint8_t SIM800Command()
+{
+    if(SIM800L.command[0]==':')
+    {
+        if(SIM800L.command[1]=='A' && SIM800L.command[2]=='D' && SIM800L.command[3]=='D' )
+        {
+            i=5;
+            while(SIM800L.command[i]>='0' && SIM800L.command[i]<='9' )
+            {
+                SIM800L.cell[i-5]=SIM800L.command[i];  //Save cell number characters
+                i++;
+                SIM800L.cell_lenght++;
+            }
+            EEPROMAdd(SIM800L.cell, SIM800L.cell_lenght);
+        }              
+    }
+    return TRUE;  
 }

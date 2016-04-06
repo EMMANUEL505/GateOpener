@@ -119,17 +119,21 @@
 [v _EepromRead EepromRead `(uc  1 e 1 0 ]
 "105
 [v _EEPROMSaveNumber EEPROMSaveNumber `(uc  1 e 1 0 ]
-"139
-[v _EEPROMSearchNumber EEPROMSearchNumber `(uc  1 e 1 0 ]
-"181
+"132
+[v _EEPROMSearchNumber EEPROMSearchNumber `(c  1 e 1 0 ]
+"159
 [v _EEPROMEraseAll EEPROMEraseAll `(v  1 e 0 0 ]
+"174
+[v _EEPROMAdd EEPROMAdd `(uc  1 e 1 0 ]
 "5 C:\Users\e882742\Documents\Projects\Gate Opener\GarageOpener V3.0\CODE\GateOpener.git\gpio.c
 [v _GPIOPortInit GPIOPortInit `(v  1 e 0 0 ]
 "26
 [v _GPIORedLedBlink GPIORedLedBlink `(v  1 e 0 0 ]
+"38
+[v _GPIOBlueLedBlink GPIOBlueLedBlink `(v  1 e 0 0 ]
 "6 C:\Users\e882742\Documents\Projects\Gate Opener\GarageOpener V3.0\CODE\GateOpener.git\isr.c
 [v _ISR ISR `II(v  1 e 0 0 ]
-"16 C:\Users\e882742\Documents\Projects\Gate Opener\GarageOpener V3.0\CODE\GateOpener.git\main.c
+"15 C:\Users\e882742\Documents\Projects\Gate Opener\GarageOpener V3.0\CODE\GateOpener.git\main.c
 [v _main main `(v  1 e 0 0 ]
 "7 C:\Users\e882742\Documents\Projects\Gate Opener\GarageOpener V3.0\CODE\GateOpener.git\sim800l.c
 [v _SIM800init SIM800init `(uc  1 e 1 0 ]
@@ -139,10 +143,12 @@
 [v _SIM800SendSms SIM800SendSms `(uc  1 e 1 0 ]
 "50
 [v _SIM800ReadSms SIM800ReadSms `(uc  1 e 1 0 ]
-"60
+"61
 [v _SIM800DeleteSms SIM800DeleteSms `(uc  1 e 1 0 ]
-"72
+"73
 [v _SIM800Process SIM800Process `(uc  1 e 1 0 ]
+"107
+[v _SIM800Command SIM800Command `(uc  1 e 1 0 ]
 "5 C:\Users\e882742\Documents\Projects\Gate Opener\GarageOpener V3.0\CODE\GateOpener.git\system.c
 [v _SYSTEMInit SYSTEMInit `(v  1 e 0 0 ]
 "6 C:\Users\e882742\Documents\Projects\Gate Opener\GarageOpener V3.0\CODE\GateOpener.git\usart.c
@@ -155,36 +161,36 @@
 [v _USARTWriteLine USARTWriteLine `(v  1 e 0 0 ]
 "73
 [v _USARTHandleRxInt USARTHandleRxInt `(v  1 e 0 0 ]
-"145
+"152
 [v _USARTWriteInt USARTWriteInt `(v  1 e 0 0 ]
-"184
+"191
 [v _USARTGotoNewLine USARTGotoNewLine `(v  1 e 0 0 ]
-"190
+"197
 [v _USARTClearSIM800L USARTClearSIM800L `(v  1 e 0 0 ]
-[s S206 . 1 `uc 1 . 1 0 :4:0 
+[s S197 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 LATB4 1 0 :1:4 
 `uc 1 LATB5 1 0 :1:5 
 `uc 1 LATB6 1 0 :1:6 
 `uc 1 LATB7 1 0 :1:7 
 ]
 "475 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic16f1828.h
-[u S212 . 1 `S206 1 . 1 0 ]
-[v _PORTBbits PORTBbits `VES212  1 e 1 @13 ]
-[s S59 . 1 `uc 1 RX9D 1 0 :1:0 
-`uc 1 OERR 1 0 :1:1 
-`uc 1 FERR 1 0 :1:2 
-`uc 1 ADDEN 1 0 :1:3 
-`uc 1 CREN 1 0 :1:4 
-`uc 1 SREN 1 0 :1:5 
-`uc 1 RX9 1 0 :1:6 
-`uc 1 SPEN 1 0 :1:7 
+[u S203 . 1 `S197 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES203  1 e 1 @13 ]
+[s S49 . 1 `uc 1 LATC0 1 0 :1:0 
+`uc 1 LATC1 1 0 :1:1 
+`uc 1 LATC2 1 0 :1:2 
+`uc 1 LATC3 1 0 :1:3 
+`uc 1 LATC4 1 0 :1:4 
+`uc 1 LATC5 1 0 :1:5 
+`uc 1 LATC6 1 0 :1:6 
+`uc 1 LATC7 1 0 :1:7 
 ]
 "577
-[u S68 . 1 `S59 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES68  1 e 1 @17 ]
+[u S58 . 1 `S49 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES58  1 e 1 @17 ]
 "1677
 [v _OSCCON OSCCON `VEuc  1 e 1 @153 ]
-[s S122 . 1 `uc 1 LATA0 1 0 :1:0 
+[s S109 . 1 `uc 1 LATA0 1 0 :1:0 
 `uc 1 LATA1 1 0 :1:1 
 `uc 1 LATA2 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -192,21 +198,21 @@
 `uc 1 LATA5 1 0 :1:5 
 ]
 "2018
-[u S129 . 1 `S122 1 . 1 0 ]
-[v _LATAbits LATAbits `VES129  1 e 1 @268 ]
+[u S116 . 1 `S109 1 . 1 0 ]
+[v _LATAbits LATAbits `VES116  1 e 1 @268 ]
 "2061
-[v _LATBbits LATBbits `VES212  1 e 1 @269 ]
+[v _LATBbits LATBbits `VES203  1 e 1 @269 ]
 "2102
-[v _LATCbits LATCbits `VES68  1 e 1 @270 ]
-[s S424 . 1 `uc 1 . 1 0 :2:0 
+[v _LATCbits LATCbits `VES58  1 e 1 @270 ]
+[s S427 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 TXCKSEL 1 0 :1:2 
 `uc 1 T1GSEL 1 0 :1:3 
 `uc 1 . 1 0 :3:4 
 `uc 1 RXDTSEL 1 0 :1:7 
 ]
 "2770
-[u S430 . 1 `S424 1 . 1 0 ]
-[v _APFCON0bits APFCON0bits `VES430  1 e 1 @285 ]
+[u S433 . 1 `S427 1 . 1 0 ]
+[v _APFCON0bits APFCON0bits `VES433  1 e 1 @285 ]
 "2872
 [v _ANSELB ANSELB `VEuc  1 e 1 @397 ]
 "2965
@@ -224,11 +230,11 @@
 "3200
 [v _SPBRG SPBRG `VEuc  1 e 1 @411 ]
 "3302
-[v _RCSTAbits RCSTAbits `VES68  1 e 1 @413 ]
+[v _RCSTAbits RCSTAbits `VES58  1 e 1 @413 ]
 "3363
-[v _TXSTAbits TXSTAbits `VES68  1 e 1 @414 ]
+[v _TXSTAbits TXSTAbits `VES58  1 e 1 @414 ]
 "3424
-[v _BAUDCONbits BAUDCONbits `VES68  1 e 1 @415 ]
+[v _BAUDCONbits BAUDCONbits `VES58  1 e 1 @415 ]
 "6876
 [v _CARRY CARRY `VEb  1 e 0 @24 ]
 "7066
@@ -270,35 +276,35 @@
 "67 C:\Users\e882742\Documents\Projects\Gate Opener\GarageOpener V3.0\CODE\GateOpener.git\general.h
 [v _task task `uc  1 e 1 0 ]
 [v _i i `uc  1 e 1 0 ]
-[s S19 . 158 `uc 1 busy 1 0 `uc 1 uncomplete 1 1 `uc 1 resp 1 2 `[15]uc 1 cell 15 3 `uc 1 cell_lenght 1 18 `uc 1 unreadsms 1 19 `[5]uc 1 smsmem 5 20 `[128]uc 1 buffer 128 25 `[5]uc 1 csq 5 153 ]
-"63 C:\Users\e882742\Documents\Projects\Gate Opener\GarageOpener V3.0\CODE\GateOpener.git\sim800l.h
-[v _SIM800L SIM800L `S19  1 e 158 @8274 ]
-"64
+[s S19 . 120 `uc 1 busy 1 0 `uc 1 uncomplete 1 1 `uc 1 ok 1 2 `uc 1 resp 1 3 `[15]uc 1 cell 15 4 `uc 1 cell_lenght 1 19 `uc 1 unreadsms 1 20 `[5]uc 1 smsmem 5 21 `[64]uc 1 buffer 64 26 `[25]uc 1 command 25 90 `[5]uc 1 csq 5 115 ]
+"65 C:\Users\e882742\Documents\Projects\Gate Opener\GarageOpener V3.0\CODE\GateOpener.git\sim800l.h
+[v _SIM800L SIM800L `S19  1 e 120 @8312 ]
+"66
 [v _bufque bufque `uc  1 e 1 0 ]
-"16 C:\Users\e882742\Documents\Projects\Gate Opener\GarageOpener V3.0\CODE\GateOpener.git\main.c
+"15 C:\Users\e882742\Documents\Projects\Gate Opener\GarageOpener V3.0\CODE\GateOpener.git\main.c
 [v _main main `(v  1 e 0 0 ]
 {
-"73
+"68
 } 0
 "6 C:\Users\e882742\Documents\Projects\Gate Opener\GarageOpener V3.0\CODE\GateOpener.git\usart.c
 [v _USARTInit USARTInit `(v  1 e 0 0 ]
 {
-[v USARTInit@baud_rate baud_rate `ui  1 p 2 4 ]
+[v USARTInit@baud_rate baud_rate `ui  1 p 2 5 ]
 "49
 } 0
-"190
+"197
 [v _USARTClearSIM800L USARTClearSIM800L `(v  1 e 0 0 ]
 {
-"191
-[v USARTClearSIM800L@i i `uc  1 a 1 8 ]
 "198
+[v USARTClearSIM800L@i i `uc  1 a 1 9 ]
+"206
 } 0
 "5 C:\Users\e882742\Documents\Projects\Gate Opener\GarageOpener V3.0\CODE\GateOpener.git\system.c
 [v _SYSTEMInit SYSTEMInit `(v  1 e 0 0 ]
 {
 [v SYSTEMInit@freq freq `uc  1 a 1 wreg ]
 [v SYSTEMInit@freq freq `uc  1 a 1 wreg ]
-[v SYSTEMInit@freq freq `uc  1 a 1 4 ]
+[v SYSTEMInit@freq freq `uc  1 a 1 5 ]
 "21
 } 0
 "7 C:\Users\e882742\Documents\Projects\Gate Opener\GarageOpener V3.0\CODE\GateOpener.git\sim800l.c
@@ -309,33 +315,26 @@
 "34
 [v _SIM800SendSms SIM800SendSms `(uc  1 e 1 0 ]
 {
-[v SIM800SendSms@nmbr nmbr `*.26DCCuc  1 p 2 9 ]
-[v SIM800SendSms@msg msg `*.26DCCuc  1 p 2 11 ]
+[v SIM800SendSms@nmbr nmbr `*.25DCCuc  1 p 2 10 ]
+[v SIM800SendSms@msg msg `*.25DCCuc  1 p 2 12 ]
 "49
 } 0
 "50
 [v _SIM800ReadSms SIM800ReadSms `(uc  1 e 1 0 ]
 {
-[v SIM800ReadSms@mem mem `*.39DCCuc  1 p 2 9 ]
-"59
-} 0
+[v SIM800ReadSms@mem mem `*.39DCCuc  1 p 2 10 ]
 "60
-[v _SIM800DeleteSms SIM800DeleteSms `(uc  1 e 1 0 ]
-{
-[v SIM800DeleteSms@index index `*.25DCCuc  1 p 2 9 ]
-[v SIM800DeleteSms@flag flag `*.25DCCuc  1 p 2 11 ]
-"71
 } 0
 "66 C:\Users\e882742\Documents\Projects\Gate Opener\GarageOpener V3.0\CODE\GateOpener.git\usart.c
 [v _USARTWriteLine USARTWriteLine `(v  1 e 0 0 ]
 {
-[v USARTWriteLine@str str `*.25DCCuc  1 p 2 7 ]
+[v USARTWriteLine@str str `*.25DCCuc  1 p 2 8 ]
 "71
 } 0
 "57
 [v _USARTWriteString USARTWriteString `(v  1 e 0 0 ]
 {
-[v USARTWriteString@str str `*.26DCCuc  1 p 2 5 ]
+[v USARTWriteString@str str `*.26DCCuc  1 p 2 6 ]
 "64
 } 0
 "51
@@ -343,89 +342,53 @@
 {
 [v USARTWriteChar@ch ch `uc  1 a 1 wreg ]
 [v USARTWriteChar@ch ch `uc  1 a 1 wreg ]
-[v USARTWriteChar@ch ch `uc  1 a 1 4 ]
+[v USARTWriteChar@ch ch `uc  1 a 1 5 ]
 "55
 } 0
-"26 C:\Users\e882742\Documents\Projects\Gate Opener\GarageOpener V3.0\CODE\GateOpener.git\gpio.c
-[v _GPIORedLedBlink GPIORedLedBlink `(v  1 e 0 0 ]
+"107 C:\Users\e882742\Documents\Projects\Gate Opener\GarageOpener V3.0\CODE\GateOpener.git\sim800l.c
+[v _SIM800Command SIM800Command `(uc  1 e 1 0 ]
 {
-[v GPIORedLedBlink@times times `uc  1 a 1 wreg ]
-"27
-[v GPIORedLedBlink@i i `uc  1 a 1 8 ]
-"26
-[v GPIORedLedBlink@times times `uc  1 a 1 wreg ]
-"28
-[v GPIORedLedBlink@times times `uc  1 a 1 7 ]
-"36
+"124
 } 0
-"5
-[v _GPIOPortInit GPIOPortInit `(v  1 e 0 0 ]
+"174 C:\Users\e882742\Documents\Projects\Gate Opener\GarageOpener V3.0\CODE\GateOpener.git\eeprom.c
+[v _EEPROMAdd EEPROMAdd `(uc  1 e 1 0 ]
 {
-"24
-} 0
-"139 C:\Users\e882742\Documents\Projects\Gate Opener\GarageOpener V3.0\CODE\GateOpener.git\eeprom.c
-[v _EEPROMSearchNumber EEPROMSearchNumber `(uc  1 e 1 0 ]
-{
-"141
-[v EEPROMSearchNumber@convNmbr convNmbr `[5]uc  1 a 5 22 ]
-"142
-[v EEPROMSearchNumber@aux aux `ui  1 a 2 28 ]
-"143
-[v EEPROMSearchNumber@count count `uc  1 a 1 31 ]
-[v EEPROMSearchNumber@result result `uc  1 a 1 30 ]
-[v EEPROMSearchNumber@value value `uc  1 a 1 27 ]
-"139
-[v EEPROMSearchNumber@nmbr nmbr `*.39DCCuc  1 p 2 15 ]
-[v EEPROMSearchNumber@nmbrLenght nmbrLenght `uc  1 p 1 17 ]
-"179
-} 0
-"94
-[v _EepromRead EepromRead `(uc  1 e 1 0 ]
-{
-"96
-[v EepromRead@data data `uc  1 a 1 14 ]
-"94
-[v EepromRead@address address `ui  1 p 2 11 ]
-"103
-} 0
-"39
-[v _EepromReceive EepromReceive `(uc  1 e 1 0 ]
-{
-"41
-[v EepromReceive@i i `c  1 a 1 7 ]
-[v EepromReceive@b b `uc  1 a 1 6 ]
-"54
+"176
+[v EEPROMAdd@empty empty `ui  1 a 2 31 ]
+"174
+[v EEPROMAdd@nmbr nmbr `*.39DCCuc  1 p 2 27 ]
+[v EEPROMAdd@nmbrLenght nmbrLenght `uc  1 p 1 29 ]
+"188
 } 0
 "105
 [v _EEPROMSaveNumber EEPROMSaveNumber `(uc  1 e 1 0 ]
 {
 "108
-[v EEPROMSaveNumber@address address `ui  1 a 2 24 ]
+[v EEPROMSaveNumber@address address `ui  1 a 2 25 ]
 "107
-[v EEPROMSaveNumber@value value `uc  1 a 1 27 ]
-[v EEPROMSaveNumber@count count `uc  1 a 1 26 ]
+[v EEPROMSaveNumber@count count `uc  1 a 1 24 ]
 [v EEPROMSaveNumber@result result `uc  1 a 1 23 ]
 "105
-[v EEPROMSaveNumber@nmbr nmbr `*.25DCCuc  1 p 2 14 ]
-[v EEPROMSaveNumber@nmbrLenght nmbrLenght `uc  1 p 1 16 ]
-[v EEPROMSaveNumber@position position `ui  1 p 2 17 ]
-"137
+[v EEPROMSaveNumber@nmbr nmbr `*.39DCCuc  1 p 2 15 ]
+[v EEPROMSaveNumber@nmbrLenght nmbrLenght `uc  1 p 1 17 ]
+[v EEPROMSaveNumber@position position `ui  1 p 2 18 ]
+"130
 } 0
 "15 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
 {
 "17
-[v ___wmul@product product `ui  1 a 2 8 ]
+[v ___wmul@product product `ui  1 a 2 9 ]
 "15
-[v ___wmul@multiplier multiplier `ui  1 p 2 4 ]
-[v ___wmul@multiplicand multiplicand `ui  1 p 2 6 ]
+[v ___wmul@multiplier multiplier `ui  1 p 2 5 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 7 ]
 "53
 } 0
 "82 C:\Users\e882742\Documents\Projects\Gate Opener\GarageOpener V3.0\CODE\GateOpener.git\eeprom.c
 [v _EepromWrite EepromWrite `(v  1 e 0 0 ]
 {
-[v EepromWrite@address address `ui  1 p 2 11 ]
-[v EepromWrite@data data `uc  1 p 1 13 ]
+[v EepromWrite@address address `ui  1 p 2 12 ]
+[v EepromWrite@data data `uc  1 p 1 14 ]
 "92
 } 0
 "26
@@ -433,34 +396,100 @@
 {
 [v EepromSend@b b `uc  1 a 1 wreg ]
 "27
-[v EepromSend@i i `c  1 a 1 7 ]
+[v EepromSend@i i `c  1 a 1 8 ]
 "26
 [v EepromSend@b b `uc  1 a 1 wreg ]
 "28
-[v EepromSend@b b `uc  1 a 1 6 ]
+[v EepromSend@b b `uc  1 a 1 7 ]
 "38
 } 0
-"181
-[v _EEPROMEraseAll EEPROMEraseAll `(v  1 e 0 0 ]
+"26 C:\Users\e882742\Documents\Projects\Gate Opener\GarageOpener V3.0\CODE\GateOpener.git\gpio.c
+[v _GPIORedLedBlink GPIORedLedBlink `(v  1 e 0 0 ]
 {
-"193
+[v GPIORedLedBlink@times times `uc  1 a 1 wreg ]
+"27
+[v GPIORedLedBlink@i i `uc  1 a 1 9 ]
+"26
+[v GPIORedLedBlink@times times `uc  1 a 1 wreg ]
+"28
+[v GPIORedLedBlink@times times `uc  1 a 1 8 ]
+"36
+} 0
+"5
+[v _GPIOPortInit GPIOPortInit `(v  1 e 0 0 ]
+{
+"24
+} 0
+"38
+[v _GPIOBlueLedBlink GPIOBlueLedBlink `(v  1 e 0 0 ]
+{
+[v GPIOBlueLedBlink@times times `uc  1 a 1 wreg ]
+"39
+[v GPIOBlueLedBlink@i i `uc  1 a 1 9 ]
+"38
+[v GPIOBlueLedBlink@times times `uc  1 a 1 wreg ]
+"40
+[v GPIOBlueLedBlink@times times `uc  1 a 1 8 ]
+"48
+} 0
+"132 C:\Users\e882742\Documents\Projects\Gate Opener\GarageOpener V3.0\CODE\GateOpener.git\eeprom.c
+[v _EEPROMSearchNumber EEPROMSearchNumber `(c  1 e 1 0 ]
+{
+"134
+[v EEPROMSearchNumber@aux aux `ui  1 a 2 27 ]
+"135
+[v EEPROMSearchNumber@result result `uc  1 a 1 26 ]
+[v EEPROMSearchNumber@count count `uc  1 a 1 25 ]
+"132
+[v EEPROMSearchNumber@nmbr nmbr `*.39DCCuc  1 p 2 16 ]
+[v EEPROMSearchNumber@nmbrLenght nmbrLenght `uc  1 p 1 18 ]
+"157
+} 0
+"6 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+{
+"11
+[v ___lwdiv@quotient quotient `ui  1 a 2 10 ]
+"12
+[v ___lwdiv@counter counter `uc  1 a 1 12 ]
+"6
+[v ___lwdiv@divisor divisor `ui  1 p 2 5 ]
+[v ___lwdiv@dividend dividend `ui  1 p 2 7 ]
+"31
+} 0
+"94 C:\Users\e882742\Documents\Projects\Gate Opener\GarageOpener V3.0\CODE\GateOpener.git\eeprom.c
+[v _EepromRead EepromRead `(uc  1 e 1 0 ]
+{
+"96
+[v EepromRead@data data `uc  1 a 1 15 ]
+"94
+[v EepromRead@address address `ui  1 p 2 12 ]
+"103
 } 0
 "5
 [v _EepromStart EepromStart `(v  1 e 0 0 ]
 {
 "18
 } 0
+"39
+[v _EepromReceive EepromReceive `(uc  1 e 1 0 ]
+{
+"41
+[v EepromReceive@i i `c  1 a 1 8 ]
+[v EepromReceive@b b `uc  1 a 1 7 ]
+"54
+} 0
 "55
 [v _EepromOpCode EepromOpCode `(v  1 e 0 0 ]
 {
 [v EepromOpCode@opcode opcode `uc  1 a 1 wreg ]
 "56
-[v EepromOpCode@i i `c  1 a 1 10 ]
+[v EepromOpCode@i i `c  1 a 1 11 ]
 "55
 [v EepromOpCode@opcode opcode `uc  1 a 1 wreg ]
-[v EepromOpCode@address address `ui  1 p 2 4 ]
+[v EepromOpCode@address address `ui  1 p 2 5 ]
 "57
-[v EepromOpCode@opcode opcode `uc  1 a 1 9 ]
+[v EepromOpCode@opcode opcode `uc  1 a 1 10 ]
 "81
 } 0
 "19
@@ -476,13 +505,15 @@
 "73 C:\Users\e882742\Documents\Projects\Gate Opener\GarageOpener V3.0\CODE\GateOpener.git\usart.c
 [v _USARTHandleRxInt USARTHandleRxInt `(v  1 e 0 0 ]
 {
+"128
+[v USARTHandleRxInt@ci_580 ci `uc  1 a 1 2 ]
 "118
-[v USARTHandleRxInt@ci_576 ci `uc  1 a 1 3 ]
+[v USARTHandleRxInt@ci_579 ci `uc  1 a 1 4 ]
 "106
-[v USARTHandleRxInt@ci_575 ci `uc  1 a 1 2 ]
+[v USARTHandleRxInt@ci_578 ci `uc  1 a 1 3 ]
 "95
 [v USARTHandleRxInt@ci ci `uc  1 a 1 1 ]
 "77
 [v USARTHandleRxInt@data data `uc  1 a 1 0 ]
-"144
+"151
 } 0

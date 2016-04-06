@@ -44,7 +44,7 @@ void USARTInit(uint16_t baud_rate)
     RCIE=1;
     PEIE=1;
 
-    ei();
+    ei();   //Enable interrupts
 
 }
 
@@ -72,7 +72,7 @@ void USARTWriteLine(const char *str)
 
 void USARTHandleRxInt()
 {
-    GPIOBlueLedSet();
+    GPIORedLedSet();
     //Read the data
     char data=RCREG;
     SIM800L.busy=TRUE;
@@ -86,8 +86,8 @@ void USARTHandleRxInt()
             else
             {
                 SIM800L.buffer[bufque]=0;   //End of string
-
-                SIM800L.uncomplete=FALSE;
+                SIM800L.uncomplete=FALSE;   //Clear flag indicating full buffer received
+                
                 if(SIM800L.buffer[0]=='+')                         //Case for unsolicited messages
                 {
                    if(SIM800L.buffer[1]=='C' && SIM800L.buffer[2]=='L' && SIM800L.buffer[3]=='I'  )    //+CLIP, save caller's cellnumber
@@ -123,14 +123,21 @@ void USARTHandleRxInt()
                      }
                      SIM800L.csq[ci-6]=0;
                    }
-                   if(SIM800L.buffer[1]=='T' && SIM800L.buffer[2]=='E' && SIM800L.buffer[3]=='L')
+                   if(SIM800L.buffer[1]=='C' && SIM800L.buffer[2]=='M' && SIM800L.buffer[3]=='D')
                    {
-                       task=COMMAND;
+                     uint8_t ci=4;
+                     while(SIM800L.buffer[ci]!='#' && (ci-4)<25)             //Save characters until " arrive
+                      {
+                          SIM800L.command[ci-4]=SIM800L.buffer[ci];  //Save cell number characters
+                          ci++;
+                      }
+                     task=COMMAND;
                    }
                 }
+               else if(SIM800L.buffer[0]=='O' && SIM800L.buffer[1]=='K') SIM800L.ok=TRUE;
                 bufque=0;
              }
-             SIM800L.busy=FALSE;
+             SIM800L.busy=FALSE;    //Clear busy flag
          break;
          default:
              if(bufque<(SIM800L_BUFFER_SIZE-1))
@@ -140,7 +147,7 @@ void USARTHandleRxInt()
              }
          break;
      }
-    GPIOBlueLedClear();
+    GPIORedLedClear();
 }
 void USARTWriteInt(int16_t val, int8_t field_length)
 {
@@ -193,6 +200,7 @@ void USARTClearSIM800L(void)
     SIM800L.busy=FALSE;
     SIM800L.uncomplete=FALSE;
     SIM800L.cell_lenght=FALSE;
+    SIM800L.ok=FALSE;
     for(i=0;i<SIM800L_CELL_LENGHT;i++){SIM800L.cell[i]='\0';}
     for(i=0;i<SIM800L_BUFFER_SIZE;i++) SIM800L.buffer[i]=0;
 }
