@@ -3051,6 +3051,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _task `uc ~T0 @X0 1 e ]
 [v _i `uc ~T0 @X0 1 e ]
 [; ;general.h: 67: uint8_t task,i;
+"68
+[v _password `uc ~T0 @X0 -> 4 `i e ]
+[; ;general.h: 68: char password[4];
 [; ;gpio.h: 61: void GPIOPortInit();
 [; ;gpio.h: 62: void GPIORedLedBlink(uint8_t times);
 [; ;gpio.h: 63: void GPIOBlueLedBlink(uint8_t times);

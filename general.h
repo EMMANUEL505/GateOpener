@@ -65,3 +65,4 @@ extern "C" {
 #define COMMAND     3
 
 uint8_t task,i;
+char password[4];

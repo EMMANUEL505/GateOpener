@@ -3,7 +3,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _RCIE `Vb ~T0 @X0 0 e@1165 ]
 "7414
 [v _RCIF `Vb ~T0 @X0 0 e@141 ]
-"21 usart.h
+"27 usart.h
 [v _USARTHandleRxInt `(v ~T0 @X0 0 ef ]
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
@@ -2903,17 +2903,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom_routines.h: 43: extern void eecpymem(volatile unsigned char *to, __eeprom unsigned char *from, unsigned char size);
 [; ;eeprom_routines.h: 44: extern void memcpyee(__eeprom unsigned char *to, const unsigned char *from, unsigned char size);
 [; ;pic.h: 154: extern __nonreentrant void _delay(unsigned long);
-[; ;usart.h: 16: void USARTInit(uint16_t baud_rate);
-[; ;usart.h: 17: void USARTWriteChar(char ch);
-[; ;usart.h: 18: void USARTWriteString(const char *str);
-[; ;usart.h: 19: void USARTWriteLine(const char *str);
-[; ;usart.h: 20: void USARTWriteInt(int16_t val, int8_t field_length);
-[; ;usart.h: 21: void USARTHandleRxInt();
-[; ;usart.h: 22: void USARTGotoNewLine();
-[; ;usart.h: 23: void USARTClearSIM800L(void);
-[v F2989 `(v ~T0 @X0 1 tf ]
+[; ;usart.h: 22: void USARTInit(uint16_t baud_rate);
+[; ;usart.h: 23: void USARTWriteChar(char ch);
+[; ;usart.h: 24: void USARTWriteString(const char *str);
+[; ;usart.h: 25: void USARTWriteLine(const char *str);
+[; ;usart.h: 26: void USARTWriteInt(int16_t val, int8_t field_length);
+[; ;usart.h: 27: void USARTHandleRxInt();
+[; ;usart.h: 28: void USARTGotoNewLine();
+[v F2987 `(v ~T0 @X0 1 tf ]
 "6 isr.c
-[v _ISR `IF2989 ~T0 @X0 1 e ]
+[v _ISR `IF2987 ~T0 @X0 1 e ]
 "7
 {
 [; ;isr.c: 6: void interrupt ISR(void)

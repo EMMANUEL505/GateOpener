@@ -4147,11 +4147,12 @@ typedef uint16_t uintptr_t;
 
 # 67
 uint8_t task,i;
+char password[4];
 
 # 29 "system.h"
 void SYSTEMInit(uint8_t freq);
 
-# 43 "eeprom.h"
+# 47 "eeprom.h"
 void EepromStart();
 void EepromEnd();
 void EepromSend(uint8_t b);
@@ -4160,9 +4161,12 @@ uint8_t EepromRead(uint16_t address);
 void EepromOpCode(uint8_t opcode, uint16_t address);
 void EepromWrite(uint16_t address, uint8_t data);
 uint8_t EEPROMSaveNumber(const char *nmbr, uint8_t nmbrLenght, uint16_t position);
+uint8_t EEPROMDeleteNumber(uint16_t position);
 int8_t EEPROMSearchNumber(const char *nmbr, uint8_t nmbrLenght);
 void EEPROMEraseAll(void);
 uint8_t EEPROMAdd(const char *nmbr, uint8_t nmbrLenght);
+void EEPROMUpdatePassword(const char *pass);
+uint8_t EEPROMCheckPassword(const char *pass);
 
 # 51 "sim800l.h"
 typedef struct{
@@ -4179,6 +4183,9 @@ char command[25];
 char csq[5];
 }AT;
 
+
+
+
 AT SIM800L;
 uint8_t bufque;
 
@@ -4190,13 +4197,14 @@ uint8_t SIM800ReadSms(const char *mem);
 uint8_t SIM800DeleteSms(const char *index, const char *flag);
 uint8_t SIM800Process();
 uint8_t SIM800Command();
+void SIM800LClear(void);
 
 # 61 "gpio.h"
 void GPIOPortInit();
 void GPIORedLedBlink(uint8_t times);
 void GPIOBlueLedBlink(uint8_t times);
 
-# 16 "usart.h"
+# 22 "usart.h"
 void USARTInit(uint16_t baud_rate);
 void USARTWriteChar(char ch);
 void USARTWriteString(const char *str);
@@ -4204,7 +4212,6 @@ void USARTWriteLine(const char *str);
 void USARTWriteInt(int16_t val, int8_t field_length);
 void USARTHandleRxInt();
 void USARTGotoNewLine();
-void USARTClearSIM800L(void);
 
 # 15 "main.c"
 void main()
@@ -4213,7 +4220,7 @@ SYSTEMInit(8);
 USARTInit(115);
 GPIOPortInit();
 SIM800init();
-
+EEPROMUpdatePassword("1234");
 LATCbits.LATC0=0;
 LATCbits.LATC1=0;
 
@@ -4225,6 +4232,7 @@ while(1)
 switch(task)
 {
 case 0:
+if(RCSTAbits.OERR==1) {CREN=0;_delay((unsigned long)((200)*(8000000/4000000.0)));RCSTAbits.CREN=1; }
 USARTWriteLine("AT+CSQ\r\n");
 _delay((unsigned long)((2000)*(8000000/4000.0)));
 break;
@@ -4240,7 +4248,7 @@ else
 {
 GPIORedLedBlink(5);
 }
-USARTClearSIM800L();
+SIM800LClear();
 task=0;
 break;
 case 2:
@@ -4252,8 +4260,8 @@ break;
 case 3:
 LATCbits.LATC0=1;
 SIM800Command();
-SIM800SendSms("+526141654818", "Command received");
-USARTClearSIM800L();
+SIM800LClear();
+SIM800DeleteSms("1", "4");
 task=0;
 break;
 default:

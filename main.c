@@ -18,7 +18,7 @@ void main()
     USARTInit(115);     //Initialize USART at 115200 baudrate
     GPIOPortInit();     //Initialize port directions (output,input)
     SIM800init();       //Initialize GSM module
-
+    EEPROMUpdatePassword("1234");
     GPIORedLedClear();
     GPIOBlueLedClear();
 
@@ -30,8 +30,8 @@ void main()
         switch(task)
         {
             case WAITING:
-                if(RCSTAbits.OERR==1)  {CREN=DISABLED;__delay_us(200);RCSTAbits.CREN=ENABLED; }
-                USARTWriteLine("AT+CSQ\r\n");       //Check signal Quality
+                if(RCSTAbits.OERR==1)  {CREN=DISABLED;__delay_us(200);RCSTAbits.CREN=ENABLED; } //Check for overwrite
+                USARTWriteLine("AT+CSQ\r\n");               //Check signal Quality
                 __delay_ms(2000);
             break;
             case CALL_IN:
@@ -46,7 +46,7 @@ void main()
                 {
                     GPIORedLedBlink(5);
                 }
-                USARTClearSIM800L();
+                SIM800LClear();
                 task=WAITING;
             break;
             case SMS_IN:
@@ -58,8 +58,8 @@ void main()
             case COMMAND:
                 GPIORedLedSet();
                 SIM800Command();
-                SIM800SendSms("+526141654818", "Command received");
-                USARTClearSIM800L();
+                SIM800LClear();
+                SIM800DeleteSms("1", ALL_MESSAGES);
                 task=WAITING;
             break;
             default:

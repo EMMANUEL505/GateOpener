@@ -4147,8 +4147,9 @@ typedef uint16_t uintptr_t;
 
 # 67
 uint8_t task,i;
+char password[4];
 
-# 16 "usart.h"
+# 22 "usart.h"
 void USARTInit(uint16_t baud_rate);
 void USARTWriteChar(char ch);
 void USARTWriteString(const char *str);
@@ -4156,7 +4157,6 @@ void USARTWriteLine(const char *str);
 void USARTWriteInt(int16_t val, int8_t field_length);
 void USARTHandleRxInt();
 void USARTGotoNewLine();
-void USARTClearSIM800L(void);
 
 # 61 "gpio.h"
 void GPIOPortInit();
@@ -4178,6 +4178,9 @@ char command[25];
 char csq[5];
 }AT;
 
+
+
+
 AT SIM800L;
 uint8_t bufque;
 
@@ -4189,6 +4192,7 @@ uint8_t SIM800ReadSms(const char *mem);
 uint8_t SIM800DeleteSms(const char *index, const char *flag);
 uint8_t SIM800Process();
 uint8_t SIM800Command();
+void SIM800LClear(void);
 
 # 6 "usart.c"
 void USARTInit(uint16_t baud_rate)
@@ -4287,6 +4291,7 @@ SIM800L.cell[ci-8]=SIM800L.buffer[ci];
 ci++;
 SIM800L.cell_lenght++;
 }
+SIM800L.cell[ci-8]='\0';
 task=1;
 }
 if(SIM800L.buffer[1]=='C' && SIM800L.buffer[2]=='M' && SIM800L.buffer[3]=='T' && SIM800L.buffer[4]=='I' )
@@ -4380,15 +4385,4 @@ void USARTGotoNewLine()
 {
 USARTWriteChar('\r');
 USARTWriteChar('\n');
-}
-
-void USARTClearSIM800L(void)
-{
-uint8_t i;
-SIM800L.busy=0;
-SIM800L.uncomplete=0;
-SIM800L.cell_lenght=0;
-SIM800L.ok=0;
-for(i=0;i<15;i++){SIM800L.cell[i]='\0';}
-for(i=0;i<64;i++) SIM800L.buffer[i]=0;
 }

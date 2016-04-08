@@ -99,6 +99,7 @@ void USARTHandleRxInt()
                            ci++;
                            SIM800L.cell_lenght++;                  //Save cell number lenght
                        }
+                       SIM800L.cell[ci-8]='\0';
                        task=CALL_IN;                               //Configure task to CALL_IN
                    }
                   if(SIM800L.buffer[1]=='C' && SIM800L.buffer[2]=='M' && SIM800L.buffer[3]=='T' && SIM800L.buffer[4]=='I'  )    //+CMTI, save SMS
@@ -192,15 +193,4 @@ void USARTGotoNewLine()
 {
     USARTWriteChar('\r');//CR
     USARTWriteChar('\n');//LF
-}
-
-void USARTClearSIM800L(void)
-{
-    uint8_t i;
-    SIM800L.busy=FALSE;
-    SIM800L.uncomplete=FALSE;
-    SIM800L.cell_lenght=FALSE;
-    SIM800L.ok=FALSE;
-    for(i=0;i<SIM800L_CELL_LENGHT;i++){SIM800L.cell[i]='\0';}
-    for(i=0;i<SIM800L_BUFFER_SIZE;i++) SIM800L.buffer[i]=0;
 }

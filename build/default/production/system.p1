@@ -3017,6 +3017,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _task `uc ~T0 @X0 1 e ]
 [v _i `uc ~T0 @X0 1 e ]
 [; ;general.h: 67: uint8_t task,i;
+"68
+[v _password `uc ~T0 @X0 -> 4 `i e ]
+[; ;general.h: 68: char password[4];
 [; ;system.h: 29: void SYSTEMInit(uint8_t freq);
 "5 system.c
 [v _SYSTEMInit `(v ~T0 @X0 1 ef1`uc ]

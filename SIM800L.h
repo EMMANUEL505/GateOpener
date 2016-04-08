@@ -62,6 +62,9 @@ typedef struct{
     char csq[5];
 }AT;
 
+
+
+
 AT SIM800L;
 uint8_t bufque;
 
@@ -73,3 +76,4 @@ uint8_t SIM800ReadSms(const char *mem);
 uint8_t SIM800DeleteSms(const char *index, const char *flag);
 uint8_t SIM800Process();
 uint8_t SIM800Command();
+void SIM800LClear(void);

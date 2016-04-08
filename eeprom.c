@@ -129,6 +129,19 @@ uint8_t EEPROMSaveNumber(const char *nmbr, uint8_t nmbrLenght, uint16_t position
     return result;
 }
 
+uint8_t EEPROMDeleteNumber(uint16_t position)
+{
+    uint8_t count=0;
+    uint16_t address=0;
+    address=position*EEPROM_NUMBER_LENGHT;
+
+    for(count=0;count<EEPROM_NUMBER_LENGHT;count++)
+    {
+       EepromWrite(address+count,0xFF);
+        __delay_ms(TWC_DELAY);
+    }
+    return TRUE;
+}
 int8_t EEPROMSearchNumber(const char *nmbr, uint8_t nmbrLenght)
 {
     uint16_t aux=0;
@@ -151,7 +164,7 @@ int8_t EEPROMSearchNumber(const char *nmbr, uint8_t nmbrLenght)
     }
     if(result==TRUE)
     {
-        return (aux/EEPROM_NUMBER_LENGHT)+1;
+        return (aux/EEPROM_NUMBER_LENGHT);
     }
     else return FALSE;
 }
@@ -173,16 +186,45 @@ void EEPROMEraseAll(void)
 
 uint8_t EEPROMAdd(const char *nmbr, uint8_t nmbrLenght)
 {
-    uint16_t empty=0;
+    uint8_t empty=0,found=0;
+    char aux=0;
     do
     {
-        if(EepromRead((empty*EEPROM_NUMBER_LENGHT))<'0' || EepromRead((empty*EEPROM_NUMBER_LENGHT))>'9')
+        aux=EepromRead((empty*EEPROM_NUMBER_LENGHT));
+        if(aux<'0' || aux>'9')
         {
-            empty=TRUE;
+            found=TRUE;
         }
         empty++;
-    }while(!empty && empty<EEPROM_MAX);
-    EEPROMSaveNumber(nmbr,nmbrLenght,empty);
+    }while(!found&& empty<EEPROM_MAX);
+    EEPROMSaveNumber(nmbr,nmbrLenght,(empty-1));
 
     return TRUE;
+}
+void EEPROMUpdatePassword(const char *pass)
+{
+    EepromWrite(PASSWORD1,*(pass));
+    __delay_ms(TWC_DELAY);
+    EepromWrite(PASSWORD2,*(pass+1));
+    __delay_ms(TWC_DELAY);
+    EepromWrite(PASSWORD3,*(pass+2));
+    __delay_ms(TWC_DELAY);
+    EepromWrite(PASSWORD4,*(pass+3));
+    __delay_ms(TWC_DELAY);
+}
+
+uint8_t EEPROMCheckPassword(const char *pass)
+{
+    password[0]=EepromRead(PASSWORD1);
+    password[1]=EepromRead(PASSWORD2);
+    password[2]=EepromRead(PASSWORD3);
+    password[3]=EepromRead(PASSWORD4);
+    if(*(pass)==password[0] && *(pass+1)==password[1] && *(pass+2)==password[2] && *(pass+3)==password[3])
+    {
+        return TRUE;
+    }
+    else
+    {
+        return FALSE;
+    }
 }

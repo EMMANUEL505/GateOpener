@@ -16,6 +16,8 @@ uint8_t SIM800init()
     __delay_ms(2000);
     USARTWriteLine("ATE0\r\n");     //disable Echo
     __delay_ms(2000);
+    USARTWriteLine("AT+CLIP=1\r\n");     //Enable CLIP notification
+    __delay_ms(2000);
     /*if (sendCommand("AT")) {
         sendCommand("AT+IPR=115200");
         sendCommand("ATE0");
@@ -60,14 +62,15 @@ uint8_t SIM800ReadSms(const char *mem)
 }
 uint8_t SIM800DeleteSms(const char *index, const char *flag)
 {
-    __delay_ms(2000);
-    USARTWriteLine("AT+CMGF = 1\r\n");       //Text format
-    __delay_ms(2000);
+    //__delay_ms(2000);
+    //USARTWriteLine("AT+CMGF = 1\r\n");       //Text format
+    __delay_ms(1000);
     USARTWriteLine("AT+CMGD=");     //Delete SMS
     USARTWriteString(index);
     USARTWriteChar(',');
     USARTWriteString(flag);
     USARTWriteString("\r\n");
+    __delay_ms(2000);
     return 1;
 }
 uint8_t SIM800Process()
@@ -83,6 +86,7 @@ uint8_t SIM800Process()
                 ci++;
                 SIM800L.cell_lenght++;                  //Save cell number lenght
             }
+            SIM800L.cell[ci-8]='\0';
             task=CALL_IN;                               //Configure task to CALL_IN
         }
         if(SIM800L.buffer[1]=='C' && SIM800L.buffer[2]=='M' && SIM800L.buffer[3]=='T' && SIM800L.buffer[4]=='I'  )    //+CMTI, save SMS
@@ -108,17 +112,66 @@ uint8_t SIM800Command()
 {
     if(SIM800L.command[0]==':')
     {
-        if(SIM800L.command[1]=='A' && SIM800L.command[2]=='D' && SIM800L.command[3]=='D' )
+        if(EEPROMCheckPassword(&SIM800L.command[1]))   //Password
         {
-            i=5;
-            while(SIM800L.command[i]>='0' && SIM800L.command[i]<='9' )
+            if(SIM800L.command[6]=='A' && SIM800L.command[7]=='D' && SIM800L.command[8]=='D' )      //"ADD" command for new numbers
             {
-                SIM800L.cell[i-5]=SIM800L.command[i];  //Save cell number characters
-                i++;
-                SIM800L.cell_lenght++;
+                i=10;       //Number starts at 10 position  :pass:ADD:614xxxxxxx
+                while(SIM800L.command[i]>='0' && SIM800L.command[i]<='9' )
+                {
+                    SIM800L.cell[i-10]=SIM800L.command[i];  //Save cell number characters
+                    i++;
+                    SIM800L.cell_lenght++;
+                }
+                SIM800L.cell[i-10]='\0';
+                if(!EEPROMSearchNumber(SIM800L.cell,SIM800L.cell_lenght))       //ADD new number if doesn't exist
+                {
+                    EEPROMAdd(SIM800L.cell, SIM800L.cell_lenght);           //ADD new number to memory
+                    SIM800SendSms(SIM800L.cell, "Your number had been added");
+                }
+                else
+                {
+                    SIM800SendSms(SIM800L.cell, "Your number already exist");
+                }
+
             }
-            EEPROMAdd(SIM800L.cell, SIM800L.cell_lenght);
-        }              
+            if(SIM800L.command[6]=='D' && SIM800L.command[7]=='E' && SIM800L.command[8]=='L' )      //"ADD" command for new numbers
+            {
+                i=10;       //Number starts at 10 position  :pass:ADD:614xxxxxxx
+                while(SIM800L.command[i]>='0' && SIM800L.command[i]<='9' )
+                {
+                    SIM800L.cell[i-10]=SIM800L.command[i];  //Save cell number characters
+                    i++;
+                    SIM800L.cell_lenght++;
+                }
+                SIM800L.cell[i-10]='\0';
+                uint8_t add=EEPROMSearchNumber(SIM800L.cell,SIM800L.cell_lenght);
+                if(add)       //ADD new number if doesn't exist
+                {
+                    EEPROMDeleteNumber(add-1);
+                    SIM800SendSms(SIM800L.cell, "Your number had been deleted");
+                }
+
+            }
+            if(SIM800L.command[6]=='F' && SIM800L.command[7]=='A' && SIM800L.command[8]=='C' )      //"ADD" command for new numbers
+            {
+                EEPROMEraseAll();
+                EEPROMUpdatePassword("1234");
+            }
+
+        }
     }
     return TRUE;  
+}
+
+void SIM800LClear(void)
+{
+    uint8_t i;
+    SIM800L.busy=FALSE;
+    SIM800L.uncomplete=FALSE;
+    SIM800L.cell_lenght=FALSE;
+    SIM800L.ok=FALSE;
+    for(i=0;i<SIM800L_CELL_LENGHT;i++){SIM800L.cell[i]='\0';}
+    for(i=0;i<SIM800L_BUFFER_SIZE;i++) SIM800L.buffer[i]=0;
+    for(i=0;i<25;i++) SIM800L.command[i]=0;
 }

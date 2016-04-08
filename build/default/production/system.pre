@@ -4147,6 +4147,7 @@ typedef uint16_t uintptr_t;
 
 # 67
 uint8_t task,i;
+char password[4];
 
 # 29 "system.h"
 void SYSTEMInit(uint8_t freq);

@@ -5,9 +5,9 @@ Linker command line:
 --edf=C:\Program Files (x86)\Microchip\xc8\v1.33\dat\en_msgs.txt -cs \
   -h+dist/default/production\GateOpener.git.production.sym \
   --cmf=dist/default/production\GateOpener.git.production.cmf -z -Q16F1828 \
-  -oC:\Users\e882742\AppData\Local\Temp\sbto.6 \
+  -oC:\Users\e882742\AppData\Local\Temp\s14k.6 \
   -Mdist/default/production/GateOpener.git.production.map -E1 -ver=XC8 \
-  -ASTACK=02037h-02077h -pstack=STACK -ACONST=00h-0FFhx16 \
+  -ASTACK=0203Fh-02077h -pstack=STACK -ACONST=00h-0FFhx16 \
   -ACODE=00h-07FFhx2 -ASTRCODE=00h-0FFFh -AENTRY=00h-0FFhx16 \
   -ASTRING=00h-0FFhx16 -ACOMMON=070h-07Fh -ABANK0=020h-06Fh \
   -ABANK1=0A0h-0EFh -ABANK2=0120h-016Fh -ABIGRAM=02000h-020EFh \
@@ -27,7 +27,7 @@ Linker command line:
   -pfunctab=CODE -ACONFIG=08007h-08008h -pconfig=CONFIG -DCONFIG=2 \
   -AIDLOC=08000h-08003h -pidloc=IDLOC -DIDLOC=2 -AEEDATA=00h-0FFh/0F000h \
   -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 \
-  -DENTRY=2 -k C:\Users\e882742\AppData\Local\Temp\sbto.obj \
+  -DENTRY=2 -k C:\Users\e882742\AppData\Local\Temp\s14k.obj \
   dist/default/production\GateOpener.git.production.obj 
 
 Object code version is 3.11
@@ -37,45 +37,50 @@ Machine type is 16F1828
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\e882742\AppData\Local\Temp\sbto.obj
+C:\Users\e882742\AppData\Local\Temp\s14k.obj
                 end_init                             16       16        2        8       0
                 reset_vec                             0        0        2        0       0
                 config                             8007     8007        2    1000E       0
 dist/default/production\GateOpener.git.production.obj
-                cinit                                18       18       16        8       0
+                cinit                                18       18       19        8       0
                 intentry                              4        4       12        8       0
-                text27                               2E       2E      285        8       0
-                text25                              E92      E92        9     1D24       0
-                text24                              5D6      5D6       66      ADA       0
-                text23                              F4A      F4A       2C     1E94       0
-                text22                              EC9      EC9       13     1D92       0
-                text21                              EF4      EF4       1C     1DE8       0
-                text20                              4C6      4C6       37        8       0
-                text19                              451      451       75        8       0
-                text18                              F76      F76       2E     1EEC       0
-                text17                              EA7      EA7       10     1D4E       0
-                text16                              FA4      FA4       2E     1F48       0
-                text15                              FD2      FD2       2E     1FA4       0
-                text14                              7DB      7DB       25      ADA       0
-                text13                              F2C      F2C       1E     1E58       0
-                text12                              3DA      3DA       77        8       0
-                text11                              63C      63C       63      ADA       0
-                text10                              34F      34F       8B        8       0
-                text9                               E8A      E8A        8     1D14       0
-                text8                               EDC      EDC       18     1DB8       0
-                text7                               EB7      EB7       12     1D6E       0
-                text6                               6F8      6F8       4D      ADA       0
-                text5                               56D      56D       69      ADA       0
-                text4                               69F      69F       59      ADA       0
-                text3                               F10      F10       1C     1E20       0
-                text2                               745      745       4C      ADA       0
-                text1                               791      791       4A      ADA       0
-                maintext                            2B3      2B3       9C        8       0
-                cstackBANK0                          20       20       2F       20       1
+                text32                               31       31      297        8       0
+                text30                              C46      C46       2E     188C       0
+                text29                              B70      B70       10     16E0       0
+                text28                              C74      C74       2E     18E8       0
+                text27                              B5B      B5B        9     16B6       0
+                text26                              ECA      ECA       66     1D94       0
+                text25                              7CE      7CE       2E      B66       0
+                text24                              B92      B92       13     1724       0
+                text23                              BF5      BF5       25     17EA       0
+                text22                              4DE      4DE       1E        8       0
+                text21                              6E3      6E3       77      B66       0
+                text20                              C1A      C1A       2C     1834       0
+                text19                              BBD      BBD       1C     177A       0
+                text18                              D96      D96       49     1B2C       0
+                text17                              E76      E76       54     1CEC       0
+                text16                              CD9      CD9       3B     19B2       0
+                text15                              D14      D14       3D     1A28       0
+                text14                              CA2      CA2       37     1944       0
+                text13                              75A      75A       74      B66       0
+                text12                              665      665       7E      B66       0
+                text11                              B53      B53        8     16A6       0
+                text10                              BA5      BA5       18     174A       0
+                text9                               B80      B80       12     1700       0
+                text8                               F97      F97       69     1F2E       0
+                text7                               2C8      2C8      1A7        8       0
+                text6                               D51      D51       45     1AA2       0
+                text5                               F30      F30       67     1E60       0
+                text4                               E29      E29       4D     1C52       0
+                text3                               46F      46F       6F        8       0
+                text2                               BD9      BD9       1C     17B2       0
+                text1                               DDF      DDF       4A     1BBE       0
+                maintext                            5B3      5B3       B2      B66       0
+                cstackBANK0                          20       20       33       20       1
                 cstackCOMMON                         70       70        C       70       1
-                clrtext                             E9B      E9B        C     1D36       0
-                bssBANK0                             4F       4F        8       20       1
-                stringtext                          500      500       6D        A       0
+                clrtext                             B64      B64        C     16C8       0
+                bssBANK0                             53       53        C       20       1
+                stringtext                          500      500       B3        A       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   STACK          
@@ -84,40 +89,45 @@ TOTAL           Name                               Link     Load   Length     Sp
 
         CLASS   CODE           
                 end_init                             16       16        2         0
-                cinit                                18       18       16         0
+                cinit                                18       18       19         0
                 intentry                              4        4       12         0
                 reset_vec                             0        0        2         0
-                text27                               2E       2E      285         0
-                text25                              E92      E92        9         0
-                text24                              5D6      5D6       66         0
-                text23                              F4A      F4A       2C         0
-                text22                              EC9      EC9       13         0
-                text21                              EF4      EF4       1C         0
-                text20                              4C6      4C6       37         0
-                text19                              451      451       75         0
-                text18                              F76      F76       2E         0
-                text17                              EA7      EA7       10         0
-                text16                              FA4      FA4       2E         0
-                text15                              FD2      FD2       2E         0
-                text14                              7DB      7DB       25         0
-                text13                              F2C      F2C       1E         0
-                text12                              3DA      3DA       77         0
-                text11                              63C      63C       63         0
-                text10                              34F      34F       8B         0
-                text9                               E8A      E8A        8         0
-                text8                               EDC      EDC       18         0
-                text7                               EB7      EB7       12         0
-                text6                               6F8      6F8       4D         0
-                text5                               56D      56D       69         0
-                text4                               69F      69F       59         0
-                text3                               F10      F10       1C         0
-                text2                               745      745       4C         0
-                text1                               791      791       4A         0
-                maintext                            2B3      2B3       9C         0
-                clrtext                             E9B      E9B        C         0
+                text32                               31       31      297         0
+                text30                              C46      C46       2E         0
+                text29                              B70      B70       10         0
+                text28                              C74      C74       2E         0
+                text27                              B5B      B5B        9         0
+                text26                              ECA      ECA       66         0
+                text25                              7CE      7CE       2E         0
+                text24                              B92      B92       13         0
+                text23                              BF5      BF5       25         0
+                text22                              4DE      4DE       1E         0
+                text21                              6E3      6E3       77         0
+                text20                              C1A      C1A       2C         0
+                text19                              BBD      BBD       1C         0
+                text18                              D96      D96       49         0
+                text17                              E76      E76       54         0
+                text16                              CD9      CD9       3B         0
+                text15                              D14      D14       3D         0
+                text14                              CA2      CA2       37         0
+                text13                              75A      75A       74         0
+                text12                              665      665       7E         0
+                text11                              B53      B53        8         0
+                text10                              BA5      BA5       18         0
+                text9                               B80      B80       12         0
+                text8                               F97      F97       69         0
+                text7                               2C8      2C8      1A7         0
+                text6                               D51      D51       45         0
+                text5                               F30      F30       67         0
+                text4                               E29      E29       4D         0
+                text3                               46F      46F       6F         0
+                text2                               BD9      BD9       1C         0
+                text1                               DDF      DDF       4A         0
+                maintext                            5B3      5B3       B2         0
+                clrtext                             B64      B64        C         0
 
         CLASS   STRCODE        
-                stringtext                          500      500       6D         0
+                stringtext                          500      500       B3         0
 
         CLASS   ENTRY          
 
@@ -127,8 +137,8 @@ TOTAL           Name                               Link     Load   Length     Sp
                 cstackCOMMON                         70       70        C         1
 
         CLASS   BANK0          
-                cstackBANK0                          20       20       2F         1
-                bssBANK0                             4F       4F        8         1
+                cstackBANK0                          20       20       33         1
+                bssBANK0                             53       53        C         1
 
         CLASS   BANK1          
 
@@ -278,47 +288,57 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
 
                 reset_vec                      000000  000002  000002         0       0  CODE        2
-                intentry                       000004  0004F9  0004FD         8       0  CODE        2
-                cstackBANK0                    000020  000037  000057        20       1  BANK0       1
+                intentry                       000004  0004F8  0004FC         8       0  CODE        2
+                cstackBANK0                    000020  00003F  00005F        20       1  BANK0       1
                 cstackCOMMON                   000070  00000C  00007C        70       1  COMMON      1
-                stringtext                     000500  00006D  00056D         A       0  STRCODE     2
-                text5                          00056D  000293  000800       ADA       0  CODE        2
-                text9                          000E8A  000008  000E92      1D14       0  CODE        2
-                text25                         000E92  000009  000E9B      1D24       0  CODE        2
-                clrtext                        000E9B  00000C  000EA7      1D36       0  CODE        2
-                text17                         000EA7  000010  000EB7      1D4E       0  CODE        2
-                text7                          000EB7  000012  000EC9      1D6E       0  CODE        2
-                text22                         000EC9  000013  000EDC      1D92       0  CODE        2
-                text8                          000EDC  000018  000EF4      1DB8       0  CODE        2
-                text21                         000EF4  00001C  000F10      1DE8       0  CODE        2
-                text3                          000F10  00001C  000F2C      1E20       0  CODE        2
-                text13                         000F2C  00001E  000F4A      1E58       0  CODE        2
-                text23                         000F4A  00002C  000F76      1E94       0  CODE        2
-                text18                         000F76  00002E  000FA4      1EEC       0  CODE        2
-                text16                         000FA4  00002E  000FD2      1F48       0  CODE        2
-                text15                         000FD2  00002E  001000      1FA4       0  CODE        2
+                stringtext                     000500  0000B3  0005B3         A       0  STRCODE     2
+                maintext                       0005B3  000249  0007FC       B66       0  CODE        2
+                text11                         000B53  000008  000B5B      16A6       0  CODE        2
+                text27                         000B5B  000009  000B64      16B6       0  CODE        2
+                clrtext                        000B64  00000C  000B70      16C8       0  CODE        2
+                text29                         000B70  000010  000B80      16E0       0  CODE        2
+                text9                          000B80  000012  000B92      1700       0  CODE        2
+                text24                         000B92  000013  000BA5      1724       0  CODE        2
+                text10                         000BA5  000018  000BBD      174A       0  CODE        2
+                text19                         000BBD  00001C  000BD9      177A       0  CODE        2
+                text2                          000BD9  00001C  000BF5      17B2       0  CODE        2
+                text23                         000BF5  000025  000C1A      17EA       0  CODE        2
+                text20                         000C1A  00002C  000C46      1834       0  CODE        2
+                text30                         000C46  00002E  000C74      188C       0  CODE        2
+                text28                         000C74  00002E  000CA2      18E8       0  CODE        2
+                text14                         000CA2  000037  000CD9      1944       0  CODE        2
+                text16                         000CD9  00003B  000D14      19B2       0  CODE        2
+                text15                         000D14  00003D  000D51      1A28       0  CODE        2
+                text6                          000D51  000045  000D96      1AA2       0  CODE        2
+                text18                         000D96  000049  000DDF      1B2C       0  CODE        2
+                text1                          000DDF  00004A  000E29      1BBE       0  CODE        2
+                text4                          000E29  00004D  000E76      1C52       0  CODE        2
+                text17                         000E76  000054  000ECA      1CEC       0  CODE        2
+                text26                         000ECA  000066  000F30      1D94       0  CODE        2
+                text5                          000F30  000067  000F97      1E60       0  CODE        2
+                text8                          000F97  000069  001000      1F2E       0  CODE        2
                 config                         008007  000002  008009     1000E       0  CONFIG      2
 
 
 UNUSED ADDRESS RANGES
 
         Name                Unused          Largest block    Delta
-        BANK0            00057-0006F              19           1
+        BANK0            0005F-0006F              11           1
         BANK1            000A0-000C7              28           1
         BIGRAM           02000-020EF              F0           1
         CODE             00002-00003               2           2
-                         004FD-004FF               3
-                         00800-00E89             68A
+                         004FC-004FF               4
+                         007FC-00B52               4
         COMMON           0007C-0007D               2           1
         CONST            00002-00003               2           2
-                         004FD-004FF               3
-                         00800-00E89             100
+                         004FC-004FF               4
+                         007FC-00B52             100
         EEDATA           0F000-0F0FF             100           2
         ENTRY            00002-00003               2           2
-                         004FD-004FF               3
-                         00800-00E89             100
+                         004FC-004FF               4
+                         007FC-00B52             100
         IDLOC            08000-08003               4           2
-        RAM              00057-0006F              19           1
+        RAM              0005F-0006F              11           1
                          000A0-000C7              28
         SFR0             00000-0001F              20           1
         SFR1             00080-0009F              20           1
@@ -352,463 +372,495 @@ UNUSED ADDRESS RANGES
         SFR7             00380-003EF              70           1
         SFR8             00400-0046F              70           1
         SFR9             00480-004EF              70           1
-        STACK            02037-02077              41           1
+        STACK            0203F-02077              39           1
         STRCODE          00002-00003               2           2
-                         004FD-004FF               3
-                         00800-00E89             68A
+                         004FC-004FF               4
+                         007FC-00B52             357
         STRING           00002-00003               2           2
-                         004FD-004FF               3
-                         00800-00E89             100
+                         004FC-004FF               4
+                         007FC-00B52             100
 
                                   Symbol Table
 
-?___lwdiv                     cstackBANK0  00025
-?___wmul                      cstackBANK0  00025
-EEPROMAdd@empty               cstackBANK0  0003F
-EEPROMAdd@nmbr                cstackBANK0  0003B
-EEPROMAdd@nmbrLenght          cstackBANK0  0003D
-EEPROMSaveNumber@address      cstackBANK0  00039
-EEPROMSaveNumber@count        cstackBANK0  00038
-EEPROMSaveNumber@nmbr         cstackBANK0  0002F
-EEPROMSaveNumber@nmbrLenght   cstackBANK0  00031
-EEPROMSaveNumber@position     cstackBANK0  00032
-EEPROMSaveNumber@result       cstackBANK0  00037
-EEPROMSearchNumber@aux        cstackBANK0  0003B
-EEPROMSearchNumber@count      cstackBANK0  00039
-EEPROMSearchNumber@nmbr       cstackBANK0  00030
-EEPROMSearchNumber@nmbrLenght cstackBANK0  00032
-EEPROMSearchNumber@result     cstackBANK0  0003A
-EepromOpCode@address          cstackBANK0  00025
-EepromOpCode@i                cstackBANK0  0002B
-EepromOpCode@opcode           cstackBANK0  0002A
-EepromRead@address            cstackBANK0  0002C
-EepromRead@data               cstackBANK0  0002F
-EepromReceive@b               cstackBANK0  00027
-EepromReceive@i               cstackBANK0  00028
-EepromSend@b                  cstackBANK0  00027
-EepromSend@i                  cstackBANK0  00028
-EepromWrite@address           cstackBANK0  0002C
-EepromWrite@data              cstackBANK0  0002E
-GPIOBlueLedBlink@i            cstackBANK0  00029
-GPIOBlueLedBlink@times        cstackBANK0  00028
-GPIORedLedBlink@i             cstackBANK0  00029
-GPIORedLedBlink@times         cstackBANK0  00028
-SIM800ReadSms@mem             cstackBANK0  0002A
-SIM800SendSms@msg             cstackBANK0  0002C
-SIM800SendSms@nmbr            cstackBANK0  0002A
-SYSTEMInit@freq               cstackBANK0  00025
-USARTClearSIM800L@i           cstackBANK0  00029
-USARTHandleRxInt@ci           cstackBANK0  00021
-USARTHandleRxInt@ci_578       cstackBANK0  00023
-USARTHandleRxInt@ci_579       cstackBANK0  00024
-USARTHandleRxInt@ci_580       cstackBANK0  00022
-USARTHandleRxInt@data         cstackBANK0  00020
-USARTInit@baud_rate           cstackBANK0  00025
-USARTWriteChar@ch             cstackBANK0  00025
-USARTWriteInt@F3219           bssBANK0     0004F
-USARTWriteLine@str            cstackBANK0  00028
-USARTWriteString@str          cstackBANK0  00026
-_ANSELB                       (abs)        0018D
-_APFCON0bits                  (abs)        0011D
-_BAUDCONbits                  (abs)        0019F
-_EEPROMAdd                    text11       0063C
-_EEPROMSaveNumber             text12       003DA
-_EEPROMSearchNumber           text19       00451
-_EepromEnd                    text25       00E92
-_EepromOpCode                 text24       005D6
-_EepromRead                   text21       00EF4
-_EepromReceive                text23       00F4A
-_EepromSend                   text15       00FD2
-_EepromStart                  text22       00EC9
-_EepromWrite                  text14       007DB
-_GIE                          (abs)        0005F
-_GPIOBlueLedBlink             text18       00F76
-_GPIOPortInit                 text17       00EA7
-_GPIORedLedBlink              text16       00FA4
-_ISR                          intentry     00004
-_LATAbits                     (abs)        0010C
-_LATBbits                     (abs)        0010D
-_LATCbits                     (abs)        0010E
-_OSCCON                       (abs)        00099
-_PEIE                         (abs)        0005E
-_PIR1bits                     (abs)        00011
-_PORTBbits                    (abs)        0000D
-_RCIE                         (abs)        0048D
-_RCIF                         (abs)        0008D
-_RCREG                        (abs)        00199
-_RCSTAbits                    (abs)        0019D
-_SIM800Command                text10       0034F
-_SIM800L                      (abs)        02078
-_SIM800ReadSms                text6        006F8
-_SIM800SendSms                text5        0056D
-_SIM800init                   text4        0069F
-_SPBRG                        (abs)        0019B
-_SYSTEMInit                   text3        00F10
-_TRISA4                       (abs)        00464
-_TRISB4                       (abs)        0046C
-_TRISB6                       (abs)        0046E
-_TRISB7                       (abs)        0046F
-_TRISC0                       (abs)        00470
-_TRISC1                       (abs)        00471
-_TRISC2                       (abs)        00472
-_TRISC4                       (abs)        00474
-_TRISC5                       (abs)        00475
-_TRISC6                       (abs)        00476
-_TRISC7                       (abs)        00477
-_TXREG                        (abs)        0019A
-_TXSTAbits                    (abs)        0019E
-_USARTClearSIM800L            text2        00745
-_USARTHandleRxInt             text27       0002E
-_USARTInit                    text1        00791
-_USARTWriteChar               text9        00E8A
-_USARTWriteLine               text7        00EB7
-_USARTWriteString             text8        00EDC
-__CFG_BOREN$OFF               (abs)        00000
-__CFG_BORV$LO                 (abs)        00000
-__CFG_CLKOUTEN$OFF            (abs)        00000
-__CFG_CP$OFF                  (abs)        00000
-__CFG_CPD$OFF                 (abs)        00000
-__CFG_FCMEN$ON                (abs)        00000
-__CFG_FOSC$INTOSC             (abs)        00000
-__CFG_IESO$ON                 (abs)        00000
-__CFG_LVP$ON                  (abs)        00000
-__CFG_MCLRE$OFF               (abs)        00000
-__CFG_PLLEN$OFF               (abs)        00000
-__CFG_PWRTE$OFF               (abs)        00000
-__CFG_STVREN$ON               (abs)        00000
-__CFG_WDTE$OFF                (abs)        00000
-__CFG_WRT$OFF                 (abs)        00000
-__Habs1                       abs1         00000
-__Hbank0                      bank0        00000
-__Hbank1                      bank1        00000
-__Hbank10                     bank10       00000
-__Hbank11                     bank11       00000
-__Hbank12                     bank12       00000
-__Hbank13                     bank13       00000
-__Hbank14                     bank14       00000
-__Hbank15                     bank15       00000
-__Hbank16                     bank16       00000
-__Hbank17                     bank17       00000
-__Hbank18                     bank18       00000
-__Hbank19                     bank19       00000
-__Hbank2                      bank2        00000
-__Hbank20                     bank20       00000
-__Hbank21                     bank21       00000
-__Hbank22                     bank22       00000
-__Hbank23                     bank23       00000
-__Hbank24                     bank24       00000
-__Hbank25                     bank25       00000
-__Hbank26                     bank26       00000
-__Hbank27                     bank27       00000
-__Hbank28                     bank28       00000
-__Hbank29                     bank29       00000
-__Hbank3                      bank3        00000
-__Hbank30                     bank30       00000
-__Hbank31                     bank31       00000
-__Hbank4                      bank4        00000
-__Hbank5                      bank5        00000
-__Hbank6                      bank6        00000
-__Hbank7                      bank7        00000
-__Hbank8                      bank8        00000
-__Hbank9                      bank9        00000
-__Hbigram                     bigram       00000
-__HbssBANK0                   bssBANK0     00000
-__Hcinit                      cinit        0002E
-__Hclrtext                    clrtext      00000
-__Hcode                       code         00000
-__Hcommon                     common       00000
-__Hconfig                     config       08009
-__HcstackBANK0                cstackBANK0  00000
-__HcstackCOMMON               cstackCOMMON 00000
-__Heeprom_data                eeprom_data  00000
-__Hend_init                   end_init     00018
-__Hfunctab                    functab      00000
-__Hidloc                      idloc        00000
-__Hinit                       init         00016
-__Hintentry                   intentry     00016
-__Hmaintext                   maintext     00000
-__Hpowerup                    powerup      00000
-__Hram                        ram          00000
-__Hreset_vec                  reset_vec    00002
-__Hsfr0                       sfr0         00000
-__Hsfr1                       sfr1         00000
-__Hsfr10                      sfr10        00000
-__Hsfr11                      sfr11        00000
-__Hsfr12                      sfr12        00000
-__Hsfr13                      sfr13        00000
-__Hsfr14                      sfr14        00000
-__Hsfr15                      sfr15        00000
-__Hsfr16                      sfr16        00000
-__Hsfr17                      sfr17        00000
-__Hsfr18                      sfr18        00000
-__Hsfr19                      sfr19        00000
-__Hsfr2                       sfr2         00000
-__Hsfr20                      sfr20        00000
-__Hsfr21                      sfr21        00000
-__Hsfr22                      sfr22        00000
-__Hsfr23                      sfr23        00000
-__Hsfr24                      sfr24        00000
-__Hsfr25                      sfr25        00000
-__Hsfr26                      sfr26        00000
-__Hsfr27                      sfr27        00000
-__Hsfr28                      sfr28        00000
-__Hsfr29                      sfr29        00000
-__Hsfr3                       sfr3         00000
-__Hsfr30                      sfr30        00000
-__Hsfr31                      sfr31        00000
-__Hsfr4                       sfr4         00000
-__Hsfr5                       sfr5         00000
-__Hsfr6                       sfr6         00000
-__Hsfr7                       sfr7         00000
-__Hsfr8                       sfr8         00000
-__Hsfr9                       sfr9         00000
-__Hspace_0                    (abs)        08009
-__Hspace_1                    (abs)        0007C
-__Hspace_2                    (abs)        00000
-__Hspace_3                    (abs)        00000
-__Hstack                      stack        00000
-__Hstrings                    strings      00000
-__Hstringtext                 stringtext   00000
-__Htext                       text         00000
-__Labs1                       abs1         00000
-__Lbank0                      bank0        00000
-__Lbank1                      bank1        00000
-__Lbank10                     bank10       00000
-__Lbank11                     bank11       00000
-__Lbank12                     bank12       00000
-__Lbank13                     bank13       00000
-__Lbank14                     bank14       00000
-__Lbank15                     bank15       00000
-__Lbank16                     bank16       00000
-__Lbank17                     bank17       00000
-__Lbank18                     bank18       00000
-__Lbank19                     bank19       00000
-__Lbank2                      bank2        00000
-__Lbank20                     bank20       00000
-__Lbank21                     bank21       00000
-__Lbank22                     bank22       00000
-__Lbank23                     bank23       00000
-__Lbank24                     bank24       00000
-__Lbank25                     bank25       00000
-__Lbank26                     bank26       00000
-__Lbank27                     bank27       00000
-__Lbank28                     bank28       00000
-__Lbank29                     bank29       00000
-__Lbank3                      bank3        00000
-__Lbank30                     bank30       00000
-__Lbank31                     bank31       00000
-__Lbank4                      bank4        00000
-__Lbank5                      bank5        00000
-__Lbank6                      bank6        00000
-__Lbank7                      bank7        00000
-__Lbank8                      bank8        00000
-__Lbank9                      bank9        00000
-__Lbigram                     bigram       00000
-__LbssBANK0                   bssBANK0     00000
-__Lcinit                      cinit        00018
-__Lclrtext                    clrtext      00000
-__Lcode                       code         00000
-__Lcommon                     common       00000
-__Lconfig                     config       08007
-__LcstackBANK0                cstackBANK0  00000
-__LcstackCOMMON               cstackCOMMON 00000
-__Leeprom_data                eeprom_data  00000
-__Lend_init                   end_init     00016
-__Lfunctab                    functab      00000
-__Lidloc                      idloc        00000
-__Linit                       init         00016
-__Lintentry                   intentry     00004
-__Lmaintext                   maintext     00000
-__Lpowerup                    powerup      00000
-__Lram                        ram          00000
-__Lreset_vec                  reset_vec    00000
-__Lsfr0                       sfr0         00000
-__Lsfr1                       sfr1         00000
-__Lsfr10                      sfr10        00000
-__Lsfr11                      sfr11        00000
-__Lsfr12                      sfr12        00000
-__Lsfr13                      sfr13        00000
-__Lsfr14                      sfr14        00000
-__Lsfr15                      sfr15        00000
-__Lsfr16                      sfr16        00000
-__Lsfr17                      sfr17        00000
-__Lsfr18                      sfr18        00000
-__Lsfr19                      sfr19        00000
-__Lsfr2                       sfr2         00000
-__Lsfr20                      sfr20        00000
-__Lsfr21                      sfr21        00000
-__Lsfr22                      sfr22        00000
-__Lsfr23                      sfr23        00000
-__Lsfr24                      sfr24        00000
-__Lsfr25                      sfr25        00000
-__Lsfr26                      sfr26        00000
-__Lsfr27                      sfr27        00000
-__Lsfr28                      sfr28        00000
-__Lsfr29                      sfr29        00000
-__Lsfr3                       sfr3         00000
-__Lsfr30                      sfr30        00000
-__Lsfr31                      sfr31        00000
-__Lsfr4                       sfr4         00000
-__Lsfr5                       sfr5         00000
-__Lsfr6                       sfr6         00000
-__Lsfr7                       sfr7         00000
-__Lsfr8                       sfr8         00000
-__Lsfr9                       sfr9         00000
-__Lspace_0                    (abs)        00000
-__Lspace_1                    (abs)        00000
-__Lspace_2                    (abs)        00000
-__Lspace_3                    (abs)        00000
-__Lstack                      stack        00000
-__Lstrings                    strings      00000
-__Lstringtext                 stringtext   00000
-__Ltext                       text         00000
-__S0                          (abs)        08009
-__S1                          (abs)        0007C
-__S2                          (abs)        00000
-__S3                          (abs)        00000
-___int_sp                     stack        00000
-___latbits                    (abs)        00001
-___lwdiv                      text20       004C6
-___lwdiv@counter              cstackBANK0  0002C
-___lwdiv@dividend             cstackBANK0  00027
-___lwdiv@divisor              cstackBANK0  00025
-___lwdiv@quotient             cstackBANK0  0002A
-___sp                         stack        00000
-___wmul                       text13       00F2C
-___wmul@multiplicand          cstackBANK0  00027
-___wmul@multiplier            cstackBANK0  00025
-___wmul@product               cstackBANK0  00029
-__end_of_EEPROMAdd            text11       0069F
-__end_of_EEPROMSaveNumber     text12       00451
-__end_of_EEPROMSearchNumber   text19       004C6
-__end_of_EepromEnd            text25       00E9B
-__end_of_EepromOpCode         text24       0063C
-__end_of_EepromRead           text21       00F10
-__end_of_EepromReceive        text23       00F76
-__end_of_EepromSend           text15       01000
-__end_of_EepromStart          text22       00EDC
-__end_of_EepromWrite          text14       00800
-__end_of_GPIOBlueLedBlink     text18       00FA4
-__end_of_GPIOPortInit         text17       00EB7
-__end_of_GPIORedLedBlink      text16       00FD2
-__end_of_ISR                  intentry     00016
-__end_of_SIM800Command        text10       003DA
-__end_of_SIM800ReadSms        text6        00745
-__end_of_SIM800SendSms        text5        005D6
-__end_of_SIM800init           text4        006F8
-__end_of_SYSTEMInit           text3        00F2C
-__end_of_USARTClearSIM800L    text2        00791
-__end_of_USARTHandleRxInt     text27       002B3
-__end_of_USARTInit            text1        007DB
-__end_of_USARTWriteChar       text9        00E92
-__end_of_USARTWriteLine       text7        00EC9
-__end_of_USARTWriteString     text8        00EF4
-__end_of___lwdiv              text20       004FD
-__end_of___wmul               text13       00F4A
-__end_of__initialization      cinit        0002A
-__end_of__stringdata          stringtext   0056D
-__end_of_main                 maintext     0034F
-__initialization              cinit        00018
-__pbssBANK0                   bssBANK0     0004F
-__pbssBIGRAM                  (abs)        02078
-__pcstackBANK0                cstackBANK0  00020
-__pcstackCOMMON               cstackCOMMON 00070
-__pintentry                   intentry     00004
-__pmaintext                   maintext     002B3
-__pstringtext                 stringtext   00500
-__ptext1                      text1        00791
-__ptext10                     text10       0034F
-__ptext11                     text11       0063C
-__ptext12                     text12       003DA
-__ptext13                     text13       00F2C
-__ptext14                     text14       007DB
-__ptext15                     text15       00FD2
-__ptext16                     text16       00FA4
-__ptext17                     text17       00EA7
-__ptext18                     text18       00F76
-__ptext19                     text19       00451
-__ptext2                      text2        00745
-__ptext20                     text20       004C6
-__ptext21                     text21       00EF4
-__ptext22                     text22       00EC9
-__ptext23                     text23       00F4A
-__ptext24                     text24       005D6
-__ptext25                     text25       00E92
-__ptext27                     text27       0002E
-__ptext3                      text3        00F10
-__ptext4                      text4        0069F
-__ptext5                      text5        0056D
-__ptext6                      text6        006F8
-__ptext7                      text7        00EB7
-__ptext8                      text8        00EDC
-__ptext9                      text9        00E8A
-__size_of_EEPROMAdd           (abs)        00000
-__size_of_EEPROMSaveNumber    (abs)        00000
-__size_of_EEPROMSearchNumber  (abs)        00000
-__size_of_EepromEnd           (abs)        00000
-__size_of_EepromOpCode        (abs)        00000
-__size_of_EepromRead          (abs)        00000
-__size_of_EepromReceive       (abs)        00000
-__size_of_EepromSend          (abs)        00000
-__size_of_EepromStart         (abs)        00000
-__size_of_EepromWrite         (abs)        00000
-__size_of_GPIOBlueLedBlink    (abs)        00000
-__size_of_GPIOPortInit        (abs)        00000
-__size_of_GPIORedLedBlink     (abs)        00000
-__size_of_ISR                 (abs)        00000
-__size_of_SIM800Command       (abs)        00000
-__size_of_SIM800ReadSms       (abs)        00000
-__size_of_SIM800SendSms       (abs)        00000
-__size_of_SIM800init          (abs)        00000
-__size_of_SYSTEMInit          (abs)        00000
-__size_of_USARTClearSIM800L   (abs)        00000
-__size_of_USARTHandleRxInt    (abs)        00000
-__size_of_USARTInit           (abs)        00000
-__size_of_USARTWriteChar      (abs)        00000
-__size_of_USARTWriteLine      (abs)        00000
-__size_of_USARTWriteString    (abs)        00000
-__size_of___lwdiv             (abs)        00000
-__size_of___wmul              (abs)        00000
-__size_of_main                (abs)        00000
-__stringdata                  stringtext   00500
-_bufque                       bssBANK0     00054
-_i                            bssBANK0     00055
-_main                         maintext     002B3
-_task                         bssBANK0     00056
-btemp                         (abs)        0007E
-clear_ram0                    clrtext      00E9B
-end_of_initialization         cinit        0002A
-intlevel0                     functab      00000
-intlevel1                     functab      00000
-intlevel2                     functab      00000
-intlevel3                     functab      00000
-intlevel4                     functab      00000
-intlevel5                     functab      00000
-ltemp                         (abs)        0007E
-ltemp0                        (abs)        0007E
-ltemp1                        (abs)        00082
-ltemp2                        (abs)        00086
-ltemp3                        (abs)        00080
-pic14e$flags                  (abs)        0007E
-reset_vec                     reset_vec    00000
-stackhi                       (abs)        02077
-stacklo                       (abs)        02037
-start                         init         00016
-start_initialization          cinit        00018
-ttemp                         (abs)        0007E
-ttemp0                        (abs)        0007E
-ttemp1                        (abs)        00081
-ttemp2                        (abs)        00084
-ttemp3                        (abs)        00087
-ttemp4                        (abs)        0007F
-wtemp                         (abs)        0007E
-wtemp0                        (abs)        0007E
-wtemp1                        (abs)        00080
-wtemp2                        (abs)        00082
-wtemp3                        (abs)        00084
-wtemp4                        (abs)        00086
-wtemp5                        (abs)        00088
-wtemp6                        (abs)        0007F
+?___lwdiv                      cstackBANK0  00025
+?___wmul                       cstackBANK0  00025
+EEPROMAdd@aux                  cstackBANK0  00042
+EEPROMAdd@empty                cstackBANK0  00043
+EEPROMAdd@found                cstackBANK0  00041
+EEPROMAdd@nmbr                 cstackBANK0  0003B
+EEPROMAdd@nmbrLenght           cstackBANK0  0003D
+EEPROMCheckPassword@pass       cstackBANK0  00030
+EEPROMDeleteNumber@address     cstackBANK0  00033
+EEPROMDeleteNumber@count       cstackBANK0  00035
+EEPROMDeleteNumber@position    cstackBANK0  0002F
+EEPROMSaveNumber@address       cstackBANK0  00039
+EEPROMSaveNumber@count         cstackBANK0  00038
+EEPROMSaveNumber@nmbr          cstackBANK0  0002F
+EEPROMSaveNumber@nmbrLenght    cstackBANK0  00031
+EEPROMSaveNumber@position      cstackBANK0  00032
+EEPROMSaveNumber@result        cstackBANK0  00037
+EEPROMSearchNumber@aux         cstackBANK0  0003B
+EEPROMSearchNumber@count       cstackBANK0  00039
+EEPROMSearchNumber@nmbr        cstackBANK0  00030
+EEPROMSearchNumber@nmbrLenght  cstackBANK0  00032
+EEPROMSearchNumber@result      cstackBANK0  0003A
+EEPROMUpdatePassword@pass      cstackBANK0  0002F
+EepromOpCode@address           cstackBANK0  00025
+EepromOpCode@i                 cstackBANK0  0002B
+EepromOpCode@opcode            cstackBANK0  0002A
+EepromRead@address             cstackBANK0  0002C
+EepromRead@data                cstackBANK0  0002F
+EepromReceive@b                cstackBANK0  00027
+EepromReceive@i                cstackBANK0  00028
+EepromSend@b                   cstackBANK0  00027
+EepromSend@i                   cstackBANK0  00028
+EepromWrite@address            cstackBANK0  0002C
+EepromWrite@data               cstackBANK0  0002E
+GPIOBlueLedBlink@i             cstackBANK0  00029
+GPIOBlueLedBlink@times         cstackBANK0  00028
+GPIORedLedBlink@i              cstackBANK0  00029
+GPIORedLedBlink@times          cstackBANK0  00028
+SIM800Command@add              cstackBANK0  0004F
+SIM800DeleteSms@flag           cstackBANK0  0002C
+SIM800DeleteSms@index          cstackBANK0  0002A
+SIM800LClear@i                 cstackBANK0  00029
+SIM800ReadSms@mem              cstackBANK0  0002A
+SIM800SendSms@msg              cstackBANK0  0002C
+SIM800SendSms@nmbr             cstackBANK0  0002A
+SYSTEMInit@freq                cstackBANK0  00025
+USARTHandleRxInt@ci            cstackBANK0  00022
+USARTHandleRxInt@ci_486        cstackBANK0  00023
+USARTHandleRxInt@ci_487        cstackBANK0  00024
+USARTHandleRxInt@ci_488        cstackBANK0  00021
+USARTHandleRxInt@data          cstackBANK0  00020
+USARTInit@baud_rate            cstackBANK0  00025
+USARTWriteChar@ch              cstackBANK0  00025
+USARTWriteInt@F3220            bssBANK0     00053
+USARTWriteLine@str             cstackBANK0  00028
+USARTWriteString@str           cstackBANK0  00026
+_ANSELB                        (abs)        0018D
+_APFCON0bits                   (abs)        0011D
+_BAUDCONbits                   (abs)        0019F
+_CREN                          (abs)        00CEC
+_EEPROMAdd                     text18       00D96
+_EEPROMCheckPassword           text17       00E76
+_EEPROMDeleteNumber            text16       00CD9
+_EEPROMEraseAll                text15       00D14
+_EEPROMSaveNumber              text21       006E3
+_EEPROMSearchNumber            text13       0075A
+_EEPROMUpdatePassword          text12       00665
+_EepromEnd                     text27       00B5B
+_EepromOpCode                  text26       00ECA
+_EepromRead                    text19       00BBD
+_EepromReceive                 text20       00C1A
+_EepromSend                    text25       007CE
+_EepromStart                   text24       00B92
+_EepromWrite                   text23       00BF5
+_GIE                           (abs)        0005F
+_GPIOBlueLedBlink              text30       00C46
+_GPIOPortInit                  text29       00B70
+_GPIORedLedBlink               text28       00C74
+_ISR                           intentry     00004
+_LATAbits                      (abs)        0010C
+_LATBbits                      (abs)        0010D
+_LATCbits                      (abs)        0010E
+_OSCCON                        (abs)        00099
+_PEIE                          (abs)        0005E
+_PIR1bits                      (abs)        00011
+_PORTBbits                     (abs)        0000D
+_RCIE                          (abs)        0048D
+_RCIF                          (abs)        0008D
+_RCREG                         (abs)        00199
+_RCSTAbits                     (abs)        0019D
+_SIM800Command                 text7        002C8
+_SIM800DeleteSms               text6        00D51
+_SIM800L                       (abs)        02078
+_SIM800LClear                  text5        00F30
+_SIM800ReadSms                 text4        00E29
+_SIM800SendSms                 text8        00F97
+_SIM800init                    text3        0046F
+_SPBRG                         (abs)        0019B
+_SYSTEMInit                    text2        00BD9
+_TRISA4                        (abs)        00464
+_TRISB4                        (abs)        0046C
+_TRISB6                        (abs)        0046E
+_TRISB7                        (abs)        0046F
+_TRISC0                        (abs)        00470
+_TRISC1                        (abs)        00471
+_TRISC2                        (abs)        00472
+_TRISC4                        (abs)        00474
+_TRISC5                        (abs)        00475
+_TRISC6                        (abs)        00476
+_TRISC7                        (abs)        00477
+_TXREG                         (abs)        0019A
+_TXSTAbits                     (abs)        0019E
+_USARTHandleRxInt              text32       00031
+_USARTInit                     text1        00DDF
+_USARTWriteChar                text11       00B53
+_USARTWriteLine                text9        00B80
+_USARTWriteString              text10       00BA5
+__CFG_BOREN$OFF                (abs)        00000
+__CFG_BORV$LO                  (abs)        00000
+__CFG_CLKOUTEN$OFF             (abs)        00000
+__CFG_CP$OFF                   (abs)        00000
+__CFG_CPD$OFF                  (abs)        00000
+__CFG_FCMEN$ON                 (abs)        00000
+__CFG_FOSC$INTOSC              (abs)        00000
+__CFG_IESO$ON                  (abs)        00000
+__CFG_LVP$ON                   (abs)        00000
+__CFG_MCLRE$OFF                (abs)        00000
+__CFG_PLLEN$OFF                (abs)        00000
+__CFG_PWRTE$OFF                (abs)        00000
+__CFG_STVREN$ON                (abs)        00000
+__CFG_WDTE$OFF                 (abs)        00000
+__CFG_WRT$OFF                  (abs)        00000
+__Habs1                        abs1         00000
+__Hbank0                       bank0        00000
+__Hbank1                       bank1        00000
+__Hbank10                      bank10       00000
+__Hbank11                      bank11       00000
+__Hbank12                      bank12       00000
+__Hbank13                      bank13       00000
+__Hbank14                      bank14       00000
+__Hbank15                      bank15       00000
+__Hbank16                      bank16       00000
+__Hbank17                      bank17       00000
+__Hbank18                      bank18       00000
+__Hbank19                      bank19       00000
+__Hbank2                       bank2        00000
+__Hbank20                      bank20       00000
+__Hbank21                      bank21       00000
+__Hbank22                      bank22       00000
+__Hbank23                      bank23       00000
+__Hbank24                      bank24       00000
+__Hbank25                      bank25       00000
+__Hbank26                      bank26       00000
+__Hbank27                      bank27       00000
+__Hbank28                      bank28       00000
+__Hbank29                      bank29       00000
+__Hbank3                       bank3        00000
+__Hbank30                      bank30       00000
+__Hbank31                      bank31       00000
+__Hbank4                       bank4        00000
+__Hbank5                       bank5        00000
+__Hbank6                       bank6        00000
+__Hbank7                       bank7        00000
+__Hbank8                       bank8        00000
+__Hbank9                       bank9        00000
+__Hbigram                      bigram       00000
+__HbssBANK0                    bssBANK0     00000
+__Hcinit                       cinit        00031
+__Hclrtext                     clrtext      00000
+__Hcode                        code         00000
+__Hcommon                      common       00000
+__Hconfig                      config       08009
+__HcstackBANK0                 cstackBANK0  00000
+__HcstackCOMMON                cstackCOMMON 00000
+__Heeprom_data                 eeprom_data  00000
+__Hend_init                    end_init     00018
+__Hfunctab                     functab      00000
+__Hidloc                       idloc        00000
+__Hinit                        init         00016
+__Hintentry                    intentry     00016
+__Hmaintext                    maintext     00000
+__Hpowerup                     powerup      00000
+__Hram                         ram          00000
+__Hreset_vec                   reset_vec    00002
+__Hsfr0                        sfr0         00000
+__Hsfr1                        sfr1         00000
+__Hsfr10                       sfr10        00000
+__Hsfr11                       sfr11        00000
+__Hsfr12                       sfr12        00000
+__Hsfr13                       sfr13        00000
+__Hsfr14                       sfr14        00000
+__Hsfr15                       sfr15        00000
+__Hsfr16                       sfr16        00000
+__Hsfr17                       sfr17        00000
+__Hsfr18                       sfr18        00000
+__Hsfr19                       sfr19        00000
+__Hsfr2                        sfr2         00000
+__Hsfr20                       sfr20        00000
+__Hsfr21                       sfr21        00000
+__Hsfr22                       sfr22        00000
+__Hsfr23                       sfr23        00000
+__Hsfr24                       sfr24        00000
+__Hsfr25                       sfr25        00000
+__Hsfr26                       sfr26        00000
+__Hsfr27                       sfr27        00000
+__Hsfr28                       sfr28        00000
+__Hsfr29                       sfr29        00000
+__Hsfr3                        sfr3         00000
+__Hsfr30                       sfr30        00000
+__Hsfr31                       sfr31        00000
+__Hsfr4                        sfr4         00000
+__Hsfr5                        sfr5         00000
+__Hsfr6                        sfr6         00000
+__Hsfr7                        sfr7         00000
+__Hsfr8                        sfr8         00000
+__Hsfr9                        sfr9         00000
+__Hspace_0                     (abs)        08009
+__Hspace_1                     (abs)        0007C
+__Hspace_2                     (abs)        00000
+__Hspace_3                     (abs)        00000
+__Hstack                       stack        00000
+__Hstrings                     strings      00000
+__Hstringtext                  stringtext   00000
+__Htext                        text         00000
+__Labs1                        abs1         00000
+__Lbank0                       bank0        00000
+__Lbank1                       bank1        00000
+__Lbank10                      bank10       00000
+__Lbank11                      bank11       00000
+__Lbank12                      bank12       00000
+__Lbank13                      bank13       00000
+__Lbank14                      bank14       00000
+__Lbank15                      bank15       00000
+__Lbank16                      bank16       00000
+__Lbank17                      bank17       00000
+__Lbank18                      bank18       00000
+__Lbank19                      bank19       00000
+__Lbank2                       bank2        00000
+__Lbank20                      bank20       00000
+__Lbank21                      bank21       00000
+__Lbank22                      bank22       00000
+__Lbank23                      bank23       00000
+__Lbank24                      bank24       00000
+__Lbank25                      bank25       00000
+__Lbank26                      bank26       00000
+__Lbank27                      bank27       00000
+__Lbank28                      bank28       00000
+__Lbank29                      bank29       00000
+__Lbank3                       bank3        00000
+__Lbank30                      bank30       00000
+__Lbank31                      bank31       00000
+__Lbank4                       bank4        00000
+__Lbank5                       bank5        00000
+__Lbank6                       bank6        00000
+__Lbank7                       bank7        00000
+__Lbank8                       bank8        00000
+__Lbank9                       bank9        00000
+__Lbigram                      bigram       00000
+__LbssBANK0                    bssBANK0     00000
+__Lcinit                       cinit        00018
+__Lclrtext                     clrtext      00000
+__Lcode                        code         00000
+__Lcommon                      common       00000
+__Lconfig                      config       08007
+__LcstackBANK0                 cstackBANK0  00000
+__LcstackCOMMON                cstackCOMMON 00000
+__Leeprom_data                 eeprom_data  00000
+__Lend_init                    end_init     00016
+__Lfunctab                     functab      00000
+__Lidloc                       idloc        00000
+__Linit                        init         00016
+__Lintentry                    intentry     00004
+__Lmaintext                    maintext     00000
+__Lpowerup                     powerup      00000
+__Lram                         ram          00000
+__Lreset_vec                   reset_vec    00000
+__Lsfr0                        sfr0         00000
+__Lsfr1                        sfr1         00000
+__Lsfr10                       sfr10        00000
+__Lsfr11                       sfr11        00000
+__Lsfr12                       sfr12        00000
+__Lsfr13                       sfr13        00000
+__Lsfr14                       sfr14        00000
+__Lsfr15                       sfr15        00000
+__Lsfr16                       sfr16        00000
+__Lsfr17                       sfr17        00000
+__Lsfr18                       sfr18        00000
+__Lsfr19                       sfr19        00000
+__Lsfr2                        sfr2         00000
+__Lsfr20                       sfr20        00000
+__Lsfr21                       sfr21        00000
+__Lsfr22                       sfr22        00000
+__Lsfr23                       sfr23        00000
+__Lsfr24                       sfr24        00000
+__Lsfr25                       sfr25        00000
+__Lsfr26                       sfr26        00000
+__Lsfr27                       sfr27        00000
+__Lsfr28                       sfr28        00000
+__Lsfr29                       sfr29        00000
+__Lsfr3                        sfr3         00000
+__Lsfr30                       sfr30        00000
+__Lsfr31                       sfr31        00000
+__Lsfr4                        sfr4         00000
+__Lsfr5                        sfr5         00000
+__Lsfr6                        sfr6         00000
+__Lsfr7                        sfr7         00000
+__Lsfr8                        sfr8         00000
+__Lsfr9                        sfr9         00000
+__Lspace_0                     (abs)        00000
+__Lspace_1                     (abs)        00000
+__Lspace_2                     (abs)        00000
+__Lspace_3                     (abs)        00000
+__Lstack                       stack        00000
+__Lstrings                     strings      00000
+__Lstringtext                  stringtext   00000
+__Ltext                        text         00000
+__S0                           (abs)        08009
+__S1                           (abs)        0007C
+__S2                           (abs)        00000
+__S3                           (abs)        00000
+___int_sp                      stack        00000
+___latbits                     (abs)        00001
+___lwdiv                       text14       00CA2
+___lwdiv@counter               cstackBANK0  0002C
+___lwdiv@dividend              cstackBANK0  00027
+___lwdiv@divisor               cstackBANK0  00025
+___lwdiv@quotient              cstackBANK0  0002A
+___sp                          stack        00000
+___wmul                        text22       004DE
+___wmul@multiplicand           cstackBANK0  00027
+___wmul@multiplier             cstackBANK0  00025
+___wmul@product                cstackBANK0  00029
+__end_of_EEPROMAdd             text18       00DDF
+__end_of_EEPROMCheckPassword   text17       00ECA
+__end_of_EEPROMDeleteNumber    text16       00D14
+__end_of_EEPROMEraseAll        text15       00D51
+__end_of_EEPROMSaveNumber      text21       0075A
+__end_of_EEPROMSearchNumber    text13       007CE
+__end_of_EEPROMUpdatePassword  text12       006E3
+__end_of_EepromEnd             text27       00B64
+__end_of_EepromOpCode          text26       00F30
+__end_of_EepromRead            text19       00BD9
+__end_of_EepromReceive         text20       00C46
+__end_of_EepromSend            text25       007FC
+__end_of_EepromStart           text24       00BA5
+__end_of_EepromWrite           text23       00C1A
+__end_of_GPIOBlueLedBlink      text30       00C74
+__end_of_GPIOPortInit          text29       00B80
+__end_of_GPIORedLedBlink       text28       00CA2
+__end_of_ISR                   intentry     00016
+__end_of_SIM800Command         text7        0046F
+__end_of_SIM800DeleteSms       text6        00D96
+__end_of_SIM800LClear          text5        00F97
+__end_of_SIM800ReadSms         text4        00E76
+__end_of_SIM800SendSms         text8        01000
+__end_of_SIM800init            text3        004DE
+__end_of_SYSTEMInit            text2        00BF5
+__end_of_USARTHandleRxInt      text32       002C8
+__end_of_USARTInit             text1        00E29
+__end_of_USARTWriteChar        text11       00B5B
+__end_of_USARTWriteLine        text9        00B92
+__end_of_USARTWriteString      text10       00BBD
+__end_of___lwdiv               text14       00CD9
+__end_of___wmul                text22       004FC
+__end_of__initialization       cinit        0002D
+__end_of__stringdata           stringtext   005B3
+__end_of_main                  maintext     00665
+__initialization               cinit        00018
+__pbssBANK0                    bssBANK0     00053
+__pbssBIGRAM                   (abs)        02078
+__pcstackBANK0                 cstackBANK0  00020
+__pcstackCOMMON                cstackCOMMON 00070
+__pintentry                    intentry     00004
+__pmaintext                    maintext     005B3
+__pstringtext                  stringtext   00500
+__ptext1                       text1        00DDF
+__ptext10                      text10       00BA5
+__ptext11                      text11       00B53
+__ptext12                      text12       00665
+__ptext13                      text13       0075A
+__ptext14                      text14       00CA2
+__ptext15                      text15       00D14
+__ptext16                      text16       00CD9
+__ptext17                      text17       00E76
+__ptext18                      text18       00D96
+__ptext19                      text19       00BBD
+__ptext2                       text2        00BD9
+__ptext20                      text20       00C1A
+__ptext21                      text21       006E3
+__ptext22                      text22       004DE
+__ptext23                      text23       00BF5
+__ptext24                      text24       00B92
+__ptext25                      text25       007CE
+__ptext26                      text26       00ECA
+__ptext27                      text27       00B5B
+__ptext28                      text28       00C74
+__ptext29                      text29       00B70
+__ptext3                       text3        0046F
+__ptext30                      text30       00C46
+__ptext32                      text32       00031
+__ptext4                       text4        00E29
+__ptext5                       text5        00F30
+__ptext6                       text6        00D51
+__ptext7                       text7        002C8
+__ptext8                       text8        00F97
+__ptext9                       text9        00B80
+__size_of_EEPROMAdd            (abs)        00000
+__size_of_EEPROMCheckPassword  (abs)        00000
+__size_of_EEPROMDeleteNumber   (abs)        00000
+__size_of_EEPROMEraseAll       (abs)        00000
+__size_of_EEPROMSaveNumber     (abs)        00000
+__size_of_EEPROMSearchNumber   (abs)        00000
+__size_of_EEPROMUpdatePassword (abs)        00000
+__size_of_EepromEnd            (abs)        00000
+__size_of_EepromOpCode         (abs)        00000
+__size_of_EepromRead           (abs)        00000
+__size_of_EepromReceive        (abs)        00000
+__size_of_EepromSend           (abs)        00000
+__size_of_EepromStart          (abs)        00000
+__size_of_EepromWrite          (abs)        00000
+__size_of_GPIOBlueLedBlink     (abs)        00000
+__size_of_GPIOPortInit         (abs)        00000
+__size_of_GPIORedLedBlink      (abs)        00000
+__size_of_ISR                  (abs)        00000
+__size_of_SIM800Command        (abs)        00000
+__size_of_SIM800DeleteSms      (abs)        00000
+__size_of_SIM800LClear         (abs)        00000
+__size_of_SIM800ReadSms        (abs)        00000
+__size_of_SIM800SendSms        (abs)        00000
+__size_of_SIM800init           (abs)        00000
+__size_of_SYSTEMInit           (abs)        00000
+__size_of_USARTHandleRxInt     (abs)        00000
+__size_of_USARTInit            (abs)        00000
+__size_of_USARTWriteChar       (abs)        00000
+__size_of_USARTWriteLine       (abs)        00000
+__size_of_USARTWriteString     (abs)        00000
+__size_of___lwdiv              (abs)        00000
+__size_of___wmul               (abs)        00000
+__size_of_main                 (abs)        00000
+__stringdata                   stringtext   00500
+_bufque                        bssBANK0     0005C
+_i                             bssBANK0     0005D
+_main                          maintext     005B3
+_password                      bssBANK0     00058
+_task                          bssBANK0     0005E
+btemp                          (abs)        0007E
+clear_ram0                     clrtext      00B64
+end_of_initialization          cinit        0002D
+intlevel0                      functab      00000
+intlevel1                      functab      00000
+intlevel2                      functab      00000
+intlevel3                      functab      00000
+intlevel4                      functab      00000
+intlevel5                      functab      00000
+ltemp                          (abs)        0007E
+ltemp0                         (abs)        0007E
+ltemp1                         (abs)        00082
+ltemp2                         (abs)        00086
+ltemp3                         (abs)        00080
+pic14e$flags                   (abs)        0007E
+reset_vec                      reset_vec    00000
+stackhi                        (abs)        02077
+stacklo                        (abs)        0203F
+start                          init         00016
+start_initialization           cinit        00018
+ttemp                          (abs)        0007E
+ttemp0                         (abs)        0007E
+ttemp1                         (abs)        00081
+ttemp2                         (abs)        00084
+ttemp3                         (abs)        00087
+ttemp4                         (abs)        0007F
+wtemp                          (abs)        0007E
+wtemp0                         (abs)        0007E
+wtemp1                         (abs)        00080
+wtemp2                         (abs)        00082
+wtemp3                         (abs)        00084
+wtemp4                         (abs)        00086
+wtemp5                         (abs)        00088
+wtemp6                         (abs)        0007F
 
 
 FUNCTION INFORMATION:
@@ -837,15 +889,16 @@ Total ram usage:        3 bytes
  Hardware stack levels required when called:    7
  This function calls:
 		_EEPROMSearchNumber
+		_EEPROMUpdatePassword
 		_GPIOBlueLedBlink
 		_GPIOPortInit
 		_GPIORedLedBlink
 		_SIM800Command
+		_SIM800DeleteSms
+		_SIM800LClear
 		_SIM800ReadSms
-		_SIM800SendSms
 		_SIM800init
 		_SYSTEMInit
-		_USARTClearSIM800L
 		_USARTInit
 		_USARTWriteLine
  This function is called by:
@@ -874,36 +927,6 @@ Total ram usage:        3 bytes
       Temps:          0       0       0       0
       Totals:         0       2       0       0
 Total ram usage:        2 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    2
- This function calls:
-		Nothing
- This function is called by:
-		_main
- This function uses a non-reentrant model
-
-
- *************** function _USARTClearSIM800L *****************
- Defined at:
-		line 197 in file "usart.c"
- Parameters:    Size  Location     Type
-		None
- Auto vars:     Size  Location     Type
-  i               1    9[BANK0 ] unsigned char 
- Return value:  Size  Location     Type
-		None               void
- Registers used:
-		wreg, fsr1l, fsr1h, status,2, status,0
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMMON   BANK0   BANK1   BANK2
-      Params:         0       0       0       0
-      Locals:         0       1       0       0
-      Temps:          0       4       0       0
-      Totals:         0       5       0       0
-Total ram usage:        5 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    2
  This function calls:
@@ -973,44 +996,9 @@ Total ram usage:        3 bytes
  This function uses a non-reentrant model
 
 
- *************** function _SIM800SendSms *****************
- Defined at:
-		line 34 in file "sim800l.c"
- Parameters:    Size  Location     Type
-  nmbr            2   10[BANK0 ] PTR const unsigned char 
-		 -> STR_3(14), 
-  msg             2   12[BANK0 ] PTR const unsigned char 
-		 -> STR_4(17), 
- Auto vars:     Size  Location     Type
-		None
- Return value:  Size  Location     Type
-                  1    wreg      unsigned char 
- Registers used:
-		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMMON   BANK0   BANK1   BANK2
-      Params:         0       4       0       0
-      Locals:         0       0       0       0
-      Temps:          0       3       0       0
-      Totals:         0       7       0       0
-Total ram usage:        7 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    5
- This function calls:
-		_USARTWriteChar
-		_USARTWriteLine
-		_USARTWriteString
- This function is called by:
-		_main
- This function uses a non-reentrant model
-
-
  *************** function _SIM800ReadSms *****************
  Defined at:
-		line 50 in file "sim800l.c"
+		line 52 in file "sim800l.c"
  Parameters:    Size  Location     Type
   mem             2   10[BANK0 ] PTR const unsigned char 
 		 -> SIM800L.smsmem(5), SIM800L(120), 
@@ -1040,14 +1028,150 @@ Total ram usage:        5 bytes
  This function uses a non-reentrant model
 
 
+ *************** function _SIM800LClear *****************
+ Defined at:
+		line 167 in file "sim800l.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+  i               1    9[BANK0 ] unsigned char 
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, fsr1l, fsr1h, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK2
+      Params:         0       0       0       0
+      Locals:         0       1       0       0
+      Temps:          0       4       0       0
+      Totals:         0       5       0       0
+Total ram usage:        5 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		Nothing
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function _SIM800DeleteSms *****************
+ Defined at:
+		line 63 in file "sim800l.c"
+ Parameters:    Size  Location     Type
+  index           2   10[BANK0 ] PTR const unsigned char 
+		 -> STR_20(2), 
+  flag            2   12[BANK0 ] PTR const unsigned char 
+		 -> STR_21(2), 
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      unsigned char 
+ Registers used:
+		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK2
+      Params:         0       4       0       0
+      Locals:         0       0       0       0
+      Temps:          0       3       0       0
+      Totals:         0       7       0       0
+Total ram usage:        7 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    5
+ This function calls:
+		_USARTWriteChar
+		_USARTWriteLine
+		_USARTWriteString
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function _SIM800Command *****************
+ Defined at:
+		line 111 in file "sim800l.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+  add             1   47[BANK0 ] unsigned char 
+ Return value:  Size  Location     Type
+                  1    wreg      unsigned char 
+ Registers used:
+		wreg, fsr0l, fsr0h, fsr1l, fsr1h, status,2, status,0, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK2
+      Params:         0       0       0       0
+      Locals:         0       1       0       0
+      Temps:          0      11       0       0
+      Totals:         0      12       0       0
+Total ram usage:       12 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    6
+ This function calls:
+		_EEPROMAdd
+		_EEPROMCheckPassword
+		_EEPROMDeleteNumber
+		_EEPROMEraseAll
+		_EEPROMSearchNumber
+		_EEPROMUpdatePassword
+		_SIM800SendSms
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function _SIM800SendSms *****************
+ Defined at:
+		line 36 in file "sim800l.c"
+ Parameters:    Size  Location     Type
+  nmbr            2   10[BANK0 ] PTR const unsigned char 
+		 -> SIM800L.cell(15), SIM800L(120), 
+  msg             2   12[BANK0 ] PTR const unsigned char 
+		 -> STR_15(29), STR_14(26), STR_13(27), 
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+                  1    wreg      unsigned char 
+ Registers used:
+		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK2
+      Params:         0       4       0       0
+      Locals:         0       0       0       0
+      Temps:          0       3       0       0
+      Totals:         0       7       0       0
+Total ram usage:        7 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    5
+ This function calls:
+		_USARTWriteChar
+		_USARTWriteLine
+		_USARTWriteString
+ This function is called by:
+		_SIM800Command
+ This function uses a non-reentrant model
+
+
  *************** function _USARTWriteLine *****************
  Defined at:
 		line 66 in file "usart.c"
  Parameters:    Size  Location     Type
   str             2    8[BANK0 ] PTR const unsigned char 
-		 -> STR_15(9), STR_14(14), STR_12(9), STR_11(14), 
-		 -> STR_9(10), STR_8(14), STR_7(5), STR_6(7), 
-		 -> STR_5(5), STR_2(6), STR_1(9), 
+		 -> STR_19(6), STR_18(9), STR_11(9), STR_9(9), 
+		 -> STR_8(14), STR_6(10), STR_5(14), STR_4(5), 
+		 -> STR_3(12), STR_2(7), STR_1(5), 
  Auto vars:     Size  Location     Type
 		None
  Return value:  Size  Location     Type
@@ -1070,12 +1194,12 @@ Total ram usage:        2 bytes
 		_USARTWriteChar
 		_USARTWriteString
  This function is called by:
-		_main
 		_SIM800init
 		_SIM800SendSms
 		_SIM800ReadSms
-		_SIM800sendCommand
 		_SIM800DeleteSms
+		_main
+		_SIM800sendCommand
  This function uses a non-reentrant model
 
 
@@ -1084,11 +1208,12 @@ Total ram usage:        2 bytes
 		line 57 in file "usart.c"
  Parameters:    Size  Location     Type
   str             2    6[BANK0 ] PTR const unsigned char 
-		 -> STR_16(3), STR_15(9), STR_14(14), STR_13(3), 
-		 -> STR_12(9), STR_11(14), STR_10(4), STR_9(10), 
-		 -> STR_8(14), STR_7(5), STR_6(7), STR_5(5), 
-		 -> STR_4(17), STR_3(14), SIM800L.smsmem(5), SIM800L(120), 
-		 -> STR_2(6), STR_1(9), 
+		 -> STR_21(2), STR_20(2), STR_19(6), STR_18(9), 
+		 -> SIM800L.smsmem(5), STR_15(29), STR_14(26), STR_13(27), 
+		 -> SIM800L.cell(15), SIM800L(120), STR_12(3), STR_11(9), 
+		 -> STR_10(3), STR_9(9), STR_8(14), STR_7(4), 
+		 -> STR_6(10), STR_5(14), STR_4(5), STR_3(12), 
+		 -> STR_2(7), STR_1(5), 
  Auto vars:     Size  Location     Type
 		None
  Return value:  Size  Location     Type
@@ -1112,8 +1237,8 @@ Total ram usage:        2 bytes
  This function is called by:
 		_SIM800SendSms
 		_SIM800ReadSms
-		_USARTWriteLine
 		_SIM800DeleteSms
+		_USARTWriteLine
  This function uses a non-reentrant model
 
 
@@ -1144,19 +1269,184 @@ Total ram usage:        1 bytes
 		Nothing
  This function is called by:
 		_SIM800SendSms
+		_SIM800DeleteSms
 		_USARTWriteString
 		_USARTWriteLine
-		_SIM800DeleteSms
 		_USARTWriteInt
 		_USARTGotoNewLine
  This function uses a non-reentrant model
 
 
- *************** function _SIM800Command *****************
+ *************** function _EEPROMUpdatePassword *****************
  Defined at:
-		line 107 in file "sim800l.c"
+		line 204 in file "eeprom.c"
+ Parameters:    Size  Location     Type
+  pass            2   15[BANK0 ] PTR const unsigned char 
+		 -> STR_17(5), STR_16(5), 
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK2
+      Params:         0       2       0       0
+      Locals:         0       0       0       0
+      Temps:          0       3       0       0
+      Totals:         0       5       0       0
+Total ram usage:        5 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    4
+ This function calls:
+		_EepromWrite
+ This function is called by:
+		_SIM800Command
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function _EEPROMSearchNumber *****************
+ Defined at:
+		line 145 in file "eeprom.c"
+ Parameters:    Size  Location     Type
+  nmbr            2   16[BANK0 ] PTR const unsigned char 
+		 -> SIM800L.cell(15), SIM800L(120), 
+  nmbrLenght      1   18[BANK0 ] unsigned char 
+ Auto vars:     Size  Location     Type
+  aux             2   27[BANK0 ] unsigned int 
+  result          1   26[BANK0 ] unsigned char 
+  count           1   25[BANK0 ] unsigned char 
+ Return value:  Size  Location     Type
+                  1    wreg      char 
+ Registers used:
+		wreg, fsr1l, fsr1h, status,2, status,0, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK2
+      Params:         0       3       0       0
+      Locals:         0       4       0       0
+      Temps:          0       6       0       0
+      Totals:         0      13       0       0
+Total ram usage:       13 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    4
+ This function calls:
+		_EepromRead
+		___lwdiv
+ This function is called by:
+		_SIM800Command
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function ___lwdiv *****************
+ Defined at:
+		line 6 in file "C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwdiv.c"
+ Parameters:    Size  Location     Type
+  divisor         2    5[BANK0 ] unsigned int 
+  dividend        2    7[BANK0 ] unsigned int 
+ Auto vars:     Size  Location     Type
+  quotient        2   10[BANK0 ] unsigned int 
+  counter         1   12[BANK0 ] unsigned char 
+ Return value:  Size  Location     Type
+                  2    5[BANK0 ] unsigned int 
+ Registers used:
+		wreg, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK2
+      Params:         0       4       0       0
+      Locals:         0       3       0       0
+      Temps:          0       1       0       0
+      Totals:         0       8       0       0
+Total ram usage:        8 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		Nothing
+ This function is called by:
+		_EEPROMSearchNumber
+ This function uses a non-reentrant model
+
+
+ *************** function _EEPROMEraseAll *****************
+ Defined at:
+		line 172 in file "eeprom.c"
  Parameters:    Size  Location     Type
 		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, status,2, status,0, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK2
+      Params:         0       0       0       0
+      Locals:         0       0       0       0
+      Temps:          0       3       0       0
+      Totals:         0       3       0       0
+Total ram usage:        3 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    3
+ This function calls:
+		_EepromEnd
+		_EepromOpCode
+		_EepromStart
+ This function is called by:
+		_SIM800Command
+ This function uses a non-reentrant model
+
+
+ *************** function _EEPROMDeleteNumber *****************
+ Defined at:
+		line 132 in file "eeprom.c"
+ Parameters:    Size  Location     Type
+  position        2   15[BANK0 ] unsigned int 
+ Auto vars:     Size  Location     Type
+  address         2   19[BANK0 ] unsigned int 
+  count           1   21[BANK0 ] unsigned char 
+ Return value:  Size  Location     Type
+                  1    wreg      unsigned char 
+ Registers used:
+		wreg, status,2, status,0, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK2
+      Params:         0       2       0       0
+      Locals:         0       3       0       0
+      Temps:          0       2       0       0
+      Totals:         0       7       0       0
+Total ram usage:        7 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    4
+ This function calls:
+		_EepromWrite
+		___wmul
+ This function is called by:
+		_SIM800Command
+ This function uses a non-reentrant model
+
+
+ *************** function _EEPROMCheckPassword *****************
+ Defined at:
+		line 216 in file "eeprom.c"
+ Parameters:    Size  Location     Type
+  pass            2   16[BANK0 ] PTR const unsigned char 
+		 -> SIM800L.command(25), SIM800L(120), 
  Auto vars:     Size  Location     Type
 		None
  Return value:  Size  Location     Type
@@ -1168,29 +1458,31 @@ Total ram usage:        1 bytes
 		On exit  : 
 		Unchanged: 
  Data sizes:     COMMON   BANK0   BANK1   BANK2
-      Params:         0       0       0       0
+      Params:         0       2       0       0
       Locals:         0       0       0       0
-      Temps:          0      11       0       0
-      Totals:         0      11       0       0
-Total ram usage:       11 bytes
+      Temps:          0       1       0       0
+      Totals:         0       3       0       0
+Total ram usage:        3 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    6
+ Hardware stack levels required when called:    4
  This function calls:
-		_EEPROMAdd
+		_EepromRead
  This function is called by:
-		_main
+		_SIM800Command
  This function uses a non-reentrant model
 
 
  *************** function _EEPROMAdd *****************
  Defined at:
-		line 174 in file "eeprom.c"
+		line 187 in file "eeprom.c"
  Parameters:    Size  Location     Type
   nmbr            2   27[BANK0 ] PTR const unsigned char 
 		 -> SIM800L.cell(15), SIM800L(120), 
   nmbrLenght      1   29[BANK0 ] unsigned char 
  Auto vars:     Size  Location     Type
-  empty           2   31[BANK0 ] unsigned int 
+  empty           1   35[BANK0 ] unsigned char 
+  aux             1   34[BANK0 ] unsigned char 
+  found           1   33[BANK0 ] unsigned char 
  Return value:  Size  Location     Type
                   1    wreg      unsigned char 
  Registers used:
@@ -1201,10 +1493,10 @@ Total ram usage:       11 bytes
 		Unchanged: 
  Data sizes:     COMMON   BANK0   BANK1   BANK2
       Params:         0       3       0       0
-      Locals:         0       2       0       0
-      Temps:          0       1       0       0
-      Totals:         0       6       0       0
-Total ram usage:        6 bytes
+      Locals:         0       3       0       0
+      Temps:          0       3       0       0
+      Totals:         0       9       0       0
+Total ram usage:        9 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    5
  This function calls:
@@ -1213,6 +1505,72 @@ Total ram usage:        6 bytes
 		___wmul
  This function is called by:
 		_SIM800Command
+ This function uses a non-reentrant model
+
+
+ *************** function _EepromRead *****************
+ Defined at:
+		line 94 in file "eeprom.c"
+ Parameters:    Size  Location     Type
+  address         2   12[BANK0 ] unsigned int 
+ Auto vars:     Size  Location     Type
+  data            1   15[BANK0 ] unsigned char 
+ Return value:  Size  Location     Type
+                  1    wreg      unsigned char 
+ Registers used:
+		wreg, status,2, status,0, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK2
+      Params:         0       2       0       0
+      Locals:         0       1       0       0
+      Temps:          0       1       0       0
+      Totals:         0       4       0       0
+Total ram usage:        4 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    3
+ This function calls:
+		_EepromEnd
+		_EepromOpCode
+		_EepromReceive
+		_EepromStart
+ This function is called by:
+		_EEPROMSearchNumber
+		_EEPROMAdd
+		_EEPROMCheckPassword
+ This function uses a non-reentrant model
+
+
+ *************** function _EepromReceive *****************
+ Defined at:
+		line 39 in file "eeprom.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+  i               1    8[BANK0 ] char 
+  b               1    7[BANK0 ] unsigned char 
+ Return value:  Size  Location     Type
+                  1    wreg      unsigned char 
+ Registers used:
+		wreg, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK2
+      Params:         0       0       0       0
+      Locals:         0       2       0       0
+      Temps:          0       2       0       0
+      Totals:         0       4       0       0
+Total ram usage:        4 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		Nothing
+ This function is called by:
+		_EepromRead
  This function uses a non-reentrant model
 
 
@@ -1280,6 +1638,7 @@ Total ram usage:        6 bytes
 		Nothing
  This function is called by:
 		_EEPROMSaveNumber
+		_EEPROMDeleteNumber
 		_EEPROMAdd
  This function uses a non-reentrant model
 
@@ -1315,6 +1674,40 @@ Total ram usage:        3 bytes
 		_EepromStart
  This function is called by:
 		_EEPROMSaveNumber
+		_EEPROMDeleteNumber
+		_EEPROMUpdatePassword
+ This function uses a non-reentrant model
+
+
+ *************** function _EepromStart *****************
+ Defined at:
+		line 5 in file "eeprom.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK2
+      Params:         0       0       0       0
+      Locals:         0       0       0       0
+      Temps:          0       1       0       0
+      Totals:         0       1       0       0
+Total ram usage:        1 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		Nothing
+ This function is called by:
+		_EepromWrite
+		_EepromRead
+		_EEPROMEraseAll
  This function uses a non-reentrant model
 
 
@@ -1346,6 +1739,72 @@ Total ram usage:        4 bytes
 		Nothing
  This function is called by:
 		_EepromWrite
+ This function uses a non-reentrant model
+
+
+ *************** function _EepromOpCode *****************
+ Defined at:
+		line 55 in file "eeprom.c"
+ Parameters:    Size  Location     Type
+  opcode          1    wreg     unsigned char 
+  address         2    5[BANK0 ] unsigned int 
+ Auto vars:     Size  Location     Type
+  opcode          1   10[BANK0 ] unsigned char 
+  i               1   11[BANK0 ] char 
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK2
+      Params:         0       2       0       0
+      Locals:         0       2       0       0
+      Temps:          0       3       0       0
+      Totals:         0       7       0       0
+Total ram usage:        7 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		Nothing
+ This function is called by:
+		_EepromWrite
+		_EepromRead
+		_EEPROMEraseAll
+ This function uses a non-reentrant model
+
+
+ *************** function _EepromEnd *****************
+ Defined at:
+		line 19 in file "eeprom.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0   BANK1   BANK2
+      Params:         0       0       0       0
+      Locals:         0       0       0       0
+      Temps:          0       1       0       0
+      Totals:         0       1       0       0
+Total ram usage:        1 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		Nothing
+ This function is called by:
+		_EepromWrite
+		_EepromRead
+		_EEPROMEraseAll
  This function uses a non-reentrant model
 
 
@@ -1441,236 +1900,6 @@ Total ram usage:        5 bytes
  This function uses a non-reentrant model
 
 
- *************** function _EEPROMSearchNumber *****************
- Defined at:
-		line 132 in file "eeprom.c"
- Parameters:    Size  Location     Type
-  nmbr            2   16[BANK0 ] PTR const unsigned char 
-		 -> SIM800L.cell(15), SIM800L(120), 
-  nmbrLenght      1   18[BANK0 ] unsigned char 
- Auto vars:     Size  Location     Type
-  aux             2   27[BANK0 ] unsigned int 
-  result          1   26[BANK0 ] unsigned char 
-  count           1   25[BANK0 ] unsigned char 
- Return value:  Size  Location     Type
-                  1    wreg      char 
- Registers used:
-		wreg, fsr1l, fsr1h, status,2, status,0, pclath, cstack
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMMON   BANK0   BANK1   BANK2
-      Params:         0       3       0       0
-      Locals:         0       4       0       0
-      Temps:          0       6       0       0
-      Totals:         0      13       0       0
-Total ram usage:       13 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    4
- This function calls:
-		_EepromRead
-		___lwdiv
- This function is called by:
-		_main
- This function uses a non-reentrant model
-
-
- *************** function ___lwdiv *****************
- Defined at:
-		line 6 in file "C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwdiv.c"
- Parameters:    Size  Location     Type
-  divisor         2    5[BANK0 ] unsigned int 
-  dividend        2    7[BANK0 ] unsigned int 
- Auto vars:     Size  Location     Type
-  quotient        2   10[BANK0 ] unsigned int 
-  counter         1   12[BANK0 ] unsigned char 
- Return value:  Size  Location     Type
-                  2    5[BANK0 ] unsigned int 
- Registers used:
-		wreg, status,2, status,0
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMMON   BANK0   BANK1   BANK2
-      Params:         0       4       0       0
-      Locals:         0       3       0       0
-      Temps:          0       1       0       0
-      Totals:         0       8       0       0
-Total ram usage:        8 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    2
- This function calls:
-		Nothing
- This function is called by:
-		_EEPROMSearchNumber
- This function uses a non-reentrant model
-
-
- *************** function _EepromRead *****************
- Defined at:
-		line 94 in file "eeprom.c"
- Parameters:    Size  Location     Type
-  address         2   12[BANK0 ] unsigned int 
- Auto vars:     Size  Location     Type
-  data            1   15[BANK0 ] unsigned char 
- Return value:  Size  Location     Type
-                  1    wreg      unsigned char 
- Registers used:
-		wreg, status,2, status,0, pclath, cstack
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMMON   BANK0   BANK1   BANK2
-      Params:         0       2       0       0
-      Locals:         0       1       0       0
-      Temps:          0       1       0       0
-      Totals:         0       4       0       0
-Total ram usage:        4 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    3
- This function calls:
-		_EepromEnd
-		_EepromOpCode
-		_EepromReceive
-		_EepromStart
- This function is called by:
-		_EEPROMSearchNumber
-		_EEPROMAdd
- This function uses a non-reentrant model
-
-
- *************** function _EepromStart *****************
- Defined at:
-		line 5 in file "eeprom.c"
- Parameters:    Size  Location     Type
-		None
- Auto vars:     Size  Location     Type
-		None
- Return value:  Size  Location     Type
-		None               void
- Registers used:
-		wreg
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMMON   BANK0   BANK1   BANK2
-      Params:         0       0       0       0
-      Locals:         0       0       0       0
-      Temps:          0       1       0       0
-      Totals:         0       1       0       0
-Total ram usage:        1 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    2
- This function calls:
-		Nothing
- This function is called by:
-		_EepromWrite
-		_EepromRead
-		_EEPROMEraseAll
- This function uses a non-reentrant model
-
-
- *************** function _EepromReceive *****************
- Defined at:
-		line 39 in file "eeprom.c"
- Parameters:    Size  Location     Type
-		None
- Auto vars:     Size  Location     Type
-  i               1    8[BANK0 ] char 
-  b               1    7[BANK0 ] unsigned char 
- Return value:  Size  Location     Type
-                  1    wreg      unsigned char 
- Registers used:
-		wreg, status,2, status,0
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMMON   BANK0   BANK1   BANK2
-      Params:         0       0       0       0
-      Locals:         0       2       0       0
-      Temps:          0       2       0       0
-      Totals:         0       4       0       0
-Total ram usage:        4 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    2
- This function calls:
-		Nothing
- This function is called by:
-		_EepromRead
- This function uses a non-reentrant model
-
-
- *************** function _EepromOpCode *****************
- Defined at:
-		line 55 in file "eeprom.c"
- Parameters:    Size  Location     Type
-  opcode          1    wreg     unsigned char 
-  address         2    5[BANK0 ] unsigned int 
- Auto vars:     Size  Location     Type
-  opcode          1   10[BANK0 ] unsigned char 
-  i               1   11[BANK0 ] char 
- Return value:  Size  Location     Type
-		None               void
- Registers used:
-		wreg, status,2, status,0
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMMON   BANK0   BANK1   BANK2
-      Params:         0       2       0       0
-      Locals:         0       2       0       0
-      Temps:          0       3       0       0
-      Totals:         0       7       0       0
-Total ram usage:        7 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    2
- This function calls:
-		Nothing
- This function is called by:
-		_EepromWrite
-		_EepromRead
-		_EEPROMEraseAll
- This function uses a non-reentrant model
-
-
- *************** function _EepromEnd *****************
- Defined at:
-		line 19 in file "eeprom.c"
- Parameters:    Size  Location     Type
-		None
- Auto vars:     Size  Location     Type
-		None
- Return value:  Size  Location     Type
-		None               void
- Registers used:
-		wreg
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMMON   BANK0   BANK1   BANK2
-      Params:         0       0       0       0
-      Locals:         0       0       0       0
-      Temps:          0       1       0       0
-      Totals:         0       1       0       0
-Total ram usage:        1 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    2
- This function calls:
-		Nothing
- This function is called by:
-		_EepromWrite
-		_EepromRead
-		_EEPROMEraseAll
- This function uses a non-reentrant model
-
-
  *************** function _ISR *****************
  Defined at:
 		line 6 in file "isr.c"
@@ -1707,10 +1936,10 @@ Total ram usage:        1 bytes
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
-  ci              1    2[BANK0 ] unsigned char 
+  ci              1    1[BANK0 ] unsigned char 
   ci              1    4[BANK0 ] unsigned char 
   ci              1    3[BANK0 ] unsigned char 
-  ci              1    1[BANK0 ] unsigned char 
+  ci              1    2[BANK0 ] unsigned char 
   data            1    0[BANK0 ] unsigned char 
  Return value:  Size  Location     Type
 		None               void
@@ -1739,44 +1968,49 @@ MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\Umul16.c
-		___wmul        		CODE           	0F2C	0000	30
+		___wmul        		CODE           	04DE	0000	30
 
 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\Umul16.c estimated size: 30
 
 usart.c
-		_USARTWriteStri		CODE           	0EDC	0000	24
-		_USARTWriteLine		CODE           	0EB7	0000	18
-		_USARTWriteChar		CODE           	0E8A	0000	8
-		_USARTHandleRxI		CODE           	002E	0000	645
-		_USARTClearSIM8		CODE           	0745	0000	76
-		_USARTInit     		CODE           	0791	0000	74
+		_USARTWriteStri		CODE           	0BA5	0000	24
+		_USARTWriteLine		CODE           	0B80	0000	18
+		_USARTWriteChar		CODE           	0B53	0000	8
+		_USARTHandleRxI		CODE           	0031	0000	663
+		_USARTInit     		CODE           	0DDF	0000	74
 
-usart.c estimated size: 845
+usart.c estimated size: 787
 
 eeprom.c
-		_EepromWrite   		CODE           	07DB	0000	37
-		_EEPROMSaveNumb		CODE           	03DA	0000	119
-		_EepromSend    		CODE           	0FD2	0000	46
-		_EepromStart   		CODE           	0EC9	0000	19
-		_EEPROMAdd     		CODE           	063C	0000	99
-		_EEPROMSearchNu		CODE           	0451	0000	117
-		_EepromOpCode  		CODE           	05D6	0000	102
-		_EepromRead    		CODE           	0EF4	0000	28
-		_EepromEnd     		CODE           	0E92	0000	9
-		_EepromReceive 		CODE           	0F4A	0000	44
+		_EepromWrite   		CODE           	0BF5	0000	37
+		_EEPROMSaveNumb		CODE           	06E3	0000	119
+		_EEPROMCheckPas		CODE           	0E76	0000	84
+		_EEPROMDeleteNu		CODE           	0CD9	0000	59
+		_EepromSend    		CODE           	07CE	0000	46
+		_EepromStart   		CODE           	0B92	0000	19
+		_EEPROMAdd     		CODE           	0D96	0000	73
+		_EEPROMSearchNu		CODE           	075A	0000	116
+		_EepromOpCode  		CODE           	0ECA	0000	102
+		_EEPROMEraseAll		CODE           	0D14	0000	61
+		_EepromRead    		CODE           	0BBD	0000	28
+		_EepromEnd     		CODE           	0B5B	0000	9
+		_EEPROMUpdatePa		CODE           	0665	0000	126
+		_EepromReceive 		CODE           	0C1A	0000	44
 
-eeprom.c estimated size: 620
+eeprom.c estimated size: 923
 
 sim800l.c
-		_SIM800Command 		CODE           	034F	0000	139
-		_SIM800SendSms 		CODE           	056D	0000	105
-		_SIM800init    		CODE           	069F	0000	89
-		_SIM800ReadSms 		CODE           	06F8	0000	77
+		_SIM800Command 		CODE           	02C8	0000	423
+		_SIM800SendSms 		CODE           	0F97	0000	105
+		_SIM800init    		CODE           	046F	0000	111
+		_SIM800LClear  		CODE           	0F30	0000	103
+		_SIM800DeleteSm		CODE           	0D51	0000	69
+		_SIM800ReadSms 		CODE           	0E29	0000	77
 
-sim800l.c estimated size: 410
+sim800l.c estimated size: 888
 
 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwdiv.c
-		___lwdiv       		CODE           	04C6	0000	55
+		___lwdiv       		CODE           	0CA2	0000	55
 
 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwdiv.c estimated size: 55
 
@@ -1786,25 +2020,25 @@ isr.c
 isr.c estimated size: 18
 
 shared
-		__stringdata   		STRCODE        	0500	0000	109
-		__initializatio		CODE           	0018	0000	18
+		__stringdata   		STRCODE        	0500	0000	179
+		__initializatio		CODE           	0018	0000	21
 
-shared estimated size: 127
+shared estimated size: 200
 
 gpio.c
-		_GPIOBlueLedBli		CODE           	0F76	0000	46
-		_GPIORedLedBlin		CODE           	0FA4	0000	46
-		_GPIOPortInit  		CODE           	0EA7	0000	16
+		_GPIOBlueLedBli		CODE           	0C46	0000	46
+		_GPIORedLedBlin		CODE           	0C74	0000	46
+		_GPIOPortInit  		CODE           	0B70	0000	16
 
 gpio.c estimated size: 108
 
 main.c
-		_main          		CODE           	02B3	0000	156
+		_main          		CODE           	05B3	0000	178
 
-main.c estimated size: 156
+main.c estimated size: 178
 
 system.c
-		_SYSTEMInit    		CODE           	0F10	0000	28
+		_SYSTEMInit    		CODE           	0BD9	0000	28
 
 system.c estimated size: 28
 
