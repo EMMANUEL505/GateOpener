@@ -1,5 +1,6 @@
 #include "general.h"
 #include "gpio.h"
+#include "usart.h"
 #include "eeprom.h"
 
 void EepromStart()
@@ -104,7 +105,7 @@ uint8_t EepromRead(uint16_t address)
 
 uint8_t EEPROMSaveNumber(const char *nmbr, uint8_t nmbrLenght, uint16_t position)
 {
-    uint8_t count=0,result=1;
+    uint16_t count=0,result=1;
     uint16_t address=0;
     address=position*EEPROM_NUMBER_LENGHT;
     address=address+(EEPROM_NUMBER_LENGHT-1);
@@ -142,15 +143,15 @@ uint8_t EEPROMDeleteNumber(uint16_t position)
     }
     return TRUE;
 }
-int8_t EEPROMSearchNumber(const char *nmbr, uint8_t nmbrLenght)
+uint16_t EEPROMSearchNumber(const char *nmbr, uint8_t nmbrLenght)
 {
     uint16_t aux=0;
-    uint8_t count=0, result=0;
+    uint16_t count=0, result=0;
 
     aux=EEPROM_NUMBER_LENGHT-1;
     if(nmbrLenght>EEPROM_NUMBER_LENGHT) nmbrLenght=EEPROM_NUMBER_LENGHT;
     
-    while(!result && aux<(EEPROM_MAX-EEPROM_NUMBER_LENGHT))
+    while(!result && aux<((EEPROM_MAX*EEPROM_NUMBER_LENGHT)-EEPROM_NUMBER_LENGHT))
     {
         count=0;
         do{
@@ -186,7 +187,7 @@ void EEPROMEraseAll(void)
 
 uint8_t EEPROMAdd(const char *nmbr, uint8_t nmbrLenght)
 {
-    uint8_t empty=0,found=0;
+    uint16_t empty=0,found=0;
     char aux=0;
     do
     {
@@ -227,4 +228,19 @@ uint8_t EEPROMCheckPassword(const char *pass)
     {
         return FALSE;
     }
+}
+
+void EEPROMPrint()
+{
+    uint16_t x,y;
+    for(x=0;x<200;x++)
+    {
+        USARTWriteInt(x,3);
+        USARTWriteLine("->");
+        for(y=0;y<10;y++)
+        {
+            USARTWriteChar(EepromRead((x*10)+y));
+        }
+    }
+
 }

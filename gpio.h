@@ -27,8 +27,8 @@ extern "C" {
 
 #define RELAY_PIN               LATAbits.LATA4
 
-#define RED_LED_PIN             LATCbits.LATC0
-#define BLUE_LED_PIN            LATCbits.LATC1
+#define BLUE_LED_PIN            LATCbits.LATC0
+#define RED_LED_PIN             LATCbits.LATC1
 #define GREEN_LED_PIN           LATCbits.LATC2
 
 #define EEPROM_CS_PIN           LATBbits.LATB7

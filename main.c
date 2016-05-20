@@ -17,14 +17,17 @@ void main()
     SYSTEMInit(_8MHZ);  //Initialize core at 8MHz
     USARTInit(115);     //Initialize USART at 115200 baudrate
     GPIOPortInit();     //Initialize port directions (output,input)
+    //EEPROMPrint();
     SIM800init();       //Initialize GSM module
     EEPROMUpdatePassword("1234");
     GPIORedLedClear();
     GPIOBlueLedClear();
+    GPIOGreenLedClear();
 
     ei();                       //Enable interrupts
     RCSTAbits.CREN=ENABLED;     //Enable USART receiver
 
+    SIM800SendSms("6141654818", "System enabled");
     while(TRUE)
     {
         switch(task)
@@ -60,6 +63,7 @@ void main()
                 SIM800Command();
                 SIM800LClear();
                 SIM800DeleteSms("1", ALL_MESSAGES);
+                GPIORedLedClear();
                 task=WAITING;
             break;
             default:

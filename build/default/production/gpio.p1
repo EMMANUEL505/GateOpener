@@ -23,6 +23,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TRISC6 `Vb ~T0 @X0 0 e@1142 ]
 "7652
 [v _TRISA4 `Vb ~T0 @X0 0 e@1124 ]
+"7654
+[v _TRISA5 `Vb ~T0 @X0 0 e@1125 ]
 "2091
 [s S110 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S110 . LATC0 LATC1 LATC2 LATC3 LATC4 LATC5 LATC6 LATC7 ]
@@ -3101,107 +3103,110 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;gpio.c: 23: TRISA4=0;
 "23
 [e = _TRISA4 -> -> 0 `i `b ]
-[; ;gpio.c: 24: }
+[; ;gpio.c: 24: TRISA5=0;
 "24
+[e = _TRISA5 -> -> 0 `i `b ]
+[; ;gpio.c: 25: }
+"25
 [e :UE 366 ]
 }
-"26
+"27
 [v _GPIORedLedBlink `(v ~T0 @X0 1 ef1`uc ]
-"27
+"28
 {
-[; ;gpio.c: 26: void GPIORedLedBlink(uint8_t times)
-[; ;gpio.c: 27: {
+[; ;gpio.c: 27: void GPIORedLedBlink(uint8_t times)
+[; ;gpio.c: 28: {
 [e :U _GPIORedLedBlink ]
-"26
-[v _times `uc ~T0 @X0 1 r1 ]
 "27
+[v _times `uc ~T0 @X0 1 r1 ]
+"28
 [f ]
 [v _i `uc ~T0 @X0 1 a ]
-[; ;gpio.c: 28: uint8_t i=0;
-"28
-[e = _i -> -> 0 `i `uc ]
-[; ;gpio.c: 29: for(i=0;i<times;i++)
+[; ;gpio.c: 29: uint8_t i=0;
 "29
+[e = _i -> -> 0 `i `uc ]
+[; ;gpio.c: 30: for(i=0;i<times;i++)
+"30
 {
 [e = _i -> -> 0 `i `uc ]
 [e $U 371  ]
-"30
-[e :U 368 ]
-[; ;gpio.c: 30: {
-{
-[; ;gpio.c: 31: LATCbits.LATC0=1;
 "31
-[e = . . _LATCbits 0 0 -> -> 1 `i `uc ]
-[; ;gpio.c: 32: _delay((unsigned long)((100)*(8000000/4000.0)));
+[e :U 368 ]
+[; ;gpio.c: 31: {
+{
+[; ;gpio.c: 32: LATCbits.LATC1=1;
 "32
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;gpio.c: 33: LATCbits.LATC0=0;
+[e = . . _LATCbits 0 1 -> -> 1 `i `uc ]
+[; ;gpio.c: 33: _delay((unsigned long)((100)*(8000000/4000.0)));
 "33
-[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
-[; ;gpio.c: 34: _delay((unsigned long)((100)*(8000000/4000.0)));
-"34
 [e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;gpio.c: 34: LATCbits.LATC1=0;
+"34
+[e = . . _LATCbits 0 1 -> -> 0 `i `uc ]
+[; ;gpio.c: 35: _delay((unsigned long)((100)*(8000000/4000.0)));
 "35
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"36
 }
-"29
+"30
 [e ++ _i -> -> 1 `i `uc ]
 [e :U 371 ]
 [e $ < -> _i `i -> _times `i 368  ]
 [e :U 369 ]
-"35
-}
-[; ;gpio.c: 35: }
-[; ;gpio.c: 36: }
 "36
+}
+[; ;gpio.c: 36: }
+[; ;gpio.c: 37: }
+"37
 [e :UE 367 ]
 }
-"38
+"39
 [v _GPIOBlueLedBlink `(v ~T0 @X0 1 ef1`uc ]
-"39
+"40
 {
-[; ;gpio.c: 38: void GPIOBlueLedBlink(uint8_t times)
-[; ;gpio.c: 39: {
+[; ;gpio.c: 39: void GPIOBlueLedBlink(uint8_t times)
+[; ;gpio.c: 40: {
 [e :U _GPIOBlueLedBlink ]
-"38
-[v _times `uc ~T0 @X0 1 r1 ]
 "39
+[v _times `uc ~T0 @X0 1 r1 ]
+"40
 [f ]
 [v _i `uc ~T0 @X0 1 a ]
-[; ;gpio.c: 40: uint8_t i=0;
-"40
-[e = _i -> -> 0 `i `uc ]
-[; ;gpio.c: 41: for(i=0;i<times;i++)
+[; ;gpio.c: 41: uint8_t i=0;
 "41
+[e = _i -> -> 0 `i `uc ]
+[; ;gpio.c: 42: for(i=0;i<times;i++)
+"42
 {
 [e = _i -> -> 0 `i `uc ]
 [e $U 376  ]
-"42
-[e :U 373 ]
-[; ;gpio.c: 42: {
-{
-[; ;gpio.c: 43: LATCbits.LATC1=1;
 "43
-[e = . . _LATCbits 0 1 -> -> 1 `i `uc ]
-[; ;gpio.c: 44: _delay((unsigned long)((100)*(8000000/4000.0)));
+[e :U 373 ]
+[; ;gpio.c: 43: {
+{
+[; ;gpio.c: 44: LATCbits.LATC0=1;
 "44
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;gpio.c: 45: LATCbits.LATC1=0;
+[e = . . _LATCbits 0 0 -> -> 1 `i `uc ]
+[; ;gpio.c: 45: _delay((unsigned long)((100)*(8000000/4000.0)));
 "45
-[e = . . _LATCbits 0 1 -> -> 0 `i `uc ]
-[; ;gpio.c: 46: _delay((unsigned long)((100)*(8000000/4000.0)));
-"46
 [e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;gpio.c: 46: LATCbits.LATC0=0;
+"46
+[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
+[; ;gpio.c: 47: _delay((unsigned long)((100)*(8000000/4000.0)));
 "47
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"48
 }
-"41
+"42
 [e ++ _i -> -> 1 `i `uc ]
 [e :U 376 ]
 [e $ < -> _i `i -> _times `i 373  ]
 [e :U 374 ]
-"47
-}
-[; ;gpio.c: 47: }
-[; ;gpio.c: 48: }
 "48
+}
+[; ;gpio.c: 48: }
+[; ;gpio.c: 49: }
+"49
 [e :UE 372 ]
 }

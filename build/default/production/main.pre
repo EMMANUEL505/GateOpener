@@ -4162,11 +4162,12 @@ void EepromOpCode(uint8_t opcode, uint16_t address);
 void EepromWrite(uint16_t address, uint8_t data);
 uint8_t EEPROMSaveNumber(const char *nmbr, uint8_t nmbrLenght, uint16_t position);
 uint8_t EEPROMDeleteNumber(uint16_t position);
-int8_t EEPROMSearchNumber(const char *nmbr, uint8_t nmbrLenght);
+uint16_t EEPROMSearchNumber(const char *nmbr, uint8_t nmbrLenght);
 void EEPROMEraseAll(void);
 uint8_t EEPROMAdd(const char *nmbr, uint8_t nmbrLenght);
 void EEPROMUpdatePassword(const char *pass);
 uint8_t EEPROMCheckPassword(const char *pass);
+void EEPROMPrint();
 
 # 51 "sim800l.h"
 typedef struct{
@@ -4219,14 +4220,17 @@ void main()
 SYSTEMInit(8);
 USARTInit(115);
 GPIOPortInit();
+
 SIM800init();
 EEPROMUpdatePassword("1234");
-LATCbits.LATC0=0;
 LATCbits.LATC1=0;
+LATCbits.LATC0=0;
+LATCbits.LATC2=0;
 
 (GIE = 1);
 RCSTAbits.CREN=1;
 
+SIM800SendSms("6141654818", "System enabled");
 while(1)
 {
 switch(task)
@@ -4258,10 +4262,11 @@ SIM800ReadSms(SIM800L.smsmem);
 task=3;
 break;
 case 3:
-LATCbits.LATC0=1;
+LATCbits.LATC1=1;
 SIM800Command();
 SIM800LClear();
 SIM800DeleteSms("1", "4");
+LATCbits.LATC1=0;
 task=0;
 break;
 default:

@@ -72,7 +72,7 @@ void USARTWriteLine(const char *str)
 
 void USARTHandleRxInt()
 {
-    GPIORedLedSet();
+    GPIOBlueLedSet();
     //Read the data
     char data=RCREG;
     SIM800L.busy=TRUE;
@@ -148,7 +148,7 @@ void USARTHandleRxInt()
              }
          break;
      }
-    GPIORedLedClear();
+    GPIOBlueLedClear();
 }
 void USARTWriteInt(int16_t val, int8_t field_length)
 {

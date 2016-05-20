@@ -31,7 +31,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S180 . . ]
 "3302
 [v _RCSTAbits `VS180 ~T0 @X0 0 e@413 ]
-"6998
+"74 sim800l.h
+[v _SIM800SendSms `(uc ~T0 @X0 0 ef2`*Cuc`*Cuc ]
+"6998 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic16f1828.h
 [v _CREN `Vb ~T0 @X0 0 e@3308 ]
 [v F2943 `(v ~T0 @X0 1 tf1`ul ]
 "154 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic.h
@@ -40,7 +42,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "25 usart.h
 [v _USARTWriteLine `(v ~T0 @X0 0 ef1`*Cuc ]
 "56 eeprom.h
-[v _EEPROMSearchNumber `(c ~T0 @X0 0 ef2`*Cuc`uc ]
+[v _EEPROMSearchNumber `(ui ~T0 @X0 0 ef2`*Cuc`uc ]
 "2009 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic16f1828.h
 [s S106 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S106 . LATA0 LATA1 LATA2 . LATA4 LATA5 ]
@@ -3090,11 +3092,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom.h: 53: void EepromWrite(uint16_t address, uint8_t data);
 [; ;eeprom.h: 54: uint8_t EEPROMSaveNumber(const char *nmbr, uint8_t nmbrLenght, uint16_t position);
 [; ;eeprom.h: 55: uint8_t EEPROMDeleteNumber(uint16_t position);
-[; ;eeprom.h: 56: int8_t EEPROMSearchNumber(const char *nmbr, uint8_t nmbrLenght);
+[; ;eeprom.h: 56: uint16_t EEPROMSearchNumber(const char *nmbr, uint8_t nmbrLenght);
 [; ;eeprom.h: 57: void EEPROMEraseAll(void);
 [; ;eeprom.h: 58: uint8_t EEPROMAdd(const char *nmbr, uint8_t nmbrLenght);
 [; ;eeprom.h: 59: void EEPROMUpdatePassword(const char *pass);
 [; ;eeprom.h: 60: uint8_t EEPROMCheckPassword(const char *pass);
+[; ;eeprom.h: 61: void EEPROMPrint();
 [; ;sim800l.h: 51: typedef struct{
 [; ;sim800l.h: 52: uint8_t busy;
 [; ;sim800l.h: 53: uint8_t uncomplete;
@@ -3149,41 +3152,47 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 19: GPIOPortInit();
 "19
 [e ( _GPIOPortInit ..  ]
-[; ;main.c: 20: SIM800init();
-"20
-[e ( _SIM800init ..  ]
-[; ;main.c: 21: EEPROMUpdatePassword("1234");
+[; ;main.c: 21: SIM800init();
 "21
-[e ( _EEPROMUpdatePassword (1 :s 1C ]
-[; ;main.c: 22: LATCbits.LATC0=0;
+[e ( _SIM800init ..  ]
+[; ;main.c: 22: EEPROMUpdatePassword("1234");
 "22
-[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
+[e ( _EEPROMUpdatePassword (1 :s 1C ]
 [; ;main.c: 23: LATCbits.LATC1=0;
 "23
 [e = . . _LATCbits 0 1 -> -> 0 `i `uc ]
-[; ;main.c: 25: (GIE = 1);
+[; ;main.c: 24: LATCbits.LATC0=0;
+"24
+[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
+[; ;main.c: 25: LATCbits.LATC2=0;
 "25
+[e = . . _LATCbits 0 2 -> -> 0 `i `uc ]
+[; ;main.c: 27: (GIE = 1);
+"27
 [e = _GIE -> -> 1 `i `b ]
-[; ;main.c: 26: RCSTAbits.CREN=1;
-"26
-[e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
-[; ;main.c: 28: while(1)
+[; ;main.c: 28: RCSTAbits.CREN=1;
 "28
-[e :U 369 ]
-[; ;main.c: 29: {
-"29
-{
-[; ;main.c: 30: switch(task)
+[e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
+[; ;main.c: 30: SIM800SendSms("6141654818", "System enabled");
 "30
-[e $U 372  ]
-[; ;main.c: 31: {
+[e ( _SIM800SendSms (2 , :s 2C :s 3C ]
+[; ;main.c: 31: while(1)
 "31
-{
-[; ;main.c: 32: case 0:
+[e :U 369 ]
+[; ;main.c: 32: {
 "32
-[e :U 373 ]
-[; ;main.c: 33: if(RCSTAbits.OERR==1) {CREN=0;_delay((unsigned long)((200)*(8000000/4000000.0)));RCSTAbits.CREN=1; }
+{
+[; ;main.c: 33: switch(task)
 "33
+[e $U 372  ]
+[; ;main.c: 34: {
+"34
+{
+[; ;main.c: 35: case 0:
+"35
+[e :U 373 ]
+[; ;main.c: 36: if(RCSTAbits.OERR==1) {CREN=0;_delay((unsigned long)((200)*(8000000/4000000.0)));RCSTAbits.CREN=1; }
+"36
 [e $ ! == -> . . _RCSTAbits 0 1 `i -> 1 `i 374  ]
 {
 [e = _CREN -> -> 0 `i `b ]
@@ -3191,130 +3200,135 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
 }
 [e :U 374 ]
-[; ;main.c: 34: USARTWriteLine("AT+CSQ\r\n");
-"34
-[e ( _USARTWriteLine (1 :s 2C ]
-[; ;main.c: 35: _delay((unsigned long)((2000)*(8000000/4000.0)));
-"35
-[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;main.c: 36: break;
-"36
-[e $U 371  ]
-[; ;main.c: 37: case 1:
+[; ;main.c: 37: USARTWriteLine("AT+CSQ\r\n");
 "37
-[e :U 375 ]
-[; ;main.c: 38: USARTWriteLine("ATH\r\n");
+[e ( _USARTWriteLine (1 :s 4C ]
+[; ;main.c: 38: _delay((unsigned long)((2000)*(8000000/4000.0)));
 "38
-[e ( _USARTWriteLine (1 :s 3C ]
-[; ;main.c: 39: if(EEPROMSearchNumber(SIM800L.cell,SIM800L.cell_lenght))
+[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;main.c: 39: break;
 "39
-[e $ ! != -> ( _EEPROMSearchNumber (2 , -> &U . _SIM800L 4 `*Cuc . _SIM800L 5 `i -> -> -> 0 `i `c `i 376  ]
-[; ;main.c: 40: {
+[e $U 371  ]
+[; ;main.c: 40: case 1:
 "40
-{
-[; ;main.c: 41: LATAbits.LATA4=1;
+[e :U 375 ]
+[; ;main.c: 41: USARTWriteLine("ATH\r\n");
 "41
-[e = . . _LATAbits 0 4 -> -> 1 `i `uc ]
-[; ;main.c: 42: _delay((unsigned long)((1000)*(8000000/4000.0)));
+[e ( _USARTWriteLine (1 :s 5C ]
+[; ;main.c: 42: if(EEPROMSearchNumber(SIM800L.cell,SIM800L.cell_lenght))
 "42
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;main.c: 43: LATAbits.LATA4=0;
+[e $ ! != ( _EEPROMSearchNumber (2 , -> &U . _SIM800L 4 `*Cuc . _SIM800L 5 -> -> 0 `i `ui 376  ]
+[; ;main.c: 43: {
 "43
-[e = . . _LATAbits 0 4 -> -> 0 `i `uc ]
-"44
-}
-[; ;main.c: 44: }
-[e $U 377  ]
-"45
-[e :U 376 ]
-[; ;main.c: 45: else
-[; ;main.c: 46: {
-"46
 {
-[; ;main.c: 47: GPIORedLedBlink(5);
+[; ;main.c: 44: LATAbits.LATA4=1;
+"44
+[e = . . _LATAbits 0 4 -> -> 1 `i `uc ]
+[; ;main.c: 45: _delay((unsigned long)((1000)*(8000000/4000.0)));
+"45
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;main.c: 46: LATAbits.LATA4=0;
+"46
+[e = . . _LATAbits 0 4 -> -> 0 `i `uc ]
 "47
-[e ( _GPIORedLedBlink (1 -> -> 5 `i `uc ]
+}
+[; ;main.c: 47: }
+[e $U 377  ]
 "48
+[e :U 376 ]
+[; ;main.c: 48: else
+[; ;main.c: 49: {
+"49
+{
+[; ;main.c: 50: GPIORedLedBlink(5);
+"50
+[e ( _GPIORedLedBlink (1 -> -> 5 `i `uc ]
+"51
 }
 [e :U 377 ]
-[; ;main.c: 48: }
-[; ;main.c: 49: SIM800LClear();
-"49
-[e ( _SIM800LClear ..  ]
-[; ;main.c: 50: task=0;
-"50
-[e = _task -> -> 0 `i `uc ]
-[; ;main.c: 51: break;
-"51
-[e $U 371  ]
-[; ;main.c: 52: case 2:
+[; ;main.c: 51: }
+[; ;main.c: 52: SIM800LClear();
 "52
-[e :U 378 ]
-[; ;main.c: 53: GPIOBlueLedBlink(5);
-"53
-[e ( _GPIOBlueLedBlink (1 -> -> 5 `i `uc ]
-[; ;main.c: 54: SIM800ReadSms(SIM800L.smsmem);
-"54
-[e ( _SIM800ReadSms (1 -> &U . _SIM800L 7 `*Cuc ]
-[; ;main.c: 56: task=3;
-"56
-[e = _task -> -> 3 `i `uc ]
-[; ;main.c: 57: break;
-"57
-[e $U 371  ]
-[; ;main.c: 58: case 3:
-"58
-[e :U 379 ]
-[; ;main.c: 59: LATCbits.LATC0=1;
-"59
-[e = . . _LATCbits 0 0 -> -> 1 `i `uc ]
-[; ;main.c: 60: SIM800Command();
-"60
-[e ( _SIM800Command ..  ]
-[; ;main.c: 61: SIM800LClear();
-"61
 [e ( _SIM800LClear ..  ]
-[; ;main.c: 62: SIM800DeleteSms("1", "4");
-"62
-[e ( _SIM800DeleteSms (2 , :s 4C :s 5C ]
-[; ;main.c: 63: task=0;
-"63
+[; ;main.c: 53: task=0;
+"53
 [e = _task -> -> 0 `i `uc ]
-[; ;main.c: 64: break;
+[; ;main.c: 54: break;
+"54
+[e $U 371  ]
+[; ;main.c: 55: case 2:
+"55
+[e :U 378 ]
+[; ;main.c: 56: GPIOBlueLedBlink(5);
+"56
+[e ( _GPIOBlueLedBlink (1 -> -> 5 `i `uc ]
+[; ;main.c: 57: SIM800ReadSms(SIM800L.smsmem);
+"57
+[e ( _SIM800ReadSms (1 -> &U . _SIM800L 7 `*Cuc ]
+[; ;main.c: 59: task=3;
+"59
+[e = _task -> -> 3 `i `uc ]
+[; ;main.c: 60: break;
+"60
+[e $U 371  ]
+[; ;main.c: 61: case 3:
+"61
+[e :U 379 ]
+[; ;main.c: 62: LATCbits.LATC1=1;
+"62
+[e = . . _LATCbits 0 1 -> -> 1 `i `uc ]
+[; ;main.c: 63: SIM800Command();
+"63
+[e ( _SIM800Command ..  ]
+[; ;main.c: 64: SIM800LClear();
 "64
-[e $U 371  ]
-[; ;main.c: 65: default:
+[e ( _SIM800LClear ..  ]
+[; ;main.c: 65: SIM800DeleteSms("1", "4");
 "65
-[e :U 380 ]
-[; ;main.c: 66: break;
+[e ( _SIM800DeleteSms (2 , :s 6C :s 7C ]
+[; ;main.c: 66: LATCbits.LATC1=0;
 "66
-[e $U 371  ]
+[e = . . _LATCbits 0 1 -> -> 0 `i `uc ]
+[; ;main.c: 67: task=0;
 "67
-}
-[; ;main.c: 67: }
+[e = _task -> -> 0 `i `uc ]
+[; ;main.c: 68: break;
+"68
 [e $U 371  ]
-"30
+[; ;main.c: 69: default:
+"69
+[e :U 380 ]
+[; ;main.c: 70: break;
+"70
+[e $U 371  ]
+"71
+}
+[; ;main.c: 71: }
+[e $U 371  ]
+"33
 [e :U 372 ]
 [e [\ _task , $ -> -> 0 `i `uc 373
  , $ -> -> 1 `i `uc 375
  , $ -> -> 2 `i `uc 378
  , $ -> -> 3 `i `uc 379
  380 ]
-"67
+"71
 [e :U 371 ]
-"68
+"72
 }
 [e :U 368 ]
-"28
+"31
 [e $U 369  ]
 [e :U 370 ]
-[; ;main.c: 68: }
-[; ;main.c: 69: }
-"69
+[; ;main.c: 72: }
+[; ;main.c: 73: }
+"73
 [e :UE 367 ]
 }
+[a 3C 83 121 115 116 101 109 32 101 110 97 98 108 101 100 0 ]
+[a 2C 54 49 52 49 54 53 52 56 49 56 0 ]
 [a 1C 49 50 51 52 0 ]
-[a 5C 52 0 ]
-[a 4C 49 0 ]
-[a 2C 65 84 43 67 83 81 13 10 0 ]
-[a 3C 65 84 72 13 10 0 ]
+[a 7C 52 0 ]
+[a 6C 49 0 ]
+[a 4C 65 84 43 67 83 81 13 10 0 ]
+[a 5C 65 84 72 13 10 0 ]

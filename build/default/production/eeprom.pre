@@ -4154,6 +4154,15 @@ void GPIOPortInit();
 void GPIORedLedBlink(uint8_t times);
 void GPIOBlueLedBlink(uint8_t times);
 
+# 22 "usart.h"
+void USARTInit(uint16_t baud_rate);
+void USARTWriteChar(char ch);
+void USARTWriteString(const char *str);
+void USARTWriteLine(const char *str);
+void USARTWriteInt(int16_t val, int8_t field_length);
+void USARTHandleRxInt();
+void USARTGotoNewLine();
+
 # 47 "eeprom.h"
 void EepromStart();
 void EepromEnd();
@@ -4164,13 +4173,14 @@ void EepromOpCode(uint8_t opcode, uint16_t address);
 void EepromWrite(uint16_t address, uint8_t data);
 uint8_t EEPROMSaveNumber(const char *nmbr, uint8_t nmbrLenght, uint16_t position);
 uint8_t EEPROMDeleteNumber(uint16_t position);
-int8_t EEPROMSearchNumber(const char *nmbr, uint8_t nmbrLenght);
+uint16_t EEPROMSearchNumber(const char *nmbr, uint8_t nmbrLenght);
 void EEPROMEraseAll(void);
 uint8_t EEPROMAdd(const char *nmbr, uint8_t nmbrLenght);
 void EEPROMUpdatePassword(const char *pass);
 uint8_t EEPROMCheckPassword(const char *pass);
+void EEPROMPrint();
 
-# 5 "eeprom.c"
+# 6 "eeprom.c"
 void EepromStart()
 {
 
@@ -4273,7 +4283,7 @@ return data;
 
 uint8_t EEPROMSaveNumber(const char *nmbr, uint8_t nmbrLenght, uint16_t position)
 {
-uint8_t count=0,result=1;
+uint16_t count=0,result=1;
 uint16_t address=0;
 address=position*10;
 address=address+(10-1);
@@ -4311,15 +4321,15 @@ _delay((unsigned long)((5)*(8000000/4000.0)));
 }
 return 1;
 }
-int8_t EEPROMSearchNumber(const char *nmbr, uint8_t nmbrLenght)
+uint16_t EEPROMSearchNumber(const char *nmbr, uint8_t nmbrLenght)
 {
 uint16_t aux=0;
-uint8_t count=0, result=0;
+uint16_t count=0, result=0;
 
 aux=10-1;
 if(nmbrLenght>10) nmbrLenght=10;
 
-while(!result && aux<(180-10))
+while(!result && aux<((180*10)-10))
 {
 count=0;
 do{
@@ -4355,7 +4365,7 @@ _delay((unsigned long)((500)*(8000000/4000.0)));
 
 uint8_t EEPROMAdd(const char *nmbr, uint8_t nmbrLenght)
 {
-uint8_t empty=0,found=0;
+uint16_t empty=0,found=0;
 char aux=0;
 do
 {
@@ -4372,22 +4382,22 @@ return 1;
 }
 void EEPROMUpdatePassword(const char *pass)
 {
-EepromWrite(190,*(pass));
+EepromWrite(1900,*(pass));
 _delay((unsigned long)((5)*(8000000/4000.0)));
-EepromWrite(191,*(pass+1));
+EepromWrite(1901,*(pass+1));
 _delay((unsigned long)((5)*(8000000/4000.0)));
-EepromWrite(192,*(pass+2));
+EepromWrite(1902,*(pass+2));
 _delay((unsigned long)((5)*(8000000/4000.0)));
-EepromWrite(193,*(pass+3));
+EepromWrite(1903,*(pass+3));
 _delay((unsigned long)((5)*(8000000/4000.0)));
 }
 
 uint8_t EEPROMCheckPassword(const char *pass)
 {
-password[0]=EepromRead(190);
-password[1]=EepromRead(191);
-password[2]=EepromRead(192);
-password[3]=EepromRead(193);
+password[0]=EepromRead(1900);
+password[1]=EepromRead(1901);
+password[2]=EepromRead(1902);
+password[3]=EepromRead(1903);
 if(*(pass)==password[0] && *(pass+1)==password[1] && *(pass+2)==password[2] && *(pass+3)==password[3])
 {
 return 1;
@@ -4396,4 +4406,19 @@ else
 {
 return 0;
 }
+}
+
+void EEPROMPrint()
+{
+uint16_t x,y;
+for(x=0;x<200;x++)
+{
+USARTWriteInt(x,3);
+USARTWriteLine("->");
+for(y=0;y<10;y++)
+{
+USARTWriteChar(EepromRead((x*10)+y));
+}
+}
+
 }

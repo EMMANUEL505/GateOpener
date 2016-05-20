@@ -21,6 +21,7 @@ void GPIOPortInit()
     TRISC6=OUTPUT;      //Configure PINC6 as output (SIM800L RST)
     //RELAY port definitions
     TRISA4=OUTPUT;       //Configure PINB4 as output (Relay)
+    TRISA5=OUTPUT;       //Configure PINB4 as output (Relay)
 }
 
 void GPIORedLedBlink(uint8_t times)

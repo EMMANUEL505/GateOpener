@@ -35,10 +35,10 @@ extern "C" {
 #define CLK_DELAY       4       //Value in us, it must be divisible by two
 #define TWC_DELAY       5       //Value in ms
 
-#define PASSWORD1       190
-#define PASSWORD2       191
-#define PASSWORD3       192
-#define PASSWORD4       193
+#define PASSWORD1       1900
+#define PASSWORD2       1901
+#define PASSWORD3       1902
+#define PASSWORD4       1903
 //  EEPROM definitions
 
 #define EEPROM_NUMBER_LENGHT    10
@@ -53,8 +53,9 @@ void EepromOpCode(uint8_t opcode, uint16_t address);
 void EepromWrite(uint16_t address, uint8_t data);
 uint8_t EEPROMSaveNumber(const char *nmbr, uint8_t nmbrLenght, uint16_t position);
 uint8_t EEPROMDeleteNumber(uint16_t position);
-int8_t EEPROMSearchNumber(const char *nmbr, uint8_t nmbrLenght);
+uint16_t EEPROMSearchNumber(const char *nmbr, uint8_t nmbrLenght);
 void EEPROMEraseAll(void);
 uint8_t EEPROMAdd(const char *nmbr, uint8_t nmbrLenght);
 void EEPROMUpdatePassword(const char *pass);
 uint8_t EEPROMCheckPassword(const char *pass);
+void EEPROMPrint();

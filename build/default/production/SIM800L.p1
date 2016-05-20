@@ -23,7 +23,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "60 eeprom.h
 [v _EEPROMCheckPassword `(uc ~T0 @X0 0 ef1`*Cuc ]
 "56
-[v _EEPROMSearchNumber `(c ~T0 @X0 0 ef2`*Cuc`uc ]
+[v _EEPROMSearchNumber `(ui ~T0 @X0 0 ef2`*Cuc`uc ]
 "58
 [v _EEPROMAdd `(uc ~T0 @X0 0 ef2`*Cuc`uc ]
 "55
@@ -3097,11 +3097,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom.h: 53: void EepromWrite(uint16_t address, uint8_t data);
 [; ;eeprom.h: 54: uint8_t EEPROMSaveNumber(const char *nmbr, uint8_t nmbrLenght, uint16_t position);
 [; ;eeprom.h: 55: uint8_t EEPROMDeleteNumber(uint16_t position);
-[; ;eeprom.h: 56: int8_t EEPROMSearchNumber(const char *nmbr, uint8_t nmbrLenght);
+[; ;eeprom.h: 56: uint16_t EEPROMSearchNumber(const char *nmbr, uint8_t nmbrLenght);
 [; ;eeprom.h: 57: void EEPROMEraseAll(void);
 [; ;eeprom.h: 58: uint8_t EEPROMAdd(const char *nmbr, uint8_t nmbrLenght);
 [; ;eeprom.h: 59: void EEPROMUpdatePassword(const char *pass);
 [; ;eeprom.h: 60: uint8_t EEPROMCheckPassword(const char *pass);
+[; ;eeprom.h: 61: void EEPROMPrint();
 "7 sim800l.c
 [v _SIM800init `(uc ~T0 @X0 1 ef ]
 "8
@@ -3480,7 +3481,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = *U + &U . _SIM800L 4 * -> -> - -> _i `i -> 10 `i `ui `ux -> -> # *U &U . _SIM800L 4 `ui `ux -> -> 0 `ui `uc ]
 [; ;sim800l.c: 127: if(!EEPROMSearchNumber(SIM800L.cell,SIM800L.cell_lenght))
 "127
-[e $ ! ! != -> ( _EEPROMSearchNumber (2 , -> &U . _SIM800L 4 `*Cuc . _SIM800L 5 `i -> -> -> 0 `i `c `i 390  ]
+[e $ ! ! != ( _EEPROMSearchNumber (2 , -> &U . _SIM800L 4 `*Cuc . _SIM800L 5 -> -> 0 `i `ui 390  ]
 [; ;sim800l.c: 128: {
 "128
 {
