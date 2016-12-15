@@ -2,6 +2,7 @@
 #include "gpio.h"
 #include "usart.h"
 #include "eeprom.h"
+#include "I2C.h"
 
 void EepromStart()
 {
@@ -82,6 +83,8 @@ void EepromOpCode(uint8_t opcode, uint16_t address)
 }
 void EepromWrite(uint16_t address, uint8_t data)
 {
+
+/*
     EepromStart();
     EepromOpCode(EWEN, 0x600);
     EepromEnd();
@@ -90,16 +93,41 @@ void EepromWrite(uint16_t address, uint8_t data)
     EepromOpCode(WRITE, address);
     EepromSend(data);
     EepromEnd();
+*/
+    EEPROM_CS_PIN=0;
+    I2CStart();
+    I2CSend(0xA0);
+    I2CSend(address>>8);
+    I2CSend(address);
+    I2CSend(data);
+    I2CStop();
+
+
 }
 
 uint8_t EepromRead(uint16_t address)
 {
     uint8_t data=0;
-
+    EEPROM_CS_PIN=0;
+    I2CStart();
+    /* Slave address */
+    I2CSend(0xA0);
+    /* 2-Byte Sub Address */
+    I2CSend(address>>8);
+    I2CSend(address);
+    I2CRestart();
+    /* Slave address with Read bit */
+    I2CSend(0xA1);
+    /* Read Byte from EEPROM */
+    data = I2CRead();
+    I2CNak();
+    I2CStop();
+        /*
     EepromStart();
     EepromOpCode(READ, address);
     data=EepromReceive();
-    EepromEnd();
+    EepromEnd();*/
+
     return data;
 }
 
@@ -172,7 +200,7 @@ uint16_t EEPROMSearchNumber(const char *nmbr, uint8_t nmbrLenght)
 
 void EEPROMEraseAll(void)
 {
-    EEPROM_CS_PIN=LOW;
+    /*EEPROM_CS_PIN=LOW;
     __delay_ms(100);
     EepromStart();
     EepromOpCode(EWEN, 0x600);
@@ -181,8 +209,17 @@ void EEPROMEraseAll(void)
     EepromStart();
     EepromOpCode(ERAL, 0x400);
     EepromEnd();
-    __delay_ms(500);
+    __delay_ms(500);*/
+    
+    uint16_t i;
+    for(i=0;i<800;i++)
+    {
+        EepromWrite(i,0xFF);
+        __delay_ms(TWC_DELAY);
+    }
+
 }
+
 
 
 uint8_t EEPROMAdd(const char *nmbr, uint8_t nmbrLenght)
@@ -233,7 +270,7 @@ uint8_t EEPROMCheckPassword(const char *pass)
 void EEPROMPrint()
 {
     uint16_t x,y;
-    for(x=0;x<200;x++)
+    for(x=0;x<1000;x++)
     {
         USARTWriteInt(x,3);
         USARTWriteLine("->");

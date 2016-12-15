@@ -1,38 +1,37 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"7414 C:\Program Files (x86)\Microchip\xc8\v1.38\include\pic16f1828.h
-[v _RCIE `Vb ~T0 @X0 0 e@1165 ]
-"7416
-[v _RCIF `Vb ~T0 @X0 0 e@141 ]
-"27 usart.h
-[v _USARTHandleRxInt `(v ~T0 @X0 0 ef ]
-[; ;stdint.h: 13: typedef signed char int8_t;
-[; ;stdint.h: 20: typedef signed int int16_t;
-[; ;stdint.h: 28: typedef signed short long int int24_t;
-[; ;stdint.h: 36: typedef signed long int int32_t;
-[; ;stdint.h: 43: typedef unsigned char uint8_t;
-[; ;stdint.h: 49: typedef unsigned int uint16_t;
-[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
-[; ;stdint.h: 63: typedef unsigned long int uint32_t;
-[; ;stdint.h: 71: typedef signed char int_least8_t;
-[; ;stdint.h: 78: typedef signed int int_least16_t;
-[; ;stdint.h: 90: typedef signed short long int int_least24_t;
-[; ;stdint.h: 98: typedef signed long int int_least32_t;
-[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
-[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
-[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
-[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
-[; ;stdint.h: 137: typedef signed char int_fast8_t;
-[; ;stdint.h: 144: typedef signed int int_fast16_t;
-[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
-[; ;stdint.h: 164: typedef signed long int int_fast32_t;
-[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
-[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
-[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
-[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
-[; ;stdint.h: 200: typedef int32_t intmax_t;
-[; ;stdint.h: 205: typedef uint32_t uintmax_t;
-[; ;stdint.h: 210: typedef int16_t intptr_t;
-[; ;stdint.h: 215: typedef uint16_t uintptr_t;
+"51 sim800l.h
+[s S366 `uc 1 `uc 1 `uc 1 `uc 1 `uc -> 15 `i `uc 1 `uc 1 `uc -> 5 `i `uc -> 64 `i `uc -> 25 `i `uc -> 5 `i ]
+[n S366 . busy uncomplete ok resp cell cell_lenght unreadsms smsmem buffer command csq ]
+"2093 C:\Program Files (x86)\Microchip\xc8\v1.38\include\pic16f1828.h
+[s S110 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S110 . LATC0 LATC1 LATC2 LATC3 LATC4 LATC5 LATC6 LATC7 ]
+"2092
+[u S109 `S110 1 ]
+[n S109 . . ]
+"2104
+[v _LATCbits `VS109 ~T0 @X0 0 e@270 ]
+[v F2945 `(v ~T0 @X0 1 tf1`ul ]
+"152 C:\Program Files (x86)\Microchip\xc8\v1.38\include\pic.h
+[v __delay `JF2945 ~T0 @X0 0 e ]
+[p i __delay ]
+"25 usart.h
+[v _USARTWriteLine `(v ~T0 @X0 0 ef1`*Cuc ]
+"24
+[v _USARTWriteString `(v ~T0 @X0 0 ef1`*Cuc ]
+"23
+[v _USARTWriteChar `(v ~T0 @X0 0 ef1`uc ]
+"60 eeprom.h
+[v _EEPROMCheckPassword `(uc ~T0 @X0 0 ef1`*Cuc ]
+"56
+[v _EEPROMSearchNumber `(ui ~T0 @X0 0 ef2`*Cuc`uc ]
+"58
+[v _EEPROMAdd `(uc ~T0 @X0 0 ef2`*Cuc`uc ]
+"55
+[v _EEPROMDeleteNumber `(uc ~T0 @X0 0 ef1`ui ]
+"57
+[v _EEPROMEraseAll `(v ~T0 @X0 0 ef ]
+"59
+[v _EEPROMUpdatePassword `(v ~T0 @X0 0 ef1`*Cuc ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -2907,6 +2906,178 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 186: extern unsigned char __resetbits;
 [; ;pic.h: 187: extern __bit __powerdown;
 [; ;pic.h: 188: extern __bit __timeout;
+[; ;__size_t.h: 4: typedef unsigned size_t;
+[; ;stdarg.h: 7: typedef void * va_list[1];
+[; ;stdarg.h: 10: extern void * __va_start(void);
+[; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
+[; ;stdio.h: 43: struct __prbuf
+[; ;stdio.h: 44: {
+[; ;stdio.h: 45: char * ptr;
+[; ;stdio.h: 46: void (* func)(char);
+[; ;stdio.h: 47: };
+[; ;errno.h: 29: extern int errno;
+[; ;conio.h: 12: extern void init_uart(void);
+[; ;conio.h: 14: extern char getch(void);
+[; ;conio.h: 15: extern char getche(void);
+[; ;conio.h: 16: extern void putch(char);
+[; ;conio.h: 17: extern void ungetch(char);
+[; ;conio.h: 19: extern __bit kbhit(void);
+[; ;conio.h: 23: extern char * cgets(char *);
+[; ;conio.h: 24: extern void cputs(const char *);
+[; ;stdio.h: 88: extern int cprintf(char *, ...);
+[; ;stdio.h: 93: extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+[; ;stdio.h: 183: extern char * gets(char *);
+[; ;stdio.h: 184: extern int puts(const char *);
+[; ;stdio.h: 185: extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
+[; ;stdio.h: 186: extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
+[; ;stdio.h: 187: extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
+[; ;stdio.h: 188: extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+[; ;stdio.h: 189: extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
+[; ;stdio.h: 190: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
+[; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
+[; ;stdio.h: 195: extern int printf(const char *, ...);
+[; ;stdlib.h: 7: typedef unsigned short wchar_t;
+[; ;stdlib.h: 15: typedef struct {
+[; ;stdlib.h: 16: int rem;
+[; ;stdlib.h: 17: int quot;
+[; ;stdlib.h: 18: } div_t;
+[; ;stdlib.h: 19: typedef struct {
+[; ;stdlib.h: 20: unsigned rem;
+[; ;stdlib.h: 21: unsigned quot;
+[; ;stdlib.h: 22: } udiv_t;
+[; ;stdlib.h: 23: typedef struct {
+[; ;stdlib.h: 24: long quot;
+[; ;stdlib.h: 25: long rem;
+[; ;stdlib.h: 26: } ldiv_t;
+[; ;stdlib.h: 27: typedef struct {
+[; ;stdlib.h: 28: unsigned long quot;
+[; ;stdlib.h: 29: unsigned long rem;
+[; ;stdlib.h: 30: } uldiv_t;
+[; ;stdlib.h: 53: extern double atof(const char *);
+[; ;stdlib.h: 54: extern double strtod(const char *, const char **);
+[; ;stdlib.h: 55: extern int atoi(const char *);
+[; ;stdlib.h: 56: extern unsigned xtoi(const char *);
+[; ;stdlib.h: 57: extern long atol(const char *);
+[; ;stdlib.h: 58: extern long strtol(const char *, char **, int);
+[; ;stdlib.h: 60: extern int rand(void);
+[; ;stdlib.h: 61: extern void srand(unsigned int);
+[; ;stdlib.h: 62: extern void * calloc(size_t, size_t);
+[; ;stdlib.h: 63: extern div_t div(int numer, int denom);
+[; ;stdlib.h: 64: extern udiv_t udiv(unsigned numer, unsigned denom);
+[; ;stdlib.h: 65: extern ldiv_t ldiv(long numer, long denom);
+[; ;stdlib.h: 66: extern uldiv_t uldiv(unsigned long numer,unsigned long denom);
+[; ;stdlib.h: 67: extern unsigned long _lrotl(unsigned long value, unsigned int shift);
+[; ;stdlib.h: 68: extern unsigned long _lrotr(unsigned long value, unsigned int shift);
+[; ;stdlib.h: 69: extern unsigned int _rotl(unsigned int value, unsigned int shift);
+[; ;stdlib.h: 70: extern unsigned int _rotr(unsigned int value, unsigned int shift);
+[; ;stdlib.h: 75: extern void * malloc(size_t);
+[; ;stdlib.h: 76: extern void free(void *);
+[; ;stdlib.h: 77: extern void * realloc(void *, size_t);
+[; ;stdlib.h: 86: extern int atexit(void (*)(void));
+[; ;stdlib.h: 87: extern char * getenv(const char *);
+[; ;stdlib.h: 88: extern char ** environ;
+[; ;stdlib.h: 89: extern int system(char *);
+[; ;stdlib.h: 90: extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
+[; ;stdlib.h: 91: extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
+[; ;stdlib.h: 92: extern int abs(int);
+[; ;stdlib.h: 93: extern long labs(long);
+[; ;stdlib.h: 95: extern char * itoa(char * buf, int val, int base);
+[; ;stdlib.h: 96: extern char * utoa(char * buf, unsigned val, int base);
+[; ;stdlib.h: 101: extern char * ltoa(char * buf, long val, int base);
+[; ;stdlib.h: 102: extern char * ultoa(char * buf, unsigned long val, int base);
+[; ;stdlib.h: 104: extern char * ftoa(float f, int * status);
+[; ;stdint.h: 13: typedef signed char int8_t;
+[; ;stdint.h: 20: typedef signed int int16_t;
+[; ;stdint.h: 28: typedef signed short long int int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 43: typedef unsigned char uint8_t;
+[; ;stdint.h: 49: typedef unsigned int uint16_t;
+[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
+[; ;stdint.h: 63: typedef unsigned long int uint32_t;
+[; ;stdint.h: 71: typedef signed char int_least8_t;
+[; ;stdint.h: 78: typedef signed int int_least16_t;
+[; ;stdint.h: 90: typedef signed short long int int_least24_t;
+[; ;stdint.h: 98: typedef signed long int int_least32_t;
+[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
+[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 137: typedef signed char int_fast8_t;
+[; ;stdint.h: 144: typedef signed int int_fast16_t;
+[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
+[; ;stdint.h: 164: typedef signed long int int_fast32_t;
+[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
+[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 200: typedef int32_t intmax_t;
+[; ;stdint.h: 205: typedef uint32_t uintmax_t;
+[; ;stdint.h: 210: typedef int16_t intptr_t;
+[; ;stdint.h: 215: typedef uint16_t uintptr_t;
+"36 general.h
+[p x FOSC=INTOSC ]
+"37
+[p x WDTE=OFF ]
+"38
+[p x PWRTE=ON ]
+"39
+[p x MCLRE=OFF ]
+"40
+[p x CP=ON ]
+"41
+[p x CPD=ON ]
+"42
+[p x BOREN=ON ]
+"43
+[p x CLKOUTEN=OFF ]
+"44
+[p x IESO=ON ]
+"45
+[p x FCMEN=ON ]
+"48
+[p x WRT=OFF ]
+"49
+[p x PLLEN=OFF ]
+"50
+[p x STVREN=ON ]
+"51
+[p x BORV=LO ]
+"52
+[p x LVP=ON ]
+"67
+[v _task `uc ~T0 @X0 1 e ]
+[v _i `uc ~T0 @X0 1 e ]
+[; ;general.h: 67: uint8_t task,i;
+"68
+[v _password `uc ~T0 @X0 -> 4 `i e ]
+[; ;general.h: 68: char password[4];
+[; ;sim800l.h: 51: typedef struct{
+[; ;sim800l.h: 52: uint8_t busy;
+[; ;sim800l.h: 53: uint8_t uncomplete;
+[; ;sim800l.h: 54: uint8_t ok;
+[; ;sim800l.h: 55: uint8_t resp;
+[; ;sim800l.h: 56: uint8_t cell[15];
+[; ;sim800l.h: 57: uint8_t cell_lenght;
+[; ;sim800l.h: 58: uint8_t unreadsms;
+[; ;sim800l.h: 59: char smsmem[5];
+[; ;sim800l.h: 60: char buffer[64];
+[; ;sim800l.h: 61: char command[25];
+[; ;sim800l.h: 62: char csq[5];
+[; ;sim800l.h: 63: }AT;
+"68 sim800l.h
+[v _SIM800L `S366 ~T0 @X0 1 e ]
+[; ;sim800l.h: 68: AT SIM800L;
+"69
+[v _bufque `uc ~T0 @X0 1 e ]
+[; ;sim800l.h: 69: uint8_t bufque;
+[; ;sim800l.h: 72: uint8_t SIM800init();
+[; ;sim800l.h: 73: uint8_t SIM800sendCommand();
+[; ;sim800l.h: 74: uint8_t SIM800SendSms(const char *nmbr, const char *msg);
+[; ;sim800l.h: 75: uint8_t SIM800ReadSms(const char *mem);
+[; ;sim800l.h: 76: uint8_t SIM800DeleteSms(const char *index, const char *flag);
+[; ;sim800l.h: 77: uint8_t SIM800Process();
+[; ;sim800l.h: 78: uint8_t SIM800Command();
+[; ;sim800l.h: 79: void SIM800LClear(void);
 [; ;usart.h: 22: void USARTInit(uint16_t baud_rate);
 [; ;usart.h: 23: void USARTWriteChar(char ch);
 [; ;usart.h: 24: void USARTWriteString(const char *str);
@@ -2914,30 +3085,602 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;usart.h: 26: void USARTWriteInt(int16_t val, int8_t field_length);
 [; ;usart.h: 27: void USARTHandleRxInt();
 [; ;usart.h: 28: void USARTGotoNewLine();
-[v F2992 `(v ~T0 @X0 1 tf ]
-"6 isr.c
-[v _ISR `IF2992 ~T0 @X0 1 e ]
-"7
-{
-[; ;isr.c: 6: void interrupt ISR(void)
-[; ;isr.c: 7: {
-[e :U _ISR ]
-[f ]
-[; ;isr.c: 8: if (RCIE && RCIF) {
+[; ;gpio.h: 61: void GPIOPortInit();
+[; ;gpio.h: 62: void GPIORedLedBlink(uint8_t times);
+[; ;gpio.h: 63: void GPIOBlueLedBlink(uint8_t times);
+[; ;gpio.h: 64: void GPIOGreenLedBlink(uint8_t times);
+[; ;eeprom.h: 47: void EepromStart();
+[; ;eeprom.h: 48: void EepromEnd();
+[; ;eeprom.h: 49: void EepromSend(uint8_t b);
+[; ;eeprom.h: 50: uint8_t EepromReceive();
+[; ;eeprom.h: 51: uint8_t EepromRead(uint16_t address);
+[; ;eeprom.h: 52: void EepromOpCode(uint8_t opcode, uint16_t address);
+[; ;eeprom.h: 53: void EepromWrite(uint16_t address, uint8_t data);
+[; ;eeprom.h: 54: uint8_t EEPROMSaveNumber(const char *nmbr, uint8_t nmbrLenght, uint16_t position);
+[; ;eeprom.h: 55: uint8_t EEPROMDeleteNumber(uint16_t position);
+[; ;eeprom.h: 56: uint16_t EEPROMSearchNumber(const char *nmbr, uint8_t nmbrLenght);
+[; ;eeprom.h: 57: void EEPROMEraseAll(void);
+[; ;eeprom.h: 58: uint8_t EEPROMAdd(const char *nmbr, uint8_t nmbrLenght);
+[; ;eeprom.h: 59: void EEPROMUpdatePassword(const char *pass);
+[; ;eeprom.h: 60: uint8_t EEPROMCheckPassword(const char *pass);
+[; ;eeprom.h: 61: void EEPROMPrint();
+"7 sim800l.c
+[v _SIM800init `(uc ~T0 @X0 1 ef ]
 "8
-[e $ ! && _RCIE _RCIF 362  ]
 {
-[; ;isr.c: 9: USARTHandleRxInt();
+[; ;sim800l.c: 7: uint8_t SIM800init()
+[; ;sim800l.c: 8: {
+[e :U _SIM800init ]
+[f ]
+[; ;sim800l.c: 9: LATCbits.LATC6=1;
 "9
-[e ( _USARTHandleRxInt ..  ]
-[; ;isr.c: 10: return;
+[e = . . _LATCbits 0 6 -> -> 1 `i `uc ]
+[; ;sim800l.c: 10: _delay((unsigned long)((10)*(8000000/4000.0)));
 "10
-[e $UE 361  ]
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;sim800l.c: 11: LATCbits.LATC6=0;
 "11
-}
-[e :U 362 ]
-[; ;isr.c: 11: }
-[; ;isr.c: 12: }
+[e = . . _LATCbits 0 6 -> -> 0 `i `uc ]
+[; ;sim800l.c: 12: _delay((unsigned long)((500)*(8000000/4000.0)));
 "12
-[e :UE 361 ]
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;sim800l.c: 13: LATCbits.LATC6=1;
+"13
+[e = . . _LATCbits 0 6 -> -> 1 `i `uc ]
+[; ;sim800l.c: 14: _delay((unsigned long)((10000)*(8000000/4000.0)));
+"14
+[e ( __delay (1 -> * -> -> 10000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;sim800l.c: 15: USARTWriteLine("AT\r\n");
+"15
+[e ( _USARTWriteLine (1 :s 1C ]
+[; ;sim800l.c: 16: _delay((unsigned long)((2000)*(8000000/4000.0)));
+"16
+[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;sim800l.c: 17: USARTWriteLine("ATE0\r\n");
+"17
+[e ( _USARTWriteLine (1 :s 2C ]
+[; ;sim800l.c: 18: _delay((unsigned long)((2000)*(8000000/4000.0)));
+"18
+[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;sim800l.c: 19: USARTWriteLine("AT+CLIP=1\r\n");
+"19
+[e ( _USARTWriteLine (1 :s 3C ]
+[; ;sim800l.c: 20: _delay((unsigned long)((2000)*(8000000/4000.0)));
+"20
+[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;sim800l.c: 27: return 0;
+"27
+[e ) -> -> 0 `i `uc ]
+[e $UE 367  ]
+[; ;sim800l.c: 28: }
+"28
+[e :UE 367 ]
 }
+"30
+[v _SIM800sendCommand `(uc ~T0 @X0 1 ef ]
+"31
+{
+[; ;sim800l.c: 30: uint8_t SIM800sendCommand()
+[; ;sim800l.c: 31: {
+[e :U _SIM800sendCommand ]
+[f ]
+[; ;sim800l.c: 32: USARTWriteLine("AT\n\r");
+"32
+[e ( _USARTWriteLine (1 :s 4C ]
+[; ;sim800l.c: 33: return 0;
+"33
+[e ) -> -> 0 `i `uc ]
+[e $UE 368  ]
+[; ;sim800l.c: 34: }
+"34
+[e :UE 368 ]
+}
+"36
+[v _SIM800SendSms `(uc ~T0 @X0 1 ef2`*Cuc`*Cuc ]
+"37
+{
+[; ;sim800l.c: 36: uint8_t SIM800SendSms(const char *nmbr, const char *msg)
+[; ;sim800l.c: 37: {
+[e :U _SIM800SendSms ]
+"36
+[v _nmbr `*Cuc ~T0 @X0 1 r1 ]
+[v _msg `*Cuc ~T0 @X0 1 r2 ]
+"37
+[f ]
+[; ;sim800l.c: 38: _delay((unsigned long)((2000)*(8000000/4000.0)));
+"38
+[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;sim800l.c: 39: USARTWriteLine("AT+CMGF = 1\r\n");
+"39
+[e ( _USARTWriteLine (1 :s 5C ]
+[; ;sim800l.c: 40: _delay((unsigned long)((2000)*(8000000/4000.0)));
+"40
+[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;sim800l.c: 41: USARTWriteLine("AT+CMGS=\"");
+"41
+[e ( _USARTWriteLine (1 :s 6C ]
+[; ;sim800l.c: 42: USARTWriteString(nmbr);
+"42
+[e ( _USARTWriteString (1 _nmbr ]
+[; ;sim800l.c: 43: USARTWriteString("\"\r\n");
+"43
+[e ( _USARTWriteString (1 :s 7C ]
+[; ;sim800l.c: 45: _delay((unsigned long)((2000)*(8000000/4000.0)));
+"45
+[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;sim800l.c: 46: USARTWriteString(msg);
+"46
+[e ( _USARTWriteString (1 _msg ]
+[; ;sim800l.c: 47: USARTWriteChar(0x1A);
+"47
+[e ( _USARTWriteChar (1 -> -> 26 `i `uc ]
+[; ;sim800l.c: 48: _delay((unsigned long)((2000)*(8000000/4000.0)));
+"48
+[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;sim800l.c: 50: return 1;
+"50
+[e ) -> -> 1 `i `uc ]
+[e $UE 369  ]
+[; ;sim800l.c: 51: }
+"51
+[e :UE 369 ]
+}
+"52
+[v _SIM800ReadSms `(uc ~T0 @X0 1 ef1`*Cuc ]
+"53
+{
+[; ;sim800l.c: 52: uint8_t SIM800ReadSms(const char *mem)
+[; ;sim800l.c: 53: {
+[e :U _SIM800ReadSms ]
+"52
+[v _mem `*Cuc ~T0 @X0 1 r1 ]
+"53
+[f ]
+[; ;sim800l.c: 54: _delay((unsigned long)((2000)*(8000000/4000.0)));
+"54
+[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;sim800l.c: 55: USARTWriteLine("AT+CMGF = 1\r\n");
+"55
+[e ( _USARTWriteLine (1 :s 8C ]
+[; ;sim800l.c: 56: _delay((unsigned long)((2000)*(8000000/4000.0)));
+"56
+[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;sim800l.c: 57: USARTWriteLine("AT+CMGR=");
+"57
+[e ( _USARTWriteLine (1 :s 9C ]
+[; ;sim800l.c: 58: USARTWriteString(mem);
+"58
+[e ( _USARTWriteString (1 _mem ]
+[; ;sim800l.c: 59: USARTWriteString("\r\n");
+"59
+[e ( _USARTWriteString (1 :s 10C ]
+[; ;sim800l.c: 60: _delay((unsigned long)((2000)*(8000000/4000.0)));
+"60
+[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;sim800l.c: 61: return 1;
+"61
+[e ) -> -> 1 `i `uc ]
+[e $UE 370  ]
+[; ;sim800l.c: 62: }
+"62
+[e :UE 370 ]
+}
+"63
+[v _SIM800DeleteSms `(uc ~T0 @X0 1 ef2`*Cuc`*Cuc ]
+"64
+{
+[; ;sim800l.c: 63: uint8_t SIM800DeleteSms(const char *index, const char *flag)
+[; ;sim800l.c: 64: {
+[e :U _SIM800DeleteSms ]
+"63
+[v _index `*Cuc ~T0 @X0 1 r1 ]
+[v _flag `*Cuc ~T0 @X0 1 r2 ]
+"64
+[f ]
+[; ;sim800l.c: 67: _delay((unsigned long)((1000)*(8000000/4000.0)));
+"67
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;sim800l.c: 68: USARTWriteLine("AT+CMGD=");
+"68
+[e ( _USARTWriteLine (1 :s 11C ]
+[; ;sim800l.c: 69: USARTWriteString(index);
+"69
+[e ( _USARTWriteString (1 _index ]
+[; ;sim800l.c: 70: USARTWriteChar(',');
+"70
+[e ( _USARTWriteChar (1 -> -> 44 `ui `uc ]
+[; ;sim800l.c: 71: USARTWriteString(flag);
+"71
+[e ( _USARTWriteString (1 _flag ]
+[; ;sim800l.c: 72: USARTWriteString("\r\n");
+"72
+[e ( _USARTWriteString (1 :s 12C ]
+[; ;sim800l.c: 73: _delay((unsigned long)((2000)*(8000000/4000.0)));
+"73
+[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;sim800l.c: 74: return 1;
+"74
+[e ) -> -> 1 `i `uc ]
+[e $UE 371  ]
+[; ;sim800l.c: 75: }
+"75
+[e :UE 371 ]
+}
+"76
+[v _SIM800Process `(uc ~T0 @X0 1 ef ]
+"77
+{
+[; ;sim800l.c: 76: uint8_t SIM800Process()
+[; ;sim800l.c: 77: {
+[e :U _SIM800Process ]
+[f ]
+[; ;sim800l.c: 78: if(SIM800L.buffer[0]=='+')
+"78
+[e $ ! == -> *U + &U . _SIM800L 8 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _SIM800L 8 `ui `ux `ui -> 43 `ui 373  ]
+[; ;sim800l.c: 79: {
+"79
+{
+[; ;sim800l.c: 80: if(SIM800L.buffer[1]=='C' && SIM800L.buffer[2]=='L' && SIM800L.buffer[3]=='I' )
+"80
+[e $ ! && && == -> *U + &U . _SIM800L 8 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _SIM800L 8 `ui `ux `ui -> 67 `ui == -> *U + &U . _SIM800L 8 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _SIM800L 8 `ui `ux `ui -> 76 `ui == -> *U + &U . _SIM800L 8 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _SIM800L 8 `ui `ux `ui -> 73 `ui 374  ]
+[; ;sim800l.c: 81: {
+"81
+{
+"82
+[v _ci `uc ~T0 @X0 1 a ]
+[; ;sim800l.c: 82: uint8_t ci=8;
+[e = _ci -> -> 8 `i `uc ]
+[; ;sim800l.c: 83: while(SIM800L.buffer[ci]!='\"' && (ci-8)<15)
+"83
+[e $U 375  ]
+[e :U 376 ]
+[; ;sim800l.c: 84: {
+"84
+{
+[; ;sim800l.c: 85: SIM800L.cell[ci-8]=SIM800L.buffer[ci];
+"85
+[e = *U + &U . _SIM800L 4 * -> -> - -> _ci `i -> 8 `i `ui `ux -> -> # *U &U . _SIM800L 4 `ui `ux *U + &U . _SIM800L 8 * -> _ci `ux -> -> # *U &U . _SIM800L 8 `ui `ux ]
+[; ;sim800l.c: 86: ci++;
+"86
+[e ++ _ci -> -> 1 `i `uc ]
+[; ;sim800l.c: 87: SIM800L.cell_lenght++;
+"87
+[e ++ . _SIM800L 5 -> -> 1 `i `uc ]
+"88
+}
+[e :U 375 ]
+"83
+[e $ && != -> *U + &U . _SIM800L 8 * -> _ci `ux -> -> # *U &U . _SIM800L 8 `ui `ux `ui -> 34 `ui < - -> _ci `i -> 8 `i -> 15 `i 376  ]
+[e :U 377 ]
+[; ;sim800l.c: 88: }
+[; ;sim800l.c: 89: SIM800L.cell[ci-8]='\0';
+"89
+[e = *U + &U . _SIM800L 4 * -> -> - -> _ci `i -> 8 `i `ui `ux -> -> # *U &U . _SIM800L 4 `ui `ux -> -> 0 `ui `uc ]
+[; ;sim800l.c: 90: task=1;
+"90
+[e = _task -> -> 1 `i `uc ]
+"91
+}
+[e :U 374 ]
+[; ;sim800l.c: 91: }
+[; ;sim800l.c: 92: if(SIM800L.buffer[1]=='C' && SIM800L.buffer[2]=='M' && SIM800L.buffer[3]=='T' && SIM800L.buffer[4]=='I' )
+"92
+[e $ ! && && && == -> *U + &U . _SIM800L 8 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _SIM800L 8 `ui `ux `ui -> 67 `ui == -> *U + &U . _SIM800L 8 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _SIM800L 8 `ui `ux `ui -> 77 `ui == -> *U + &U . _SIM800L 8 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _SIM800L 8 `ui `ux `ui -> 84 `ui == -> *U + &U . _SIM800L 8 * -> -> -> 4 `i `ui `ux -> -> # *U &U . _SIM800L 8 `ui `ux `ui -> 73 `ui 378  ]
+[; ;sim800l.c: 93: {
+"93
+{
+[; ;sim800l.c: 95: task=2;
+"95
+[e = _task -> -> 2 `i `uc ]
+"96
+}
+[e :U 378 ]
+[; ;sim800l.c: 96: }
+[; ;sim800l.c: 97: if(SIM800L.buffer[1]=='C' && SIM800L.buffer[2]=='S' && SIM800L.buffer[3]=='Q')
+"97
+[e $ ! && && == -> *U + &U . _SIM800L 8 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _SIM800L 8 `ui `ux `ui -> 67 `ui == -> *U + &U . _SIM800L 8 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _SIM800L 8 `ui `ux `ui -> 83 `ui == -> *U + &U . _SIM800L 8 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _SIM800L 8 `ui `ux `ui -> 81 `ui 379  ]
+[; ;sim800l.c: 98: {
+"98
+{
+"99
+[v _ci `uc ~T0 @X0 1 a ]
+[; ;sim800l.c: 99: uint8_t ci=6;
+[e = _ci -> -> 6 `i `uc ]
+[; ;sim800l.c: 100: while(SIM800L.buffer[ci]!=',' && (ci)<8)
+"100
+[e $U 380  ]
+[e :U 381 ]
+[; ;sim800l.c: 101: {
+"101
+{
+[; ;sim800l.c: 102: SIM800L.csq[ci-6]=SIM800L.buffer[ci];
+"102
+[e = *U + &U . _SIM800L 10 * -> -> - -> _ci `i -> 6 `i `ui `ux -> -> # *U &U . _SIM800L 10 `ui `ux *U + &U . _SIM800L 8 * -> _ci `ux -> -> # *U &U . _SIM800L 8 `ui `ux ]
+[; ;sim800l.c: 103: ci++;
+"103
+[e ++ _ci -> -> 1 `i `uc ]
+"104
+}
+[e :U 380 ]
+"100
+[e $ && != -> *U + &U . _SIM800L 8 * -> _ci `ux -> -> # *U &U . _SIM800L 8 `ui `ux `ui -> 44 `ui < -> _ci `i -> 8 `i 381  ]
+[e :U 382 ]
+[; ;sim800l.c: 104: }
+[; ;sim800l.c: 105: SIM800L.csq[ci-6]=0;
+"105
+[e = *U + &U . _SIM800L 10 * -> -> - -> _ci `i -> 6 `i `ui `ux -> -> # *U &U . _SIM800L 10 `ui `ux -> -> 0 `i `uc ]
+"106
+}
+[e :U 379 ]
+"107
+}
+[e :U 373 ]
+[; ;sim800l.c: 106: }
+[; ;sim800l.c: 107: }
+[; ;sim800l.c: 108: return 1;
+"108
+[e ) -> -> 1 `i `uc ]
+[e $UE 372  ]
+[; ;sim800l.c: 109: }
+"109
+[e :UE 372 ]
+}
+"111
+[v _SIM800Command `(uc ~T0 @X0 1 ef ]
+"112
+{
+[; ;sim800l.c: 111: uint8_t SIM800Command()
+[; ;sim800l.c: 112: {
+[e :U _SIM800Command ]
+[f ]
+[; ;sim800l.c: 113: if(SIM800L.command[0]==':')
+"113
+[e $ ! == -> *U + &U . _SIM800L 9 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _SIM800L 9 `ui `ux `ui -> 58 `ui 384  ]
+[; ;sim800l.c: 114: {
+"114
+{
+[; ;sim800l.c: 115: if(EEPROMCheckPassword(&SIM800L.command[1]))
+"115
+[e $ ! != -> ( _EEPROMCheckPassword (1 -> &U *U + &U . _SIM800L 9 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _SIM800L 9 `ui `ux `*Cuc `i -> -> -> 0 `i `uc `i 385  ]
+[; ;sim800l.c: 116: {
+"116
+{
+[; ;sim800l.c: 117: if(SIM800L.command[6]=='A' && SIM800L.command[7]=='D' && SIM800L.command[8]=='D' )
+"117
+[e $ ! && && == -> *U + &U . _SIM800L 9 * -> -> -> 6 `i `ui `ux -> -> # *U &U . _SIM800L 9 `ui `ux `ui -> 65 `ui == -> *U + &U . _SIM800L 9 * -> -> -> 7 `i `ui `ux -> -> # *U &U . _SIM800L 9 `ui `ux `ui -> 68 `ui == -> *U + &U . _SIM800L 9 * -> -> -> 8 `i `ui `ux -> -> # *U &U . _SIM800L 9 `ui `ux `ui -> 68 `ui 386  ]
+[; ;sim800l.c: 118: {
+"118
+{
+[; ;sim800l.c: 119: i=10;
+"119
+[e = _i -> -> 10 `i `uc ]
+[; ;sim800l.c: 120: while(SIM800L.command[i]>='0' && SIM800L.command[i]<='9' )
+"120
+[e $U 387  ]
+[e :U 388 ]
+[; ;sim800l.c: 121: {
+"121
+{
+[; ;sim800l.c: 122: SIM800L.cell[i-10]=SIM800L.command[i];
+"122
+[e = *U + &U . _SIM800L 4 * -> -> - -> _i `i -> 10 `i `ui `ux -> -> # *U &U . _SIM800L 4 `ui `ux *U + &U . _SIM800L 9 * -> _i `ux -> -> # *U &U . _SIM800L 9 `ui `ux ]
+[; ;sim800l.c: 123: i++;
+"123
+[e ++ _i -> -> 1 `i `uc ]
+[; ;sim800l.c: 124: SIM800L.cell_lenght++;
+"124
+[e ++ . _SIM800L 5 -> -> 1 `i `uc ]
+"125
+}
+[e :U 387 ]
+"120
+[e $ && >= -> *U + &U . _SIM800L 9 * -> _i `ux -> -> # *U &U . _SIM800L 9 `ui `ux `ui -> 48 `ui <= -> *U + &U . _SIM800L 9 * -> _i `ux -> -> # *U &U . _SIM800L 9 `ui `ux `ui -> 57 `ui 388  ]
+[e :U 389 ]
+[; ;sim800l.c: 125: }
+[; ;sim800l.c: 126: SIM800L.cell[i-10]='\0';
+"126
+[e = *U + &U . _SIM800L 4 * -> -> - -> _i `i -> 10 `i `ui `ux -> -> # *U &U . _SIM800L 4 `ui `ux -> -> 0 `ui `uc ]
+[; ;sim800l.c: 127: if(!EEPROMSearchNumber(SIM800L.cell,SIM800L.cell_lenght))
+"127
+[e $ ! ! != ( _EEPROMSearchNumber (2 , -> &U . _SIM800L 4 `*Cuc . _SIM800L 5 -> -> 0 `i `ui 390  ]
+[; ;sim800l.c: 128: {
+"128
+{
+[; ;sim800l.c: 129: EEPROMAdd(SIM800L.cell, SIM800L.cell_lenght);
+"129
+[e ( _EEPROMAdd (2 , -> &U . _SIM800L 4 `*Cuc . _SIM800L 5 ]
+[; ;sim800l.c: 130: SIM800SendSms(SIM800L.cell, "Your number had been added");
+"130
+[e ( _SIM800SendSms (2 , -> &U . _SIM800L 4 `*Cuc :s 13C ]
+"131
+}
+[; ;sim800l.c: 131: }
+[e $U 391  ]
+"132
+[e :U 390 ]
+[; ;sim800l.c: 132: else
+[; ;sim800l.c: 133: {
+"133
+{
+[; ;sim800l.c: 134: SIM800SendSms(SIM800L.cell, "Your number already exist");
+"134
+[e ( _SIM800SendSms (2 , -> &U . _SIM800L 4 `*Cuc :s 14C ]
+"135
+}
+[e :U 391 ]
+"137
+}
+[e :U 386 ]
+[; ;sim800l.c: 135: }
+[; ;sim800l.c: 137: }
+[; ;sim800l.c: 138: if(SIM800L.command[6]=='D' && SIM800L.command[7]=='E' && SIM800L.command[8]=='L' )
+"138
+[e $ ! && && == -> *U + &U . _SIM800L 9 * -> -> -> 6 `i `ui `ux -> -> # *U &U . _SIM800L 9 `ui `ux `ui -> 68 `ui == -> *U + &U . _SIM800L 9 * -> -> -> 7 `i `ui `ux -> -> # *U &U . _SIM800L 9 `ui `ux `ui -> 69 `ui == -> *U + &U . _SIM800L 9 * -> -> -> 8 `i `ui `ux -> -> # *U &U . _SIM800L 9 `ui `ux `ui -> 76 `ui 392  ]
+[; ;sim800l.c: 139: {
+"139
+{
+[; ;sim800l.c: 140: i=10;
+"140
+[e = _i -> -> 10 `i `uc ]
+[; ;sim800l.c: 141: while(SIM800L.command[i]>='0' && SIM800L.command[i]<='9' )
+"141
+[e $U 393  ]
+[e :U 394 ]
+[; ;sim800l.c: 142: {
+"142
+{
+[; ;sim800l.c: 143: SIM800L.cell[i-10]=SIM800L.command[i];
+"143
+[e = *U + &U . _SIM800L 4 * -> -> - -> _i `i -> 10 `i `ui `ux -> -> # *U &U . _SIM800L 4 `ui `ux *U + &U . _SIM800L 9 * -> _i `ux -> -> # *U &U . _SIM800L 9 `ui `ux ]
+[; ;sim800l.c: 144: i++;
+"144
+[e ++ _i -> -> 1 `i `uc ]
+[; ;sim800l.c: 145: SIM800L.cell_lenght++;
+"145
+[e ++ . _SIM800L 5 -> -> 1 `i `uc ]
+"146
+}
+[e :U 393 ]
+"141
+[e $ && >= -> *U + &U . _SIM800L 9 * -> _i `ux -> -> # *U &U . _SIM800L 9 `ui `ux `ui -> 48 `ui <= -> *U + &U . _SIM800L 9 * -> _i `ux -> -> # *U &U . _SIM800L 9 `ui `ux `ui -> 57 `ui 394  ]
+[e :U 395 ]
+[; ;sim800l.c: 146: }
+[; ;sim800l.c: 147: SIM800L.cell[i-10]='\0';
+"147
+[e = *U + &U . _SIM800L 4 * -> -> - -> _i `i -> 10 `i `ui `ux -> -> # *U &U . _SIM800L 4 `ui `ux -> -> 0 `ui `uc ]
+"148
+[v _add `uc ~T0 @X0 1 a ]
+[; ;sim800l.c: 148: uint8_t add=EEPROMSearchNumber(SIM800L.cell,SIM800L.cell_lenght);
+[e = _add -> ( _EEPROMSearchNumber (2 , -> &U . _SIM800L 4 `*Cuc . _SIM800L 5 `uc ]
+[; ;sim800l.c: 149: if(add)
+"149
+[e $ ! != -> _add `i -> -> -> 0 `i `uc `i 396  ]
+[; ;sim800l.c: 150: {
+"150
+{
+[; ;sim800l.c: 151: EEPROMDeleteNumber(add-1);
+"151
+[e ( _EEPROMDeleteNumber (1 -> - -> _add `i -> 1 `i `ui ]
+[; ;sim800l.c: 152: SIM800SendSms(SIM800L.cell, "Your number had been deleted");
+"152
+[e ( _SIM800SendSms (2 , -> &U . _SIM800L 4 `*Cuc :s 15C ]
+"153
+}
+[e :U 396 ]
+"155
+}
+[e :U 392 ]
+[; ;sim800l.c: 153: }
+[; ;sim800l.c: 155: }
+[; ;sim800l.c: 156: if(SIM800L.command[6]=='F' && SIM800L.command[7]=='A' && SIM800L.command[8]=='C' )
+"156
+[e $ ! && && == -> *U + &U . _SIM800L 9 * -> -> -> 6 `i `ui `ux -> -> # *U &U . _SIM800L 9 `ui `ux `ui -> 70 `ui == -> *U + &U . _SIM800L 9 * -> -> -> 7 `i `ui `ux -> -> # *U &U . _SIM800L 9 `ui `ux `ui -> 65 `ui == -> *U + &U . _SIM800L 9 * -> -> -> 8 `i `ui `ux -> -> # *U &U . _SIM800L 9 `ui `ux `ui -> 67 `ui 397  ]
+[; ;sim800l.c: 157: {
+"157
+{
+[; ;sim800l.c: 158: EEPROMEraseAll();
+"158
+[e ( _EEPROMEraseAll ..  ]
+[; ;sim800l.c: 159: EEPROMUpdatePassword("1234");
+"159
+[e ( _EEPROMUpdatePassword (1 :s 16C ]
+"160
+}
+[e :U 397 ]
+"162
+}
+[e :U 385 ]
+"163
+}
+[e :U 384 ]
+[; ;sim800l.c: 160: }
+[; ;sim800l.c: 162: }
+[; ;sim800l.c: 163: }
+[; ;sim800l.c: 164: return 1;
+"164
+[e ) -> -> 1 `i `uc ]
+[e $UE 383  ]
+[; ;sim800l.c: 165: }
+"165
+[e :UE 383 ]
+}
+"167
+[v _SIM800LClear `(v ~T0 @X0 1 ef ]
+"168
+{
+[; ;sim800l.c: 167: void SIM800LClear(void)
+[; ;sim800l.c: 168: {
+[e :U _SIM800LClear ]
+[f ]
+[v _i `uc ~T0 @X0 1 a ]
+[; ;sim800l.c: 169: uint8_t i;
+[; ;sim800l.c: 170: SIM800L.busy=0;
+"170
+[e = . _SIM800L 0 -> -> 0 `i `uc ]
+[; ;sim800l.c: 171: SIM800L.uncomplete=0;
+"171
+[e = . _SIM800L 1 -> -> 0 `i `uc ]
+[; ;sim800l.c: 172: SIM800L.cell_lenght=0;
+"172
+[e = . _SIM800L 5 -> -> 0 `i `uc ]
+[; ;sim800l.c: 173: SIM800L.ok=0;
+"173
+[e = . _SIM800L 2 -> -> 0 `i `uc ]
+[; ;sim800l.c: 174: for(i=0;i<15;i++){SIM800L.cell[i]='\0';}
+"174
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 15 `i 399  ]
+[e $U 400  ]
+[e :U 399 ]
+{
+[e = *U + &U . _SIM800L 4 * -> _i `ux -> -> # *U &U . _SIM800L 4 `ui `ux -> -> 0 `ui `uc ]
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 15 `i 399  ]
+[e :U 400 ]
+}
+[; ;sim800l.c: 175: for(i=0;i<64;i++) SIM800L.buffer[i]=0;
+"175
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 64 `i 402  ]
+[e $U 403  ]
+[e :U 402 ]
+[e = *U + &U . _SIM800L 8 * -> _i `ux -> -> # *U &U . _SIM800L 8 `ui `ux -> -> 0 `i `uc ]
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 64 `i 402  ]
+[e :U 403 ]
+}
+[; ;sim800l.c: 176: for(i=0;i<25;i++) SIM800L.command[i]=0;
+"176
+{
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 25 `i 405  ]
+[e $U 406  ]
+[e :U 405 ]
+[e = *U + &U . _SIM800L 9 * -> _i `ux -> -> # *U &U . _SIM800L 9 `ui `ux -> -> 0 `i `uc ]
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 25 `i 405  ]
+[e :U 406 ]
+}
+[; ;sim800l.c: 177: }
+"177
+[e :UE 398 ]
+}
+[a 14C 89 111 117 114 32 110 117 109 98 101 114 32 97 108 114 101 97 100 121 32 101 120 105 115 116 0 ]
+[a 15C 89 111 117 114 32 110 117 109 98 101 114 32 104 97 100 32 98 101 101 110 32 100 101 108 101 116 101 100 0 ]
+[a 13C 89 111 117 114 32 110 117 109 98 101 114 32 104 97 100 32 98 101 101 110 32 97 100 100 101 100 0 ]
+[a 9C 65 84 43 67 77 71 82 61 0 ]
+[a 11C 65 84 43 67 77 71 68 61 0 ]
+[a 16C 49 50 51 52 0 ]
+[a 6C 65 84 43 67 77 71 83 61 34 0 ]
+[a 4C 65 84 10 13 0 ]
+[a 1C 65 84 13 10 0 ]
+[a 3C 65 84 43 67 76 73 80 61 49 13 10 0 ]
+[a 5C 65 84 43 67 77 71 70 32 61 32 49 13 10 0 ]
+[a 8C 65 84 43 67 77 71 70 32 61 32 49 13 10 0 ]
+[a 2C 65 84 69 48 13 10 0 ]
+[a 7C 34 13 10 0 ]
+[a 10C 13 10 0 ]
+[a 12C 13 10 0 ]

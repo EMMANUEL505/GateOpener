@@ -35,14 +35,14 @@ extern "C" {
 #define CLK_DELAY       4       //Value in us, it must be divisible by two
 #define TWC_DELAY       5       //Value in ms
 
-#define PASSWORD1       1900
-#define PASSWORD2       1901
-#define PASSWORD3       1902
-#define PASSWORD4       1903
+#define PASSWORD1       7900
+#define PASSWORD2       7901
+#define PASSWORD3       7902
+#define PASSWORD4       7903
 //  EEPROM definitions
 
 #define EEPROM_NUMBER_LENGHT    10
-#define EEPROM_MAX             180
+#define EEPROM_MAX             250
 
 void EepromStart();
 void EepromEnd();

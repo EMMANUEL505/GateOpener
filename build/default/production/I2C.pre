@@ -1,5 +1,16 @@
 
-# 1 "system.c"
+# 1 "I2C.c"
+
+# 24 "I2C.h"
+void I2CInit();
+void I2CStart();
+void I2CStop();
+void I2CRestart();
+void I2CAck();
+void I2CNak();
+void I2CWait();
+void I2CSend(unsigned char dat);
+unsigned char I2CRead(void);
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.38\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -4154,24 +4165,79 @@ typedef uint16_t uintptr_t;
 uint8_t task,i;
 char password[4];
 
-# 29 "system.h"
-void SYSTEMInit(uint8_t freq);
-
-# 5 "system.c"
-void SYSTEMInit(uint8_t freq)
+# 9 "I2C.c"
+void I2CInit()
 {
-switch(freq)
-{
-case 4:
-OSCCON=0b01101010;
-break;
-case 8:
-OSCCON=0b01110010;
-break;
-case 16:
-OSCCON=0b01111010;
-break;
-default:
-break;
+TRISC7 = 1;
+TRISB7 = 0;
+TRISB6 = 1;
+SSPSTAT |= 0x80;
+SSPCON = 0x28;
+SSPADD = 0x09;
 }
+
+# 25
+void I2CStart()
+{
+SEN = 1;
+while(SEN);
+
+}
+
+# 38
+void I2CStop()
+{
+PEN = 1;
+while(PEN);
+
+}
+
+# 51
+void I2CRestart()
+{
+RSEN = 1;
+while(RSEN);
+}
+
+# 63
+void I2CAck()
+{
+ACKDT = 0;
+ACKEN = 1;
+while(ACKEN);
+}
+
+# 76
+void I2CNak()
+{
+ACKDT = 1;
+ACKEN = 1;
+while(ACKEN);
+}
+
+# 89
+void I2CWait()
+{
+while ((SSPCON2 & 0x1F ) || ( SSPSTAT & 0x04 ) );
+
+}
+
+# 102
+void I2CSend(unsigned char dat)
+{
+SSPBUF = dat;
+while(BF);
+I2CWait();
+}
+
+# 115
+unsigned char I2CRead(void)
+{
+unsigned char temp;
+
+RCEN = 1;
+while(!BF);
+temp = SSPBUF;
+I2CWait();
+return temp;
 }

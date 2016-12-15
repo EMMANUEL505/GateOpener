@@ -61,3 +61,4 @@ extern "C" {
 void GPIOPortInit();
 void GPIORedLedBlink(uint8_t times);
 void GPIOBlueLedBlink(uint8_t times);
+void GPIOGreenLedBlink(uint8_t times);

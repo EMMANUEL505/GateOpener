@@ -15,18 +15,22 @@
 void main()
 {
     SYSTEMInit(_8MHZ);  //Initialize core at 8MHz
-    USARTInit(115);     //Initialize USART at 115200 baudrate
     GPIOPortInit();     //Initialize port directions (output,input)
-    //EEPROMPrint();
+    GPIORelayClear();
+    USARTInit(115);     //Initialize USART at 115200 baudrate
+    I2CInit();          //Initialize I2C EEPROM
+
+    GPIORedLedSet();
+    GPIOBlueLedSet();
+    GPIOGreenLedSet();
     SIM800init();       //Initialize GSM module
     EEPROMUpdatePassword("1234");
     GPIORedLedClear();
     GPIOBlueLedClear();
-    GPIOGreenLedClear();
+    GPIOGreenLedSet();
 
-    ei();                       //Enable interrupts
+    ei();       //Enable interrupts
     RCSTAbits.CREN=ENABLED;     //Enable USART receiver
-
     SIM800SendSms("6141654818", "System enabled");
     while(TRUE)
     {
@@ -39,15 +43,18 @@ void main()
             break;
             case CALL_IN:
                 USARTWriteLine("ATH\r\n");   //Hang up
+                //USARTWriteLine("ATA\r\n");   //Answer
                 if(EEPROMSearchNumber(SIM800L.cell,SIM800L.cell_lenght))
                 {
+                    GPIOGreenLedBlink(5);     //Red LED blinking, indicating denied access
                     GPIORelaySet();
                     __delay_ms(1000);
                     GPIORelayClear();
+                    
                 } 
                 else
                 {
-                    GPIORedLedBlink(5);
+                    GPIORedLedBlink(5);     //Red LED blinking, indicating denied access
                 }
                 SIM800LClear();
                 task=WAITING;
@@ -55,15 +62,14 @@ void main()
             case SMS_IN:
                 GPIOBlueLedBlink(5);
                 SIM800ReadSms(SIM800L.smsmem);
-                //SIM800DeleteSms("1", ALL_MESSAGES);
                 task=COMMAND;
             break;
             case COMMAND:
-                GPIORedLedSet();
+                GPIOBlueLedSet();
                 SIM800Command();
                 SIM800LClear();
                 SIM800DeleteSms("1", ALL_MESSAGES);
-                GPIORedLedClear();
+                GPIOBlueLedClear();
                 task=WAITING;
             break;
             default:

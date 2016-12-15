@@ -1,5 +1,5 @@
 
-# 1 "system.c"
+# 1 "sim800l.c"
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.38\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -4154,24 +4154,234 @@ typedef uint16_t uintptr_t;
 uint8_t task,i;
 char password[4];
 
-# 29 "system.h"
-void SYSTEMInit(uint8_t freq);
+# 51 "sim800l.h"
+typedef struct{
+uint8_t busy;
+uint8_t uncomplete;
+uint8_t ok;
+uint8_t resp;
+uint8_t cell[15];
+uint8_t cell_lenght;
+uint8_t unreadsms;
+char smsmem[5];
+char buffer[64];
+char command[25];
+char csq[5];
+}AT;
 
-# 5 "system.c"
-void SYSTEMInit(uint8_t freq)
+
+
+
+AT SIM800L;
+uint8_t bufque;
+
+
+uint8_t SIM800init();
+uint8_t SIM800sendCommand();
+uint8_t SIM800SendSms(const char *nmbr, const char *msg);
+uint8_t SIM800ReadSms(const char *mem);
+uint8_t SIM800DeleteSms(const char *index, const char *flag);
+uint8_t SIM800Process();
+uint8_t SIM800Command();
+void SIM800LClear(void);
+
+# 22 "usart.h"
+void USARTInit(uint16_t baud_rate);
+void USARTWriteChar(char ch);
+void USARTWriteString(const char *str);
+void USARTWriteLine(const char *str);
+void USARTWriteInt(int16_t val, int8_t field_length);
+void USARTHandleRxInt();
+void USARTGotoNewLine();
+
+# 61 "gpio.h"
+void GPIOPortInit();
+void GPIORedLedBlink(uint8_t times);
+void GPIOBlueLedBlink(uint8_t times);
+void GPIOGreenLedBlink(uint8_t times);
+
+# 47 "eeprom.h"
+void EepromStart();
+void EepromEnd();
+void EepromSend(uint8_t b);
+uint8_t EepromReceive();
+uint8_t EepromRead(uint16_t address);
+void EepromOpCode(uint8_t opcode, uint16_t address);
+void EepromWrite(uint16_t address, uint8_t data);
+uint8_t EEPROMSaveNumber(const char *nmbr, uint8_t nmbrLenght, uint16_t position);
+uint8_t EEPROMDeleteNumber(uint16_t position);
+uint16_t EEPROMSearchNumber(const char *nmbr, uint8_t nmbrLenght);
+void EEPROMEraseAll(void);
+uint8_t EEPROMAdd(const char *nmbr, uint8_t nmbrLenght);
+void EEPROMUpdatePassword(const char *pass);
+uint8_t EEPROMCheckPassword(const char *pass);
+void EEPROMPrint();
+
+# 7 "sim800l.c"
+uint8_t SIM800init()
 {
-switch(freq)
-{
-case 4:
-OSCCON=0b01101010;
-break;
-case 8:
-OSCCON=0b01110010;
-break;
-case 16:
-OSCCON=0b01111010;
-break;
-default:
-break;
+LATCbits.LATC6=1;
+_delay((unsigned long)((10)*(8000000/4000.0)));
+LATCbits.LATC6=0;
+_delay((unsigned long)((500)*(8000000/4000.0)));
+LATCbits.LATC6=1;
+_delay((unsigned long)((10000)*(8000000/4000.0)));
+USARTWriteLine("AT\r\n");
+_delay((unsigned long)((2000)*(8000000/4000.0)));
+USARTWriteLine("ATE0\r\n");
+_delay((unsigned long)((2000)*(8000000/4000.0)));
+USARTWriteLine("AT+CLIP=1\r\n");
+_delay((unsigned long)((2000)*(8000000/4000.0)));
+
+# 27
+return 0;
 }
+
+uint8_t SIM800sendCommand()
+{
+USARTWriteLine("AT\n\r");
+return 0;
+}
+
+uint8_t SIM800SendSms(const char *nmbr, const char *msg)
+{
+_delay((unsigned long)((2000)*(8000000/4000.0)));
+USARTWriteLine("AT+CMGF = 1\r\n");
+_delay((unsigned long)((2000)*(8000000/4000.0)));
+USARTWriteLine("AT+CMGS=\"");
+USARTWriteString(nmbr);
+USARTWriteString("\"\r\n");
+
+_delay((unsigned long)((2000)*(8000000/4000.0)));
+USARTWriteString(msg);
+USARTWriteChar(0x1A);
+_delay((unsigned long)((2000)*(8000000/4000.0)));
+
+return 1;
+}
+uint8_t SIM800ReadSms(const char *mem)
+{
+_delay((unsigned long)((2000)*(8000000/4000.0)));
+USARTWriteLine("AT+CMGF = 1\r\n");
+_delay((unsigned long)((2000)*(8000000/4000.0)));
+USARTWriteLine("AT+CMGR=");
+USARTWriteString(mem);
+USARTWriteString("\r\n");
+_delay((unsigned long)((2000)*(8000000/4000.0)));
+return 1;
+}
+uint8_t SIM800DeleteSms(const char *index, const char *flag)
+{
+
+
+_delay((unsigned long)((1000)*(8000000/4000.0)));
+USARTWriteLine("AT+CMGD=");
+USARTWriteString(index);
+USARTWriteChar(',');
+USARTWriteString(flag);
+USARTWriteString("\r\n");
+_delay((unsigned long)((2000)*(8000000/4000.0)));
+return 1;
+}
+uint8_t SIM800Process()
+{
+if(SIM800L.buffer[0]=='+')
+{
+if(SIM800L.buffer[1]=='C' && SIM800L.buffer[2]=='L' && SIM800L.buffer[3]=='I' )
+{
+uint8_t ci=8;
+while(SIM800L.buffer[ci]!='\"' && (ci-8)<15)
+{
+SIM800L.cell[ci-8]=SIM800L.buffer[ci];
+ci++;
+SIM800L.cell_lenght++;
+}
+SIM800L.cell[ci-8]='\0';
+task=1;
+}
+if(SIM800L.buffer[1]=='C' && SIM800L.buffer[2]=='M' && SIM800L.buffer[3]=='T' && SIM800L.buffer[4]=='I' )
+{
+
+task=2;
+}
+if(SIM800L.buffer[1]=='C' && SIM800L.buffer[2]=='S' && SIM800L.buffer[3]=='Q')
+{
+uint8_t ci=6;
+while(SIM800L.buffer[ci]!=',' && (ci)<8)
+{
+SIM800L.csq[ci-6]=SIM800L.buffer[ci];
+ci++;
+}
+SIM800L.csq[ci-6]=0;
+}
+}
+return 1;
+}
+
+uint8_t SIM800Command()
+{
+if(SIM800L.command[0]==':')
+{
+if(EEPROMCheckPassword(&SIM800L.command[1]))
+{
+if(SIM800L.command[6]=='A' && SIM800L.command[7]=='D' && SIM800L.command[8]=='D' )
+{
+i=10;
+while(SIM800L.command[i]>='0' && SIM800L.command[i]<='9' )
+{
+SIM800L.cell[i-10]=SIM800L.command[i];
+i++;
+SIM800L.cell_lenght++;
+}
+SIM800L.cell[i-10]='\0';
+if(!EEPROMSearchNumber(SIM800L.cell,SIM800L.cell_lenght))
+{
+EEPROMAdd(SIM800L.cell, SIM800L.cell_lenght);
+SIM800SendSms(SIM800L.cell, "Your number had been added");
+}
+else
+{
+SIM800SendSms(SIM800L.cell, "Your number already exist");
+}
+
+}
+if(SIM800L.command[6]=='D' && SIM800L.command[7]=='E' && SIM800L.command[8]=='L' )
+{
+i=10;
+while(SIM800L.command[i]>='0' && SIM800L.command[i]<='9' )
+{
+SIM800L.cell[i-10]=SIM800L.command[i];
+i++;
+SIM800L.cell_lenght++;
+}
+SIM800L.cell[i-10]='\0';
+uint8_t add=EEPROMSearchNumber(SIM800L.cell,SIM800L.cell_lenght);
+if(add)
+{
+EEPROMDeleteNumber(add-1);
+SIM800SendSms(SIM800L.cell, "Your number had been deleted");
+}
+
+}
+if(SIM800L.command[6]=='F' && SIM800L.command[7]=='A' && SIM800L.command[8]=='C' )
+{
+EEPROMEraseAll();
+EEPROMUpdatePassword("1234");
+}
+
+}
+}
+return 1;
+}
+
+void SIM800LClear(void)
+{
+uint8_t i;
+SIM800L.busy=0;
+SIM800L.uncomplete=0;
+SIM800L.cell_lenght=0;
+SIM800L.ok=0;
+for(i=0;i<15;i++){SIM800L.cell[i]='\0';}
+for(i=0;i<64;i++) SIM800L.buffer[i]=0;
+for(i=0;i<25;i++) SIM800L.command[i]=0;
 }
