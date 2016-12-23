@@ -34,7 +34,7 @@ extern "C" {
 
 #define CLK_DELAY       4       //Value in us, it must be divisible by two
 #define TWC_DELAY       5       //Value in ms
-
+//64Kbit memory capacity, can save up to 8,000 8-bit characters, this could be used for 800 10char numbers
 #define PASSWORD1       7900
 #define PASSWORD2       7901
 #define PASSWORD3       7902

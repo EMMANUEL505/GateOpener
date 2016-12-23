@@ -4182,6 +4182,7 @@ char smsmem[5];
 char buffer[64];
 char command[25];
 char csq[5];
+char password[5];
 }AT;
 
 

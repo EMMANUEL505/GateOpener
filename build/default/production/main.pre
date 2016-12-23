@@ -4187,6 +4187,7 @@ char smsmem[5];
 char buffer[64];
 char command[25];
 char csq[5];
+char password[5];
 }AT;
 
 
@@ -4220,7 +4221,7 @@ void USARTWriteInt(int16_t val, int8_t field_length);
 void USARTHandleRxInt();
 void USARTGotoNewLine();
 
-# 15 "main.c"
+# 14 "main.c"
 void main()
 {
 SYSTEMInit(8);
@@ -4233,7 +4234,13 @@ LATCbits.LATC1=1;
 LATCbits.LATC0=1;
 LATCbits.LATC2=1;
 SIM800init();
+
+password[0]=0x255; password[1]=0x255; password[2]=0x255; password[3]=0x255;
+if(EEPROMCheckPassword(password))
+{
 EEPROMUpdatePassword("1234");
+}
+
 LATCbits.LATC1=0;
 LATCbits.LATC0=0;
 LATCbits.LATC2=1;
@@ -4250,29 +4257,28 @@ if(RCSTAbits.OERR==1) {CREN=0;_delay((unsigned long)((200)*(8000000/4000000.0)))
 USARTWriteLine("AT+CSQ\r\n");
 _delay((unsigned long)((2000)*(8000000/4000.0)));
 break;
+
 case 1:
 USARTWriteLine("ATH\r\n");
 
 if(EEPROMSearchNumber(SIM800L.cell,SIM800L.cell_lenght))
 {
 GPIOGreenLedBlink(5);
-LATAbits.LATA4=1;
-_delay((unsigned long)((1000)*(8000000/4000.0)));
-LATAbits.LATA4=0;
+LATCbits.LATC2=1;
+LATAbits.LATA4=1; _delay((unsigned long)((1000)*(8000000/4000.0))); LATAbits.LATA4=0;
+}
+else { GPIORedLedBlink(5); }
 
-}
-else
-{
-GPIORedLedBlink(5);
-}
 SIM800LClear();
 task=0;
 break;
+
 case 2:
 GPIOBlueLedBlink(5);
 SIM800ReadSms(SIM800L.smsmem);
 task=3;
 break;
+
 case 3:
 LATCbits.LATC0=1;
 SIM800Command();
@@ -4281,9 +4287,9 @@ SIM800DeleteSms("1", "4");
 LATCbits.LATC0=0;
 task=0;
 break;
+
 default:
 break;
 }
 }
 }
-

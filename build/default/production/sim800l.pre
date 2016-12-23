@@ -4167,6 +4167,7 @@ char smsmem[5];
 char buffer[64];
 char command[25];
 char csq[5];
+char password[5];
 }AT;
 
 
@@ -4343,7 +4344,6 @@ else
 {
 SIM800SendSms(SIM800L.cell, "Your number already exist");
 }
-
 }
 if(SIM800L.command[6]=='D' && SIM800L.command[7]=='E' && SIM800L.command[8]=='L' )
 {
@@ -4361,15 +4361,25 @@ if(add)
 EEPROMDeleteNumber(add-1);
 SIM800SendSms(SIM800L.cell, "Your number had been deleted");
 }
-
 }
 if(SIM800L.command[6]=='F' && SIM800L.command[7]=='A' && SIM800L.command[8]=='C' )
 {
 EEPROMEraseAll();
 EEPROMUpdatePassword("1234");
 }
-
+if(SIM800L.command[6]=='P' && SIM800L.command[7]=='A' && SIM800L.command[8]=='S' )
+{
+i=10;
+while(SIM800L.command[i]>='0' && SIM800L.command[i]<='9' )
+{
+SIM800L.password[i-10]=SIM800L.command[i];
+i++;
 }
+SIM800L.password[i-10]='\0';
+EEPROMUpdatePassword(SIM800L.password);
+}
+}
+else GPIORedLedBlink(5);
 }
 return 1;
 }

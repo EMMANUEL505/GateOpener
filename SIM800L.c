@@ -114,7 +114,7 @@ uint8_t SIM800Command()
     {
         if(EEPROMCheckPassword(&SIM800L.command[1]))   //Password
         {
-            if(SIM800L.command[6]=='A' && SIM800L.command[7]=='D' && SIM800L.command[8]=='D' )      //"ADD" command for new numbers
+            if(SIM800L.command[6]=='A' && SIM800L.command[7]=='D' && SIM800L.command[8]=='D' )      //"ADD" command for add new numbers
             {
                 i=10;       //Number starts at 10 position  :pass:ADD:614xxxxxxx
                 while(SIM800L.command[i]>='0' && SIM800L.command[i]<='9' )
@@ -123,7 +123,7 @@ uint8_t SIM800Command()
                     i++;
                     SIM800L.cell_lenght++;
                 }
-                SIM800L.cell[i-10]='\0';
+                SIM800L.cell[i-10]='\0';    //'\0' character at last position to indicate where ends the string
                 if(!EEPROMSearchNumber(SIM800L.cell,SIM800L.cell_lenght))       //ADD new number if doesn't exist
                 {
                     EEPROMAdd(SIM800L.cell, SIM800L.cell_lenght);           //ADD new number to memory
@@ -133,7 +133,6 @@ uint8_t SIM800Command()
                 {
                     SIM800SendSms(SIM800L.cell, "Your number already exist");
                 }
-
             }
             if(SIM800L.command[6]=='D' && SIM800L.command[7]=='E' && SIM800L.command[8]=='L' )      //"ADD" command for new numbers
             {
@@ -151,15 +150,25 @@ uint8_t SIM800Command()
                     EEPROMDeleteNumber(add-1);
                     SIM800SendSms(SIM800L.cell, "Your number had been deleted");
                 }
-
             }
             if(SIM800L.command[6]=='F' && SIM800L.command[7]=='A' && SIM800L.command[8]=='C' )      //"ADD" command for new numbers
             {
                 EEPROMEraseAll();
                 EEPROMUpdatePassword("1234");
             }
-
+            if(SIM800L.command[6]=='P' && SIM800L.command[7]=='A' && SIM800L.command[8]=='S' )      //"ADD" command for new numbers
+            {
+                i=10;       //Password starts at 10 position  :pass:PAS:XYZW
+                while(SIM800L.command[i]>='0' && SIM800L.command[i]<='9' )
+                {
+                    SIM800L.password[i-10]=SIM800L.command[i];  //Save password characters
+                    i++;
+                }
+                SIM800L.password[i-10]='\0';
+                EEPROMUpdatePassword(SIM800L.password);
+            }
         }
+        else GPIORedLedBlink(5);        //If password is wrong red led will blink 5 times
     }
     return TRUE;  
 }

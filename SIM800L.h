@@ -60,6 +60,7 @@ typedef struct{
     char buffer[SIM800L_BUFFER_SIZE];
     char command[25];
     char csq[5];
+    char password[5];
 }AT;
 
 
