@@ -4144,7 +4144,7 @@ typedef uint16_t uintptr_t;
 
 # 36 "general.h"
 #pragma config FOSC = INTOSC
-#pragma config WDTE = OFF
+#pragma config WDTE = ON
 #pragma config PWRTE = ON
 #pragma config MCLRE = OFF
 #pragma config CP = ON
@@ -4164,6 +4164,7 @@ typedef uint16_t uintptr_t;
 # 67
 uint8_t task,i;
 char password[4];
+char password_empty[4];
 
 # 9 "I2C.c"
 void I2CInit()

@@ -165,7 +165,7 @@ uint8_t SIM800Command()
                     i++;
                 }
                 SIM800L.password[i-10]='\0';
-                EEPROMUpdatePassword(SIM800L.password);
+                if(i==14) EEPROMUpdatePassword(SIM800L.password); //create new password only if there are 4 chars
             }
         }
         else GPIORedLedBlink(5);        //If password is wrong red led will blink 5 times

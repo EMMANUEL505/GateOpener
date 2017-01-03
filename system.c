@@ -4,6 +4,7 @@
 
 void SYSTEMInit(uint8_t freq)
 {
+    WDTCONbits_t.WDTPS=18;//WDTPS for 256s
     switch(freq)
     {
         case 4:

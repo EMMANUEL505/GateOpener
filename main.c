@@ -24,8 +24,8 @@ void main()
     GPIOGreenLedSet();  //All LED's remain enabled during GSM initialization
     SIM800init();       //Initialize GSM module, 18 sec approx 
     
-    password[0]=0x255; password[1]=0x255; password[2]=0x255; password[3]=0x255;//Empty password
-    if(EEPROMCheckPassword(password))   //If empty password use default password
+    password_empty[0]=0xFF; password_empty[1]=0xFF; password_empty[2]=0xFF; password_empty[3]=0xFF;//Empty password
+    if(EEPROMCheckPassword(password_empty))   //If empty password use default password
     {
         EEPROMUpdatePassword("1234");   //Initialize password
     }
@@ -45,6 +45,7 @@ void main()
                 if(RCSTAbits.OERR==1)  {CREN=DISABLED;__delay_us(200);RCSTAbits.CREN=ENABLED; } //Check for overwrite
                 USARTWriteLine("AT+CSQ\r\n");   //Check signal Quality
                 __delay_ms(2000);
+                CLRWDT();                
             break;
             
             case CALL_IN:

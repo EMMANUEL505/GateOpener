@@ -3023,7 +3023,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "36 general.h
 [p x FOSC=INTOSC ]
 "37
-[p x WDTE=OFF ]
+[p x WDTE=ON ]
 "38
 [p x PWRTE=ON ]
 "39
@@ -3057,6 +3057,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "68
 [v _password `uc ~T0 @X0 -> 4 `i e ]
 [; ;general.h: 68: char password[4];
+"69
+[v _password_empty `uc ~T0 @X0 -> 4 `i e ]
+[; ;general.h: 69: char password_empty[4];
 "9 I2C.c
 [v _I2CInit `(v ~T0 @X0 1 ef ]
 "10

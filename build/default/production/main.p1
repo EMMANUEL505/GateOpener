@@ -3054,7 +3054,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "36 general.h
 [p x FOSC=INTOSC ]
 "37
-[p x WDTE=OFF ]
+[p x WDTE=ON ]
 "38
 [p x PWRTE=ON ]
 "39
@@ -3088,6 +3088,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "68
 [v _password `uc ~T0 @X0 -> 4 `i e ]
 [; ;general.h: 68: char password[4];
+"69
+[v _password_empty `uc ~T0 @X0 -> 4 `i e ]
+[; ;general.h: 69: char password_empty[4];
 [; ;system.h: 29: void SYSTEMInit(uint8_t freq);
 [; ;eeprom.h: 47: void EepromStart();
 [; ;eeprom.h: 48: void EepromEnd();
@@ -3178,15 +3181,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 25: SIM800init();
 "25
 [e ( _SIM800init ..  ]
-[; ;main.c: 27: password[0]=0x255; password[1]=0x255; password[2]=0x255; password[3]=0x255;
+[; ;main.c: 27: password_empty[0]=0xFF; password_empty[1]=0xFF; password_empty[2]=0xFF; password_empty[3]=0xFF;
 "27
-[e = *U + &U _password * -> -> -> 0 `i `ui `ux -> -> # *U &U _password `ui `ux -> -> 597 `i `uc ]
-[e = *U + &U _password * -> -> -> 1 `i `ui `ux -> -> # *U &U _password `ui `ux -> -> 597 `i `uc ]
-[e = *U + &U _password * -> -> -> 2 `i `ui `ux -> -> # *U &U _password `ui `ux -> -> 597 `i `uc ]
-[e = *U + &U _password * -> -> -> 3 `i `ui `ux -> -> # *U &U _password `ui `ux -> -> 597 `i `uc ]
-[; ;main.c: 28: if(EEPROMCheckPassword(password))
+[e = *U + &U _password_empty * -> -> -> 0 `i `ui `ux -> -> # *U &U _password_empty `ui `ux -> -> 255 `i `uc ]
+[e = *U + &U _password_empty * -> -> -> 1 `i `ui `ux -> -> # *U &U _password_empty `ui `ux -> -> 255 `i `uc ]
+[e = *U + &U _password_empty * -> -> -> 2 `i `ui `ux -> -> # *U &U _password_empty `ui `ux -> -> 255 `i `uc ]
+[e = *U + &U _password_empty * -> -> -> 3 `i `ui `ux -> -> # *U &U _password_empty `ui `ux -> -> 255 `i `uc ]
+[; ;main.c: 28: if(EEPROMCheckPassword(password_empty))
 "28
-[e $ ! != -> ( _EEPROMCheckPassword (1 -> &U _password `*Cuc `i -> -> -> 0 `i `uc `i 368  ]
+[e $ ! != -> ( _EEPROMCheckPassword (1 -> &U _password_empty `*Cuc `i -> -> -> 0 `i `uc `i 368  ]
 [; ;main.c: 29: {
 "29
 {
@@ -3245,100 +3248,103 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 47: _delay((unsigned long)((2000)*(8000000/4000.0)));
 "47
 [e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;main.c: 48: break;
+[; ;main.c: 48: asm("clrwdt");
 "48
+[; <" clrwdt ;# ">
+[; ;main.c: 49: break;
+"49
 [e $U 372  ]
-[; ;main.c: 50: case 1:
-"50
-[e :U 376 ]
-[; ;main.c: 51: USARTWriteLine("ATH\r\n");
+[; ;main.c: 51: case 1:
 "51
+[e :U 376 ]
+[; ;main.c: 52: USARTWriteLine("ATH\r\n");
+"52
 [e ( _USARTWriteLine (1 :s 5C ]
-[; ;main.c: 53: if(EEPROMSearchNumber(SIM800L.cell,SIM800L.cell_lenght))
-"53
-[e $ ! != ( _EEPROMSearchNumber (2 , -> &U . _SIM800L 4 `*Cuc . _SIM800L 5 -> -> 0 `i `ui 377  ]
-[; ;main.c: 54: {
+[; ;main.c: 54: if(EEPROMSearchNumber(SIM800L.cell,SIM800L.cell_lenght))
 "54
-{
-[; ;main.c: 55: GPIOGreenLedBlink(5);
+[e $ ! != ( _EEPROMSearchNumber (2 , -> &U . _SIM800L 4 `*Cuc . _SIM800L 5 -> -> 0 `i `ui 377  ]
+[; ;main.c: 55: {
 "55
-[e ( _GPIOGreenLedBlink (1 -> -> 5 `i `uc ]
-[; ;main.c: 56: LATCbits.LATC2=1;
+{
+[; ;main.c: 56: GPIOGreenLedBlink(5);
 "56
-[e = . . _LATCbits 0 2 -> -> 1 `i `uc ]
-[; ;main.c: 57: LATAbits.LATA4=1; _delay((unsigned long)((1000)*(8000000/4000.0))); LATAbits.LATA4=0;
+[e ( _GPIOGreenLedBlink (1 -> -> 5 `i `uc ]
+[; ;main.c: 57: LATCbits.LATC2=1;
 "57
+[e = . . _LATCbits 0 2 -> -> 1 `i `uc ]
+[; ;main.c: 58: LATAbits.LATA4=1; _delay((unsigned long)((1000)*(8000000/4000.0))); LATAbits.LATA4=0;
+"58
 [e = . . _LATAbits 0 4 -> -> 1 `i `uc ]
 [e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 [e = . . _LATAbits 0 4 -> -> 0 `i `uc ]
-"58
-}
-[; ;main.c: 58: }
-[e $U 378  ]
 "59
+}
+[; ;main.c: 59: }
+[e $U 378  ]
+"60
 [e :U 377 ]
-[; ;main.c: 59: else { GPIORedLedBlink(5); }
+[; ;main.c: 60: else { GPIORedLedBlink(5); }
 {
 [e ( _GPIORedLedBlink (1 -> -> 5 `i `uc ]
 }
 [e :U 378 ]
-[; ;main.c: 61: SIM800LClear();
-"61
-[e ( _SIM800LClear ..  ]
-[; ;main.c: 62: task=0;
+[; ;main.c: 62: SIM800LClear();
 "62
-[e = _task -> -> 0 `i `uc ]
-[; ;main.c: 63: break;
-"63
-[e $U 372  ]
-[; ;main.c: 65: case 2:
-"65
-[e :U 379 ]
-[; ;main.c: 66: GPIOBlueLedBlink(5);
-"66
-[e ( _GPIOBlueLedBlink (1 -> -> 5 `i `uc ]
-[; ;main.c: 67: SIM800ReadSms(SIM800L.smsmem);
-"67
-[e ( _SIM800ReadSms (1 -> &U . _SIM800L 7 `*Cuc ]
-[; ;main.c: 68: task=3;
-"68
-[e = _task -> -> 3 `i `uc ]
-[; ;main.c: 69: break;
-"69
-[e $U 372  ]
-[; ;main.c: 71: case 3:
-"71
-[e :U 380 ]
-[; ;main.c: 72: LATCbits.LATC0=1;
-"72
-[e = . . _LATCbits 0 0 -> -> 1 `i `uc ]
-[; ;main.c: 73: SIM800Command();
-"73
-[e ( _SIM800Command ..  ]
-[; ;main.c: 74: SIM800LClear();
-"74
 [e ( _SIM800LClear ..  ]
-[; ;main.c: 75: SIM800DeleteSms("1", "4");
-"75
-[e ( _SIM800DeleteSms (2 , :s 6C :s 7C ]
-[; ;main.c: 76: LATCbits.LATC0=0;
-"76
-[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
-[; ;main.c: 77: task=0;
-"77
+[; ;main.c: 63: task=0;
+"63
 [e = _task -> -> 0 `i `uc ]
-[; ;main.c: 78: break;
+[; ;main.c: 64: break;
+"64
+[e $U 372  ]
+[; ;main.c: 66: case 2:
+"66
+[e :U 379 ]
+[; ;main.c: 67: GPIOBlueLedBlink(5);
+"67
+[e ( _GPIOBlueLedBlink (1 -> -> 5 `i `uc ]
+[; ;main.c: 68: SIM800ReadSms(SIM800L.smsmem);
+"68
+[e ( _SIM800ReadSms (1 -> &U . _SIM800L 7 `*Cuc ]
+[; ;main.c: 69: task=3;
+"69
+[e = _task -> -> 3 `i `uc ]
+[; ;main.c: 70: break;
+"70
+[e $U 372  ]
+[; ;main.c: 72: case 3:
+"72
+[e :U 380 ]
+[; ;main.c: 73: LATCbits.LATC0=1;
+"73
+[e = . . _LATCbits 0 0 -> -> 1 `i `uc ]
+[; ;main.c: 74: SIM800Command();
+"74
+[e ( _SIM800Command ..  ]
+[; ;main.c: 75: SIM800LClear();
+"75
+[e ( _SIM800LClear ..  ]
+[; ;main.c: 76: SIM800DeleteSms("1", "4");
+"76
+[e ( _SIM800DeleteSms (2 , :s 6C :s 7C ]
+[; ;main.c: 77: LATCbits.LATC0=0;
+"77
+[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
+[; ;main.c: 78: task=0;
 "78
+[e = _task -> -> 0 `i `uc ]
+[; ;main.c: 79: break;
+"79
 [e $U 372  ]
-[; ;main.c: 80: default:
-"80
-[e :U 381 ]
-[; ;main.c: 81: break;
+[; ;main.c: 81: default:
 "81
-[e $U 372  ]
+[e :U 381 ]
+[; ;main.c: 82: break;
 "82
+[e $U 372  ]
+"83
 }
-[; ;main.c: 82: }
+[; ;main.c: 83: }
 [e $U 372  ]
 "42
 [e :U 373 ]
@@ -3347,17 +3353,17 @@ Version 3.2 HI-TECH Software Intermediate Code
  , $ -> -> 2 `i `uc 379
  , $ -> -> 3 `i `uc 380
  381 ]
-"82
-[e :U 372 ]
 "83
+[e :U 372 ]
+"84
 }
 [e :U 369 ]
 "40
 [e $U 370  ]
 [e :U 371 ]
-[; ;main.c: 83: }
 [; ;main.c: 84: }
-"84
+[; ;main.c: 85: }
+"85
 [e :UE 367 ]
 }
 [a 3C 83 121 115 116 101 109 32 101 110 97 98 108 101 100 0 ]

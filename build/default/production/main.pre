@@ -4133,7 +4133,7 @@ typedef uint16_t uintptr_t;
 
 # 36 "general.h"
 #pragma config FOSC = INTOSC
-#pragma config WDTE = OFF
+#pragma config WDTE = ON
 #pragma config PWRTE = ON
 #pragma config MCLRE = OFF
 #pragma config CP = ON
@@ -4153,6 +4153,7 @@ typedef uint16_t uintptr_t;
 # 67
 uint8_t task,i;
 char password[4];
+char password_empty[4];
 
 # 29 "system.h"
 void SYSTEMInit(uint8_t freq);
@@ -4235,8 +4236,8 @@ LATCbits.LATC0=1;
 LATCbits.LATC2=1;
 SIM800init();
 
-password[0]=0x255; password[1]=0x255; password[2]=0x255; password[3]=0x255;
-if(EEPROMCheckPassword(password))
+password_empty[0]=0xFF; password_empty[1]=0xFF; password_empty[2]=0xFF; password_empty[3]=0xFF;
+if(EEPROMCheckPassword(password_empty))
 {
 EEPROMUpdatePassword("1234");
 }
@@ -4256,6 +4257,7 @@ case 0:
 if(RCSTAbits.OERR==1) {CREN=0;_delay((unsigned long)((200)*(8000000/4000000.0)));RCSTAbits.CREN=1; }
 USARTWriteLine("AT+CSQ\r\n");
 _delay((unsigned long)((2000)*(8000000/4000.0)));
+asm("clrwdt");
 break;
 
 case 1:

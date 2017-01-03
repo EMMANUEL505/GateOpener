@@ -3047,7 +3047,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "36 general.h
 [p x FOSC=INTOSC ]
 "37
-[p x WDTE=OFF ]
+[p x WDTE=ON ]
 "38
 [p x PWRTE=ON ]
 "39
@@ -3081,6 +3081,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "68
 [v _password `uc ~T0 @X0 -> 4 `i e ]
 [; ;general.h: 68: char password[4];
+"69
+[v _password_empty `uc ~T0 @X0 -> 4 `i e ]
+[; ;general.h: 69: char password_empty[4];
 [; ;usart.h: 22: void USARTInit(uint16_t baud_rate);
 [; ;usart.h: 23: void USARTWriteChar(char ch);
 [; ;usart.h: 24: void USARTWriteString(const char *str);
@@ -3625,8 +3628,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _field_length `c ~T0 @X0 1 r2 ]
 "154
 [f ]
-[v F3223 `uc ~T0 @X0 -> 5 `i s ]
-[i F3223
+[v F3224 `uc ~T0 @X0 -> 5 `i s ]
+[i F3224
 :U ..
 "155
 -> -> 0 `i `uc
@@ -3638,7 +3641,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 ]
 [v _str `uc ~T0 @X0 -> 5 `i a ]
 [; ;usart.c: 155: char str[5]={0,0,0,0,0};
-[e = _str F3223 ]
+[e = _str F3224 ]
 [v _i `c ~T0 @X0 1 a ]
 [; ;usart.c: 156: int8_t i=4,j=0;
 "156

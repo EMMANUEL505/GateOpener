@@ -4133,7 +4133,7 @@ typedef uint16_t uintptr_t;
 
 # 36 "general.h"
 #pragma config FOSC = INTOSC
-#pragma config WDTE = OFF
+#pragma config WDTE = ON
 #pragma config PWRTE = ON
 #pragma config MCLRE = OFF
 #pragma config CP = ON
@@ -4153,6 +4153,7 @@ typedef uint16_t uintptr_t;
 # 67
 uint8_t task,i;
 char password[4];
+char password_empty[4];
 
 # 51 "sim800l.h"
 typedef struct{
@@ -4376,7 +4377,7 @@ SIM800L.password[i-10]=SIM800L.command[i];
 i++;
 }
 SIM800L.password[i-10]='\0';
-EEPROMUpdatePassword(SIM800L.password);
+if(i==14) EEPROMUpdatePassword(SIM800L.password);
 }
 }
 else GPIORedLedBlink(5);
