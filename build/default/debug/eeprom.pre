@@ -1,5 +1,5 @@
 
-# 1 "system.c"
+# 1 "eeprom.c"
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.38\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -4155,25 +4155,302 @@ uint8_t task,i;
 char password[4];
 char password_empty[4];
 
-# 29 "system.h"
-void SYSTEMInit(uint8_t freq);
+# 61 "gpio.h"
+void GPIOPortInit();
+void GPIORedLedBlink(uint8_t times);
+void GPIOBlueLedBlink(uint8_t times);
+void GPIOGreenLedBlink(uint8_t times);
 
-# 5 "system.c"
-void SYSTEMInit(uint8_t freq)
+# 22 "usart.h"
+void USARTInit(uint16_t baud_rate);
+void USARTWriteChar(char ch);
+void USARTWriteString(const char *str);
+void USARTWriteLine(const char *str);
+void USARTWriteInt(int16_t val, int8_t field_length);
+void USARTHandleRxInt();
+void USARTGotoNewLine();
+
+# 47 "eeprom.h"
+void EepromStart();
+void EepromEnd();
+void EepromSend(uint8_t b);
+uint8_t EepromReceive();
+uint8_t EepromRead(uint16_t address);
+void EepromOpCode(uint8_t opcode, uint16_t address);
+void EepromWrite(uint16_t address, uint8_t data);
+uint8_t EEPROMSaveNumber(const char *nmbr, uint8_t nmbrLenght, uint16_t position);
+uint8_t EEPROMDeleteNumber(uint16_t position);
+uint16_t EEPROMSearchNumber(const char *nmbr, uint8_t nmbrLenght);
+void EEPROMEraseAll(void);
+uint8_t EEPROMAdd(const char *nmbr, uint8_t nmbrLenght);
+void EEPROMUpdatePassword(const char *pass);
+uint8_t EEPROMCheckPassword(const char *pass);
+void EEPROMPrint();
+
+# 24 "I2C.h"
+void I2CInit();
+void I2CStart();
+void I2CStop();
+void I2CRestart();
+void I2CAck();
+void I2CNak();
+void I2CWait();
+void I2CSend(unsigned char dat);
+unsigned char I2CRead(void);
+
+# 7 "eeprom.c"
+void EepromStart()
 {
-WDTCONbits.WDTPS = 17;
-switch(freq)
-{
-case 4:
-OSCCON=0b01101010;
-break;
-case 8:
-OSCCON=0b01110010;
-break;
-case 16:
-OSCCON=0b01111010;
-break;
-default:
-break;
+
+
+
+LATBbits.LATB6=0;
+LATBbits.LATB7=1;
+LATCbits.LATC7=1;
+_delay((unsigned long)((4)*(8000000/4000000.0)));
+LATBbits.LATB6=1;
+_delay((unsigned long)((4)*(8000000/4000000.0)));
+LATBbits.LATB6=0;
+_delay((unsigned long)((4/2)*(8000000/4000000.0)));
 }
+void EepromEnd()
+{
+LATBbits.LATB6=0;
+LATBbits.LATB7=0;
+LATCbits.LATC7=0;
+_delay((unsigned long)((4)*(8000000/4000000.0)));
+}
+void EepromSend(uint8_t b)
+{
+int8_t i=0;
+for(i=7;i>=0;i--)
+{
+LATCbits.LATC7=b>>i;
+_delay((unsigned long)((4/2)*(8000000/4000000.0)));
+LATBbits.LATB6=1;
+_delay((unsigned long)((4)*(8000000/4000000.0)));
+LATBbits.LATB6=0;
+_delay((unsigned long)((4/2)*(8000000/4000000.0)));
+}
+}
+uint8_t EepromReceive()
+{
+uint8_t b=0;
+int8_t i=0;
+for(i=7;i>=0;i--)
+{
+_delay((unsigned long)((4/2)*(8000000/4000000.0)));
+LATBbits.LATB6=1;
+_delay((unsigned long)((4/2)*(8000000/4000000.0)));
+b=b+(PORTBbits.RB4<<i);
+_delay((unsigned long)((4/2)*(8000000/4000000.0)));
+LATBbits.LATB6=0;
+_delay((unsigned long)((4/2)*(8000000/4000000.0)));
+}
+return b;
+}
+void EepromOpCode(uint8_t opcode, uint16_t address)
+{
+int8_t i=0;
+LATCbits.LATC7=opcode>>1&0b00000001;
+_delay((unsigned long)((4/2)*(8000000/4000000.0)));
+LATBbits.LATB6=1;
+_delay((unsigned long)((4)*(8000000/4000000.0)));
+LATBbits.LATB6=0;
+_delay((unsigned long)((4/2)*(8000000/4000000.0)));
+
+LATCbits.LATC7=opcode&0b00000001;
+_delay((unsigned long)((4/2)*(8000000/4000000.0)));
+LATBbits.LATB6=1;
+_delay((unsigned long)((4)*(8000000/4000000.0)));
+LATBbits.LATB6=0;
+_delay((unsigned long)((4/2)*(8000000/4000000.0)));
+
+for(i=10;i>=0;i--)
+{
+LATCbits.LATC7=address>>i&0b00000001;
+_delay((unsigned long)((4/2)*(8000000/4000000.0)));
+LATBbits.LATB6=1;
+_delay((unsigned long)((4)*(8000000/4000000.0)));
+LATBbits.LATB6=0;
+_delay((unsigned long)((4/2)*(8000000/4000000.0)));
+}
+}
+void EepromWrite(uint16_t address, uint8_t data)
+{
+
+# 97
+LATBbits.LATB7=0;
+I2CStart();
+I2CSend(0xA0);
+I2CSend(address>>8);
+I2CSend(address);
+I2CSend(data);
+I2CStop();
+
+
+}
+
+uint8_t EepromRead(uint16_t address)
+{
+uint8_t data=0;
+LATBbits.LATB7=0;
+I2CStart();
+
+I2CSend(0xA0);
+
+I2CSend(address>>8);
+I2CSend(address);
+I2CRestart();
+
+I2CSend(0xA1);
+
+data = I2CRead();
+I2CNak();
+I2CStop();
+
+# 131
+return data;
+}
+
+uint8_t EEPROMSaveNumber(const char *nmbr, uint8_t nmbrLenght, uint16_t position)
+{
+uint16_t count=0,result=1;
+uint16_t address=0;
+address=position*10;
+address=address+(10-1);
+
+for(count=10;count>0;count--)
+{
+if(nmbrLenght)
+{
+nmbrLenght--;
+if(*(nmbr+nmbrLenght)>='0' && *(nmbr+nmbrLenght)<='9')
+{
+EepromWrite(address,*(nmbr+nmbrLenght));
+}
+}
+else
+{
+EepromWrite(address,'\0');
+}
+address--;
+_delay((unsigned long)((5)*(8000000/4000.0)));
+}
+return result;
+}
+
+uint8_t EEPROMDeleteNumber(uint16_t position)
+{
+uint8_t count=0;
+uint16_t address=0;
+address=position*10;
+
+for(count=0;count<10;count++)
+{
+EepromWrite(address+count,0xFF);
+_delay((unsigned long)((5)*(8000000/4000.0)));
+}
+return 1;
+}
+uint16_t EEPROMSearchNumber(const char *nmbr, uint8_t nmbrLenght)
+{
+uint16_t aux=0;
+uint16_t count=0, result=0;
+
+aux=10-1;
+if(nmbrLenght>10) nmbrLenght=10;
+
+while(!result && aux<((250*10)-10))
+{
+count=0;
+do{
+if(EepromRead(aux-count)==*(nmbr+10-(count+1)))
+{result=1;}
+else
+{result=0;}
+count++;
+}while(result && count<nmbrLenght);
+aux=aux+10;
+}
+if(result==1)
+{
+return (aux/10);
+}
+else return 0;
+}
+
+void EEPROMEraseAll(void)
+{
+
+# 214
+uint16_t i;
+for(i=0;i<800;i++)
+{
+EepromWrite(i,0xFF);
+_delay((unsigned long)((5)*(8000000/4000.0)));
+}
+
+}
+
+
+
+uint8_t EEPROMAdd(const char *nmbr, uint8_t nmbrLenght)
+{
+uint16_t empty=0,found=0;
+char aux=0;
+do
+{
+aux=EepromRead((empty*10));
+if(aux<'0' || aux>'9')
+{
+found=1;
+}
+empty++;
+}while(!found&& empty<250);
+EEPROMSaveNumber(nmbr,nmbrLenght,(empty-1));
+
+return 1;
+}
+void EEPROMUpdatePassword(const char *pass)
+{
+EepromWrite(7900,*(pass));
+_delay((unsigned long)((5)*(8000000/4000.0)));
+EepromWrite(7901,*(pass+1));
+_delay((unsigned long)((5)*(8000000/4000.0)));
+EepromWrite(7902,*(pass+2));
+_delay((unsigned long)((5)*(8000000/4000.0)));
+EepromWrite(7903,*(pass+3));
+_delay((unsigned long)((5)*(8000000/4000.0)));
+}
+
+uint8_t EEPROMCheckPassword(const char *pass)
+{
+password[0]=EepromRead(7900);
+password[1]=EepromRead(7901);
+password[2]=EepromRead(7902);
+password[3]=EepromRead(7903);
+if(*(pass)==password[0] && *(pass+1)==password[1] && *(pass+2)==password[2] && *(pass+3)==password[3])
+{
+return 1;
+}
+else
+{
+return 0;
+}
+}
+
+void EEPROMPrint()
+{
+uint16_t x,y;
+for(x=0;x<1000;x++)
+{
+USARTWriteInt(x,3);
+USARTWriteLine("->");
+for(y=0;y<10;y++)
+{
+USARTWriteChar(EepromRead((x*10)+y));
+}
+}
+
 }

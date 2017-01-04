@@ -1,5 +1,5 @@
 
-# 1 "system.c"
+# 1 "usart.c"
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.38\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -4155,25 +4155,242 @@ uint8_t task,i;
 char password[4];
 char password_empty[4];
 
-# 29 "system.h"
-void SYSTEMInit(uint8_t freq);
+# 22 "usart.h"
+void USARTInit(uint16_t baud_rate);
+void USARTWriteChar(char ch);
+void USARTWriteString(const char *str);
+void USARTWriteLine(const char *str);
+void USARTWriteInt(int16_t val, int8_t field_length);
+void USARTHandleRxInt();
+void USARTGotoNewLine();
 
-# 5 "system.c"
-void SYSTEMInit(uint8_t freq)
+# 61 "gpio.h"
+void GPIOPortInit();
+void GPIORedLedBlink(uint8_t times);
+void GPIOBlueLedBlink(uint8_t times);
+void GPIOGreenLedBlink(uint8_t times);
+
+# 51 "sim800l.h"
+typedef struct{
+uint8_t busy;
+uint8_t uncomplete;
+uint8_t ok;
+uint8_t resp;
+uint8_t cell[15];
+uint8_t cell_lenght;
+uint8_t unreadsms;
+char smsmem[5];
+char buffer[64];
+char command[25];
+char csq[5];
+char password[5];
+}AT;
+
+
+
+
+AT SIM800L;
+uint8_t bufque;
+
+
+uint8_t SIM800init();
+uint8_t SIM800sendCommand();
+uint8_t SIM800SendSms(const char *nmbr, const char *msg);
+uint8_t SIM800ReadSms(const char *mem);
+uint8_t SIM800DeleteSms(const char *index, const char *flag);
+uint8_t SIM800Process();
+uint8_t SIM800Command();
+void SIM800LClear(void);
+
+# 6 "usart.c"
+void USARTInit(uint16_t baud_rate)
 {
-WDTCONbits.WDTPS = 17;
-switch(freq)
+
+switch(baud_rate)
 {
-case 4:
-OSCCON=0b01101010;
+case 9600:
+SPBRG=51;
 break;
-case 8:
-OSCCON=0b01110010;
+case 19200:
+SPBRG=64;
 break;
-case 16:
-OSCCON=0b01111010;
+case 28800:
+SPBRG=42;
 break;
-default:
+case 33600:
+SPBRG=36;
+break;
+case 115:
+SPBRG=16;
 break;
 }
+
+APFCON0bits.RXDTSEL=1;
+APFCON0bits.TXCKSEL=1;
+BAUDCONbits.BRG16=1;
+
+TXSTAbits.TX9=0;
+TXSTAbits.TXEN=1;
+TXSTAbits.SYNC=0;
+TXSTAbits.BRGH=1;
+
+
+RCSTAbits.SPEN=1;
+RCSTAbits.RX9=0;
+RCSTAbits.CREN=1;
+RCSTAbits.ADDEN=0;
+
+
+RCIE=1;
+PEIE=1;
+
+(GIE = 1);
+
+}
+
+void USARTWriteChar(char ch)
+{
+while(!PIR1bits.TXIF);
+TXREG=ch;
+}
+
+void USARTWriteString(const char *str)
+{
+while(*str!='\0')
+{
+USARTWriteChar(*str);
+str++;
+}
+}
+
+void USARTWriteLine(const char *str)
+{
+USARTWriteChar('\r');
+USARTWriteChar('\n');
+USARTWriteString(str);
+}
+
+void USARTHandleRxInt()
+{
+LATCbits.LATC0=1;
+
+char data=RCREG;
+SIM800L.busy=1;
+switch(data)
+{
+case '\r':
+if(SIM800L.uncomplete==1 && bufque==0){SIM800L.uncomplete=0;}
+break;
+case '\n':
+if(SIM800L.uncomplete==0) SIM800L.uncomplete=1;
+else
+{
+SIM800L.buffer[bufque]=0;
+SIM800L.uncomplete=0;
+
+if(SIM800L.buffer[0]=='+')
+{
+if(SIM800L.buffer[1]=='C' && SIM800L.buffer[2]=='L' && SIM800L.buffer[3]=='I' )
+{
+uint8_t ci=8;
+while(SIM800L.buffer[ci]!='\"' && (ci-8)<15)
+{
+SIM800L.cell[ci-8]=SIM800L.buffer[ci];
+ci++;
+SIM800L.cell_lenght++;
+}
+SIM800L.cell[ci-8]='\0';
+task=1;
+}
+if(SIM800L.buffer[1]=='C' && SIM800L.buffer[2]=='M' && SIM800L.buffer[3]=='T' && SIM800L.buffer[4]=='I' )
+{
+uint8_t ci=12;
+while(SIM800L.buffer[ci]>='0' && SIM800L.buffer[ci]<='9' )
+{
+SIM800L.smsmem[ci-12]=SIM800L.buffer[ci];
+ci++;
+}
+SIM800L.smsmem[ci-12]=0;
+SIM800L.unreadsms=1;
+task=2;
+}
+if(SIM800L.buffer[1]=='C' && SIM800L.buffer[2]=='S' && SIM800L.buffer[3]=='Q')
+{
+uint8_t ci=6;
+while(SIM800L.buffer[ci]!=',' && (ci)<8)
+{
+SIM800L.csq[ci-6]=SIM800L.buffer[ci];
+ci++;
+}
+SIM800L.csq[ci-6]=0;
+}
+if(SIM800L.buffer[1]=='C' && SIM800L.buffer[2]=='M' && SIM800L.buffer[3]=='D')
+{
+uint8_t ci=4;
+while(SIM800L.buffer[ci]!='#' && (ci-4)<25)
+{
+SIM800L.command[ci-4]=SIM800L.buffer[ci];
+ci++;
+}
+task=3;
+}
+}
+else if(SIM800L.buffer[0]=='O' && SIM800L.buffer[1]=='K') SIM800L.ok=1;
+bufque=0;
+}
+SIM800L.busy=0;
+break;
+default:
+if(bufque<(64-1))
+{
+SIM800L.buffer[bufque]=data;
+bufque++;
+}
+break;
+}
+LATCbits.LATC0=0;
+}
+void USARTWriteInt(int16_t val, int8_t field_length)
+{
+char str[5]={0,0,0,0,0};
+int8_t i=4,j=0;
+
+if(val<0)
+{
+USARTWriteChar('-');
+val=val*-1;
+}
+else
+{
+USARTWriteChar(' ');
+}
+
+if(val==0 && field_length<1)
+{
+USARTWriteChar('0');
+return;
+}
+while(val)
+{
+str[i]=val%10;
+val=val/10;
+i--;
+}
+
+if(field_length==-1)
+while(str[j]==0) j++;
+else
+j=5-field_length;
+
+
+for(i=j;i<5;i++)
+{
+USARTWriteChar('0'+str[i]);
+}
+}
+
+void USARTGotoNewLine()
+{
+USARTWriteChar('\r');
+USARTWriteChar('\n');
 }

@@ -1,5 +1,5 @@
 
-# 1 "system.c"
+# 1 "main.c"
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.38\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -4158,22 +4158,140 @@ char password_empty[4];
 # 29 "system.h"
 void SYSTEMInit(uint8_t freq);
 
-# 5 "system.c"
-void SYSTEMInit(uint8_t freq)
+# 47 "eeprom.h"
+void EepromStart();
+void EepromEnd();
+void EepromSend(uint8_t b);
+uint8_t EepromReceive();
+uint8_t EepromRead(uint16_t address);
+void EepromOpCode(uint8_t opcode, uint16_t address);
+void EepromWrite(uint16_t address, uint8_t data);
+uint8_t EEPROMSaveNumber(const char *nmbr, uint8_t nmbrLenght, uint16_t position);
+uint8_t EEPROMDeleteNumber(uint16_t position);
+uint16_t EEPROMSearchNumber(const char *nmbr, uint8_t nmbrLenght);
+void EEPROMEraseAll(void);
+uint8_t EEPROMAdd(const char *nmbr, uint8_t nmbrLenght);
+void EEPROMUpdatePassword(const char *pass);
+uint8_t EEPROMCheckPassword(const char *pass);
+void EEPROMPrint();
+
+# 51 "sim800l.h"
+typedef struct{
+uint8_t busy;
+uint8_t uncomplete;
+uint8_t ok;
+uint8_t resp;
+uint8_t cell[15];
+uint8_t cell_lenght;
+uint8_t unreadsms;
+char smsmem[5];
+char buffer[64];
+char command[25];
+char csq[5];
+char password[5];
+}AT;
+
+
+
+
+AT SIM800L;
+uint8_t bufque;
+
+
+uint8_t SIM800init();
+uint8_t SIM800sendCommand();
+uint8_t SIM800SendSms(const char *nmbr, const char *msg);
+uint8_t SIM800ReadSms(const char *mem);
+uint8_t SIM800DeleteSms(const char *index, const char *flag);
+uint8_t SIM800Process();
+uint8_t SIM800Command();
+void SIM800LClear(void);
+
+# 61 "gpio.h"
+void GPIOPortInit();
+void GPIORedLedBlink(uint8_t times);
+void GPIOBlueLedBlink(uint8_t times);
+void GPIOGreenLedBlink(uint8_t times);
+
+# 22 "usart.h"
+void USARTInit(uint16_t baud_rate);
+void USARTWriteChar(char ch);
+void USARTWriteString(const char *str);
+void USARTWriteLine(const char *str);
+void USARTWriteInt(int16_t val, int8_t field_length);
+void USARTHandleRxInt();
+void USARTGotoNewLine();
+
+# 14 "main.c"
+void main()
 {
-WDTCONbits.WDTPS = 17;
-switch(freq)
+SYSTEMInit(8);
+GPIOPortInit();
+LATAbits.LATA4=0;
+USARTInit(115);
+I2CInit();
+
+LATCbits.LATC1=1;
+LATCbits.LATC0=1;
+LATCbits.LATC2=1;
+SIM800init();
+
+password_empty[0]=0xFF; password_empty[1]=0xFF; password_empty[2]=0xFF; password_empty[3]=0xFF;
+if(EEPROMCheckPassword(password_empty))
 {
-case 4:
-OSCCON=0b01101010;
+EEPROMUpdatePassword("1234");
+}
+
+LATCbits.LATC1=0;
+LATCbits.LATC0=0;
+LATCbits.LATC2=1;
+
+(GIE = 1);
+RCSTAbits.CREN=1;
+SIM800SendSms("6141654818", "System enabled");
+while(1)
+{
+switch(task)
+{
+case 0:
+if(RCSTAbits.OERR==1) {CREN=0;_delay((unsigned long)((200)*(8000000/4000000.0)));RCSTAbits.CREN=1; }
+USARTWriteLine("AT+CSQ\r\n");
+_delay((unsigned long)((2000)*(8000000/4000.0)));
+asm("clrwdt");
 break;
-case 8:
-OSCCON=0b01110010;
+
+case 1:
+USARTWriteLine("ATH\r\n");
+
+if(EEPROMSearchNumber(SIM800L.cell,SIM800L.cell_lenght))
+{
+GPIOGreenLedBlink(5);
+LATCbits.LATC2=1;
+LATAbits.LATA4=1; _delay((unsigned long)((1000)*(8000000/4000.0))); LATAbits.LATA4=0;
+}
+else { GPIORedLedBlink(5); }
+
+SIM800LClear();
+task=0;
 break;
-case 16:
-OSCCON=0b01111010;
+
+case 2:
+GPIOBlueLedBlink(5);
+SIM800ReadSms(SIM800L.smsmem);
+task=3;
 break;
+
+case 3:
+LATCbits.LATC0=1;
+SIM800Command();
+SIM800LClear();
+SIM800DeleteSms("1", "4");
+LATCbits.LATC0=0;
+task=0;
+break;
+
 default:
 break;
+}
 }
 }
