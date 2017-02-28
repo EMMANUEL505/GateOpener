@@ -26,6 +26,7 @@ extern "C" {
 #define LOW     0
 
 #define RELAY_PIN               LATAbits.LATA4
+#define SEC_RELAY_PIN           LATAbits.LATA5
 
 #define BLUE_LED_PIN            LATCbits.LATC0
 #define RED_LED_PIN             LATCbits.LATC1
@@ -42,6 +43,11 @@ extern "C" {
 #define GPIORelaySet()          RELAY_PIN=HIGH
 #define GPIORelayClear()        RELAY_PIN=LOW
 #define GPIORelayToggle()       RELAY_PIN=!RELAY_PIN
+
+#define GPIOSecRelayPut(state)  SEC_RELAY_PIN=state
+#define GPIOSecRelaySet()       SEC_RELAY_PIN=HIGH
+#define GPIOSecRelayClear()     SEC_RELAY_PIN=LOW
+#define GPIOSecRelayToggle()    SEC_RELAY_PIN=!RELAY_PIN
 
 #define GPIORedLedPut(state)    RED_LED_PIN=state
 #define GPIORedLedSet()         RED_LED_PIN=HIGH

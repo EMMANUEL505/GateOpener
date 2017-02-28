@@ -3050,27 +3050,28 @@ Version 3.2 HI-TECH Software Intermediate Code
 "48
 [p x WRT=OFF ]
 "49
-[p x PLLEN=OFF ]
+[p x PLLEN=ON ]
 "50
 [p x STVREN=ON ]
 "51
 [p x BORV=LO ]
 "52
-[p x LVP=ON ]
+[p x LVP=OFF ]
 "67
 [v _task `uc ~T0 @X0 1 e ]
 [v _i `uc ~T0 @X0 1 e ]
-[; ;general.h: 67: uint8_t task,i;
+[v _getsmsnumber `uc ~T0 @X0 1 e ]
+[; ;general.h: 67: uint8_t task,i,getsmsnumber;
 "68
 [v _password `uc ~T0 @X0 -> 4 `i e ]
 [; ;general.h: 68: char password[4];
 "69
 [v _password_empty `uc ~T0 @X0 -> 4 `i e ]
 [; ;general.h: 69: char password_empty[4];
-[; ;gpio.h: 61: void GPIOPortInit();
-[; ;gpio.h: 62: void GPIORedLedBlink(uint8_t times);
-[; ;gpio.h: 63: void GPIOBlueLedBlink(uint8_t times);
-[; ;gpio.h: 64: void GPIOGreenLedBlink(uint8_t times);
+[; ;gpio.h: 67: void GPIOPortInit();
+[; ;gpio.h: 68: void GPIORedLedBlink(uint8_t times);
+[; ;gpio.h: 69: void GPIOBlueLedBlink(uint8_t times);
+[; ;gpio.h: 70: void GPIOGreenLedBlink(uint8_t times);
 [; ;usart.h: 22: void USARTInit(uint16_t baud_rate);
 [; ;usart.h: 23: void USARTWriteChar(char ch);
 [; ;usart.h: 24: void USARTWriteString(const char *str);
@@ -3119,21 +3120,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom.c: 14: LATCbits.LATC7=1;
 "14
 [e = . . _LATCbits 0 7 -> -> 1 `i `uc ]
-[; ;eeprom.c: 15: _delay((unsigned long)((4)*(8000000/4000000.0)));
+[; ;eeprom.c: 15: _delay((unsigned long)((4)*(32000000/4000000.0)));
 "15
-[e ( __delay (1 -> * -> -> 4 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[e ( __delay (1 -> * -> -> 4 `i `d / -> -> 32000000 `l `d .4000000.0 `ul ]
 [; ;eeprom.c: 16: LATBbits.LATB6=1;
 "16
 [e = . . _LATBbits 0 3 -> -> 1 `i `uc ]
-[; ;eeprom.c: 17: _delay((unsigned long)((4)*(8000000/4000000.0)));
+[; ;eeprom.c: 17: _delay((unsigned long)((4)*(32000000/4000000.0)));
 "17
-[e ( __delay (1 -> * -> -> 4 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[e ( __delay (1 -> * -> -> 4 `i `d / -> -> 32000000 `l `d .4000000.0 `ul ]
 [; ;eeprom.c: 18: LATBbits.LATB6=0;
 "18
 [e = . . _LATBbits 0 3 -> -> 0 `i `uc ]
-[; ;eeprom.c: 19: _delay((unsigned long)((4/2)*(8000000/4000000.0)));
+[; ;eeprom.c: 19: _delay((unsigned long)((4/2)*(32000000/4000000.0)));
 "19
-[e ( __delay (1 -> * -> / -> 4 `i -> 2 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[e ( __delay (1 -> * -> / -> 4 `i -> 2 `i `d / -> -> 32000000 `l `d .4000000.0 `ul ]
 [; ;eeprom.c: 20: }
 "20
 [e :UE 366 ]
@@ -3155,9 +3156,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom.c: 25: LATCbits.LATC7=0;
 "25
 [e = . . _LATCbits 0 7 -> -> 0 `i `uc ]
-[; ;eeprom.c: 26: _delay((unsigned long)((4)*(8000000/4000000.0)));
+[; ;eeprom.c: 26: _delay((unsigned long)((4)*(32000000/4000000.0)));
 "26
-[e ( __delay (1 -> * -> -> 4 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[e ( __delay (1 -> * -> -> 4 `i `d / -> -> 32000000 `l `d .4000000.0 `ul ]
 [; ;eeprom.c: 27: }
 "27
 [e :UE 367 ]
@@ -3190,21 +3191,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom.c: 33: LATCbits.LATC7=b>>i;
 "33
 [e = . . _LATCbits 0 7 -> >> -> _b `i _i `uc ]
-[; ;eeprom.c: 34: _delay((unsigned long)((4/2)*(8000000/4000000.0)));
+[; ;eeprom.c: 34: _delay((unsigned long)((4/2)*(32000000/4000000.0)));
 "34
-[e ( __delay (1 -> * -> / -> 4 `i -> 2 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[e ( __delay (1 -> * -> / -> 4 `i -> 2 `i `d / -> -> 32000000 `l `d .4000000.0 `ul ]
 [; ;eeprom.c: 35: LATBbits.LATB6=1;
 "35
 [e = . . _LATBbits 0 3 -> -> 1 `i `uc ]
-[; ;eeprom.c: 36: _delay((unsigned long)((4)*(8000000/4000000.0)));
+[; ;eeprom.c: 36: _delay((unsigned long)((4)*(32000000/4000000.0)));
 "36
-[e ( __delay (1 -> * -> -> 4 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[e ( __delay (1 -> * -> -> 4 `i `d / -> -> 32000000 `l `d .4000000.0 `ul ]
 [; ;eeprom.c: 37: LATBbits.LATB6=0;
 "37
 [e = . . _LATBbits 0 3 -> -> 0 `i `uc ]
-[; ;eeprom.c: 38: _delay((unsigned long)((4/2)*(8000000/4000000.0)));
+[; ;eeprom.c: 38: _delay((unsigned long)((4/2)*(32000000/4000000.0)));
 "38
-[e ( __delay (1 -> * -> / -> 4 `i -> 2 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[e ( __delay (1 -> * -> / -> 4 `i -> 2 `i `d / -> -> 32000000 `l `d .4000000.0 `ul ]
 "39
 }
 "31
@@ -3244,27 +3245,27 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 373 ]
 [; ;eeprom.c: 46: {
 {
-[; ;eeprom.c: 47: _delay((unsigned long)((4/2)*(8000000/4000000.0)));
+[; ;eeprom.c: 47: _delay((unsigned long)((4/2)*(32000000/4000000.0)));
 "47
-[e ( __delay (1 -> * -> / -> 4 `i -> 2 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[e ( __delay (1 -> * -> / -> 4 `i -> 2 `i `d / -> -> 32000000 `l `d .4000000.0 `ul ]
 [; ;eeprom.c: 48: LATBbits.LATB6=1;
 "48
 [e = . . _LATBbits 0 3 -> -> 1 `i `uc ]
-[; ;eeprom.c: 49: _delay((unsigned long)((4/2)*(8000000/4000000.0)));
+[; ;eeprom.c: 49: _delay((unsigned long)((4/2)*(32000000/4000000.0)));
 "49
-[e ( __delay (1 -> * -> / -> 4 `i -> 2 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[e ( __delay (1 -> * -> / -> 4 `i -> 2 `i `d / -> -> 32000000 `l `d .4000000.0 `ul ]
 [; ;eeprom.c: 50: b=b+(PORTBbits.RB4<<i);
 "50
 [e = _b -> + -> _b `i << -> . . _PORTBbits 0 1 `i _i `uc ]
-[; ;eeprom.c: 51: _delay((unsigned long)((4/2)*(8000000/4000000.0)));
+[; ;eeprom.c: 51: _delay((unsigned long)((4/2)*(32000000/4000000.0)));
 "51
-[e ( __delay (1 -> * -> / -> 4 `i -> 2 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[e ( __delay (1 -> * -> / -> 4 `i -> 2 `i `d / -> -> 32000000 `l `d .4000000.0 `ul ]
 [; ;eeprom.c: 52: LATBbits.LATB6=0;
 "52
 [e = . . _LATBbits 0 3 -> -> 0 `i `uc ]
-[; ;eeprom.c: 53: _delay((unsigned long)((4/2)*(8000000/4000000.0)));
+[; ;eeprom.c: 53: _delay((unsigned long)((4/2)*(32000000/4000000.0)));
 "53
-[e ( __delay (1 -> * -> / -> 4 `i -> 2 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[e ( __delay (1 -> * -> / -> 4 `i -> 2 `i `d / -> -> 32000000 `l `d .4000000.0 `ul ]
 "54
 }
 "45
@@ -3301,39 +3302,39 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom.c: 60: LATCbits.LATC7=opcode>>1&0b00000001;
 "60
 [e = . . _LATCbits 0 7 -> & >> -> _opcode `i -> 1 `i -> 1 `i `uc ]
-[; ;eeprom.c: 61: _delay((unsigned long)((4/2)*(8000000/4000000.0)));
+[; ;eeprom.c: 61: _delay((unsigned long)((4/2)*(32000000/4000000.0)));
 "61
-[e ( __delay (1 -> * -> / -> 4 `i -> 2 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[e ( __delay (1 -> * -> / -> 4 `i -> 2 `i `d / -> -> 32000000 `l `d .4000000.0 `ul ]
 [; ;eeprom.c: 62: LATBbits.LATB6=1;
 "62
 [e = . . _LATBbits 0 3 -> -> 1 `i `uc ]
-[; ;eeprom.c: 63: _delay((unsigned long)((4)*(8000000/4000000.0)));
+[; ;eeprom.c: 63: _delay((unsigned long)((4)*(32000000/4000000.0)));
 "63
-[e ( __delay (1 -> * -> -> 4 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[e ( __delay (1 -> * -> -> 4 `i `d / -> -> 32000000 `l `d .4000000.0 `ul ]
 [; ;eeprom.c: 64: LATBbits.LATB6=0;
 "64
 [e = . . _LATBbits 0 3 -> -> 0 `i `uc ]
-[; ;eeprom.c: 65: _delay((unsigned long)((4/2)*(8000000/4000000.0)));
+[; ;eeprom.c: 65: _delay((unsigned long)((4/2)*(32000000/4000000.0)));
 "65
-[e ( __delay (1 -> * -> / -> 4 `i -> 2 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[e ( __delay (1 -> * -> / -> 4 `i -> 2 `i `d / -> -> 32000000 `l `d .4000000.0 `ul ]
 [; ;eeprom.c: 67: LATCbits.LATC7=opcode&0b00000001;
 "67
 [e = . . _LATCbits 0 7 -> & -> _opcode `i -> 1 `i `uc ]
-[; ;eeprom.c: 68: _delay((unsigned long)((4/2)*(8000000/4000000.0)));
+[; ;eeprom.c: 68: _delay((unsigned long)((4/2)*(32000000/4000000.0)));
 "68
-[e ( __delay (1 -> * -> / -> 4 `i -> 2 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[e ( __delay (1 -> * -> / -> 4 `i -> 2 `i `d / -> -> 32000000 `l `d .4000000.0 `ul ]
 [; ;eeprom.c: 69: LATBbits.LATB6=1;
 "69
 [e = . . _LATBbits 0 3 -> -> 1 `i `uc ]
-[; ;eeprom.c: 70: _delay((unsigned long)((4)*(8000000/4000000.0)));
+[; ;eeprom.c: 70: _delay((unsigned long)((4)*(32000000/4000000.0)));
 "70
-[e ( __delay (1 -> * -> -> 4 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[e ( __delay (1 -> * -> -> 4 `i `d / -> -> 32000000 `l `d .4000000.0 `ul ]
 [; ;eeprom.c: 71: LATBbits.LATB6=0;
 "71
 [e = . . _LATBbits 0 3 -> -> 0 `i `uc ]
-[; ;eeprom.c: 72: _delay((unsigned long)((4/2)*(8000000/4000000.0)));
+[; ;eeprom.c: 72: _delay((unsigned long)((4/2)*(32000000/4000000.0)));
 "72
-[e ( __delay (1 -> * -> / -> 4 `i -> 2 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[e ( __delay (1 -> * -> / -> 4 `i -> 2 `i `d / -> -> 32000000 `l `d .4000000.0 `ul ]
 [; ;eeprom.c: 74: for(i=10;i>=0;i--)
 "74
 {
@@ -3347,21 +3348,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom.c: 76: LATCbits.LATC7=address>>i&0b00000001;
 "76
 [e = . . _LATCbits 0 7 -> & >> _address _i -> -> 1 `i `ui `uc ]
-[; ;eeprom.c: 77: _delay((unsigned long)((4/2)*(8000000/4000000.0)));
+[; ;eeprom.c: 77: _delay((unsigned long)((4/2)*(32000000/4000000.0)));
 "77
-[e ( __delay (1 -> * -> / -> 4 `i -> 2 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[e ( __delay (1 -> * -> / -> 4 `i -> 2 `i `d / -> -> 32000000 `l `d .4000000.0 `ul ]
 [; ;eeprom.c: 78: LATBbits.LATB6=1;
 "78
 [e = . . _LATBbits 0 3 -> -> 1 `i `uc ]
-[; ;eeprom.c: 79: _delay((unsigned long)((4)*(8000000/4000000.0)));
+[; ;eeprom.c: 79: _delay((unsigned long)((4)*(32000000/4000000.0)));
 "79
-[e ( __delay (1 -> * -> -> 4 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[e ( __delay (1 -> * -> -> 4 `i `d / -> -> 32000000 `l `d .4000000.0 `ul ]
 [; ;eeprom.c: 80: LATBbits.LATB6=0;
 "80
 [e = . . _LATBbits 0 3 -> -> 0 `i `uc ]
-[; ;eeprom.c: 81: _delay((unsigned long)((4/2)*(8000000/4000000.0)));
+[; ;eeprom.c: 81: _delay((unsigned long)((4/2)*(32000000/4000000.0)));
 "81
-[e ( __delay (1 -> * -> / -> 4 `i -> 2 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+[e ( __delay (1 -> * -> / -> 4 `i -> 2 `i `d / -> -> 32000000 `l `d .4000000.0 `ul ]
 "82
 }
 "74
@@ -3546,9 +3547,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom.c: 155: address--;
 "155
 [e -- _address -> -> 1 `i `ui ]
-[; ;eeprom.c: 156: _delay((unsigned long)((5)*(8000000/4000.0)));
+[; ;eeprom.c: 156: _delay((unsigned long)((5)*(32000000/4000.0)));
 "156
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
 "157
 }
 "141
@@ -3601,9 +3602,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom.c: 169: EepromWrite(address+count,0xFF);
 "169
 [e ( _EepromWrite (2 , + _address -> _count `ui -> -> 255 `i `uc ]
-[; ;eeprom.c: 170: _delay((unsigned long)((5)*(8000000/4000.0)));
+[; ;eeprom.c: 170: _delay((unsigned long)((5)*(32000000/4000.0)));
 "170
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
 "171
 }
 "167
@@ -3748,9 +3749,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom.c: 217: EepromWrite(i,0xFF);
 "217
 [e ( _EepromWrite (2 , _i -> -> 255 `i `uc ]
-[; ;eeprom.c: 218: _delay((unsigned long)((5)*(8000000/4000.0)));
+[; ;eeprom.c: 218: _delay((unsigned long)((5)*(32000000/4000.0)));
 "218
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
 "219
 }
 "215
@@ -3841,27 +3842,27 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom.c: 244: EepromWrite(7900,*(pass));
 "244
 [e ( _EepromWrite (2 , -> -> 7900 `i `ui *U _pass ]
-[; ;eeprom.c: 245: _delay((unsigned long)((5)*(8000000/4000.0)));
+[; ;eeprom.c: 245: _delay((unsigned long)((5)*(32000000/4000.0)));
 "245
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
 [; ;eeprom.c: 246: EepromWrite(7901,*(pass+1));
 "246
 [e ( _EepromWrite (2 , -> -> 7901 `i `ui *U + _pass * -> -> 1 `i `x -> -> # *U _pass `i `x ]
-[; ;eeprom.c: 247: _delay((unsigned long)((5)*(8000000/4000.0)));
+[; ;eeprom.c: 247: _delay((unsigned long)((5)*(32000000/4000.0)));
 "247
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
 [; ;eeprom.c: 248: EepromWrite(7902,*(pass+2));
 "248
 [e ( _EepromWrite (2 , -> -> 7902 `i `ui *U + _pass * -> -> 2 `i `x -> -> # *U _pass `i `x ]
-[; ;eeprom.c: 249: _delay((unsigned long)((5)*(8000000/4000.0)));
+[; ;eeprom.c: 249: _delay((unsigned long)((5)*(32000000/4000.0)));
 "249
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
 [; ;eeprom.c: 250: EepromWrite(7903,*(pass+3));
 "250
 [e ( _EepromWrite (2 , -> -> 7903 `i `ui *U + _pass * -> -> 3 `i `x -> -> # *U _pass `i `x ]
-[; ;eeprom.c: 251: _delay((unsigned long)((5)*(8000000/4000.0)));
+[; ;eeprom.c: 251: _delay((unsigned long)((5)*(32000000/4000.0)));
 "251
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
 [; ;eeprom.c: 252: }
 "252
 [e :UE 414 ]

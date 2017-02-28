@@ -3042,27 +3042,28 @@ Version 3.2 HI-TECH Software Intermediate Code
 "48
 [p x WRT=OFF ]
 "49
-[p x PLLEN=OFF ]
+[p x PLLEN=ON ]
 "50
 [p x STVREN=ON ]
 "51
 [p x BORV=LO ]
 "52
-[p x LVP=ON ]
+[p x LVP=OFF ]
 "67
 [v _task `uc ~T0 @X0 1 e ]
 [v _i `uc ~T0 @X0 1 e ]
-[; ;general.h: 67: uint8_t task,i;
+[v _getsmsnumber `uc ~T0 @X0 1 e ]
+[; ;general.h: 67: uint8_t task,i,getsmsnumber;
 "68
 [v _password `uc ~T0 @X0 -> 4 `i e ]
 [; ;general.h: 68: char password[4];
 "69
 [v _password_empty `uc ~T0 @X0 -> 4 `i e ]
 [; ;general.h: 69: char password_empty[4];
-[; ;gpio.h: 61: void GPIOPortInit();
-[; ;gpio.h: 62: void GPIORedLedBlink(uint8_t times);
-[; ;gpio.h: 63: void GPIOBlueLedBlink(uint8_t times);
-[; ;gpio.h: 64: void GPIOGreenLedBlink(uint8_t times);
+[; ;gpio.h: 67: void GPIOPortInit();
+[; ;gpio.h: 68: void GPIORedLedBlink(uint8_t times);
+[; ;gpio.h: 69: void GPIOBlueLedBlink(uint8_t times);
+[; ;gpio.h: 70: void GPIOGreenLedBlink(uint8_t times);
 "5 gpio.c
 [v _GPIOPortInit `(v ~T0 @X0 1 ef ]
 "6
@@ -3141,15 +3142,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;gpio.c: 32: LATCbits.LATC1=1;
 "32
 [e = . . _LATCbits 0 1 -> -> 1 `i `uc ]
-[; ;gpio.c: 33: _delay((unsigned long)((100)*(8000000/4000.0)));
+[; ;gpio.c: 33: _delay((unsigned long)((100)*(32000000/4000.0)));
 "33
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
 [; ;gpio.c: 34: LATCbits.LATC1=0;
 "34
 [e = . . _LATCbits 0 1 -> -> 0 `i `uc ]
-[; ;gpio.c: 35: _delay((unsigned long)((100)*(8000000/4000.0)));
+[; ;gpio.c: 35: _delay((unsigned long)((100)*(32000000/4000.0)));
 "35
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
 "36
 }
 "30
@@ -3191,15 +3192,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;gpio.c: 44: LATCbits.LATC0=1;
 "44
 [e = . . _LATCbits 0 0 -> -> 1 `i `uc ]
-[; ;gpio.c: 45: _delay((unsigned long)((100)*(8000000/4000.0)));
+[; ;gpio.c: 45: _delay((unsigned long)((100)*(32000000/4000.0)));
 "45
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
 [; ;gpio.c: 46: LATCbits.LATC0=0;
 "46
 [e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
-[; ;gpio.c: 47: _delay((unsigned long)((100)*(8000000/4000.0)));
+[; ;gpio.c: 47: _delay((unsigned long)((100)*(32000000/4000.0)));
 "47
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
 "48
 }
 "42
@@ -3241,15 +3242,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;gpio.c: 56: LATCbits.LATC2=1;
 "56
 [e = . . _LATCbits 0 2 -> -> 1 `i `uc ]
-[; ;gpio.c: 57: _delay((unsigned long)((100)*(8000000/4000.0)));
+[; ;gpio.c: 57: _delay((unsigned long)((100)*(32000000/4000.0)));
 "57
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
 [; ;gpio.c: 58: LATCbits.LATC2=0;
 "58
 [e = . . _LATCbits 0 2 -> -> 0 `i `uc ]
-[; ;gpio.c: 59: _delay((unsigned long)((100)*(8000000/4000.0)));
+[; ;gpio.c: 59: _delay((unsigned long)((100)*(32000000/4000.0)));
 "59
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
 "60
 }
 "54

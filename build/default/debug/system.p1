@@ -3017,24 +3017,25 @@ Version 3.2 HI-TECH Software Intermediate Code
 "48
 [p x WRT=OFF ]
 "49
-[p x PLLEN=OFF ]
+[p x PLLEN=ON ]
 "50
 [p x STVREN=ON ]
 "51
 [p x BORV=LO ]
 "52
-[p x LVP=ON ]
+[p x LVP=OFF ]
 "67
 [v _task `uc ~T0 @X0 1 e ]
 [v _i `uc ~T0 @X0 1 e ]
-[; ;general.h: 67: uint8_t task,i;
+[v _getsmsnumber `uc ~T0 @X0 1 e ]
+[; ;general.h: 67: uint8_t task,i,getsmsnumber;
 "68
 [v _password `uc ~T0 @X0 -> 4 `i e ]
 [; ;general.h: 68: char password[4];
 "69
 [v _password_empty `uc ~T0 @X0 -> 4 `i e ]
 [; ;general.h: 69: char password_empty[4];
-[; ;system.h: 29: void SYSTEMInit(uint8_t freq);
+[; ;system.h: 30: void SYSTEMInit(uint8_t freq);
 "5 system.c
 [v _SYSTEMInit `(v ~T0 @X0 1 ef1`uc ]
 "6
@@ -3082,25 +3083,35 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;system.c: 18: break;
 "18
 [e $U 367  ]
-[; ;system.c: 19: default:
+[; ;system.c: 19: case 32:
 "19
 [e :U 372 ]
-[; ;system.c: 20: break;
+[; ;system.c: 20: OSCCON=0b01110000;
 "20
-[e $U 367  ]
+[e = _OSCCON -> -> 112 `i `uc ]
+[; ;system.c: 21: break;
 "21
+[e $U 367  ]
+[; ;system.c: 22: default:
+"22
+[e :U 373 ]
+[; ;system.c: 23: break;
+"23
+[e $U 367  ]
+"24
 }
-[; ;system.c: 21: }
+[; ;system.c: 24: }
 [e $U 367  ]
 "8
 [e :U 368 ]
 [e [\ _freq , $ -> -> 4 `i `uc 369
  , $ -> -> 8 `i `uc 370
  , $ -> -> 16 `i `uc 371
- 372 ]
-"21
+ , $ -> -> 32 `i `uc 372
+ 373 ]
+"24
 [e :U 367 ]
-[; ;system.c: 22: }
-"22
+[; ;system.c: 25: }
+"25
 [e :UE 366 ]
 }

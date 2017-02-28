@@ -4145,17 +4145,17 @@ typedef uint16_t uintptr_t;
 
 
 #pragma config WRT = OFF
-#pragma config PLLEN = OFF
+#pragma config PLLEN = ON
 #pragma config STVREN = ON
 #pragma config BORV = LO
-#pragma config LVP = ON
+#pragma config LVP = OFF
 
 # 67
-uint8_t task,i;
+uint8_t task,i,getsmsnumber;
 char password[4];
 char password_empty[4];
 
-# 29 "system.h"
+# 30 "system.h"
 void SYSTEMInit(uint8_t freq);
 
 # 5 "system.c"
@@ -4172,6 +4172,9 @@ OSCCON=0b01110010;
 break;
 case 16:
 OSCCON=0b01111010;
+break;
+case 32:
+OSCCON=0b01110000;
 break;
 default:
 break;

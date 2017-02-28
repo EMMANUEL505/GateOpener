@@ -11,7 +11,8 @@ uint8_t SIM800init()
     SIM800_RST_PIN=LOW;
     __delay_ms(500);
     SIM800_RST_PIN=HIGH;
-    __delay_ms(10000);
+    __delay_ms(5000);
+    __delay_ms(5000);
     USARTWriteLine("AT\r\n");       //Test connection
     __delay_ms(2000);
     USARTWriteLine("ATE0\r\n");     //disable Echo
@@ -51,13 +52,13 @@ uint8_t SIM800SendSms(const char *nmbr, const char *msg)
 }
 uint8_t SIM800ReadSms(const char *mem)
 {
-    __delay_ms(2000);
+    __delay_ms(200);
     USARTWriteLine("AT+CMGF = 1\r\n");       //Text format
-    __delay_ms(2000);
+    __delay_ms(200);
     USARTWriteLine("AT+CMGR=");     //Read SMS
     USARTWriteString(mem);
     USARTWriteString("\r\n");
-    __delay_ms(2000);
+    __delay_ms(600);
     return 1;
 }
 uint8_t SIM800DeleteSms(const char *index, const char *flag)
@@ -166,7 +167,16 @@ uint8_t SIM800Command()
                 }
                 SIM800L.password[i-10]='\0';
                 if(i==14) EEPROMUpdatePassword(SIM800L.password); //create new password only if there are 4 chars
-            }
+            }           
+        }
+        else if(SIM800L.command[1]=='O' && SIM800L.command[2]=='P' && SIM800L.command[3]=='E' )
+        {
+                if(EEPROMSearchNumber(SIM800L.cell,SIM800L.cell_lenght))    //Check if authorized number is calling
+                {                                      
+                    GPIOSecRelaySet(); GPIOGreenLedBlink(9); ; GPIOSecRelayClear();   //Relay enabled period of 1sec
+                    GPIOGreenLedSet();          //Green LED remains enabled
+                } 
+                else {  GPIORedLedBlink(5);   } //Red LED blinking, indicating denied access
         }
         else GPIORedLedBlink(5);        //If password is wrong red led will blink 5 times
     }

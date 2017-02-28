@@ -4145,17 +4145,17 @@ typedef uint16_t uintptr_t;
 
 
 #pragma config WRT = OFF
-#pragma config PLLEN = OFF
+#pragma config PLLEN = ON
 #pragma config STVREN = ON
 #pragma config BORV = LO
-#pragma config LVP = ON
+#pragma config LVP = OFF
 
 # 67
-uint8_t task,i;
+uint8_t task,i,getsmsnumber;
 char password[4];
 char password_empty[4];
 
-# 29 "system.h"
+# 30 "system.h"
 void SYSTEMInit(uint8_t freq);
 
 # 47 "eeprom.h"
@@ -4207,7 +4207,7 @@ uint8_t SIM800Process();
 uint8_t SIM800Command();
 void SIM800LClear(void);
 
-# 61 "gpio.h"
+# 67 "gpio.h"
 void GPIOPortInit();
 void GPIORedLedBlink(uint8_t times);
 void GPIOBlueLedBlink(uint8_t times);
@@ -4225,10 +4225,10 @@ void USARTGotoNewLine();
 # 14 "main.c"
 void main()
 {
-SYSTEMInit(8);
+SYSTEMInit(32);
 GPIOPortInit();
 LATAbits.LATA4=0;
-USARTInit(115);
+USARTInit(9600);
 I2CInit();
 
 LATCbits.LATC1=1;
@@ -4254,9 +4254,9 @@ while(1)
 switch(task)
 {
 case 0:
-if(RCSTAbits.OERR==1) {CREN=0;_delay((unsigned long)((200)*(8000000/4000000.0)));RCSTAbits.CREN=1; }
+if(RCSTAbits.OERR==1) {CREN=0;_delay((unsigned long)((200)*(32000000/4000000.0)));RCSTAbits.CREN=1; }
 USARTWriteLine("AT+CSQ\r\n");
-_delay((unsigned long)((2000)*(8000000/4000.0)));
+_delay((unsigned long)((2000)*(32000000/4000.0)));
 asm("clrwdt");
 break;
 
@@ -4265,9 +4265,8 @@ USARTWriteLine("ATH\r\n");
 
 if(EEPROMSearchNumber(SIM800L.cell,SIM800L.cell_lenght))
 {
-GPIOGreenLedBlink(5);
+LATAbits.LATA4=1; GPIOGreenLedBlink(5); ; LATAbits.LATA4=0;
 LATCbits.LATC2=1;
-LATAbits.LATA4=1; _delay((unsigned long)((1000)*(8000000/4000.0))); LATAbits.LATA4=0;
 }
 else { GPIORedLedBlink(5); }
 
@@ -4276,14 +4275,17 @@ task=0;
 break;
 
 case 2:
-GPIOBlueLedBlink(5);
+
+LATCbits.LATC0=1;
 SIM800ReadSms(SIM800L.smsmem);
+LATCbits.LATC0=0;
 task=3;
 break;
 
 case 3:
-LATCbits.LATC0=1;
+
 SIM800Command();
+LATCbits.LATC0=1;
 SIM800LClear();
 SIM800DeleteSms("1", "4");
 LATCbits.LATC0=0;

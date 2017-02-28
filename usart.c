@@ -9,7 +9,8 @@ void USARTInit(uint16_t baud_rate)
     switch(baud_rate)
     {
      case 9600:
-        SPBRG=51;
+        //SPBRG=51;     //Use for 8MHZ
+         SPBRG=207;     //Use for 32MHZ
         break;
      case 19200:
         SPBRG=64;
@@ -133,6 +134,18 @@ void USARTHandleRxInt()
                           ci++;
                       }
                      task=COMMAND;
+                   }
+                   if(SIM800L.buffer[1]=='C' && SIM800L.buffer[2]=='M' && SIM800L.buffer[3]=='G' && SIM800L.buffer[4]=='R')
+                   {
+                       uint8_t ci=21;                                           //ci=20 for "614xxxxxxx"
+                       if(SIM800L.buffer[ci]=='+') ci=24;                       //ci=20 for "+52614xxxxxxx"
+                       while(SIM800L.buffer[ci]!='\"' && SIM800L.cell_lenght<SIM800L_CELL_LENGHT)             //Save characters until " arrive
+                        {
+                            SIM800L.cell[SIM800L.cell_lenght]=SIM800L.buffer[ci];  //Save cell number characters
+                            ci++;
+                            SIM800L.cell_lenght++;                  //Save cell number lenght
+                        }
+                        SIM800L.cell[SIM800L.cell_lenght]='\0';                     
                    }
                 }
                else if(SIM800L.buffer[0]=='O' && SIM800L.buffer[1]=='K') SIM800L.ok=TRUE;

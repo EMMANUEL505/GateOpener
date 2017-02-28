@@ -13,10 +13,10 @@
 
 void main()
 {
-    SYSTEMInit(_8MHZ);  //Initialize core at 8MHz
+    SYSTEMInit(_32MHZ);  //Initialize core at 32MHz
     GPIOPortInit();     //Initialize port directions (output,input)
     GPIORelayClear();   //Ensure all relay outputs are disabled 
-    USARTInit(115);     //Initialize USART at 115200 baudrate
+    USARTInit(9600);     //Initialize USART at 9600 baudrate
     I2CInit();          //Initialize I2C EEPROM
 
     GPIORedLedSet();    //All LED's remain enabled during GSM initialization
@@ -52,10 +52,9 @@ void main()
                 USARTWriteLine("ATH\r\n");      //Hang up
                 //USARTWriteLine("ATA\r\n");    //Answer
                 if(EEPROMSearchNumber(SIM800L.cell,SIM800L.cell_lenght))    //Check if authorized number is calling
-                {
-                    GPIOGreenLedBlink(5);       //Green LED blinking indicating right access
+                {                                      
+                    GPIORelaySet(); GPIOGreenLedBlink(5); ; GPIORelayClear();   //Relay enabled period of 1sec
                     GPIOGreenLedSet();          //Green LED remains enabled
-                    GPIORelaySet(); __delay_ms(1000); GPIORelayClear();   //Relay enabled period of 1sec               
                 } 
                 else {  GPIORedLedBlink(5);   } //Red LED blinking, indicating denied access
                 
@@ -64,14 +63,17 @@ void main()
             break;
             
             case SMS_IN:
-                GPIOBlueLedBlink(5);
+                //GPIOBlueLedBlink(5);
+                GPIOBlueLedSet();
                 SIM800ReadSms(SIM800L.smsmem);
+                GPIOBlueLedClear();
                 task=COMMAND;
             break;
             
             case COMMAND:
-                GPIOBlueLedSet();
+                //GPIOBlueLedSet();
                 SIM800Command();
+                GPIOBlueLedSet();
                 SIM800LClear();
                 SIM800DeleteSms("1", ALL_MESSAGES);
                 GPIOBlueLedClear();

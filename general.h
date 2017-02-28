@@ -27,7 +27,7 @@ extern "C" {
 
 #include <stdint.h>
 
-#define _XTAL_FREQ  8000000        // oscillator frequency for _delay()
+#define _XTAL_FREQ  32000000        // oscillator frequency for _delay()
 
 // #pragma config statements should precede project file includes.
 // Use project enums instead of #define for ON and OFF.
@@ -46,10 +46,10 @@ extern "C" {
 
 // CONFIG2
 #pragma config WRT = OFF        // Flash Memory Self-Write Protection (Write protection off)
-#pragma config PLLEN = OFF      // PLL Enable (4x PLL disabled)
+#pragma config PLLEN = ON      // PLL Enable (4x PLL enabled)
 #pragma config STVREN = ON      // Stack Overflow/Underflow Reset Enable (Stack Overflow or Underflow will cause a Reset)
 #pragma config BORV = LO        // Brown-out Reset Voltage Selection (Brown-out Reset Voltage (Vbor), low trip point selected.)
-#pragma config LVP = ON         // Low-Voltage Programming Enable (Low-voltage programming enabled)
+#pragma config LVP = OFF         // Low-Voltage Programming Enable (Low-voltage programming enabled)
 
 //  Ouput state definitions
 #define DISABLED                0
@@ -64,6 +64,6 @@ extern "C" {
 #define SMS_IN      2
 #define COMMAND     3
 
-uint8_t task,i;
+uint8_t task,i,getsmsnumber;
 char password[4];
 char password_empty[4];

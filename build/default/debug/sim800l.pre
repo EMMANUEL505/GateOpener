@@ -4145,13 +4145,13 @@ typedef uint16_t uintptr_t;
 
 
 #pragma config WRT = OFF
-#pragma config PLLEN = OFF
+#pragma config PLLEN = ON
 #pragma config STVREN = ON
 #pragma config BORV = LO
-#pragma config LVP = ON
+#pragma config LVP = OFF
 
 # 67
-uint8_t task,i;
+uint8_t task,i,getsmsnumber;
 char password[4];
 char password_empty[4];
 
@@ -4196,7 +4196,7 @@ void USARTWriteInt(int16_t val, int8_t field_length);
 void USARTHandleRxInt();
 void USARTGotoNewLine();
 
-# 61 "gpio.h"
+# 67 "gpio.h"
 void GPIOPortInit();
 void GPIORedLedBlink(uint8_t times);
 void GPIOBlueLedBlink(uint8_t times);
@@ -4223,19 +4223,20 @@ void EEPROMPrint();
 uint8_t SIM800init()
 {
 LATCbits.LATC6=1;
-_delay((unsigned long)((10)*(8000000/4000.0)));
+_delay((unsigned long)((10)*(32000000/4000.0)));
 LATCbits.LATC6=0;
-_delay((unsigned long)((500)*(8000000/4000.0)));
+_delay((unsigned long)((500)*(32000000/4000.0)));
 LATCbits.LATC6=1;
-_delay((unsigned long)((10000)*(8000000/4000.0)));
+_delay((unsigned long)((5000)*(32000000/4000.0)));
+_delay((unsigned long)((5000)*(32000000/4000.0)));
 USARTWriteLine("AT\r\n");
-_delay((unsigned long)((2000)*(8000000/4000.0)));
+_delay((unsigned long)((2000)*(32000000/4000.0)));
 USARTWriteLine("ATE0\r\n");
-_delay((unsigned long)((2000)*(8000000/4000.0)));
+_delay((unsigned long)((2000)*(32000000/4000.0)));
 USARTWriteLine("AT+CLIP=1\r\n");
-_delay((unsigned long)((2000)*(8000000/4000.0)));
+_delay((unsigned long)((2000)*(32000000/4000.0)));
 
-# 27
+# 28
 return 0;
 }
 
@@ -4247,42 +4248,42 @@ return 0;
 
 uint8_t SIM800SendSms(const char *nmbr, const char *msg)
 {
-_delay((unsigned long)((2000)*(8000000/4000.0)));
+_delay((unsigned long)((2000)*(32000000/4000.0)));
 USARTWriteLine("AT+CMGF = 1\r\n");
-_delay((unsigned long)((2000)*(8000000/4000.0)));
+_delay((unsigned long)((2000)*(32000000/4000.0)));
 USARTWriteLine("AT+CMGS=\"");
 USARTWriteString(nmbr);
 USARTWriteString("\"\r\n");
 
-_delay((unsigned long)((2000)*(8000000/4000.0)));
+_delay((unsigned long)((2000)*(32000000/4000.0)));
 USARTWriteString(msg);
 USARTWriteChar(0x1A);
-_delay((unsigned long)((2000)*(8000000/4000.0)));
+_delay((unsigned long)((2000)*(32000000/4000.0)));
 
 return 1;
 }
 uint8_t SIM800ReadSms(const char *mem)
 {
-_delay((unsigned long)((2000)*(8000000/4000.0)));
+_delay((unsigned long)((200)*(32000000/4000.0)));
 USARTWriteLine("AT+CMGF = 1\r\n");
-_delay((unsigned long)((2000)*(8000000/4000.0)));
+_delay((unsigned long)((200)*(32000000/4000.0)));
 USARTWriteLine("AT+CMGR=");
 USARTWriteString(mem);
 USARTWriteString("\r\n");
-_delay((unsigned long)((2000)*(8000000/4000.0)));
+_delay((unsigned long)((600)*(32000000/4000.0)));
 return 1;
 }
 uint8_t SIM800DeleteSms(const char *index, const char *flag)
 {
 
 
-_delay((unsigned long)((1000)*(8000000/4000.0)));
+_delay((unsigned long)((1000)*(32000000/4000.0)));
 USARTWriteLine("AT+CMGD=");
 USARTWriteString(index);
 USARTWriteChar(',');
 USARTWriteString(flag);
 USARTWriteString("\r\n");
-_delay((unsigned long)((2000)*(8000000/4000.0)));
+_delay((unsigned long)((2000)*(32000000/4000.0)));
 return 1;
 }
 uint8_t SIM800Process()
@@ -4379,6 +4380,15 @@ i++;
 SIM800L.password[i-10]='\0';
 if(i==14) EEPROMUpdatePassword(SIM800L.password);
 }
+}
+else if(SIM800L.command[1]=='O' && SIM800L.command[2]=='P' && SIM800L.command[3]=='E' )
+{
+if(EEPROMSearchNumber(SIM800L.cell,SIM800L.cell_lenght))
+{
+LATAbits.LATA5=1; GPIOGreenLedBlink(9); ; LATAbits.LATA5=0;
+LATCbits.LATC2=1;
+}
+else { GPIORedLedBlink(5); }
 }
 else GPIORedLedBlink(5);
 }

@@ -21,6 +21,7 @@ extern "C" {
 
 #endif	/* SYSTEM_H */
 
+#define _32MHZ   32
 #define _16MHZ   16
 #define _8MHZ    8
 #define _4MHZ    4

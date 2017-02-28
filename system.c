@@ -16,6 +16,9 @@ void SYSTEMInit(uint8_t freq)
         case 16:
             OSCCON=0b01111010;      //Configure Internal Oscillator to 16MHz
         break;
+        case 32:
+            OSCCON=0b01110000;      //Configure Internal Oscillator to 32MHz
+        break;        
         default:
         break;
     }

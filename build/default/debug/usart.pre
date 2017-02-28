@@ -4145,13 +4145,13 @@ typedef uint16_t uintptr_t;
 
 
 #pragma config WRT = OFF
-#pragma config PLLEN = OFF
+#pragma config PLLEN = ON
 #pragma config STVREN = ON
 #pragma config BORV = LO
-#pragma config LVP = ON
+#pragma config LVP = OFF
 
 # 67
-uint8_t task,i;
+uint8_t task,i,getsmsnumber;
 char password[4];
 char password_empty[4];
 
@@ -4164,7 +4164,7 @@ void USARTWriteInt(int16_t val, int8_t field_length);
 void USARTHandleRxInt();
 void USARTGotoNewLine();
 
-# 61 "gpio.h"
+# 67 "gpio.h"
 void GPIOPortInit();
 void GPIORedLedBlink(uint8_t times);
 void GPIOBlueLedBlink(uint8_t times);
@@ -4209,7 +4209,8 @@ void USARTInit(uint16_t baud_rate)
 switch(baud_rate)
 {
 case 9600:
-SPBRG=51;
+
+SPBRG=207;
 break;
 case 19200:
 SPBRG=64;
@@ -4333,6 +4334,18 @@ SIM800L.command[ci-4]=SIM800L.buffer[ci];
 ci++;
 }
 task=3;
+}
+if(SIM800L.buffer[1]=='C' && SIM800L.buffer[2]=='M' && SIM800L.buffer[3]=='G' && SIM800L.buffer[4]=='R')
+{
+uint8_t ci=21;
+if(SIM800L.buffer[ci]=='+') ci=24;
+while(SIM800L.buffer[ci]!='\"' && SIM800L.cell_lenght<15)
+{
+SIM800L.cell[SIM800L.cell_lenght]=SIM800L.buffer[ci];
+ci++;
+SIM800L.cell_lenght++;
+}
+SIM800L.cell[SIM800L.cell_lenght]='\0';
 }
 }
 else if(SIM800L.buffer[0]=='O' && SIM800L.buffer[1]=='K') SIM800L.ok=1;
