@@ -1,7 +1,7 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"51 sim800l.h
-[s S366 `uc 1 `uc 1 `uc 1 `uc 1 `uc -> 15 `i `uc 1 `uc 1 `uc -> 5 `i `uc -> 64 `i `uc -> 25 `i `uc -> 5 `i `uc -> 5 `i ]
-[n S366 . busy uncomplete ok resp cell cell_lenght unreadsms smsmem buffer command csq password ]
+"46 sim800l.h
+[s S366 `uc 1 `uc 1 `uc 1 `uc 1 `uc -> 15 `i `uc -> 15 `i `uc 1 `uc 1 `uc -> 5 `i `uc -> 64 `i `uc -> 25 `i `uc -> 5 `i `uc -> 5 `i ]
+[n S366 . busy uncomplete ok resp cell sender_cell cell_lenght unreadsms smsmem buffer command csq password ]
 "3202 C:\Program Files (x86)\Microchip\xc8\v1.38\include\pic16f1828.h
 [v _SPBRG `Vuc ~T0 @X0 0 e@411 ]
 "2764
@@ -3044,47 +3044,47 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 205: typedef uint32_t uintmax_t;
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
-"36 general.h
+"34 general.h
 [p x FOSC=INTOSC ]
-"37
+"35
 [p x WDTE=ON ]
-"38
+"36
 [p x PWRTE=ON ]
-"39
+"37
 [p x MCLRE=OFF ]
-"40
+"38
 [p x CP=ON ]
-"41
+"39
 [p x CPD=ON ]
-"42
+"40
 [p x BOREN=ON ]
-"43
+"41
 [p x CLKOUTEN=OFF ]
-"44
+"42
 [p x IESO=ON ]
-"45
+"43
 [p x FCMEN=ON ]
-"48
+"46
 [p x WRT=OFF ]
-"49
+"47
 [p x PLLEN=ON ]
-"50
+"48
 [p x STVREN=ON ]
-"51
+"49
 [p x BORV=LO ]
-"52
+"50
 [p x LVP=OFF ]
-"67
+"65
 [v _task `uc ~T0 @X0 1 e ]
 [v _i `uc ~T0 @X0 1 e ]
 [v _getsmsnumber `uc ~T0 @X0 1 e ]
-[; ;general.h: 67: uint8_t task,i,getsmsnumber;
-"68
+[; ;general.h: 65: uint8_t task,i,getsmsnumber;
+"66
 [v _password `uc ~T0 @X0 -> 4 `i e ]
-[; ;general.h: 68: char password[4];
-"69
+[; ;general.h: 66: char password[4];
+"67
 [v _password_empty `uc ~T0 @X0 -> 4 `i e ]
-[; ;general.h: 69: char password_empty[4];
+[; ;general.h: 67: char password_empty[4];
 [; ;usart.h: 22: void USARTInit(uint16_t baud_rate);
 [; ;usart.h: 23: void USARTWriteChar(char ch);
 [; ;usart.h: 24: void USARTWriteString(const char *str);
@@ -3096,34 +3096,33 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;gpio.h: 68: void GPIORedLedBlink(uint8_t times);
 [; ;gpio.h: 69: void GPIOBlueLedBlink(uint8_t times);
 [; ;gpio.h: 70: void GPIOGreenLedBlink(uint8_t times);
-[; ;sim800l.h: 51: typedef struct{
-[; ;sim800l.h: 52: uint8_t busy;
-[; ;sim800l.h: 53: uint8_t uncomplete;
-[; ;sim800l.h: 54: uint8_t ok;
-[; ;sim800l.h: 55: uint8_t resp;
-[; ;sim800l.h: 56: uint8_t cell[15];
-[; ;sim800l.h: 57: uint8_t cell_lenght;
-[; ;sim800l.h: 58: uint8_t unreadsms;
-[; ;sim800l.h: 59: char smsmem[5];
-[; ;sim800l.h: 60: char buffer[64];
-[; ;sim800l.h: 61: char command[25];
-[; ;sim800l.h: 62: char csq[5];
-[; ;sim800l.h: 63: char password[5];
-[; ;sim800l.h: 64: }AT;
-"69 sim800l.h
+[; ;sim800l.h: 46: typedef struct{
+[; ;sim800l.h: 47: uint8_t busy;
+[; ;sim800l.h: 48: uint8_t uncomplete;
+[; ;sim800l.h: 49: uint8_t ok;
+[; ;sim800l.h: 50: uint8_t resp;
+[; ;sim800l.h: 51: uint8_t cell[15];
+[; ;sim800l.h: 52: uint8_t sender_cell[15];
+[; ;sim800l.h: 53: uint8_t cell_lenght;
+[; ;sim800l.h: 54: uint8_t unreadsms;
+[; ;sim800l.h: 55: char smsmem[5];
+[; ;sim800l.h: 56: char buffer[64];
+[; ;sim800l.h: 57: char command[25];
+[; ;sim800l.h: 58: char csq[5];
+[; ;sim800l.h: 59: char password[5];
+[; ;sim800l.h: 60: }AT;
+"62 sim800l.h
 [v _SIM800L `S366 ~T0 @X0 1 e ]
-[; ;sim800l.h: 69: AT SIM800L;
-"70
+[; ;sim800l.h: 62: AT SIM800L;
+"63
 [v _bufque `uc ~T0 @X0 1 e ]
-[; ;sim800l.h: 70: uint8_t bufque;
-[; ;sim800l.h: 73: uint8_t SIM800init();
-[; ;sim800l.h: 74: uint8_t SIM800sendCommand();
-[; ;sim800l.h: 75: uint8_t SIM800SendSms(const char *nmbr, const char *msg);
-[; ;sim800l.h: 76: uint8_t SIM800ReadSms(const char *mem);
-[; ;sim800l.h: 77: uint8_t SIM800DeleteSms(const char *index, const char *flag);
-[; ;sim800l.h: 78: uint8_t SIM800Process();
-[; ;sim800l.h: 79: uint8_t SIM800Command();
-[; ;sim800l.h: 80: void SIM800LClear(void);
+[; ;sim800l.h: 63: uint8_t bufque;
+[; ;sim800l.h: 65: uint8_t SIM800init();
+[; ;sim800l.h: 66: uint8_t SIM800SendSms(const char *nmbr, const char *msg,const char *msg2);
+[; ;sim800l.h: 67: uint8_t SIM800ReadSms(const char *mem);
+[; ;sim800l.h: 68: uint8_t SIM800DeleteSms(const char *index, const char *flag);
+[; ;sim800l.h: 69: uint8_t SIM800Command();
+[; ;sim800l.h: 70: void SIM800LClear(void);
 "6 usart.c
 [v _USARTInit `(v ~T0 @X0 1 ef1`ui ]
 "7
@@ -3383,19 +3382,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;usart.c: 89: SIM800L.buffer[bufque]=0;
 "89
-[e = *U + &U . _SIM800L 8 * -> _bufque `ux -> -> # *U &U . _SIM800L 8 `ui `ux -> -> 0 `i `uc ]
+[e = *U + &U . _SIM800L 9 * -> _bufque `ux -> -> # *U &U . _SIM800L 9 `ui `ux -> -> 0 `i `uc ]
 [; ;usart.c: 90: SIM800L.uncomplete=0;
 "90
 [e = . _SIM800L 1 -> -> 0 `i `uc ]
 [; ;usart.c: 92: if(SIM800L.buffer[0]=='+')
 "92
-[e $ ! == -> *U + &U . _SIM800L 8 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _SIM800L 8 `ui `ux `ui -> 43 `ui 392  ]
+[e $ ! == -> *U + &U . _SIM800L 9 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _SIM800L 9 `ui `ux `ui -> 43 `ui 392  ]
 [; ;usart.c: 93: {
 "93
 {
 [; ;usart.c: 94: if(SIM800L.buffer[1]=='C' && SIM800L.buffer[2]=='L' && SIM800L.buffer[3]=='I' )
 "94
-[e $ ! && && == -> *U + &U . _SIM800L 8 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _SIM800L 8 `ui `ux `ui -> 67 `ui == -> *U + &U . _SIM800L 8 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _SIM800L 8 `ui `ux `ui -> 76 `ui == -> *U + &U . _SIM800L 8 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _SIM800L 8 `ui `ux `ui -> 73 `ui 393  ]
+[e $ ! && && == -> *U + &U . _SIM800L 9 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _SIM800L 9 `ui `ux `ui -> 67 `ui == -> *U + &U . _SIM800L 9 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _SIM800L 9 `ui `ux `ui -> 76 `ui == -> *U + &U . _SIM800L 9 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _SIM800L 9 `ui `ux `ui -> 73 `ui 393  ]
 [; ;usart.c: 95: {
 "95
 {
@@ -3412,18 +3411,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;usart.c: 99: SIM800L.cell[ci-8]=SIM800L.buffer[ci];
 "99
-[e = *U + &U . _SIM800L 4 * -> -> - -> _ci `i -> 8 `i `ui `ux -> -> # *U &U . _SIM800L 4 `ui `ux *U + &U . _SIM800L 8 * -> _ci `ux -> -> # *U &U . _SIM800L 8 `ui `ux ]
+[e = *U + &U . _SIM800L 4 * -> -> - -> _ci `i -> 8 `i `ui `ux -> -> # *U &U . _SIM800L 4 `ui `ux *U + &U . _SIM800L 9 * -> _ci `ux -> -> # *U &U . _SIM800L 9 `ui `ux ]
 [; ;usart.c: 100: ci++;
 "100
 [e ++ _ci -> -> 1 `i `uc ]
 [; ;usart.c: 101: SIM800L.cell_lenght++;
 "101
-[e ++ . _SIM800L 5 -> -> 1 `i `uc ]
+[e ++ . _SIM800L 6 -> -> 1 `i `uc ]
 "102
 }
 [e :U 394 ]
 "97
-[e $ && != -> *U + &U . _SIM800L 8 * -> _ci `ux -> -> # *U &U . _SIM800L 8 `ui `ux `ui -> 34 `ui < - -> _ci `i -> 8 `i -> 15 `i 395  ]
+[e $ && != -> *U + &U . _SIM800L 9 * -> _ci `ux -> -> # *U &U . _SIM800L 9 `ui `ux `ui -> 34 `ui < - -> _ci `i -> 8 `i -> 15 `i 395  ]
 [e :U 396 ]
 [; ;usart.c: 102: }
 [; ;usart.c: 103: SIM800L.cell[ci-8]='\0';
@@ -3438,7 +3437,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;usart.c: 105: }
 [; ;usart.c: 106: if(SIM800L.buffer[1]=='C' && SIM800L.buffer[2]=='M' && SIM800L.buffer[3]=='T' && SIM800L.buffer[4]=='I' )
 "106
-[e $ ! && && && == -> *U + &U . _SIM800L 8 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _SIM800L 8 `ui `ux `ui -> 67 `ui == -> *U + &U . _SIM800L 8 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _SIM800L 8 `ui `ux `ui -> 77 `ui == -> *U + &U . _SIM800L 8 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _SIM800L 8 `ui `ux `ui -> 84 `ui == -> *U + &U . _SIM800L 8 * -> -> -> 4 `i `ui `ux -> -> # *U &U . _SIM800L 8 `ui `ux `ui -> 73 `ui 397  ]
+[e $ ! && && && == -> *U + &U . _SIM800L 9 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _SIM800L 9 `ui `ux `ui -> 67 `ui == -> *U + &U . _SIM800L 9 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _SIM800L 9 `ui `ux `ui -> 77 `ui == -> *U + &U . _SIM800L 9 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _SIM800L 9 `ui `ux `ui -> 84 `ui == -> *U + &U . _SIM800L 9 * -> -> -> 4 `i `ui `ux -> -> # *U &U . _SIM800L 9 `ui `ux `ui -> 73 `ui 397  ]
 [; ;usart.c: 107: {
 "107
 {
@@ -3455,7 +3454,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;usart.c: 111: SIM800L.smsmem[ci-12]=SIM800L.buffer[ci];
 "111
-[e = *U + &U . _SIM800L 7 * -> -> - -> _ci `i -> 12 `i `ui `ux -> -> # *U &U . _SIM800L 7 `ui `ux *U + &U . _SIM800L 8 * -> _ci `ux -> -> # *U &U . _SIM800L 8 `ui `ux ]
+[e = *U + &U . _SIM800L 8 * -> -> - -> _ci `i -> 12 `i `ui `ux -> -> # *U &U . _SIM800L 8 `ui `ux *U + &U . _SIM800L 9 * -> _ci `ux -> -> # *U &U . _SIM800L 9 `ui `ux ]
 [; ;usart.c: 112: ci++;
 "112
 [e ++ _ci -> -> 1 `i `uc ]
@@ -3463,15 +3462,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 [e :U 398 ]
 "109
-[e $ && >= -> *U + &U . _SIM800L 8 * -> _ci `ux -> -> # *U &U . _SIM800L 8 `ui `ux `ui -> 48 `ui <= -> *U + &U . _SIM800L 8 * -> _ci `ux -> -> # *U &U . _SIM800L 8 `ui `ux `ui -> 57 `ui 399  ]
+[e $ && >= -> *U + &U . _SIM800L 9 * -> _ci `ux -> -> # *U &U . _SIM800L 9 `ui `ux `ui -> 48 `ui <= -> *U + &U . _SIM800L 9 * -> _ci `ux -> -> # *U &U . _SIM800L 9 `ui `ux `ui -> 57 `ui 399  ]
 [e :U 400 ]
 [; ;usart.c: 113: }
 [; ;usart.c: 114: SIM800L.smsmem[ci-12]=0;
 "114
-[e = *U + &U . _SIM800L 7 * -> -> - -> _ci `i -> 12 `i `ui `ux -> -> # *U &U . _SIM800L 7 `ui `ux -> -> 0 `i `uc ]
+[e = *U + &U . _SIM800L 8 * -> -> - -> _ci `i -> 12 `i `ui `ux -> -> # *U &U . _SIM800L 8 `ui `ux -> -> 0 `i `uc ]
 [; ;usart.c: 115: SIM800L.unreadsms=1;
 "115
-[e = . _SIM800L 6 -> -> 1 `i `uc ]
+[e = . _SIM800L 7 -> -> 1 `i `uc ]
 [; ;usart.c: 116: task=2;
 "116
 [e = _task -> -> 2 `i `uc ]
@@ -3481,7 +3480,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;usart.c: 117: }
 [; ;usart.c: 118: if(SIM800L.buffer[1]=='C' && SIM800L.buffer[2]=='S' && SIM800L.buffer[3]=='Q')
 "118
-[e $ ! && && == -> *U + &U . _SIM800L 8 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _SIM800L 8 `ui `ux `ui -> 67 `ui == -> *U + &U . _SIM800L 8 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _SIM800L 8 `ui `ux `ui -> 83 `ui == -> *U + &U . _SIM800L 8 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _SIM800L 8 `ui `ux `ui -> 81 `ui 401  ]
+[e $ ! && && == -> *U + &U . _SIM800L 9 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _SIM800L 9 `ui `ux `ui -> 67 `ui == -> *U + &U . _SIM800L 9 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _SIM800L 9 `ui `ux `ui -> 83 `ui == -> *U + &U . _SIM800L 9 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _SIM800L 9 `ui `ux `ui -> 81 `ui 401  ]
 [; ;usart.c: 119: {
 "119
 {
@@ -3498,7 +3497,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;usart.c: 123: SIM800L.csq[ci-6]=SIM800L.buffer[ci];
 "123
-[e = *U + &U . _SIM800L 10 * -> -> - -> _ci `i -> 6 `i `ui `ux -> -> # *U &U . _SIM800L 10 `ui `ux *U + &U . _SIM800L 8 * -> _ci `ux -> -> # *U &U . _SIM800L 8 `ui `ux ]
+[e = *U + &U . _SIM800L 11 * -> -> - -> _ci `i -> 6 `i `ui `ux -> -> # *U &U . _SIM800L 11 `ui `ux *U + &U . _SIM800L 9 * -> _ci `ux -> -> # *U &U . _SIM800L 9 `ui `ux ]
 [; ;usart.c: 124: ci++;
 "124
 [e ++ _ci -> -> 1 `i `uc ]
@@ -3506,19 +3505,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 [e :U 402 ]
 "121
-[e $ && != -> *U + &U . _SIM800L 8 * -> _ci `ux -> -> # *U &U . _SIM800L 8 `ui `ux `ui -> 44 `ui < -> _ci `i -> 8 `i 403  ]
+[e $ && != -> *U + &U . _SIM800L 9 * -> _ci `ux -> -> # *U &U . _SIM800L 9 `ui `ux `ui -> 44 `ui < -> _ci `i -> 8 `i 403  ]
 [e :U 404 ]
 [; ;usart.c: 125: }
 [; ;usart.c: 126: SIM800L.csq[ci-6]=0;
 "126
-[e = *U + &U . _SIM800L 10 * -> -> - -> _ci `i -> 6 `i `ui `ux -> -> # *U &U . _SIM800L 10 `ui `ux -> -> 0 `i `uc ]
+[e = *U + &U . _SIM800L 11 * -> -> - -> _ci `i -> 6 `i `ui `ux -> -> # *U &U . _SIM800L 11 `ui `ux -> -> 0 `i `uc ]
 "127
 }
 [e :U 401 ]
 [; ;usart.c: 127: }
 [; ;usart.c: 128: if(SIM800L.buffer[1]=='C' && SIM800L.buffer[2]=='M' && SIM800L.buffer[3]=='D')
 "128
-[e $ ! && && == -> *U + &U . _SIM800L 8 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _SIM800L 8 `ui `ux `ui -> 67 `ui == -> *U + &U . _SIM800L 8 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _SIM800L 8 `ui `ux `ui -> 77 `ui == -> *U + &U . _SIM800L 8 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _SIM800L 8 `ui `ux `ui -> 68 `ui 405  ]
+[e $ ! && && == -> *U + &U . _SIM800L 9 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _SIM800L 9 `ui `ux `ui -> 67 `ui == -> *U + &U . _SIM800L 9 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _SIM800L 9 `ui `ux `ui -> 77 `ui == -> *U + &U . _SIM800L 9 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _SIM800L 9 `ui `ux `ui -> 68 `ui 405  ]
 [; ;usart.c: 129: {
 "129
 {
@@ -3535,7 +3534,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;usart.c: 133: SIM800L.command[ci-4]=SIM800L.buffer[ci];
 "133
-[e = *U + &U . _SIM800L 9 * -> -> - -> _ci `i -> 4 `i `ui `ux -> -> # *U &U . _SIM800L 9 `ui `ux *U + &U . _SIM800L 8 * -> _ci `ux -> -> # *U &U . _SIM800L 8 `ui `ux ]
+[e = *U + &U . _SIM800L 10 * -> -> - -> _ci `i -> 4 `i `ui `ux -> -> # *U &U . _SIM800L 10 `ui `ux *U + &U . _SIM800L 9 * -> _ci `ux -> -> # *U &U . _SIM800L 9 `ui `ux ]
 [; ;usart.c: 134: ci++;
 "134
 [e ++ _ci -> -> 1 `i `uc ]
@@ -3543,7 +3542,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 [e :U 406 ]
 "131
-[e $ && != -> *U + &U . _SIM800L 8 * -> _ci `ux -> -> # *U &U . _SIM800L 8 `ui `ux `ui -> 35 `ui < - -> _ci `i -> 4 `i -> 25 `i 407  ]
+[e $ && != -> *U + &U . _SIM800L 9 * -> _ci `ux -> -> # *U &U . _SIM800L 9 `ui `ux `ui -> 35 `ui < - -> _ci `i -> 4 `i -> 25 `i 407  ]
 [e :U 408 ]
 [; ;usart.c: 135: }
 [; ;usart.c: 136: task=3;
@@ -3555,129 +3554,154 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;usart.c: 137: }
 [; ;usart.c: 138: if(SIM800L.buffer[1]=='C' && SIM800L.buffer[2]=='M' && SIM800L.buffer[3]=='G' && SIM800L.buffer[4]=='R')
 "138
-[e $ ! && && && == -> *U + &U . _SIM800L 8 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _SIM800L 8 `ui `ux `ui -> 67 `ui == -> *U + &U . _SIM800L 8 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _SIM800L 8 `ui `ux `ui -> 77 `ui == -> *U + &U . _SIM800L 8 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _SIM800L 8 `ui `ux `ui -> 71 `ui == -> *U + &U . _SIM800L 8 * -> -> -> 4 `i `ui `ux -> -> # *U &U . _SIM800L 8 `ui `ux `ui -> 82 `ui 409  ]
+[e $ ! && && && == -> *U + &U . _SIM800L 9 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _SIM800L 9 `ui `ux `ui -> 67 `ui == -> *U + &U . _SIM800L 9 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _SIM800L 9 `ui `ux `ui -> 77 `ui == -> *U + &U . _SIM800L 9 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _SIM800L 9 `ui `ux `ui -> 71 `ui == -> *U + &U . _SIM800L 9 * -> -> -> 4 `i `ui `ux -> -> # *U &U . _SIM800L 9 `ui `ux `ui -> 82 `ui 409  ]
 [; ;usart.c: 139: {
 "139
 {
 "140
 [v _ci `uc ~T0 @X0 1 a ]
-[; ;usart.c: 140: uint8_t ci=21;
-[e = _ci -> -> 21 `i `uc ]
-[; ;usart.c: 141: if(SIM800L.buffer[ci]=='+') ci=24;
-"141
-[e $ ! == -> *U + &U . _SIM800L 8 * -> _ci `ux -> -> # *U &U . _SIM800L 8 `ui `ux `ui -> 43 `ui 410  ]
-[e = _ci -> -> 24 `i `uc ]
-[e :U 410 ]
-[; ;usart.c: 142: while(SIM800L.buffer[ci]!='\"' && SIM800L.cell_lenght<15)
-"142
-[e $U 411  ]
-[e :U 412 ]
-[; ;usart.c: 143: {
+[; ;usart.c: 140: uint8_t ci=20,end=0;
+[e = _ci -> -> 20 `i `uc ]
+[v _end `uc ~T0 @X0 1 a ]
+[e = _end -> -> 0 `i `uc ]
+[; ;usart.c: 143: while(end==0 && ci<40)
 "143
-{
-[; ;usart.c: 144: SIM800L.cell[SIM800L.cell_lenght]=SIM800L.buffer[ci];
+[e $U 410  ]
+[e :U 411 ]
+[; ;usart.c: 144: {
 "144
-[e = *U + &U . _SIM800L 4 * -> . _SIM800L 5 `ux -> -> # *U &U . _SIM800L 4 `ui `ux *U + &U . _SIM800L 8 * -> _ci `ux -> -> # *U &U . _SIM800L 8 `ui `ux ]
+{
 [; ;usart.c: 145: ci++;
 "145
 [e ++ _ci -> -> 1 `i `uc ]
-[; ;usart.c: 146: SIM800L.cell_lenght++;
+[; ;usart.c: 146: if(SIM800L.buffer[ci]=='\"') end=1;
 "146
-[e ++ . _SIM800L 5 -> -> 1 `i `uc ]
+[e $ ! == -> *U + &U . _SIM800L 9 * -> _ci `ux -> -> # *U &U . _SIM800L 9 `ui `ux `ui -> 34 `ui 413  ]
+[e = _end -> -> 1 `i `uc ]
+[e :U 413 ]
 "147
 }
-[e :U 411 ]
-"142
-[e $ && != -> *U + &U . _SIM800L 8 * -> _ci `ux -> -> # *U &U . _SIM800L 8 `ui `ux `ui -> 34 `ui < -> . _SIM800L 5 `i -> 15 `i 412  ]
-[e :U 413 ]
+[e :U 410 ]
+"143
+[e $ && == -> _end `i -> 0 `i < -> _ci `i -> 40 `i 411  ]
+[e :U 412 ]
 [; ;usart.c: 147: }
-[; ;usart.c: 148: SIM800L.cell[SIM800L.cell_lenght]='\0';
+[; ;usart.c: 148: ci=ci-10;
 "148
-[e = *U + &U . _SIM800L 4 * -> . _SIM800L 5 `ux -> -> # *U &U . _SIM800L 4 `ui `ux -> -> 0 `ui `uc ]
-"149
+[e = _ci -> - -> _ci `i -> 10 `i `uc ]
+[; ;usart.c: 150: while(SIM800L.buffer[ci]!='\"' && SIM800L.cell_lenght<15 && end)
+"150
+[e $U 414  ]
+[e :U 415 ]
+[; ;usart.c: 151: {
+"151
+{
+[; ;usart.c: 152: SIM800L.sender_cell[SIM800L.cell_lenght]=SIM800L.buffer[ci];
+"152
+[e = *U + &U . _SIM800L 5 * -> . _SIM800L 6 `ux -> -> # *U &U . _SIM800L 5 `ui `ux *U + &U . _SIM800L 9 * -> _ci `ux -> -> # *U &U . _SIM800L 9 `ui `ux ]
+[; ;usart.c: 153: ci++;
+"153
+[e ++ _ci -> -> 1 `i `uc ]
+[; ;usart.c: 154: SIM800L.cell_lenght++;
+"154
+[e ++ . _SIM800L 6 -> -> 1 `i `uc ]
+"155
+}
+[e :U 414 ]
+"150
+[e $ && && != -> *U + &U . _SIM800L 9 * -> _ci `ux -> -> # *U &U . _SIM800L 9 `ui `ux `ui -> 34 `ui < -> . _SIM800L 6 `i -> 15 `i != -> _end `i -> -> -> 0 `i `uc `i 415  ]
+[e :U 416 ]
+[; ;usart.c: 155: }
+[; ;usart.c: 156: SIM800L.sender_cell[SIM800L.cell_lenght]='\0';
+"156
+[e = *U + &U . _SIM800L 5 * -> . _SIM800L 6 `ux -> -> # *U &U . _SIM800L 5 `ui `ux -> -> 0 `ui `uc ]
+[; ;usart.c: 157: SIM800L.cell_lenght=0;
+"157
+[e = . _SIM800L 6 -> -> 0 `i `uc ]
+"158
 }
 [e :U 409 ]
-"150
+"159
 }
-[; ;usart.c: 149: }
-[; ;usart.c: 150: }
-[e $U 414  ]
-"151
+[; ;usart.c: 158: }
+[; ;usart.c: 159: }
+[e $U 417  ]
+"160
 [e :U 392 ]
-[; ;usart.c: 151: else if(SIM800L.buffer[0]=='O' && SIM800L.buffer[1]=='K') SIM800L.ok=1;
-[e $ ! && == -> *U + &U . _SIM800L 8 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _SIM800L 8 `ui `ux `ui -> 79 `ui == -> *U + &U . _SIM800L 8 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _SIM800L 8 `ui `ux `ui -> 75 `ui 415  ]
+[; ;usart.c: 160: else if(SIM800L.buffer[0]=='O' && SIM800L.buffer[1]=='K') SIM800L.ok=1;
+[e $ ! && == -> *U + &U . _SIM800L 9 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _SIM800L 9 `ui `ux `ui -> 79 `ui == -> *U + &U . _SIM800L 9 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _SIM800L 9 `ui `ux `ui -> 75 `ui 418  ]
 [e = . _SIM800L 2 -> -> 1 `i `uc ]
-[e :U 415 ]
-"152
-[e :U 414 ]
-[; ;usart.c: 152: bufque=0;
+[e :U 418 ]
+"161
+[e :U 417 ]
+[; ;usart.c: 161: bufque=0;
 [e = _bufque -> -> 0 `i `uc ]
-"153
+"162
 }
 [e :U 391 ]
-[; ;usart.c: 153: }
-[; ;usart.c: 154: SIM800L.busy=0;
-"154
-[e = . _SIM800L 0 -> -> 0 `i `uc ]
-[; ;usart.c: 155: break;
-"155
-[e $U 385  ]
-[; ;usart.c: 156: default:
-"156
-[e :U 416 ]
-[; ;usart.c: 157: if(bufque<(64-1))
-"157
-[e $ ! < -> _bufque `i - -> 64 `i -> 1 `i 417  ]
-[; ;usart.c: 158: {
-"158
-{
-[; ;usart.c: 159: SIM800L.buffer[bufque]=data;
-"159
-[e = *U + &U . _SIM800L 8 * -> _bufque `ux -> -> # *U &U . _SIM800L 8 `ui `ux _data ]
-[; ;usart.c: 160: bufque++;
-"160
-[e ++ _bufque -> -> 1 `i `uc ]
-"161
-}
-[e :U 417 ]
-[; ;usart.c: 161: }
-[; ;usart.c: 162: break;
-"162
-[e $U 385  ]
+[; ;usart.c: 162: }
+[; ;usart.c: 163: SIM800L.busy=0;
 "163
+[e = . _SIM800L 0 -> -> 0 `i `uc ]
+[; ;usart.c: 164: break;
+"164
+[e $U 385  ]
+[; ;usart.c: 165: default:
+"165
+[e :U 419 ]
+[; ;usart.c: 166: if(bufque<(64-1))
+"166
+[e $ ! < -> _bufque `i - -> 64 `i -> 1 `i 420  ]
+[; ;usart.c: 167: {
+"167
+{
+[; ;usart.c: 168: SIM800L.buffer[bufque]=data;
+"168
+[e = *U + &U . _SIM800L 9 * -> _bufque `ux -> -> # *U &U . _SIM800L 9 `ui `ux _data ]
+[; ;usart.c: 169: bufque++;
+"169
+[e ++ _bufque -> -> 1 `i `uc ]
+"170
 }
-[; ;usart.c: 163: }
+[e :U 420 ]
+[; ;usart.c: 170: }
+[; ;usart.c: 171: break;
+"171
+[e $U 385  ]
+"172
+}
+[; ;usart.c: 172: }
 [e $U 385  ]
 "80
 [e :U 386 ]
 [e [\ _data , $ -> -> 13 `ui `uc 387
  , $ -> -> 10 `ui `uc 389
- 416 ]
-"163
+ 419 ]
+"172
 [e :U 385 ]
-[; ;usart.c: 164: LATCbits.LATC0=0;
-"164
+[; ;usart.c: 173: LATCbits.LATC0=0;
+"173
 [e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
-[; ;usart.c: 165: }
-"165
+[; ;usart.c: 174: }
+"174
 [e :UE 384 ]
 }
-"166
+"175
 [v _USARTWriteInt `(v ~T0 @X0 1 ef2`i`c ]
-"167
+"176
 {
-[; ;usart.c: 166: void USARTWriteInt(int16_t val, int8_t field_length)
-[; ;usart.c: 167: {
+[; ;usart.c: 175: void USARTWriteInt(int16_t val, int8_t field_length)
+[; ;usart.c: 176: {
 [e :U _USARTWriteInt ]
-"166
+"175
 [v _val `i ~T0 @X0 1 r1 ]
 [v _field_length `c ~T0 @X0 1 r2 ]
-"167
+"176
 [f ]
-[v F3226 `uc ~T0 @X0 -> 5 `i s ]
-[i F3226
+[v F3227 `uc ~T0 @X0 -> 5 `i s ]
+[i F3227
 :U ..
-"168
+"177
 -> -> 0 `i `uc
 -> -> 0 `i `uc
 -> -> 0 `i `uc
@@ -3686,142 +3710,142 @@ Version 3.2 HI-TECH Software Intermediate Code
 ..
 ]
 [v _str `uc ~T0 @X0 -> 5 `i a ]
-[; ;usart.c: 168: char str[5]={0,0,0,0,0};
-[e = _str F3226 ]
+[; ;usart.c: 177: char str[5]={0,0,0,0,0};
+[e = _str F3227 ]
 [v _i `c ~T0 @X0 1 a ]
-[; ;usart.c: 169: int8_t i=4,j=0;
-"169
+[; ;usart.c: 178: int8_t i=4,j=0;
+"178
 [e = _i -> -> 4 `i `c ]
 [v _j `c ~T0 @X0 1 a ]
 [e = _j -> -> 0 `i `c ]
-[; ;usart.c: 171: if(val<0)
-"171
-[e $ ! < _val -> 0 `i 419  ]
-[; ;usart.c: 172: {
-"172
-{
-[; ;usart.c: 173: USARTWriteChar('-');
-"173
-[e ( _USARTWriteChar (1 -> -> 45 `ui `uc ]
-[; ;usart.c: 174: val=val*-1;
-"174
-[e = _val * _val -U -> 1 `i ]
-"175
-}
-[; ;usart.c: 175: }
-[e $U 420  ]
-"176
-[e :U 419 ]
-[; ;usart.c: 176: else
-[; ;usart.c: 177: {
-"177
-{
-[; ;usart.c: 178: USARTWriteChar(' ');
-"178
-[e ( _USARTWriteChar (1 -> -> 32 `ui `uc ]
-"179
-}
-[e :U 420 ]
-[; ;usart.c: 179: }
-[; ;usart.c: 181: if(val==0 && field_length<1)
+[; ;usart.c: 180: if(val<0)
+"180
+[e $ ! < _val -> 0 `i 422  ]
+[; ;usart.c: 181: {
 "181
-[e $ ! && == _val -> 0 `i < -> _field_length `i -> 1 `i 421  ]
-[; ;usart.c: 182: {
+{
+[; ;usart.c: 182: USARTWriteChar('-');
 "182
-{
-[; ;usart.c: 183: USARTWriteChar('0');
+[e ( _USARTWriteChar (1 -> -> 45 `ui `uc ]
+[; ;usart.c: 183: val=val*-1;
 "183
-[e ( _USARTWriteChar (1 -> -> 48 `ui `uc ]
-[; ;usart.c: 184: return;
+[e = _val * _val -U -> 1 `i ]
 "184
-[e $UE 418  ]
+}
+[; ;usart.c: 184: }
+[e $U 423  ]
 "185
-}
-[e :U 421 ]
-[; ;usart.c: 185: }
-[; ;usart.c: 186: while(val)
-"186
-[e $U 422  ]
-[e :U 423 ]
-[; ;usart.c: 187: {
-"187
-{
-[; ;usart.c: 188: str[i]=val%10;
-"188
-[e = *U + &U _str * -> -> _i `uc `ux -> -> # *U &U _str `ui `ux -> % _val -> 10 `i `uc ]
-[; ;usart.c: 189: val=val/10;
-"189
-[e = _val / _val -> 10 `i ]
-[; ;usart.c: 190: i--;
-"190
-[e -- _i -> -> 1 `i `c ]
-"191
-}
 [e :U 422 ]
+[; ;usart.c: 185: else
+[; ;usart.c: 186: {
 "186
-[e $ != _val -> 0 `i 423  ]
-[e :U 424 ]
-[; ;usart.c: 191: }
-[; ;usart.c: 193: if(field_length==-1)
+{
+[; ;usart.c: 187: USARTWriteChar(' ');
+"187
+[e ( _USARTWriteChar (1 -> -> 32 `ui `uc ]
+"188
+}
+[e :U 423 ]
+[; ;usart.c: 188: }
+[; ;usart.c: 190: if(val==0 && field_length<1)
+"190
+[e $ ! && == _val -> 0 `i < -> _field_length `i -> 1 `i 424  ]
+[; ;usart.c: 191: {
+"191
+{
+[; ;usart.c: 192: USARTWriteChar('0');
+"192
+[e ( _USARTWriteChar (1 -> -> 48 `ui `uc ]
+[; ;usart.c: 193: return;
 "193
-[e $ ! == -> _field_length `i -U -> 1 `i 425  ]
-[; ;usart.c: 194: while(str[j]==0) j++;
+[e $UE 421  ]
 "194
-[e $U 426  ]
-[e :U 427 ]
-[e ++ _j -> -> 1 `i `c ]
-[e :U 426 ]
-[e $ == -> *U + &U _str * -> -> _j `uc `ux -> -> # *U &U _str `ui `ux `i -> 0 `i 427  ]
-[e :U 428 ]
-[e $U 429  ]
+}
+[e :U 424 ]
+[; ;usart.c: 194: }
+[; ;usart.c: 195: while(val)
 "195
-[e :U 425 ]
-[; ;usart.c: 195: else
-[; ;usart.c: 196: j=5-field_length;
+[e $U 425  ]
+[e :U 426 ]
+[; ;usart.c: 196: {
 "196
-[e = _j -> - -> 5 `i -> _field_length `i `c ]
-[e :U 429 ]
-[; ;usart.c: 199: for(i=j;i<5;i++)
+{
+[; ;usart.c: 197: str[i]=val%10;
+"197
+[e = *U + &U _str * -> -> _i `uc `ux -> -> # *U &U _str `ui `ux -> % _val -> 10 `i `uc ]
+[; ;usart.c: 198: val=val/10;
+"198
+[e = _val / _val -> 10 `i ]
+[; ;usart.c: 199: i--;
 "199
+[e -- _i -> -> 1 `i `c ]
+"200
+}
+[e :U 425 ]
+"195
+[e $ != _val -> 0 `i 426  ]
+[e :U 427 ]
+[; ;usart.c: 200: }
+[; ;usart.c: 202: if(field_length==-1)
+"202
+[e $ ! == -> _field_length `i -U -> 1 `i 428  ]
+[; ;usart.c: 203: while(str[j]==0) j++;
+"203
+[e $U 429  ]
+[e :U 430 ]
+[e ++ _j -> -> 1 `i `c ]
+[e :U 429 ]
+[e $ == -> *U + &U _str * -> -> _j `uc `ux -> -> # *U &U _str `ui `ux `i -> 0 `i 430  ]
+[e :U 431 ]
+[e $U 432  ]
+"204
+[e :U 428 ]
+[; ;usart.c: 204: else
+[; ;usart.c: 205: j=5-field_length;
+"205
+[e = _j -> - -> 5 `i -> _field_length `i `c ]
+[e :U 432 ]
+[; ;usart.c: 208: for(i=j;i<5;i++)
+"208
 {
 [e = _i _j ]
-[e $ < -> _i `i -> 5 `i 430  ]
-[e $U 431  ]
-"200
-[e :U 430 ]
-[; ;usart.c: 200: {
+[e $ < -> _i `i -> 5 `i 433  ]
+[e $U 434  ]
+"209
+[e :U 433 ]
+[; ;usart.c: 209: {
 {
-[; ;usart.c: 201: USARTWriteChar('0'+str[i]);
-"201
+[; ;usart.c: 210: USARTWriteChar('0'+str[i]);
+"210
 [e ( _USARTWriteChar (1 -> + -> 48 `ui -> *U + &U _str * -> -> _i `uc `ux -> -> # *U &U _str `ui `ux `ui `uc ]
-"202
+"211
 }
-"199
+"208
 [e ++ _i -> -> 1 `i `c ]
-[e $ < -> _i `i -> 5 `i 430  ]
-[e :U 431 ]
-"202
+[e $ < -> _i `i -> 5 `i 433  ]
+[e :U 434 ]
+"211
 }
-[; ;usart.c: 202: }
-[; ;usart.c: 203: }
-"203
-[e :UE 418 ]
+[; ;usart.c: 211: }
+[; ;usart.c: 212: }
+"212
+[e :UE 421 ]
 }
-"205
+"214
 [v _USARTGotoNewLine `(v ~T0 @X0 1 ef ]
-"206
+"215
 {
-[; ;usart.c: 205: void USARTGotoNewLine()
-[; ;usart.c: 206: {
+[; ;usart.c: 214: void USARTGotoNewLine()
+[; ;usart.c: 215: {
 [e :U _USARTGotoNewLine ]
 [f ]
-[; ;usart.c: 207: USARTWriteChar('\r');
-"207
+[; ;usart.c: 216: USARTWriteChar('\r');
+"216
 [e ( _USARTWriteChar (1 -> -> 13 `ui `uc ]
-[; ;usart.c: 208: USARTWriteChar('\n');
-"208
+[; ;usart.c: 217: USARTWriteChar('\n');
+"217
 [e ( _USARTWriteChar (1 -> -> 10 `ui `uc ]
-[; ;usart.c: 209: }
-"209
-[e :UE 433 ]
+[; ;usart.c: 218: }
+"218
+[e :UE 436 ]
 }

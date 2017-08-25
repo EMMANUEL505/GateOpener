@@ -13,11 +13,11 @@ uint8_t SIM800init()
     SIM800_RST_PIN=HIGH;
     __delay_ms(5000);
     __delay_ms(5000);
-    USARTWriteLine("AT\r\n");       //Test connection
+    USARTWriteLine("AT\r\n");           //Test connection
     __delay_ms(2000);
-    USARTWriteLine("ATE0\r\n");     //disable Echo
+    USARTWriteLine("ATE0\r\n");         //disable Echo
     __delay_ms(2000);
-    USARTWriteLine("AT+CLIP=1\r\n");     //Enable CLIP notification
+    USARTWriteLine("AT+CLIP=1\r\n");    //Enable CLIP notification
     __delay_ms(2000);
     /*if (sendCommand("AT")) {
         sendCommand("AT+IPR=115200");
@@ -28,13 +28,7 @@ uint8_t SIM800init()
     return FALSE;
 }
 
-uint8_t SIM800sendCommand()
-{
-    USARTWriteLine("AT\n\r");       //Test connection
-    return 0;
-}
-
-uint8_t SIM800SendSms(const char *nmbr, const char *msg)
+uint8_t SIM800SendSms(const char *nmbr, const char *msg,const char *msg2)
 {
     __delay_ms(2000);
     USARTWriteLine("AT+CMGF = 1\r\n");       //Text format
@@ -45,17 +39,19 @@ uint8_t SIM800SendSms(const char *nmbr, const char *msg)
     //Wait for >
     __delay_ms(2000);
     USARTWriteString(msg);
+    USARTWriteString(msg2);    
     USARTWriteChar(CTRLZ);
     __delay_ms(2000);
 
     return 1;
 }
+
 uint8_t SIM800ReadSms(const char *mem)
 {
     __delay_ms(200);
-    USARTWriteLine("AT+CMGF = 1\r\n");       //Text format
+    USARTWriteLine("AT+CMGF = 1\r\n");      //Text format
     __delay_ms(200);
-    USARTWriteLine("AT+CMGR=");     //Read SMS
+    USARTWriteLine("AT+CMGR=");             //Read SMS
     USARTWriteString(mem);
     USARTWriteString("\r\n");
     __delay_ms(600);
@@ -63,8 +59,6 @@ uint8_t SIM800ReadSms(const char *mem)
 }
 uint8_t SIM800DeleteSms(const char *index, const char *flag)
 {
-    //__delay_ms(2000);
-    //USARTWriteLine("AT+CMGF = 1\r\n");       //Text format
     __delay_ms(1000);
     USARTWriteLine("AT+CMGD=");     //Delete SMS
     USARTWriteString(index);
@@ -73,40 +67,6 @@ uint8_t SIM800DeleteSms(const char *index, const char *flag)
     USARTWriteString("\r\n");
     __delay_ms(2000);
     return 1;
-}
-uint8_t SIM800Process()
-{
-    if(SIM800L.buffer[0]=='+')                         //Case for unsolicited messages
-    {
-        if(SIM800L.buffer[1]=='C' && SIM800L.buffer[2]=='L' && SIM800L.buffer[3]=='I'  )    //+CLIP, save caller's cellnumber
-        {
-            uint8_t ci=8;                               //Cell number initiates at eight position [+CLIP: "89..."
-            while(SIM800L.buffer[ci]!='\"' && (ci-8)<SIM800L_CELL_LENGHT)             //Save characters until " arrive
-            {
-                SIM800L.cell[ci-8]=SIM800L.buffer[ci];  //Save cell number characters
-                ci++;
-                SIM800L.cell_lenght++;                  //Save cell number lenght
-            }
-            SIM800L.cell[ci-8]='\0';
-            task=CALL_IN;                               //Configure task to CALL_IN
-        }
-        if(SIM800L.buffer[1]=='C' && SIM800L.buffer[2]=='M' && SIM800L.buffer[3]=='T' && SIM800L.buffer[4]=='I'  )    //+CMTI, save SMS
-         {
-
-            task=SMS_IN;                               //Configure task to SMS_IN
-         }
-         if(SIM800L.buffer[1]=='C' && SIM800L.buffer[2]=='S' && SIM800L.buffer[3]=='Q')    //+CSQ, save CSQ
-         {
-            uint8_t ci=6;
-            while(SIM800L.buffer[ci]!=',' && (ci)<8)             //Save characters until , arrive
-            {
-               SIM800L.csq[ci-6]=SIM800L.buffer[ci];  //Save cell number characters
-               ci++;
-            }
-            SIM800L.csq[ci-6]=0;
-          }
-    }
-    return TRUE;
 }
 
 uint8_t SIM800Command()
@@ -118,6 +78,7 @@ uint8_t SIM800Command()
             if(SIM800L.command[6]=='A' && SIM800L.command[7]=='D' && SIM800L.command[8]=='D' )      //"ADD" command for add new numbers
             {
                 i=10;       //Number starts at 10 position  :pass:ADD:614xxxxxxx
+                SIM800L.cell_lenght=0;  //Required after sender number acquirement
                 while(SIM800L.command[i]>='0' && SIM800L.command[i]<='9' )
                 {
                     SIM800L.cell[i-10]=SIM800L.command[i];  //Save cell number characters
@@ -128,16 +89,19 @@ uint8_t SIM800Command()
                 if(!EEPROMSearchNumber(SIM800L.cell,SIM800L.cell_lenght))       //ADD new number if doesn't exist
                 {
                     EEPROMAdd(SIM800L.cell, SIM800L.cell_lenght);           //ADD new number to memory
-                    SIM800SendSms(SIM800L.cell, "Your number had been added");
+                    SIM800SendSms(SIM800L.cell, "Your number had been added","");
+                    SIM800SendSms(SIM800L.sender_cell, "You have added the number: ",SIM800L.cell);
                 }
                 else
                 {
-                    SIM800SendSms(SIM800L.cell, "Your number already exist");
+                    SIM800SendSms(SIM800L.cell, "Your number already exist","");
+                    SIM800SendSms(SIM800L.sender_cell, "The number already exists: ",SIM800L.cell);
                 }
             }
             if(SIM800L.command[6]=='D' && SIM800L.command[7]=='E' && SIM800L.command[8]=='L' )      //"ADD" command for new numbers
             {
-                i=10;       //Number starts at 10 position  :pass:ADD:614xxxxxxx
+                i=10;                   //Number starts at 10 position  :pass:DEL:614xxxxxxx
+                SIM800L.cell_lenght=0;  //Required after sender number acquire
                 while(SIM800L.command[i]>='0' && SIM800L.command[i]<='9' )
                 {
                     SIM800L.cell[i-10]=SIM800L.command[i];  //Save cell number characters
@@ -146,10 +110,12 @@ uint8_t SIM800Command()
                 }
                 SIM800L.cell[i-10]='\0';
                 uint8_t add=EEPROMSearchNumber(SIM800L.cell,SIM800L.cell_lenght);
-                if(add)       //ADD new number if doesn't exist
+                if(add)       //Delete number if exists
                 {
                     EEPROMDeleteNumber(add-1);
-                    SIM800SendSms(SIM800L.cell, "Your number had been deleted");
+                    SIM800SendSms(SIM800L.cell, "Your number had been deleted","");
+                    SIM800SendSms(SIM800L.sender_cell, "You have deleted the number: ",SIM800L.cell);
+                    
                 }
             }
             if(SIM800L.command[6]=='F' && SIM800L.command[7]=='A' && SIM800L.command[8]=='C' )      //"ADD" command for new numbers
@@ -167,11 +133,15 @@ uint8_t SIM800Command()
                 }
                 SIM800L.password[i-10]='\0';
                 if(i==14) EEPROMUpdatePassword(SIM800L.password); //create new password only if there are 4 chars
-            }           
+            } 
+            if(SIM800L.command[6]=='C' && SIM800L.command[7]=='S' && SIM800L.command[8]=='Q' )      //"CSQ" command
+            {
+                SIM800SendSms(SIM800L.cell,"The signal quality is: ",SIM800L.csq);
+            }            
         }
         else if(SIM800L.command[1]=='O' && SIM800L.command[2]=='P' && SIM800L.command[3]=='E' )
         {
-                if(EEPROMSearchNumber(SIM800L.cell,SIM800L.cell_lenght))    //Check if authorized number is calling
+                if(EEPROMSearchNumber(SIM800L.sender_cell,SIM800L.cell_lenght))    //Check if authorized number is calling
                 {                                      
                     GPIOSecRelaySet(); GPIOGreenLedBlink(9); ; GPIOSecRelayClear();   //Relay enabled period of 1sec
                     GPIOGreenLedSet();          //Green LED remains enabled
@@ -190,7 +160,7 @@ void SIM800LClear(void)
     SIM800L.uncomplete=FALSE;
     SIM800L.cell_lenght=FALSE;
     SIM800L.ok=FALSE;
-    for(i=0;i<SIM800L_CELL_LENGHT;i++){SIM800L.cell[i]='\0';}
+    for(i=0;i<SIM800L_CELL_LENGHT;i++){SIM800L.cell[i]='\0'; SIM800L.sender_cell[i]='\0';}
     for(i=0;i<SIM800L_BUFFER_SIZE;i++) SIM800L.buffer[i]=0;
     for(i=0;i<25;i++) SIM800L.command[i]=0;
 }

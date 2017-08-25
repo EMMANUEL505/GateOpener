@@ -4131,7 +4131,7 @@ typedef int16_t intptr_t;
 typedef uint16_t uintptr_t;
 
 
-# 36 "general.h"
+# 34 "general.h"
 #pragma config FOSC = INTOSC
 #pragma config WDTE = ON
 #pragma config PWRTE = ON
@@ -4150,7 +4150,7 @@ typedef uint16_t uintptr_t;
 #pragma config BORV = LO
 #pragma config LVP = OFF
 
-# 67
+# 65
 uint8_t task,i,getsmsnumber;
 char password[4];
 char password_empty[4];
@@ -4170,13 +4170,14 @@ void GPIORedLedBlink(uint8_t times);
 void GPIOBlueLedBlink(uint8_t times);
 void GPIOGreenLedBlink(uint8_t times);
 
-# 51 "sim800l.h"
+# 46 "sim800l.h"
 typedef struct{
 uint8_t busy;
 uint8_t uncomplete;
 uint8_t ok;
 uint8_t resp;
 uint8_t cell[15];
+uint8_t sender_cell[15];
 uint8_t cell_lenght;
 uint8_t unreadsms;
 char smsmem[5];
@@ -4186,19 +4187,13 @@ char csq[5];
 char password[5];
 }AT;
 
-
-
-
 AT SIM800L;
 uint8_t bufque;
 
-
 uint8_t SIM800init();
-uint8_t SIM800sendCommand();
-uint8_t SIM800SendSms(const char *nmbr, const char *msg);
+uint8_t SIM800SendSms(const char *nmbr, const char *msg,const char *msg2);
 uint8_t SIM800ReadSms(const char *mem);
 uint8_t SIM800DeleteSms(const char *index, const char *flag);
-uint8_t SIM800Process();
 uint8_t SIM800Command();
 void SIM800LClear(void);
 
@@ -4337,15 +4332,24 @@ task=3;
 }
 if(SIM800L.buffer[1]=='C' && SIM800L.buffer[2]=='M' && SIM800L.buffer[3]=='G' && SIM800L.buffer[4]=='R')
 {
-uint8_t ci=21;
-if(SIM800L.buffer[ci]=='+') ci=24;
-while(SIM800L.buffer[ci]!='\"' && SIM800L.cell_lenght<15)
+uint8_t ci=20,end=0;
+
+
+while(end==0 && ci<40)
 {
-SIM800L.cell[SIM800L.cell_lenght]=SIM800L.buffer[ci];
+ci++;
+if(SIM800L.buffer[ci]=='\"') end=1;
+}
+ci=ci-10;
+
+while(SIM800L.buffer[ci]!='\"' && SIM800L.cell_lenght<15 && end)
+{
+SIM800L.sender_cell[SIM800L.cell_lenght]=SIM800L.buffer[ci];
 ci++;
 SIM800L.cell_lenght++;
 }
-SIM800L.cell[SIM800L.cell_lenght]='\0';
+SIM800L.sender_cell[SIM800L.cell_lenght]='\0';
+SIM800L.cell_lenght=0;
 }
 }
 else if(SIM800L.buffer[0]=='O' && SIM800L.buffer[1]=='K') SIM800L.ok=1;

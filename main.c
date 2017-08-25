@@ -13,10 +13,10 @@
 
 void main()
 {
-    SYSTEMInit(_32MHZ);  //Initialize core at 32MHz
+    SYSTEMInit(_32MHZ); //Initialize core at 32MHz
     GPIOPortInit();     //Initialize port directions (output,input)
     GPIORelayClear();   //Ensure all relay outputs are disabled 
-    USARTInit(9600);     //Initialize USART at 9600 baudrate
+    USARTInit(9600);    //Initialize USART at 9600 baudrate
     I2CInit();          //Initialize I2C EEPROM
 
     GPIORedLedSet();    //All LED's remain enabled during GSM initialization
@@ -36,7 +36,7 @@ void main()
 
     ei();               //Enable interrupts
     RCSTAbits.CREN=ENABLED; //Enable USART receiver
-    SIM800SendSms("6141654818", "System enabled");  //After initialize unit sends a message
+    SIM800SendSms("6141654818", "System enabled","");  //After initialize unit sends a message
     while(TRUE) //Main loop
     {
         switch(task)

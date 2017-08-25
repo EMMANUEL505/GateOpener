@@ -137,15 +137,24 @@ void USARTHandleRxInt()
                    }
                    if(SIM800L.buffer[1]=='C' && SIM800L.buffer[2]=='M' && SIM800L.buffer[3]=='G' && SIM800L.buffer[4]=='R')
                    {
-                       uint8_t ci=21;                                           //ci=20 for "614xxxxxxx"
-                       if(SIM800L.buffer[ci]=='+') ci=24;                       //ci=20 for "+52614xxxxxxx"
-                       while(SIM800L.buffer[ci]!='\"' && SIM800L.cell_lenght<SIM800L_CELL_LENGHT)             //Save characters until " arrive
+                       uint8_t ci=20,end=0;                                           //ci=21 for "614xxxxxxx"
+                       //uint8_t ci=21;                                           //ci=21 for "614xxxxxxx"
+                       //if(SIM800L.buffer[ci]=='+') ci=24;                       //ci=24 for "+52614xxxxxxx"
+                       while(end==0 && ci<40)
+                       {
+                           ci++;
+                           if(SIM800L.buffer[ci]=='\"') end=1;
+                       }
+                       ci=ci-10;
+                       //if(SIM800L.buffer[ci]=='+') ci=24;                       //ci=24 for "+52614xxxxxxx"
+                       while(SIM800L.buffer[ci]!='\"' && SIM800L.cell_lenght<SIM800L_CELL_LENGHT && end)             //Save characters until " arrive
                         {
-                            SIM800L.cell[SIM800L.cell_lenght]=SIM800L.buffer[ci];  //Save cell number characters
+                            SIM800L.sender_cell[SIM800L.cell_lenght]=SIM800L.buffer[ci];  //Save cell number characters
                             ci++;
                             SIM800L.cell_lenght++;                  //Save cell number lenght
                         }
-                        SIM800L.cell[SIM800L.cell_lenght]='\0';                     
+                        SIM800L.sender_cell[SIM800L.cell_lenght]='\0';   
+                        SIM800L.cell_lenght=0;
                    }
                 }
                else if(SIM800L.buffer[0]=='O' && SIM800L.buffer[1]=='K') SIM800L.ok=TRUE;

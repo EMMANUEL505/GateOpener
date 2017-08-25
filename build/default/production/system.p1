@@ -2994,47 +2994,47 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 205: typedef uint32_t uintmax_t;
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
-"36 general.h
+"34 general.h
 [p x FOSC=INTOSC ]
-"37
+"35
 [p x WDTE=ON ]
-"38
+"36
 [p x PWRTE=ON ]
-"39
+"37
 [p x MCLRE=OFF ]
-"40
+"38
 [p x CP=ON ]
-"41
+"39
 [p x CPD=ON ]
-"42
+"40
 [p x BOREN=ON ]
-"43
+"41
 [p x CLKOUTEN=OFF ]
-"44
+"42
 [p x IESO=ON ]
-"45
+"43
 [p x FCMEN=ON ]
-"48
+"46
 [p x WRT=OFF ]
-"49
+"47
 [p x PLLEN=ON ]
-"50
+"48
 [p x STVREN=ON ]
-"51
+"49
 [p x BORV=LO ]
-"52
+"50
 [p x LVP=OFF ]
-"67
+"65
 [v _task `uc ~T0 @X0 1 e ]
 [v _i `uc ~T0 @X0 1 e ]
 [v _getsmsnumber `uc ~T0 @X0 1 e ]
-[; ;general.h: 67: uint8_t task,i,getsmsnumber;
-"68
+[; ;general.h: 65: uint8_t task,i,getsmsnumber;
+"66
 [v _password `uc ~T0 @X0 -> 4 `i e ]
-[; ;general.h: 68: char password[4];
-"69
+[; ;general.h: 66: char password[4];
+"67
 [v _password_empty `uc ~T0 @X0 -> 4 `i e ]
-[; ;general.h: 69: char password_empty[4];
+[; ;general.h: 67: char password_empty[4];
 [; ;system.h: 30: void SYSTEMInit(uint8_t freq);
 "5 system.c
 [v _SYSTEMInit `(v ~T0 @X0 1 ef1`uc ]

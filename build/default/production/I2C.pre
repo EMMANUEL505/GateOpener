@@ -4142,7 +4142,7 @@ typedef int16_t intptr_t;
 typedef uint16_t uintptr_t;
 
 
-# 36 "general.h"
+# 34 "general.h"
 #pragma config FOSC = INTOSC
 #pragma config WDTE = ON
 #pragma config PWRTE = ON
@@ -4161,7 +4161,7 @@ typedef uint16_t uintptr_t;
 #pragma config BORV = LO
 #pragma config LVP = OFF
 
-# 67
+# 65
 uint8_t task,i,getsmsnumber;
 char password[4];
 char password_empty[4];
