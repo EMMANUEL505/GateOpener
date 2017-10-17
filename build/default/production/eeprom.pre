@@ -4170,7 +4170,7 @@ void USARTWriteInt(int16_t val, int8_t field_length);
 void USARTHandleRxInt();
 void USARTGotoNewLine();
 
-# 47 "eeprom.h"
+# 52 "eeprom.h"
 void EepromStart();
 void EepromEnd();
 void EepromSend(uint8_t b);
@@ -4184,6 +4184,7 @@ uint16_t EEPROMSearchNumber(const char *nmbr, uint8_t nmbrLenght);
 void EEPROMEraseAll(void);
 uint8_t EEPROMAdd(const char *nmbr, uint8_t nmbrLenght);
 void EEPROMUpdatePassword(const char *pass);
+void EEPROMUpdateVersion(const char *ver);
 uint8_t EEPROMCheckPassword(const char *pass);
 void EEPROMPrint();
 
@@ -4422,6 +4423,18 @@ _delay((unsigned long)((5)*(32000000/4000.0)));
 EepromWrite(7902,*(pass+2));
 _delay((unsigned long)((5)*(32000000/4000.0)));
 EepromWrite(7903,*(pass+3));
+_delay((unsigned long)((5)*(32000000/4000.0)));
+}
+
+void EEPROMUpdateVersion(const char *ver)
+{
+EepromWrite(7904,*(ver));
+_delay((unsigned long)((5)*(32000000/4000.0)));
+EepromWrite(7905,*(ver+1));
+_delay((unsigned long)((5)*(32000000/4000.0)));
+EepromWrite(7906,*(ver+2));
+_delay((unsigned long)((5)*(32000000/4000.0)));
+EepromWrite(7907,*(ver+3));
 _delay((unsigned long)((5)*(32000000/4000.0)));
 }
 

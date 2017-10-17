@@ -39,6 +39,11 @@ extern "C" {
 #define PASSWORD2       7901
 #define PASSWORD3       7902
 #define PASSWORD4       7903
+
+#define VERSION1         7904
+#define VERSION2         7905
+#define VERSION3         7906
+#define VERSION4         7907
 //  EEPROM definitions
 
 #define EEPROM_NUMBER_LENGHT    10
@@ -57,5 +62,6 @@ uint16_t EEPROMSearchNumber(const char *nmbr, uint8_t nmbrLenght);
 void EEPROMEraseAll(void);
 uint8_t EEPROMAdd(const char *nmbr, uint8_t nmbrLenght);
 void EEPROMUpdatePassword(const char *pass);
+void EEPROMUpdateVersion(const char *ver);
 uint8_t EEPROMCheckPassword(const char *pass);
 void EEPROMPrint();

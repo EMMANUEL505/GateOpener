@@ -4197,7 +4197,7 @@ void GPIORedLedBlink(uint8_t times);
 void GPIOBlueLedBlink(uint8_t times);
 void GPIOGreenLedBlink(uint8_t times);
 
-# 47 "eeprom.h"
+# 52 "eeprom.h"
 void EepromStart();
 void EepromEnd();
 void EepromSend(uint8_t b);
@@ -4211,6 +4211,7 @@ uint16_t EEPROMSearchNumber(const char *nmbr, uint8_t nmbrLenght);
 void EEPROMEraseAll(void);
 uint8_t EEPROMAdd(const char *nmbr, uint8_t nmbrLenght);
 void EEPROMUpdatePassword(const char *pass);
+void EEPROMUpdateVersion(const char *ver);
 uint8_t EEPROMCheckPassword(const char *pass);
 void EEPROMPrint();
 

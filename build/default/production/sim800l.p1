@@ -20,17 +20,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _USARTWriteString `(v ~T0 @X0 0 ef1`*Cuc ]
 "23
 [v _USARTWriteChar `(v ~T0 @X0 0 ef1`uc ]
-"60 eeprom.h
+"66 eeprom.h
 [v _EEPROMCheckPassword `(uc ~T0 @X0 0 ef1`*Cuc ]
-"56
+"61
 [v _EEPROMSearchNumber `(ui ~T0 @X0 0 ef2`*Cuc`uc ]
-"58
+"63
 [v _EEPROMAdd `(uc ~T0 @X0 0 ef2`*Cuc`uc ]
-"55
+"60
 [v _EEPROMDeleteNumber `(uc ~T0 @X0 0 ef1`ui ]
-"57
+"62
 [v _EEPROMEraseAll `(v ~T0 @X0 0 ef ]
-"59
+"64
 [v _EEPROMUpdatePassword `(v ~T0 @X0 0 ef1`*Cuc ]
 "2011 C:\Program Files (x86)\Microchip\xc8\v1.38\include\pic16f1828.h
 [s S106 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -3105,21 +3105,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;gpio.h: 68: void GPIORedLedBlink(uint8_t times);
 [; ;gpio.h: 69: void GPIOBlueLedBlink(uint8_t times);
 [; ;gpio.h: 70: void GPIOGreenLedBlink(uint8_t times);
-[; ;eeprom.h: 47: void EepromStart();
-[; ;eeprom.h: 48: void EepromEnd();
-[; ;eeprom.h: 49: void EepromSend(uint8_t b);
-[; ;eeprom.h: 50: uint8_t EepromReceive();
-[; ;eeprom.h: 51: uint8_t EepromRead(uint16_t address);
-[; ;eeprom.h: 52: void EepromOpCode(uint8_t opcode, uint16_t address);
-[; ;eeprom.h: 53: void EepromWrite(uint16_t address, uint8_t data);
-[; ;eeprom.h: 54: uint8_t EEPROMSaveNumber(const char *nmbr, uint8_t nmbrLenght, uint16_t position);
-[; ;eeprom.h: 55: uint8_t EEPROMDeleteNumber(uint16_t position);
-[; ;eeprom.h: 56: uint16_t EEPROMSearchNumber(const char *nmbr, uint8_t nmbrLenght);
-[; ;eeprom.h: 57: void EEPROMEraseAll(void);
-[; ;eeprom.h: 58: uint8_t EEPROMAdd(const char *nmbr, uint8_t nmbrLenght);
-[; ;eeprom.h: 59: void EEPROMUpdatePassword(const char *pass);
-[; ;eeprom.h: 60: uint8_t EEPROMCheckPassword(const char *pass);
-[; ;eeprom.h: 61: void EEPROMPrint();
+[; ;eeprom.h: 52: void EepromStart();
+[; ;eeprom.h: 53: void EepromEnd();
+[; ;eeprom.h: 54: void EepromSend(uint8_t b);
+[; ;eeprom.h: 55: uint8_t EepromReceive();
+[; ;eeprom.h: 56: uint8_t EepromRead(uint16_t address);
+[; ;eeprom.h: 57: void EepromOpCode(uint8_t opcode, uint16_t address);
+[; ;eeprom.h: 58: void EepromWrite(uint16_t address, uint8_t data);
+[; ;eeprom.h: 59: uint8_t EEPROMSaveNumber(const char *nmbr, uint8_t nmbrLenght, uint16_t position);
+[; ;eeprom.h: 60: uint8_t EEPROMDeleteNumber(uint16_t position);
+[; ;eeprom.h: 61: uint16_t EEPROMSearchNumber(const char *nmbr, uint8_t nmbrLenght);
+[; ;eeprom.h: 62: void EEPROMEraseAll(void);
+[; ;eeprom.h: 63: uint8_t EEPROMAdd(const char *nmbr, uint8_t nmbrLenght);
+[; ;eeprom.h: 64: void EEPROMUpdatePassword(const char *pass);
+[; ;eeprom.h: 65: void EEPROMUpdateVersion(const char *ver);
+[; ;eeprom.h: 66: uint8_t EEPROMCheckPassword(const char *pass);
+[; ;eeprom.h: 67: void EEPROMPrint();
 "7 sim800l.c
 [v _SIM800init `(uc ~T0 @X0 1 ef ]
 "8

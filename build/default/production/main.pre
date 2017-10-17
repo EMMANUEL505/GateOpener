@@ -4158,7 +4158,7 @@ char password_empty[4];
 # 30 "system.h"
 void SYSTEMInit(uint8_t freq);
 
-# 47 "eeprom.h"
+# 52 "eeprom.h"
 void EepromStart();
 void EepromEnd();
 void EepromSend(uint8_t b);
@@ -4172,6 +4172,7 @@ uint16_t EEPROMSearchNumber(const char *nmbr, uint8_t nmbrLenght);
 void EEPROMEraseAll(void);
 uint8_t EEPROMAdd(const char *nmbr, uint8_t nmbrLenght);
 void EEPROMUpdatePassword(const char *pass);
+void EEPROMUpdateVersion(const char *ver);
 uint8_t EEPROMCheckPassword(const char *pass);
 void EEPROMPrint();
 
@@ -4231,6 +4232,7 @@ LATCbits.LATC0=1;
 LATCbits.LATC2=1;
 SIM800init();
 
+EEPROMUpdateVersion("v1.1");
 password_empty[0]=0xFF; password_empty[1]=0xFF; password_empty[2]=0xFF; password_empty[3]=0xFF;
 if(EEPROMCheckPassword(password_empty))
 {

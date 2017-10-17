@@ -13,49 +13,50 @@
 %PSECTS
 $dist/default/production\GateOpener.git.production.obj
 cinit CODE 0 18 18 1A 2
-text1 CODE 0 BD2 BD2 4A 2
-text2 CODE 0 A32 A32 28 2
-text3 CODE 0 E11 E11 7D 2
-text4 CODE 0 C1C C1C 4B 2
-text5 CODE 0 D28 D28 74 2
-text6 CODE 0 B49 B49 40 2
+text1 CODE 0 B4C B4C 4A 2
+text2 CODE 0 9AC 9AC 28 2
+text3 CODE 0 D8B D8B 7D 2
+text4 CODE 0 B96 B96 4B 2
+text5 CODE 0 CA2 CA2 74 2
+text6 CODE 0 AC3 AC3 40 2
 text7 CODE 0 366 366 2D2 2
-text8 CODE 0 CBB CBB 6D 2
-text9 CODE 0 9AF 9AF 10 2
-text10 CODE 0 9BF 9BF 17 2
-text11 CODE 0 978 978 8 2
-text12 CODE 0 AB1 AB1 2C 2
-text13 CODE 0 A85 A85 2C 2
-text14 CODE 0 E8E E8E 7E 2
-text15 CODE 0 768 768 85 2
-text16 CODE 0 ADD ADD 35 2
-text17 CODE 0 A0D A0D 25 2
-text18 CODE 0 B12 B12 37 2
-text19 CODE 0 C67 C67 54 2
-text20 CODE 0 B89 B89 49 2
-text21 CODE 0 A5A A5A 2B 2
-text22 CODE 0 965 965 5 2
-text23 CODE 0 9A1 9A1 E 2
-text24 CODE 0 96A 96A 6 2
-text25 CODE 0 D9C D9C 75 2
-text26 CODE 0 9F1 9F1 1C 2
-text27 CODE 0 9D6 9D6 1B 2
-text28 CODE 0 960 960 5 2
-text29 CODE 0 95B 95B 5 2
-text30 CODE 0 980 980 A 2
-text31 CODE 0 970 970 8 2
-text32 CODE 0 98A 98A B 2
-text33 CODE 0 7ED 7ED 11 2
-text35 CODE 0 32 32 334 2
-maintext CODE 0 F0C F0C F4 2
+text8 CODE 0 C35 C35 6D 2
+text9 CODE 0 7F0 7F0 10 2
+text10 CODE 0 939 939 17 2
+text11 CODE 0 8F1 8F1 8 2
+text12 CODE 0 A2B A2B 2C 2
+text13 CODE 0 9FF 9FF 2C 2
+text14 CODE 0 E86 E86 7E 2
+text15 CODE 0 76B 76B 85 2
+text16 CODE 0 A57 A57 35 2
+text17 CODE 0 987 987 25 2
+text18 CODE 0 A8C A8C 37 2
+text19 CODE 0 BE1 BE1 54 2
+text20 CODE 0 B03 B03 49 2
+text21 CODE 0 9D4 9D4 2B 2
+text22 CODE 0 8DE 8DE 5 2
+text23 CODE 0 91A 91A E 2
+text24 CODE 0 8E3 8E3 6 2
+text25 CODE 0 D16 D16 75 2
+text26 CODE 0 96B 96B 1C 2
+text27 CODE 0 903 903 B 2
+text28 CODE 0 928 928 11 2
+text29 CODE 0 E08 E08 7E 2
+text30 CODE 0 950 950 1B 2
+text31 CODE 0 8D9 8D9 5 2
+text32 CODE 0 8D4 8D4 5 2
+text33 CODE 0 8F9 8F9 A 2
+text34 CODE 0 8E9 8E9 8 2
+text36 CODE 0 32 32 334 2
+maintext CODE 0 F04 F04 FC 2
 cstackCOMMON COMMON 1 70 70 C 1
 cstackBANK0 BANK0 1 20 20 33 1
 intentry CODE 0 4 4 12 2
 bssBANK0 BANK0 1 53 53 10 1
-stringtext STRCODE 0 638 638 130 2
-clrtext CODE 0 995 995 C 2
+stringtext STRCODE 0 638 638 133 2
+clrtext CODE 0 90E 90E C 2
 bssCOMMON COMMON 1 7C 7C 1 1
-$C:\Users\e882742\AppData\Local\Temp\sffs.obj
+$C:\Users\e882742\AppData\Local\Temp\suss.obj
 reset_vec CODE 0 0 0 2 2
 end_init CODE 0 16 16 2 2
 config CONFIG 0 8007 8007 2 2
@@ -70,9 +71,9 @@ RAM A0-B3 1
 BANK0 63-6F 1
 BANK1 A0-B3 1
 CONST 2-3 2
-CONST 7FE-95A 2
+CONST 800-8D3 2
 ENTRY 2-3 2
-ENTRY 7FE-95A 2
+ENTRY 800-8D3 2
 IDLOC 8000-8003 2
 SFR10 500-56F 1
 SFR11 580-5EF 1
@@ -98,7 +99,7 @@ SFR30 F00-F6F 1
 SFR31 F80-FEF 1
 STACK 2043-2063 1
 CODE 2-3 2
-CODE 7FE-95A 2
+CODE 800-8D3 2
 SFR0 0-1F 1
 SFR1 80-9F 1
 SFR2 100-11F 1
@@ -113,9 +114,9 @@ BIGRAM 2000-20EF 1
 COMMON 7D-7D 1
 EEDATA F000-F0FF 2
 STRCODE 2-3 2
-STRCODE 7FE-95A 2
+STRCODE 800-8D3 2
 STRING 2-3 2
-STRING 7FE-95A 2
+STRING 800-8D3 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -130,315 +131,326 @@ STRING 7FE-95A 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\GateOpener.git.production.obj
-18 cinit CODE >3193:C:\Users\e882742\AppData\Local\Temp\sffs.
-18 cinit CODE >3196:C:\Users\e882742\AppData\Local\Temp\sffs.
-18 cinit CODE >3248:C:\Users\e882742\AppData\Local\Temp\sffs.
-19 cinit CODE >3249:C:\Users\e882742\AppData\Local\Temp\sffs.
-1A cinit CODE >3250:C:\Users\e882742\AppData\Local\Temp\sffs.
-1B cinit CODE >3251:C:\Users\e882742\AppData\Local\Temp\sffs.
-1C cinit CODE >3252:C:\Users\e882742\AppData\Local\Temp\sffs.
-1D cinit CODE >3253:C:\Users\e882742\AppData\Local\Temp\sffs.
-1E cinit CODE >3254:C:\Users\e882742\AppData\Local\Temp\sffs.
-1F cinit CODE >3255:C:\Users\e882742\AppData\Local\Temp\sffs.
-20 cinit CODE >3256:C:\Users\e882742\AppData\Local\Temp\sffs.
-23 cinit CODE >3260:C:\Users\e882742\AppData\Local\Temp\sffs.
-24 cinit CODE >3264:C:\Users\e882742\AppData\Local\Temp\sffs.
-25 cinit CODE >3265:C:\Users\e882742\AppData\Local\Temp\sffs.
-26 cinit CODE >3266:C:\Users\e882742\AppData\Local\Temp\sffs.
-27 cinit CODE >3267:C:\Users\e882742\AppData\Local\Temp\sffs.
-28 cinit CODE >3268:C:\Users\e882742\AppData\Local\Temp\sffs.
-29 cinit CODE >3269:C:\Users\e882742\AppData\Local\Temp\sffs.
-2A cinit CODE >3270:C:\Users\e882742\AppData\Local\Temp\sffs.
-2B cinit CODE >3271:C:\Users\e882742\AppData\Local\Temp\sffs.
-2C cinit CODE >3272:C:\Users\e882742\AppData\Local\Temp\sffs.
-2E cinit CODE >3278:C:\Users\e882742\AppData\Local\Temp\sffs.
-2E cinit CODE >3280:C:\Users\e882742\AppData\Local\Temp\sffs.
-2F cinit CODE >3281:C:\Users\e882742\AppData\Local\Temp\sffs.
-30 cinit CODE >3282:C:\Users\e882742\AppData\Local\Temp\sffs.
+18 cinit CODE >3199:C:\Users\e882742\AppData\Local\Temp\suss.
+18 cinit CODE >3202:C:\Users\e882742\AppData\Local\Temp\suss.
+18 cinit CODE >3254:C:\Users\e882742\AppData\Local\Temp\suss.
+19 cinit CODE >3255:C:\Users\e882742\AppData\Local\Temp\suss.
+1A cinit CODE >3256:C:\Users\e882742\AppData\Local\Temp\suss.
+1B cinit CODE >3257:C:\Users\e882742\AppData\Local\Temp\suss.
+1C cinit CODE >3258:C:\Users\e882742\AppData\Local\Temp\suss.
+1D cinit CODE >3259:C:\Users\e882742\AppData\Local\Temp\suss.
+1E cinit CODE >3260:C:\Users\e882742\AppData\Local\Temp\suss.
+1F cinit CODE >3261:C:\Users\e882742\AppData\Local\Temp\suss.
+20 cinit CODE >3262:C:\Users\e882742\AppData\Local\Temp\suss.
+23 cinit CODE >3266:C:\Users\e882742\AppData\Local\Temp\suss.
+24 cinit CODE >3270:C:\Users\e882742\AppData\Local\Temp\suss.
+25 cinit CODE >3271:C:\Users\e882742\AppData\Local\Temp\suss.
+26 cinit CODE >3272:C:\Users\e882742\AppData\Local\Temp\suss.
+27 cinit CODE >3273:C:\Users\e882742\AppData\Local\Temp\suss.
+28 cinit CODE >3274:C:\Users\e882742\AppData\Local\Temp\suss.
+29 cinit CODE >3275:C:\Users\e882742\AppData\Local\Temp\suss.
+2A cinit CODE >3276:C:\Users\e882742\AppData\Local\Temp\suss.
+2B cinit CODE >3277:C:\Users\e882742\AppData\Local\Temp\suss.
+2C cinit CODE >3278:C:\Users\e882742\AppData\Local\Temp\suss.
+2E cinit CODE >3284:C:\Users\e882742\AppData\Local\Temp\suss.
+2E cinit CODE >3286:C:\Users\e882742\AppData\Local\Temp\suss.
+2F cinit CODE >3287:C:\Users\e882742\AppData\Local\Temp\suss.
+30 cinit CODE >3288:C:\Users\e882742\AppData\Local\Temp\suss.
+4 intentry CODE >93:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
 4 intentry CODE >6:C:\Users\e882742\Desktop\GateOpener.git\isr.c
 9 intentry CODE >8:C:\Users\e882742\Desktop\GateOpener.git\isr.c
 F intentry CODE >9:C:\Users\e882742\Desktop\GateOpener.git\isr.c
 11 intentry CODE >12:C:\Users\e882742\Desktop\GateOpener.git\isr.c
-32 text35 CODE >74:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-32 text35 CODE >76:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-34 text35 CODE >78:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-3A text35 CODE >79:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-40 text35 CODE >80:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-41 text35 CODE >83:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-52 text35 CODE >84:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-53 text35 CODE >86:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-62 text35 CODE >89:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-70 text35 CODE >90:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-76 text35 CODE >92:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-7E text35 CODE >94:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-96 text35 CODE >96:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-9A text35 CODE >97:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-9B text35 CODE >99:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-C2 text35 CODE >100:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-C6 text35 CODE >101:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-CE text35 CODE >97:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-F1 text35 CODE >103:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-104 text35 CODE >104:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-106 text35 CODE >105:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-106 text35 CODE >106:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-126 text35 CODE >108:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-12A text35 CODE >109:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-12B text35 CODE >111:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-151 text35 CODE >112:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-155 text35 CODE >109:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-177 text35 CODE >114:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-189 text35 CODE >115:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-18F text35 CODE >116:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-193 text35 CODE >118:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-1AB text35 CODE >120:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-1AF text35 CODE >121:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-1B0 text35 CODE >123:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-1D6 text35 CODE >124:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-1DA text35 CODE >121:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-1EF text35 CODE >126:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-201 text35 CODE >127:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-201 text35 CODE >128:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-219 text35 CODE >130:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-21D text35 CODE >131:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-21E text35 CODE >133:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-245 text35 CODE >134:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-249 text35 CODE >131:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-26C text35 CODE >136:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-271 text35 CODE >138:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-291 text35 CODE >140:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-296 text35 CODE >143:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-297 text35 CODE >145:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-29B text35 CODE >146:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-2AE text35 CODE >143:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-2B5 text35 CODE >148:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-2BA text35 CODE >150:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-2BB text35 CODE >152:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-2E1 text35 CODE >153:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-2E5 text35 CODE >154:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-2ED text35 CODE >150:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-309 text35 CODE >156:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-31B text35 CODE >157:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-320 text35 CODE >159:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-321 text35 CODE >160:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-337 text35 CODE >161:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-338 text35 CODE >163:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-33E text35 CODE >164:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-33F text35 CODE >166:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-343 text35 CODE >168:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-356 text35 CODE >169:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-35A text35 CODE >172:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-35B text35 CODE >80:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-363 text35 CODE >172:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-363 text35 CODE >173:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-365 text35 CODE >174:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-7ED text33 CODE >5:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
-7ED text33 CODE >8:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
-7EF text33 CODE >9:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
-7F0 text33 CODE >10:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
-7F1 text33 CODE >11:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
-7F2 text33 CODE >12:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
-7F4 text33 CODE >14:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
-7F6 text33 CODE >15:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
-7F7 text33 CODE >16:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
-7F8 text33 CODE >18:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
-7F9 text33 CODE >19:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
-7FA text33 CODE >21:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
-7FB text33 CODE >23:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
-7FC text33 CODE >24:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
-7FD text33 CODE >25:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
-98A text32 CODE >9:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
-98A text32 CODE >11:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
-98C text32 CODE >12:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
-98D text32 CODE >13:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
-98E text32 CODE >14:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
-990 text32 CODE >15:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
-992 text32 CODE >16:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
-994 text32 CODE >17:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
-970 text31 CODE >89:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
-970 text31 CODE >91:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
-980 text30 CODE >102:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
-982 text30 CODE >104:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
-985 text30 CODE >105:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
-987 text30 CODE >106:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
-989 text30 CODE >107:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
-95B text29 CODE >25:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
-95B text29 CODE >27:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
-95D text29 CODE >28:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
-960 text28 CODE >38:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
-960 text28 CODE >40:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
-962 text28 CODE >41:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
-9D6 text27 CODE >84:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-9D6 text27 CODE >97:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-9D8 text27 CODE >98:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-9DB text27 CODE >99:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-9DF text27 CODE >100:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-9E4 text27 CODE >101:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-9E9 text27 CODE >102:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-9EE text27 CODE >103:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-9F0 text27 CODE >106:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-9F1 text26 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\Umul16.c
-9F1 text26 CODE >43:C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\Umul16.c
-9F4 text26 CODE >45:C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\Umul16.c
-9F6 text26 CODE >46:C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\Umul16.c
-9FA text26 CODE >47:C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\Umul16.c
-9FF text26 CODE >48:C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\Umul16.c
-A04 text26 CODE >49:C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\Umul16.c
-A08 text26 CODE >52:C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\Umul16.c
-D9C text25 CODE >134:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-D9C text25 CODE >136:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-DA3 text25 CODE >137:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-DA5 text25 CODE >138:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-DB5 text25 CODE >139:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-DBB text25 CODE >141:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-DC3 text25 CODE >143:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-DC6 text25 CODE >145:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-DC8 text25 CODE >146:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-DE2 text25 CODE >148:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-DF4 text25 CODE >153:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-DFD text25 CODE >155:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-E02 text25 CODE >156:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-E0B text25 CODE >141:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-96A text24 CODE >76:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
-96A text24 CODE >78:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
-96C text24 CODE >79:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
-96D text24 CODE >80:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
-9A1 text23 CODE >115:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
-9A1 text23 CODE >119:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
-9A3 text23 CODE >120:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
-9A5 text23 CODE >121:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
-9AA text23 CODE >122:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
-9AC text23 CODE >123:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
-965 text22 CODE >51:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
-965 text22 CODE >53:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
-967 text22 CODE >54:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
-A5A text21 CODE >108:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-A5A text21 CODE >110:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-A5C text21 CODE >111:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-A5E text21 CODE >112:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-A61 text21 CODE >114:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-A65 text21 CODE >116:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-A6A text21 CODE >117:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-A6F text21 CODE >118:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-A72 text21 CODE >120:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-A76 text21 CODE >122:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-A7D text21 CODE >123:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-A80 text21 CODE >124:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-A82 text21 CODE >131:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-B89 text20 CODE >226:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-B89 text20 CODE >228:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-B8E text20 CODE >229:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-B8F text20 CODE >232:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-BA6 text20 CODE >233:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-BAE text20 CODE >235:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-BB2 text20 CODE >236:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-BB2 text20 CODE >237:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-BB6 text20 CODE >238:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-BC1 text20 CODE >239:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-C67 text19 CODE >255:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-C67 text19 CODE >257:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-C73 text19 CODE >258:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-C7E text19 CODE >259:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-C89 text19 CODE >260:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-C94 text19 CODE >261:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-CB7 text19 CODE >263:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-CB8 text19 CODE >264:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-CB9 text19 CODE >267:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-B12 text18 CODE >161:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-B12 text18 CODE >163:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-B14 text18 CODE >164:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-B16 text18 CODE >165:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-B26 text18 CODE >167:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-B2B text18 CODE >169:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-B39 text18 CODE >170:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-B43 text18 CODE >167:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-A0D text17 CODE >202:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-A0D text17 CODE >216:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-A17 text17 CODE >218:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-A22 text17 CODE >219:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-A2C text17 CODE >216:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-ADD text16 CODE >6:C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\lwdiv.c
-ADD text16 CODE >14:C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\lwdiv.c
-AE0 text16 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\lwdiv.c
-AE4 text16 CODE >16:C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\lwdiv.c
-AE6 text16 CODE >17:C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\lwdiv.c
-AE8 text16 CODE >18:C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\lwdiv.c
-AED text16 CODE >19:C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\lwdiv.c
-AF1 text16 CODE >17:C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\lwdiv.c
-AF2 text16 CODE >22:C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\lwdiv.c
-AF7 text16 CODE >23:C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\lwdiv.c
-AFF text16 CODE >24:C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\lwdiv.c
-B03 text16 CODE >25:C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\lwdiv.c
-B04 text16 CODE >27:C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\lwdiv.c
-B09 text16 CODE >28:C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\lwdiv.c
-B0D text16 CODE >30:C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\lwdiv.c
-768 text15 CODE >174:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-768 text15 CODE >176:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-76B text15 CODE >177:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-76F text15 CODE >179:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-773 text15 CODE >184:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-775 text15 CODE >187:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-7A2 text15 CODE >188:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-7A8 text15 CODE >190:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-7AB text15 CODE >191:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-7AF text15 CODE >192:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-7C5 text15 CODE >193:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-7CB text15 CODE >182:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-7D6 text15 CODE >195:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-7DA text15 CODE >197:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-7E9 text15 CODE >198:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-7EA text15 CODE >199:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-E8E text14 CODE >243:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-E8E text14 CODE >245:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-E9E text14 CODE >246:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-EA8 text14 CODE >247:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-EBF text14 CODE >248:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-EC9 text14 CODE >249:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-EE0 text14 CODE >250:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-EEA text14 CODE >251:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-F01 text14 CODE >252:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-F0B text14 CODE >253:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
-A85 text13 CODE >51:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
-A87 text13 CODE >53:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
-A88 text13 CODE >54:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
-A8D text13 CODE >56:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
-A8F text13 CODE >57:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
-A9C text13 CODE >58:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
-A9E text13 CODE >59:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
-AAB text13 CODE >54:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
-AB1 text12 CODE >27:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
-AB3 text12 CODE >29:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
-AB4 text12 CODE >30:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
-AB9 text12 CODE >32:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
-ABB text12 CODE >33:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
-AC8 text12 CODE >34:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
-ACA text12 CODE >35:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
-AD7 text12 CODE >30:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
-978 text11 CODE >52:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-97A text11 CODE >54:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-97C text11 CODE >55:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-97F text11 CODE >56:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-9BF text10 CODE >58:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-9BF text10 CODE >60:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-9C7 text10 CODE >62:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-9D0 text10 CODE >63:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-9D5 text10 CODE >60:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-9AF text9 CODE >67:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-9AF text9 CODE >69:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-9B3 text9 CODE >70:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-9B7 text9 CODE >71:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-9BE text9 CODE >72:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-CBB text8 CODE >31:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
-CBB text8 CODE >33:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
-CC9 text8 CODE >34:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
-CD1 text8 CODE >35:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
-CDF text8 CODE >36:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
-CE7 text8 CODE >37:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
-CEF text8 CODE >38:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
-CF7 text8 CODE >40:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
-D05 text8 CODE >41:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
-D0D text8 CODE >42:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
-D15 text8 CODE >43:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
-D19 text8 CODE >44:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
+32 text36 CODE >74:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+32 text36 CODE >76:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+34 text36 CODE >78:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+3A text36 CODE >79:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+40 text36 CODE >80:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+41 text36 CODE >83:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+52 text36 CODE >84:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+53 text36 CODE >86:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+62 text36 CODE >89:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+70 text36 CODE >90:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+76 text36 CODE >92:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+7E text36 CODE >94:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+96 text36 CODE >96:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+9A text36 CODE >97:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+9B text36 CODE >99:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+C2 text36 CODE >100:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+C6 text36 CODE >101:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+CE text36 CODE >97:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+F1 text36 CODE >103:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+104 text36 CODE >104:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+106 text36 CODE >105:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+106 text36 CODE >106:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+126 text36 CODE >108:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+12A text36 CODE >109:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+12B text36 CODE >111:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+151 text36 CODE >112:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+155 text36 CODE >109:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+177 text36 CODE >114:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+189 text36 CODE >115:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+18F text36 CODE >116:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+193 text36 CODE >118:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+1AB text36 CODE >120:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+1AF text36 CODE >121:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+1B0 text36 CODE >123:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+1D6 text36 CODE >124:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+1DA text36 CODE >121:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+1EF text36 CODE >126:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+201 text36 CODE >127:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+201 text36 CODE >128:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+219 text36 CODE >130:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+21D text36 CODE >131:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+21E text36 CODE >133:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+245 text36 CODE >134:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+249 text36 CODE >131:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+26C text36 CODE >136:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+271 text36 CODE >138:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+291 text36 CODE >140:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+296 text36 CODE >143:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+297 text36 CODE >145:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+29B text36 CODE >146:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+2AE text36 CODE >143:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+2B5 text36 CODE >148:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+2BA text36 CODE >150:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+2BB text36 CODE >152:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+2E1 text36 CODE >153:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+2E5 text36 CODE >154:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+2ED text36 CODE >150:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+309 text36 CODE >156:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+31B text36 CODE >157:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+320 text36 CODE >159:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+321 text36 CODE >160:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+337 text36 CODE >161:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+338 text36 CODE >163:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+33E text36 CODE >164:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+33F text36 CODE >166:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+343 text36 CODE >168:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+356 text36 CODE >169:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+35A text36 CODE >172:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+35B text36 CODE >80:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+363 text36 CODE >172:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+363 text36 CODE >173:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+365 text36 CODE >174:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+8E9 text34 CODE >89:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
+8E9 text34 CODE >91:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
+8F9 text33 CODE >102:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
+8FB text33 CODE >104:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
+8FE text33 CODE >105:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
+900 text33 CODE >106:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
+902 text33 CODE >107:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
+8D4 text32 CODE >25:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
+8D4 text32 CODE >27:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
+8D6 text32 CODE >28:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
+8D9 text31 CODE >38:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
+8D9 text31 CODE >40:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
+8DB text31 CODE >41:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
+950 text30 CODE >84:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+950 text30 CODE >97:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+952 text30 CODE >98:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+955 text30 CODE >99:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+959 text30 CODE >100:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+95E text30 CODE >101:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+963 text30 CODE >102:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+968 text30 CODE >103:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+96A text30 CODE >106:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+E08 text29 CODE >255:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+E08 text29 CODE >257:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+E18 text29 CODE >258:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+E22 text29 CODE >259:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+E39 text29 CODE >260:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+E43 text29 CODE >261:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+E5A text29 CODE >262:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+E64 text29 CODE >263:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+E7B text29 CODE >264:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+E85 text29 CODE >265:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+928 text28 CODE >5:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
+928 text28 CODE >8:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
+92A text28 CODE >9:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
+92B text28 CODE >10:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
+92C text28 CODE >11:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
+92D text28 CODE >12:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
+92F text28 CODE >14:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
+931 text28 CODE >15:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
+932 text28 CODE >16:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
+933 text28 CODE >18:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
+934 text28 CODE >19:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
+935 text28 CODE >21:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
+936 text28 CODE >23:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
+937 text28 CODE >24:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
+938 text28 CODE >25:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
+903 text27 CODE >9:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
+903 text27 CODE >11:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
+905 text27 CODE >12:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
+906 text27 CODE >13:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
+907 text27 CODE >14:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
+909 text27 CODE >15:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
+90B text27 CODE >16:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
+90D text27 CODE >17:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
+96B text26 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\Umul16.c
+96B text26 CODE >43:C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\Umul16.c
+96E text26 CODE >45:C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\Umul16.c
+970 text26 CODE >46:C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\Umul16.c
+974 text26 CODE >47:C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\Umul16.c
+979 text26 CODE >48:C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\Umul16.c
+97E text26 CODE >49:C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\Umul16.c
+982 text26 CODE >52:C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\Umul16.c
+D16 text25 CODE >134:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+D16 text25 CODE >136:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+D1D text25 CODE >137:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+D1F text25 CODE >138:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+D2F text25 CODE >139:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+D35 text25 CODE >141:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+D3D text25 CODE >143:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+D40 text25 CODE >145:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+D42 text25 CODE >146:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+D5C text25 CODE >148:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+D6E text25 CODE >153:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+D77 text25 CODE >155:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+D7C text25 CODE >156:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+D85 text25 CODE >141:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+8E3 text24 CODE >76:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
+8E3 text24 CODE >78:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
+8E5 text24 CODE >79:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
+8E6 text24 CODE >80:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
+91A text23 CODE >115:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
+91A text23 CODE >119:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
+91C text23 CODE >120:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
+91E text23 CODE >121:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
+923 text23 CODE >122:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
+925 text23 CODE >123:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
+8DE text22 CODE >51:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
+8DE text22 CODE >53:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
+8E0 text22 CODE >54:C:\Users\e882742\Desktop\GateOpener.git\I2C.c
+9D4 text21 CODE >108:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+9D4 text21 CODE >110:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+9D6 text21 CODE >111:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+9D8 text21 CODE >112:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+9DB text21 CODE >114:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+9DF text21 CODE >116:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+9E4 text21 CODE >117:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+9E9 text21 CODE >118:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+9EC text21 CODE >120:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+9F0 text21 CODE >122:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+9F7 text21 CODE >123:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+9FA text21 CODE >124:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+9FC text21 CODE >131:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+B03 text20 CODE >226:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+B03 text20 CODE >228:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+B08 text20 CODE >229:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+B09 text20 CODE >232:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+B20 text20 CODE >233:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+B28 text20 CODE >235:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+B2C text20 CODE >236:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+B2C text20 CODE >237:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+B30 text20 CODE >238:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+B3B text20 CODE >239:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+BE1 text19 CODE >267:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+BE1 text19 CODE >269:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+BED text19 CODE >270:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+BF8 text19 CODE >271:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+C03 text19 CODE >272:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+C0E text19 CODE >273:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+C31 text19 CODE >275:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+C32 text19 CODE >276:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+C33 text19 CODE >279:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+A8C text18 CODE >161:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+A8C text18 CODE >163:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+A8E text18 CODE >164:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+A90 text18 CODE >165:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+AA0 text18 CODE >167:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+AA5 text18 CODE >169:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+AB3 text18 CODE >170:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+ABD text18 CODE >167:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+987 text17 CODE >202:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+987 text17 CODE >216:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+991 text17 CODE >218:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+99C text17 CODE >219:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+9A6 text17 CODE >216:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+A57 text16 CODE >6:C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\lwdiv.c
+A57 text16 CODE >14:C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\lwdiv.c
+A5A text16 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\lwdiv.c
+A5E text16 CODE >16:C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\lwdiv.c
+A60 text16 CODE >17:C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\lwdiv.c
+A62 text16 CODE >18:C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\lwdiv.c
+A67 text16 CODE >19:C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\lwdiv.c
+A6B text16 CODE >17:C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\lwdiv.c
+A6C text16 CODE >22:C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\lwdiv.c
+A71 text16 CODE >23:C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\lwdiv.c
+A79 text16 CODE >24:C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\lwdiv.c
+A7D text16 CODE >25:C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\lwdiv.c
+A7E text16 CODE >27:C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\lwdiv.c
+A83 text16 CODE >28:C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\lwdiv.c
+A87 text16 CODE >30:C:\Program Files (x86)\Microchip\xc8\v1.38\sources\common\lwdiv.c
+76B text15 CODE >174:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+76B text15 CODE >176:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+76E text15 CODE >177:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+772 text15 CODE >179:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+776 text15 CODE >184:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+778 text15 CODE >187:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+7A5 text15 CODE >188:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+7AB text15 CODE >190:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+7AE text15 CODE >191:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+7B2 text15 CODE >192:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+7C8 text15 CODE >193:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+7CE text15 CODE >182:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+7D9 text15 CODE >195:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+7DD text15 CODE >197:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+7EC text15 CODE >198:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+7ED text15 CODE >199:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+E86 text14 CODE >243:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+E86 text14 CODE >245:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+E96 text14 CODE >246:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+EA0 text14 CODE >247:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+EB7 text14 CODE >248:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+EC1 text14 CODE >249:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+ED8 text14 CODE >250:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+EE2 text14 CODE >251:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+EF9 text14 CODE >252:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+F03 text14 CODE >253:C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+9FF text13 CODE >51:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
+A01 text13 CODE >53:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
+A02 text13 CODE >54:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
+A07 text13 CODE >56:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
+A09 text13 CODE >57:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
+A16 text13 CODE >58:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
+A18 text13 CODE >59:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
+A25 text13 CODE >54:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
+A2B text12 CODE >27:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
+A2D text12 CODE >29:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
+A2E text12 CODE >30:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
+A33 text12 CODE >32:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
+A35 text12 CODE >33:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
+A42 text12 CODE >34:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
+A44 text12 CODE >35:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
+A51 text12 CODE >30:C:\Users\e882742\Desktop\GateOpener.git\gpio.c
+8F1 text11 CODE >52:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+8F3 text11 CODE >54:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+8F5 text11 CODE >55:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+8F8 text11 CODE >56:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+939 text10 CODE >58:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+939 text10 CODE >60:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+941 text10 CODE >62:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+94A text10 CODE >63:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+94F text10 CODE >60:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+7F0 text9 CODE >67:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+7F0 text9 CODE >69:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+7F4 text9 CODE >70:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+7F8 text9 CODE >71:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+7FF text9 CODE >72:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+C35 text8 CODE >31:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
+C35 text8 CODE >33:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
+C43 text8 CODE >34:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
+C4B text8 CODE >35:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
+C59 text8 CODE >36:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
+C61 text8 CODE >37:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
+C69 text8 CODE >38:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
+C71 text8 CODE >40:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
+C7F text8 CODE >41:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
+C87 text8 CODE >42:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
+C8F text8 CODE >43:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
+C93 text8 CODE >44:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
 366 text7 CODE >72:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
 366 text7 CODE >74:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
 36E text7 CODE >76:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
@@ -494,145 +506,146 @@ D19 text8 CODE >44:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
 633 text7 CODE >150:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
 634 text7 CODE >151:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
 637 text7 CODE >152:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
-B49 text6 CODE >60:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
-B49 text6 CODE >62:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
-B56 text6 CODE >63:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
-B5E text6 CODE >64:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
-B66 text6 CODE >65:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
-B6A text6 CODE >66:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
-B72 text6 CODE >67:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
-B7A text6 CODE >68:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
-D28 text5 CODE >156:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
-D28 text5 CODE >159:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
-D2E text5 CODE >160:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
-D34 text5 CODE >161:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
-D39 text5 CODE >162:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
-D3F text5 CODE >163:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
-D69 text5 CODE >164:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
-D84 text5 CODE >165:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
-C1C text4 CODE >49:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
-C1C text4 CODE >51:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
-C2A text4 CODE >52:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
-C32 text4 CODE >53:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
-C40 text4 CODE >54:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
-C48 text4 CODE >55:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
-C50 text4 CODE >56:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
-C58 text4 CODE >57:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
-E11 text3 CODE >7:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
-E11 text3 CODE >9:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
-E13 text3 CODE >10:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
-E1D text3 CODE >11:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
-E1F text3 CODE >12:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
-E2D text3 CODE >13:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
-E2F text3 CODE >14:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
-E3D text3 CODE >15:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
-E4B text3 CODE >16:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
-E53 text3 CODE >17:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
-E61 text3 CODE >18:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
-E69 text3 CODE >19:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
-E77 text3 CODE >20:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
-E7F text3 CODE >21:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
-A32 text2 CODE >24:C:\Users\e882742\Desktop\GateOpener.git\system.c
-A34 text2 CODE >26:C:\Users\e882742\Desktop\GateOpener.git\system.c
-A39 text2 CODE >27:C:\Users\e882742\Desktop\GateOpener.git\system.c
-A3A text2 CODE >30:C:\Users\e882742\Desktop\GateOpener.git\system.c
-A3D text2 CODE >31:C:\Users\e882742\Desktop\GateOpener.git\system.c
-A3E text2 CODE >33:C:\Users\e882742\Desktop\GateOpener.git\system.c
-A41 text2 CODE >34:C:\Users\e882742\Desktop\GateOpener.git\system.c
-A42 text2 CODE >36:C:\Users\e882742\Desktop\GateOpener.git\system.c
-A45 text2 CODE >37:C:\Users\e882742\Desktop\GateOpener.git\system.c
-A46 text2 CODE >39:C:\Users\e882742\Desktop\GateOpener.git\system.c
-A49 text2 CODE >43:C:\Users\e882742\Desktop\GateOpener.git\system.c
-A4A text2 CODE >27:C:\Users\e882742\Desktop\GateOpener.git\system.c
-A59 text2 CODE >44:C:\Users\e882742\Desktop\GateOpener.git\system.c
-BD2 text1 CODE >6:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-BD2 text1 CODE >9:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-BD3 text1 CODE >13:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-BD5 text1 CODE >16:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-BD7 text1 CODE >19:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-BD9 text1 CODE >22:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-BDB text1 CODE >25:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-BDE text1 CODE >27:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-BDF text1 CODE >9:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-C0A text1 CODE >27:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-C0A text1 CODE >29:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-C0C text1 CODE >30:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-C0D text1 CODE >31:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-C0F text1 CODE >33:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-C10 text1 CODE >34:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-C11 text1 CODE >35:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-C12 text1 CODE >36:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-C13 text1 CODE >39:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-C14 text1 CODE >40:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-C15 text1 CODE >41:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-C16 text1 CODE >42:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-C17 text1 CODE >45:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-C19 text1 CODE >46:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-C1A text1 CODE >48:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-C1B text1 CODE >50:C:\Users\e882742\Desktop\GateOpener.git\usart.c
-F0C maintext CODE >14:C:\Users\e882742\Desktop\GateOpener.git\main.c
-F0C maintext CODE >16:C:\Users\e882742\Desktop\GateOpener.git\main.c
-F10 maintext CODE >17:C:\Users\e882742\Desktop\GateOpener.git\main.c
-F13 maintext CODE >18:C:\Users\e882742\Desktop\GateOpener.git\main.c
-F15 maintext CODE >19:C:\Users\e882742\Desktop\GateOpener.git\main.c
-F1D maintext CODE >20:C:\Users\e882742\Desktop\GateOpener.git\main.c
-F20 maintext CODE >22:C:\Users\e882742\Desktop\GateOpener.git\main.c
-F22 maintext CODE >23:C:\Users\e882742\Desktop\GateOpener.git\main.c
-F23 maintext CODE >24:C:\Users\e882742\Desktop\GateOpener.git\main.c
-F24 maintext CODE >25:C:\Users\e882742\Desktop\GateOpener.git\main.c
-F27 maintext CODE >27:C:\Users\e882742\Desktop\GateOpener.git\main.c
-F38 maintext CODE >28:C:\Users\e882742\Desktop\GateOpener.git\main.c
-F42 maintext CODE >30:C:\Users\e882742\Desktop\GateOpener.git\main.c
-F4A maintext CODE >33:C:\Users\e882742\Desktop\GateOpener.git\main.c
-F4C maintext CODE >34:C:\Users\e882742\Desktop\GateOpener.git\main.c
-F4D maintext CODE >35:C:\Users\e882742\Desktop\GateOpener.git\main.c
-F4E maintext CODE >37:C:\Users\e882742\Desktop\GateOpener.git\main.c
-F4F maintext CODE >38:C:\Users\e882742\Desktop\GateOpener.git\main.c
-F51 maintext CODE >39:C:\Users\e882742\Desktop\GateOpener.git\main.c
-F61 maintext CODE >42:C:\Users\e882742\Desktop\GateOpener.git\main.c
-F62 maintext CODE >44:C:\Users\e882742\Desktop\GateOpener.git\main.c
+AC3 text6 CODE >60:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
+AC3 text6 CODE >62:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
+AD0 text6 CODE >63:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
+AD8 text6 CODE >64:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
+AE0 text6 CODE >65:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
+AE4 text6 CODE >66:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
+AEC text6 CODE >67:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
+AF4 text6 CODE >68:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
+CA2 text5 CODE >156:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
+CA2 text5 CODE >159:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
+CA8 text5 CODE >160:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
+CAE text5 CODE >161:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
+CB3 text5 CODE >162:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
+CB9 text5 CODE >163:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
+CE3 text5 CODE >164:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
+CFE text5 CODE >165:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
+B96 text4 CODE >49:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
+B96 text4 CODE >51:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
+BA4 text4 CODE >52:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
+BAC text4 CODE >53:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
+BBA text4 CODE >54:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
+BC2 text4 CODE >55:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
+BCA text4 CODE >56:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
+BD2 text4 CODE >57:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
+D8B text3 CODE >7:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
+D8B text3 CODE >9:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
+D8D text3 CODE >10:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
+D97 text3 CODE >11:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
+D99 text3 CODE >12:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
+DA7 text3 CODE >13:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
+DA9 text3 CODE >14:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
+DB7 text3 CODE >15:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
+DC5 text3 CODE >16:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
+DCD text3 CODE >17:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
+DDB text3 CODE >18:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
+DE3 text3 CODE >19:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
+DF1 text3 CODE >20:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
+DF9 text3 CODE >21:C:\Users\e882742\Desktop\GateOpener.git\sim800l.c
+9AC text2 CODE >24:C:\Users\e882742\Desktop\GateOpener.git\system.c
+9AE text2 CODE >26:C:\Users\e882742\Desktop\GateOpener.git\system.c
+9B3 text2 CODE >27:C:\Users\e882742\Desktop\GateOpener.git\system.c
+9B4 text2 CODE >30:C:\Users\e882742\Desktop\GateOpener.git\system.c
+9B7 text2 CODE >31:C:\Users\e882742\Desktop\GateOpener.git\system.c
+9B8 text2 CODE >33:C:\Users\e882742\Desktop\GateOpener.git\system.c
+9BB text2 CODE >34:C:\Users\e882742\Desktop\GateOpener.git\system.c
+9BC text2 CODE >36:C:\Users\e882742\Desktop\GateOpener.git\system.c
+9BF text2 CODE >37:C:\Users\e882742\Desktop\GateOpener.git\system.c
+9C0 text2 CODE >39:C:\Users\e882742\Desktop\GateOpener.git\system.c
+9C3 text2 CODE >43:C:\Users\e882742\Desktop\GateOpener.git\system.c
+9C4 text2 CODE >27:C:\Users\e882742\Desktop\GateOpener.git\system.c
+9D3 text2 CODE >44:C:\Users\e882742\Desktop\GateOpener.git\system.c
+B4C text1 CODE >6:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+B4C text1 CODE >9:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+B4D text1 CODE >13:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+B4F text1 CODE >16:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+B51 text1 CODE >19:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+B53 text1 CODE >22:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+B55 text1 CODE >25:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+B58 text1 CODE >27:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+B59 text1 CODE >9:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+B84 text1 CODE >27:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+B84 text1 CODE >29:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+B86 text1 CODE >30:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+B87 text1 CODE >31:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+B89 text1 CODE >33:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+B8A text1 CODE >34:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+B8B text1 CODE >35:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+B8C text1 CODE >36:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+B8D text1 CODE >39:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+B8E text1 CODE >40:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+B8F text1 CODE >41:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+B90 text1 CODE >42:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+B91 text1 CODE >45:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+B93 text1 CODE >46:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+B94 text1 CODE >48:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+B95 text1 CODE >50:C:\Users\e882742\Desktop\GateOpener.git\usart.c
+F04 maintext CODE >14:C:\Users\e882742\Desktop\GateOpener.git\main.c
+F04 maintext CODE >16:C:\Users\e882742\Desktop\GateOpener.git\main.c
+F08 maintext CODE >17:C:\Users\e882742\Desktop\GateOpener.git\main.c
+F0B maintext CODE >18:C:\Users\e882742\Desktop\GateOpener.git\main.c
+F0D maintext CODE >19:C:\Users\e882742\Desktop\GateOpener.git\main.c
+F15 maintext CODE >20:C:\Users\e882742\Desktop\GateOpener.git\main.c
+F18 maintext CODE >22:C:\Users\e882742\Desktop\GateOpener.git\main.c
+F1A maintext CODE >23:C:\Users\e882742\Desktop\GateOpener.git\main.c
+F1B maintext CODE >24:C:\Users\e882742\Desktop\GateOpener.git\main.c
+F1C maintext CODE >25:C:\Users\e882742\Desktop\GateOpener.git\main.c
+F1F maintext CODE >27:C:\Users\e882742\Desktop\GateOpener.git\main.c
+F27 maintext CODE >28:C:\Users\e882742\Desktop\GateOpener.git\main.c
+F38 maintext CODE >29:C:\Users\e882742\Desktop\GateOpener.git\main.c
+F42 maintext CODE >31:C:\Users\e882742\Desktop\GateOpener.git\main.c
+F4A maintext CODE >34:C:\Users\e882742\Desktop\GateOpener.git\main.c
+F4C maintext CODE >35:C:\Users\e882742\Desktop\GateOpener.git\main.c
+F4D maintext CODE >36:C:\Users\e882742\Desktop\GateOpener.git\main.c
+F4E maintext CODE >38:C:\Users\e882742\Desktop\GateOpener.git\main.c
+F4F maintext CODE >39:C:\Users\e882742\Desktop\GateOpener.git\main.c
+F51 maintext CODE >40:C:\Users\e882742\Desktop\GateOpener.git\main.c
+F61 maintext CODE >43:C:\Users\e882742\Desktop\GateOpener.git\main.c
 F62 maintext CODE >45:C:\Users\e882742\Desktop\GateOpener.git\main.c
-F71 maintext CODE >46:C:\Users\e882742\Desktop\GateOpener.git\main.c
-F79 maintext CODE >47:C:\Users\e882742\Desktop\GateOpener.git\main.c
-F81 maintext CODE >48:C:\Users\e882742\Desktop\GateOpener.git\main.c
-F87 maintext CODE >49:C:\Users\e882742\Desktop\GateOpener.git\main.c
-F95 maintext CODE >50:C:\Users\e882742\Desktop\GateOpener.git\main.c
-F96 maintext CODE >51:C:\Users\e882742\Desktop\GateOpener.git\main.c
-F97 maintext CODE >54:C:\Users\e882742\Desktop\GateOpener.git\main.c
-F9F maintext CODE >57:C:\Users\e882742\Desktop\GateOpener.git\main.c
-FB4 maintext CODE >59:C:\Users\e882742\Desktop\GateOpener.git\main.c
-FBC maintext CODE >60:C:\Users\e882742\Desktop\GateOpener.git\main.c
-FBD maintext CODE >61:C:\Users\e882742\Desktop\GateOpener.git\main.c
-FBE maintext CODE >62:C:\Users\e882742\Desktop\GateOpener.git\main.c
-FC2 maintext CODE >64:C:\Users\e882742\Desktop\GateOpener.git\main.c
-FC6 maintext CODE >68:C:\Users\e882742\Desktop\GateOpener.git\main.c
-FC6 maintext CODE >70:C:\Users\e882742\Desktop\GateOpener.git\main.c
-FC8 maintext CODE >71:C:\Users\e882742\Desktop\GateOpener.git\main.c
-FD0 maintext CODE >72:C:\Users\e882742\Desktop\GateOpener.git\main.c
-FD2 maintext CODE >73:C:\Users\e882742\Desktop\GateOpener.git\main.c
-FD7 maintext CODE >74:C:\Users\e882742\Desktop\GateOpener.git\main.c
-FD8 maintext CODE >78:C:\Users\e882742\Desktop\GateOpener.git\main.c
-FDB maintext CODE >79:C:\Users\e882742\Desktop\GateOpener.git\main.c
-FDD maintext CODE >80:C:\Users\e882742\Desktop\GateOpener.git\main.c
-FE0 maintext CODE >81:C:\Users\e882742\Desktop\GateOpener.git\main.c
-FEC maintext CODE >82:C:\Users\e882742\Desktop\GateOpener.git\main.c
-FEE maintext CODE >83:C:\Users\e882742\Desktop\GateOpener.git\main.c
-FF0 maintext CODE >42:C:\Users\e882742\Desktop\GateOpener.git\main.c
-FFF maintext CODE >40:C:\Users\e882742\Desktop\GateOpener.git\main.c
-995 clrtext CODE >3231:C:\Users\e882742\AppData\Local\Temp\sffs.
-995 clrtext CODE >3232:C:\Users\e882742\AppData\Local\Temp\sffs.
-996 clrtext CODE >3233:C:\Users\e882742\AppData\Local\Temp\sffs.
-996 clrtext CODE >3234:C:\Users\e882742\AppData\Local\Temp\sffs.
-997 clrtext CODE >3235:C:\Users\e882742\AppData\Local\Temp\sffs.
-998 clrtext CODE >3236:C:\Users\e882742\AppData\Local\Temp\sffs.
-999 clrtext CODE >3237:C:\Users\e882742\AppData\Local\Temp\sffs.
-99A clrtext CODE >3238:C:\Users\e882742\AppData\Local\Temp\sffs.
-99B clrtext CODE >3239:C:\Users\e882742\AppData\Local\Temp\sffs.
-99C clrtext CODE >3240:C:\Users\e882742\AppData\Local\Temp\sffs.
-99D clrtext CODE >3241:C:\Users\e882742\AppData\Local\Temp\sffs.
-99E clrtext CODE >3242:C:\Users\e882742\AppData\Local\Temp\sffs.
-99F clrtext CODE >3244:C:\Users\e882742\AppData\Local\Temp\sffs.
-9A0 clrtext CODE >3243:C:\Users\e882742\AppData\Local\Temp\sffs.
+F62 maintext CODE >46:C:\Users\e882742\Desktop\GateOpener.git\main.c
+F71 maintext CODE >47:C:\Users\e882742\Desktop\GateOpener.git\main.c
+F79 maintext CODE >48:C:\Users\e882742\Desktop\GateOpener.git\main.c
+F81 maintext CODE >49:C:\Users\e882742\Desktop\GateOpener.git\main.c
+F87 maintext CODE >50:C:\Users\e882742\Desktop\GateOpener.git\main.c
+F95 maintext CODE >51:C:\Users\e882742\Desktop\GateOpener.git\main.c
+F96 maintext CODE >52:C:\Users\e882742\Desktop\GateOpener.git\main.c
+F97 maintext CODE >55:C:\Users\e882742\Desktop\GateOpener.git\main.c
+F9F maintext CODE >58:C:\Users\e882742\Desktop\GateOpener.git\main.c
+FB4 maintext CODE >60:C:\Users\e882742\Desktop\GateOpener.git\main.c
+FBC maintext CODE >61:C:\Users\e882742\Desktop\GateOpener.git\main.c
+FBD maintext CODE >62:C:\Users\e882742\Desktop\GateOpener.git\main.c
+FBE maintext CODE >63:C:\Users\e882742\Desktop\GateOpener.git\main.c
+FC2 maintext CODE >65:C:\Users\e882742\Desktop\GateOpener.git\main.c
+FC6 maintext CODE >69:C:\Users\e882742\Desktop\GateOpener.git\main.c
+FC6 maintext CODE >71:C:\Users\e882742\Desktop\GateOpener.git\main.c
+FC8 maintext CODE >72:C:\Users\e882742\Desktop\GateOpener.git\main.c
+FD0 maintext CODE >73:C:\Users\e882742\Desktop\GateOpener.git\main.c
+FD2 maintext CODE >74:C:\Users\e882742\Desktop\GateOpener.git\main.c
+FD7 maintext CODE >75:C:\Users\e882742\Desktop\GateOpener.git\main.c
+FD8 maintext CODE >79:C:\Users\e882742\Desktop\GateOpener.git\main.c
+FDB maintext CODE >80:C:\Users\e882742\Desktop\GateOpener.git\main.c
+FDD maintext CODE >81:C:\Users\e882742\Desktop\GateOpener.git\main.c
+FE0 maintext CODE >82:C:\Users\e882742\Desktop\GateOpener.git\main.c
+FEC maintext CODE >83:C:\Users\e882742\Desktop\GateOpener.git\main.c
+FEE maintext CODE >84:C:\Users\e882742\Desktop\GateOpener.git\main.c
+FF0 maintext CODE >43:C:\Users\e882742\Desktop\GateOpener.git\main.c
+FFF maintext CODE >41:C:\Users\e882742\Desktop\GateOpener.git\main.c
+90E clrtext CODE >3237:C:\Users\e882742\AppData\Local\Temp\suss.
+90E clrtext CODE >3238:C:\Users\e882742\AppData\Local\Temp\suss.
+90F clrtext CODE >3239:C:\Users\e882742\AppData\Local\Temp\suss.
+90F clrtext CODE >3240:C:\Users\e882742\AppData\Local\Temp\suss.
+910 clrtext CODE >3241:C:\Users\e882742\AppData\Local\Temp\suss.
+911 clrtext CODE >3242:C:\Users\e882742\AppData\Local\Temp\suss.
+912 clrtext CODE >3243:C:\Users\e882742\AppData\Local\Temp\suss.
+913 clrtext CODE >3244:C:\Users\e882742\AppData\Local\Temp\suss.
+914 clrtext CODE >3245:C:\Users\e882742\AppData\Local\Temp\suss.
+915 clrtext CODE >3246:C:\Users\e882742\AppData\Local\Temp\suss.
+916 clrtext CODE >3247:C:\Users\e882742\AppData\Local\Temp\suss.
+917 clrtext CODE >3248:C:\Users\e882742\AppData\Local\Temp\suss.
+918 clrtext CODE >3250:C:\Users\e882742\AppData\Local\Temp\suss.
+919 clrtext CODE >3249:C:\Users\e882742\AppData\Local\Temp\suss.
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -647,47 +660,47 @@ FFF maintext CODE >40:C:\Users\e882742\Desktop\GateOpener.git\main.c
 %SYMTAB
 _i 5D 0 BANK0 1 bssBANK0 dist/default/production\GateOpener.git.production.obj
 ___latbits 1 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
-__end_of_I2CNak 12E0 0 CODE 0 text24 dist/default/production\GateOpener.git.production.obj
+__end_of_I2CNak 11D2 0 CODE 0 text24 dist/default/production\GateOpener.git.production.obj
 __Hspace_0 8009 0 ABS 0 - -
 __Hspace_1 7D 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
-__end_of_EepromWrite 13E2 0 CODE 0 text27 dist/default/production\GateOpener.git.production.obj
+__end_of_EepromWrite 12D6 0 CODE 0 text30 dist/default/production\GateOpener.git.production.obj
 __size_of_SIM800LClear 0 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 I2CRead@temp 28 0 BANK0 1 cstackBANK0 dist/default/production\GateOpener.git.production.obj
-_SIM800DeleteSms 1692 0 CODE 0 text6 dist/default/production\GateOpener.git.production.obj
+_SIM800DeleteSms 1586 0 CODE 0 text6 dist/default/production\GateOpener.git.production.obj
 __size_of_I2CInit 0 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 __size_of_I2CRead 0 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 __size_of_I2CSend 0 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 __size_of_I2CStop 0 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 __size_of_I2CWait 0 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
-__end_of_EEPROMSearchNumber FDA 0 CODE 0 text15 dist/default/production\GateOpener.git.production.obj
+__end_of_EEPROMSearchNumber FE0 0 CODE 0 text15 dist/default/production\GateOpener.git.production.obj
 _BF 10A0 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 ltemp0 7E 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 ltemp1 82 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 ltemp2 86 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 ltemp3 80 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 __Lstringtext 0 0 ABS 0 stringtext -
-__end_of_SIM800SendSms 1A50 0 CODE 0 text8 dist/default/production\GateOpener.git.production.obj
+__end_of_SIM800SendSms 1944 0 CODE 0 text8 dist/default/production\GateOpener.git.production.obj
 __Hstrings 0 0 ABS 0 strings -
 _SIM800Command 6CC 0 CODE 0 text7 dist/default/production\GateOpener.git.production.obj
-__end_of_EEPROMSaveNumber 1C22 0 CODE 0 text25 dist/default/production\GateOpener.git.production.obj
+__end_of_EEPROMSaveNumber 1B16 0 CODE 0 text25 dist/default/production\GateOpener.git.production.obj
 _CREN CEC 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 _PEIE 5E 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 _RCEN 10B3 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 _RCIE 48D 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 _RCIF 8D 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 _RSEN 10B1 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
-___sp 0 0 STACK 2 stack C:\Users\e882742\AppData\Local\Temp\sffs.obj
-_main 1E18 0 CODE 0 maintext dist/default/production\GateOpener.git.production.obj
+___sp 0 0 STACK 2 stack C:\Users\e882742\AppData\Local\Temp\suss.obj
+_main 1E08 0 CODE 0 maintext dist/default/production\GateOpener.git.production.obj
 _task 5E 0 BANK0 1 bssBANK0 dist/default/production\GateOpener.git.production.obj
-__end_of_EEPROMCheckPassword 1976 0 CODE 0 text19 dist/default/production\GateOpener.git.production.obj
+__end_of_EEPROMCheckPassword 186A 0 CODE 0 text19 dist/default/production\GateOpener.git.production.obj
 btemp 7E 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 ltemp 7E 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
-start 2C 0 CODE 0 init C:\Users\e882742\AppData\Local\Temp\sffs.obj
+start 2C 0 CODE 0 init C:\Users\e882742\AppData\Local\Temp\suss.obj
 ttemp 7E 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
-_GPIORedLedBlink 1562 0 CODE 0 text12 dist/default/production\GateOpener.git.production.obj
+_GPIORedLedBlink 1456 0 CODE 0 text12 dist/default/production\GateOpener.git.production.obj
 wtemp 7E 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 __size_of_main 0 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 __size_of___lwdiv 0 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
@@ -695,7 +708,7 @@ __size_of_USARTWriteChar 0 0 ABS 0 - dist/default/production\GateOpener.git.prod
 __size_of_USARTWriteLine 0 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
 __size_of_EEPROMSaveNumber 0 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
-__end_of_SIM800LClear 1B38 0 CODE 0 text5 dist/default/production\GateOpener.git.production.obj
+__end_of_SIM800LClear 1A2C 0 CODE 0 text5 dist/default/production\GateOpener.git.production.obj
 ?___wmul 27 0 BANK0 1 cstackBANK0 dist/default/production\GateOpener.git.production.obj
 SIM800DeleteSms@index 2D 0 BANK0 1 cstackBANK0 dist/default/production\GateOpener.git.production.obj
 __size_of_I2CStart 0 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
@@ -705,16 +718,16 @@ ttemp1 81 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 ttemp2 84 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 ttemp3 87 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 ttemp4 7F 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
-_EEPROMSearchNumber ED0 0 CODE 0 text15 dist/default/production\GateOpener.git.production.obj
-intlevel0 0 0 CODE 0 functab C:\Users\e882742\AppData\Local\Temp\sffs.obj
-intlevel1 0 0 CODE 0 functab C:\Users\e882742\AppData\Local\Temp\sffs.obj
-intlevel2 0 0 CODE 0 functab C:\Users\e882742\AppData\Local\Temp\sffs.obj
-intlevel3 0 0 CODE 0 functab C:\Users\e882742\AppData\Local\Temp\sffs.obj
-intlevel4 0 0 CODE 0 functab C:\Users\e882742\AppData\Local\Temp\sffs.obj
-intlevel5 0 0 CODE 0 functab C:\Users\e882742\AppData\Local\Temp\sffs.obj
+_EEPROMSearchNumber ED6 0 CODE 0 text15 dist/default/production\GateOpener.git.production.obj
+intlevel0 0 0 CODE 0 functab C:\Users\e882742\AppData\Local\Temp\suss.obj
+intlevel1 0 0 CODE 0 functab C:\Users\e882742\AppData\Local\Temp\suss.obj
+intlevel2 0 0 CODE 0 functab C:\Users\e882742\AppData\Local\Temp\suss.obj
+intlevel3 0 0 CODE 0 functab C:\Users\e882742\AppData\Local\Temp\suss.obj
+intlevel4 0 0 CODE 0 functab C:\Users\e882742\AppData\Local\Temp\suss.obj
+intlevel5 0 0 CODE 0 functab C:\Users\e882742\AppData\Local\Temp\suss.obj
 _WDTCONbits 97 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
-_EepromRead 14B4 0 CODE 0 text21 dist/default/production\GateOpener.git.production.obj
+_EepromRead 13A8 0 CODE 0 text21 dist/default/production\GateOpener.git.production.obj
 wtemp0 7E 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 wtemp1 80 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 wtemp2 82 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
@@ -734,42 +747,43 @@ __size_of_I2CRestart 0 0 ABS 0 - dist/default/production\GateOpener.git.producti
 GPIOGreenLedBlink@i 2B 0 BANK0 1 cstackBANK0 dist/default/production\GateOpener.git.production.obj
 __size_of_GPIOGreenLedBlink 0 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 EEPROMSaveNumber@result 35 0 BANK0 1 cstackBANK0 dist/default/production\GateOpener.git.production.obj
-_I2CStart 12B6 0 CODE 0 text29 dist/default/production\GateOpener.git.production.obj
+_I2CStart 11A8 0 CODE 0 text32 dist/default/production\GateOpener.git.production.obj
 __size_of_SIM800DeleteSms 0 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
-__end_of_I2CInit 132A 0 CODE 0 text32 dist/default/production\GateOpener.git.production.obj
-__end_of_I2CRead 135E 0 CODE 0 text23 dist/default/production\GateOpener.git.production.obj
-__end_of_I2CSend 1314 0 CODE 0 text30 dist/default/production\GateOpener.git.production.obj
-__end_of_I2CStop 12CA 0 CODE 0 text28 dist/default/production\GateOpener.git.production.obj
-__end_of_I2CWait 12F0 0 CODE 0 text31 dist/default/production\GateOpener.git.production.obj
-__end_of_EEPROMDeleteNumber 1692 0 CODE 0 text18 dist/default/production\GateOpener.git.production.obj
-__end_of___wmul 141A 0 CODE 0 text26 dist/default/production\GateOpener.git.production.obj
+__end_of_I2CInit 121C 0 CODE 0 text27 dist/default/production\GateOpener.git.production.obj
+__end_of_I2CRead 1250 0 CODE 0 text23 dist/default/production\GateOpener.git.production.obj
+__end_of_I2CSend 1206 0 CODE 0 text33 dist/default/production\GateOpener.git.production.obj
+__end_of_I2CStop 11BC 0 CODE 0 text31 dist/default/production\GateOpener.git.production.obj
+__end_of_I2CWait 11E2 0 CODE 0 text34 dist/default/production\GateOpener.git.production.obj
+__end_of_EEPROMDeleteNumber 1586 0 CODE 0 text18 dist/default/production\GateOpener.git.production.obj
+__end_of___wmul 130E 0 CODE 0 text26 dist/default/production\GateOpener.git.production.obj
 I2CSend@dat 27 0 BANK0 1 cstackBANK0 dist/default/production\GateOpener.git.production.obj
 __CFG_CP$ON 0 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 __Lmaintext 0 0 ABS 0 maintext -
-__end_of_I2CStart 12C0 0 CODE 0 text29 dist/default/production\GateOpener.git.production.obj
+__end_of_I2CStart 11B2 0 CODE 0 text32 dist/default/production\GateOpener.git.production.obj
 _BAUDCONbits 19F 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
-__end_of_USARTInit 1838 0 CODE 0 text1 dist/default/production\GateOpener.git.production.obj
+__end_of_USARTInit 172C 0 CODE 0 text1 dist/default/production\GateOpener.git.production.obj
 __size_of_SIM800Command 0 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 __size_of_GPIORedLedBlink 0 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 __size_of_USARTInit 0 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
-__end_of___lwdiv 1624 0 CODE 0 text16 dist/default/production\GateOpener.git.production.obj
-_I2CNak 12D4 0 CODE 0 text24 dist/default/production\GateOpener.git.production.obj
+__end_of___lwdiv 1518 0 CODE 0 text16 dist/default/production\GateOpener.git.production.obj
+_I2CNak 11C6 0 CODE 0 text24 dist/default/production\GateOpener.git.production.obj
 EEPROMDeleteNumber@count 33 0 BANK0 1 cstackBANK0 dist/default/production\GateOpener.git.production.obj
-__end_of_EepromRead 150A 0 CODE 0 text21 dist/default/production\GateOpener.git.production.obj
+__end_of_EepromRead 13FE 0 CODE 0 text21 dist/default/production\GateOpener.git.production.obj
 USARTHandleRxInt@data 20 0 BANK0 1 cstackBANK0 dist/default/production\GateOpener.git.production.obj
 __size_of_EEPROMEraseAll 0 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
-_USARTHandleRxInt 64 0 CODE 0 text35 dist/default/production\GateOpener.git.production.obj
+_USARTHandleRxInt 64 0 CODE 0 text36 dist/default/production\GateOpener.git.production.obj
 __size_of_EepromWrite 0 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
-_SIM800init 1C22 0 CODE 0 text3 dist/default/production\GateOpener.git.production.obj
+_SIM800init 1B16 0 CODE 0 text3 dist/default/production\GateOpener.git.production.obj
 ___lwdiv@quotient 2C 0 BANK0 1 cstackBANK0 dist/default/production\GateOpener.git.production.obj
-_USARTInit 17A4 0 CODE 0 text1 dist/default/production\GateOpener.git.production.obj
-_EEPROMDeleteNumber 1624 0 CODE 0 text18 dist/default/production\GateOpener.git.production.obj
+_USARTInit 1698 0 CODE 0 text1 dist/default/production\GateOpener.git.production.obj
+_EEPROMDeleteNumber 1518 0 CODE 0 text18 dist/default/production\GateOpener.git.production.obj
 __CFG_MCLRE$OFF 0 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 start_initialization 30 0 CODE 0 cinit dist/default/production\GateOpener.git.production.obj
 EEPROMDeleteNumber@position 2D 0 BANK0 1 cstackBANK0 dist/default/production\GateOpener.git.production.obj
 _OSCCON 99 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 __end_of_SIM800Command C70 0 CODE 0 text7 dist/default/production\GateOpener.git.production.obj
-clear_ram0 132A 0 CODE 0 clrtext dist/default/production\GateOpener.git.production.obj
+__size_of_EEPROMUpdateVersion 0 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
+clear_ram0 121C 0 CODE 0 clrtext dist/default/production\GateOpener.git.production.obj
 __pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/production\GateOpener.git.production.obj
 _SSPADD 212 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 _SSPBUF 211 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
@@ -787,10 +801,10 @@ _TRISC4 474 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 _TRISC5 475 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 _TRISC6 476 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 _TRISC7 477 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
-_EEPROMUpdatePassword 1D1C 0 CODE 0 text14 dist/default/production\GateOpener.git.production.obj
+_EEPROMUpdatePassword 1D0C 0 CODE 0 text14 dist/default/production\GateOpener.git.production.obj
 GPIORedLedBlink@times 2A 0 BANK0 1 cstackBANK0 dist/default/production\GateOpener.git.production.obj
 USARTWriteString@str 28 0 BANK0 1 cstackBANK0 dist/default/production\GateOpener.git.production.obj
-___int_sp 0 0 STACK 2 stack C:\Users\e882742\AppData\Local\Temp\sffs.obj
+___int_sp 0 0 STACK 2 stack C:\Users\e882742\AppData\Local\Temp\suss.obj
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -852,16 +866,16 @@ __Hbank29 0 0 BANK29 1 bank29 -
 __Hbank30 0 0 BANK30 1 bank30 -
 __Hbank31 0 0 BANK31 1 bank31 -
 __Hbigram 0 0 ABS 0 bigram -
-USARTHandleRxInt@ci_595 24 0 BANK0 1 cstackBANK0 dist/default/production\GateOpener.git.production.obj
-USARTHandleRxInt@ci_596 25 0 BANK0 1 cstackBANK0 dist/default/production\GateOpener.git.production.obj
-USARTHandleRxInt@ci_597 22 0 BANK0 1 cstackBANK0 dist/default/production\GateOpener.git.production.obj
-USARTHandleRxInt@ci_598 26 0 BANK0 1 cstackBANK0 dist/default/production\GateOpener.git.production.obj
+USARTHandleRxInt@ci_597 24 0 BANK0 1 cstackBANK0 dist/default/production\GateOpener.git.production.obj
+USARTHandleRxInt@ci_598 25 0 BANK0 1 cstackBANK0 dist/default/production\GateOpener.git.production.obj
+USARTHandleRxInt@ci_599 22 0 BANK0 1 cstackBANK0 dist/default/production\GateOpener.git.production.obj
+USARTHandleRxInt@ci_600 26 0 BANK0 1 cstackBANK0 dist/default/production\GateOpener.git.production.obj
 __Hmaintext 0 0 ABS 0 maintext -
-__end_of_SIM800init 1D1C 0 CODE 0 text3 dist/default/production\GateOpener.git.production.obj
+__end_of_SIM800init 1C10 0 CODE 0 text3 dist/default/production\GateOpener.git.production.obj
 __CFG_FOSC$INTOSC 0 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 __Hcommon 0 0 ABS 0 common -
 __Hconfig 10012 0 CONFIG 0 config -
-__end_of_GPIOGreenLedBlink 1562 0 CODE 0 text13 dist/default/production\GateOpener.git.production.obj
+__end_of_GPIOGreenLedBlink 1456 0 CODE 0 text13 dist/default/production\GateOpener.git.production.obj
 __Lbank0 0 0 ABS 0 bank0 -
 __Lbank1 0 0 ABS 0 bank1 -
 __Lbank2 0 0 ABS 0 bank2 -
@@ -898,7 +912,8 @@ __Lsfr30 0 0 ABS 0 sfr30 -
 __Lsfr31 0 0 ABS 0 sfr31 -
 __Lstack 0 0 STACK 2 stack -
 SIM800DeleteSms@flag 2F 0 BANK0 1 cstackBANK0 dist/default/production\GateOpener.git.production.obj
-__end_of_USARTHandleRxInt 6CC 0 CODE 0 text35 dist/default/production\GateOpener.git.production.obj
+__end_of_USARTHandleRxInt 6CC 0 CODE 0 text36 dist/default/production\GateOpener.git.production.obj
+_EEPROMUpdateVersion 1C10 0 CODE 0 text29 dist/default/production\GateOpener.git.production.obj
 USARTWriteChar@ch 27 0 BANK0 1 cstackBANK0 dist/default/production\GateOpener.git.production.obj
 _PORTBbits D 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 __Habs1 0 0 ABS 0 abs1 -
@@ -929,9 +944,9 @@ __Lsfr7 0 0 ABS 0 sfr7 -
 __Lsfr8 0 0 ABS 0 sfr8 -
 __Lsfr9 0 0 ABS 0 sfr9 -
 __Ltext 0 0 ABS 0 text -
-_SIM800ReadSms 1838 0 CODE 0 text4 dist/default/production\GateOpener.git.production.obj
+_SIM800ReadSms 172C 0 CODE 0 text4 dist/default/production\GateOpener.git.production.obj
 EEPROMSaveNumber@nmbrLenght 2F 0 BANK0 1 cstackBANK0 dist/default/production\GateOpener.git.production.obj
-___wmul 13E2 0 CODE 0 text26 dist/default/production\GateOpener.git.production.obj
+___wmul 12D6 0 CODE 0 text26 dist/default/production\GateOpener.git.production.obj
 SYSTEMInit@freq 27 0 BANK0 1 cstackBANK0 dist/default/production\GateOpener.git.production.obj
 EEPROMAdd@aux 41 0 BANK0 1 cstackBANK0 dist/default/production\GateOpener.git.production.obj
 __LcstackBANK0 0 0 ABS 0 cstackBANK0 -
@@ -948,58 +963,60 @@ __S2 0 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
 __size_of_EEPROMSearchNumber 0 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 _bufque 5C 0 BANK0 1 bssBANK0 dist/default/production\GateOpener.git.production.obj
-_GPIOPortInit FDA 0 CODE 0 text33 dist/default/production\GateOpener.git.production.obj
+_GPIOPortInit 1250 0 CODE 0 text28 dist/default/production\GateOpener.git.production.obj
 __CFG_PLLEN$ON 0 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 EepromRead@address 2D 0 BANK0 1 cstackBANK0 dist/default/production\GateOpener.git.production.obj
-_USARTWriteChar 12F0 0 CODE 0 text11 dist/default/production\GateOpener.git.production.obj
-_USARTWriteLine 135E 0 CODE 0 text9 dist/default/production\GateOpener.git.production.obj
+_USARTWriteChar 11E2 0 CODE 0 text11 dist/default/production\GateOpener.git.production.obj
+_USARTWriteLine FE0 0 CODE 0 text9 dist/default/production\GateOpener.git.production.obj
 __end_of_ISR 2C 0 CODE 0 intentry dist/default/production\GateOpener.git.production.obj
 __CFG_BOREN$ON 0 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
-__end_of_EEPROMAdd 17A4 0 CODE 0 text20 dist/default/production\GateOpener.git.production.obj
+__end_of_EEPROMAdd 1698 0 CODE 0 text20 dist/default/production\GateOpener.git.production.obj
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\e882742\AppData\Local\Temp\sffs.obj
+reset_vec 0 0 CODE 0 reset_vec C:\Users\e882742\AppData\Local\Temp\suss.obj
 __size_of_EEPROMAdd 0 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 EEPROMSearchNumber@result 3C 0 BANK0 1 cstackBANK0 dist/default/production\GateOpener.git.production.obj
 __size_of___wmul 0 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 __LbssBANK0 0 0 ABS 0 bssBANK0 -
-_I2CInit 1314 0 CODE 0 text32 dist/default/production\GateOpener.git.production.obj
-_I2CRead 1342 0 CODE 0 text23 dist/default/production\GateOpener.git.production.obj
-_I2CSend 1300 0 CODE 0 text30 dist/default/production\GateOpener.git.production.obj
-_I2CStop 12C0 0 CODE 0 text28 dist/default/production\GateOpener.git.production.obj
-_I2CWait 12E0 0 CODE 0 text31 dist/default/production\GateOpener.git.production.obj
+_I2CInit 1206 0 CODE 0 text27 dist/default/production\GateOpener.git.production.obj
+_I2CRead 1234 0 CODE 0 text23 dist/default/production\GateOpener.git.production.obj
+_I2CSend 11F2 0 CODE 0 text33 dist/default/production\GateOpener.git.production.obj
+_I2CStop 11B2 0 CODE 0 text31 dist/default/production\GateOpener.git.production.obj
+_I2CWait 11D2 0 CODE 0 text34 dist/default/production\GateOpener.git.production.obj
 __size_of_EepromRead 0 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 __CFG_FCMEN$ON 0 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
-_USARTWriteString 137E 0 CODE 0 text10 dist/default/production\GateOpener.git.production.obj
+_USARTWriteString 1272 0 CODE 0 text10 dist/default/production\GateOpener.git.production.obj
+EEPROMUpdateVersion@ver 2B 0 BANK0 1 cstackBANK0 dist/default/production\GateOpener.git.production.obj
 _RCSTAbits 19D 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 __size_of_GPIOPortInit 0 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
-_EEPROMAdd 1712 0 CODE 0 text20 dist/default/production\GateOpener.git.production.obj
-__ptext10 137E 0 CODE 0 text10 dist/default/production\GateOpener.git.production.obj
-__ptext11 12F0 0 CODE 0 text11 dist/default/production\GateOpener.git.production.obj
-__ptext12 1562 0 CODE 0 text12 dist/default/production\GateOpener.git.production.obj
-__ptext13 150A 0 CODE 0 text13 dist/default/production\GateOpener.git.production.obj
-__ptext14 1D1C 0 CODE 0 text14 dist/default/production\GateOpener.git.production.obj
-__ptext15 ED0 0 CODE 0 text15 dist/default/production\GateOpener.git.production.obj
-__ptext16 15BA 0 CODE 0 text16 dist/default/production\GateOpener.git.production.obj
-__ptext17 141A 0 CODE 0 text17 dist/default/production\GateOpener.git.production.obj
-__ptext18 1624 0 CODE 0 text18 dist/default/production\GateOpener.git.production.obj
-__ptext19 18CE 0 CODE 0 text19 dist/default/production\GateOpener.git.production.obj
-__ptext20 1712 0 CODE 0 text20 dist/default/production\GateOpener.git.production.obj
-__ptext21 14B4 0 CODE 0 text21 dist/default/production\GateOpener.git.production.obj
-__ptext22 12CA 0 CODE 0 text22 dist/default/production\GateOpener.git.production.obj
-__ptext23 1342 0 CODE 0 text23 dist/default/production\GateOpener.git.production.obj
-__ptext24 12D4 0 CODE 0 text24 dist/default/production\GateOpener.git.production.obj
-__ptext25 1B38 0 CODE 0 text25 dist/default/production\GateOpener.git.production.obj
-__ptext26 13E2 0 CODE 0 text26 dist/default/production\GateOpener.git.production.obj
-__ptext27 13AC 0 CODE 0 text27 dist/default/production\GateOpener.git.production.obj
-__ptext28 12C0 0 CODE 0 text28 dist/default/production\GateOpener.git.production.obj
-__ptext29 12B6 0 CODE 0 text29 dist/default/production\GateOpener.git.production.obj
-__ptext30 1300 0 CODE 0 text30 dist/default/production\GateOpener.git.production.obj
-__ptext31 12E0 0 CODE 0 text31 dist/default/production\GateOpener.git.production.obj
-__ptext32 1314 0 CODE 0 text32 dist/default/production\GateOpener.git.production.obj
-__ptext33 FDA 0 CODE 0 text33 dist/default/production\GateOpener.git.production.obj
-__ptext35 64 0 CODE 0 text35 dist/default/production\GateOpener.git.production.obj
-_EepromWrite 13AC 0 CODE 0 text27 dist/default/production\GateOpener.git.production.obj
-___lwdiv 15BA 0 CODE 0 text16 dist/default/production\GateOpener.git.production.obj
+_EEPROMAdd 1606 0 CODE 0 text20 dist/default/production\GateOpener.git.production.obj
+__ptext10 1272 0 CODE 0 text10 dist/default/production\GateOpener.git.production.obj
+__ptext11 11E2 0 CODE 0 text11 dist/default/production\GateOpener.git.production.obj
+__ptext12 1456 0 CODE 0 text12 dist/default/production\GateOpener.git.production.obj
+__ptext13 13FE 0 CODE 0 text13 dist/default/production\GateOpener.git.production.obj
+__ptext14 1D0C 0 CODE 0 text14 dist/default/production\GateOpener.git.production.obj
+__ptext15 ED6 0 CODE 0 text15 dist/default/production\GateOpener.git.production.obj
+__ptext16 14AE 0 CODE 0 text16 dist/default/production\GateOpener.git.production.obj
+__ptext17 130E 0 CODE 0 text17 dist/default/production\GateOpener.git.production.obj
+__ptext18 1518 0 CODE 0 text18 dist/default/production\GateOpener.git.production.obj
+__ptext19 17C2 0 CODE 0 text19 dist/default/production\GateOpener.git.production.obj
+__ptext20 1606 0 CODE 0 text20 dist/default/production\GateOpener.git.production.obj
+__ptext21 13A8 0 CODE 0 text21 dist/default/production\GateOpener.git.production.obj
+__ptext22 11BC 0 CODE 0 text22 dist/default/production\GateOpener.git.production.obj
+__ptext23 1234 0 CODE 0 text23 dist/default/production\GateOpener.git.production.obj
+__ptext24 11C6 0 CODE 0 text24 dist/default/production\GateOpener.git.production.obj
+__ptext25 1A2C 0 CODE 0 text25 dist/default/production\GateOpener.git.production.obj
+__ptext26 12D6 0 CODE 0 text26 dist/default/production\GateOpener.git.production.obj
+__ptext27 1206 0 CODE 0 text27 dist/default/production\GateOpener.git.production.obj
+__ptext28 1250 0 CODE 0 text28 dist/default/production\GateOpener.git.production.obj
+__ptext29 1C10 0 CODE 0 text29 dist/default/production\GateOpener.git.production.obj
+__ptext30 12A0 0 CODE 0 text30 dist/default/production\GateOpener.git.production.obj
+__ptext31 11B2 0 CODE 0 text31 dist/default/production\GateOpener.git.production.obj
+__ptext32 11A8 0 CODE 0 text32 dist/default/production\GateOpener.git.production.obj
+__ptext33 11F2 0 CODE 0 text33 dist/default/production\GateOpener.git.production.obj
+__ptext34 11D2 0 CODE 0 text34 dist/default/production\GateOpener.git.production.obj
+__ptext36 64 0 CODE 0 text36 dist/default/production\GateOpener.git.production.obj
+_EepromWrite 12A0 0 CODE 0 text30 dist/default/production\GateOpener.git.production.obj
+___lwdiv 14AE 0 CODE 0 text16 dist/default/production\GateOpener.git.production.obj
 __Lbank10 0 0 BANK10 1 bank10 -
 __Lbank11 0 0 BANK11 1 bank11 -
 __Lbank12 0 0 BANK12 1 bank12 -
@@ -1022,31 +1039,32 @@ __Lbank28 0 0 BANK28 1 bank28 -
 __Lbank29 0 0 BANK29 1 bank29 -
 __Lbank30 0 0 BANK30 1 bank30 -
 __Lbank31 0 0 BANK31 1 bank31 -
-__pmaintext 1E18 0 CODE 0 maintext dist/default/production\GateOpener.git.production.obj
+__pmaintext 1E08 0 CODE 0 maintext dist/default/production\GateOpener.git.production.obj
 __Lbigram 0 0 ABS 0 bigram -
 __CFG_BORV$LO 0 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
-_GPIOGreenLedBlink 150A 0 CODE 0 text13 dist/default/production\GateOpener.git.production.obj
+_GPIOGreenLedBlink 13FE 0 CODE 0 text13 dist/default/production\GateOpener.git.production.obj
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 1000E 0 CONFIG 0 config -
 __CFG_CPD$ON 0 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 USARTInit@baud_rate 27 0 BANK0 1 cstackBANK0 dist/default/production\GateOpener.git.production.obj
 __CFG_IESO$ON 0 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 ___wmul@multiplier 27 0 BANK0 1 cstackBANK0 dist/default/production\GateOpener.git.production.obj
-__end_of_USARTWriteChar 1300 0 CODE 0 text11 dist/default/production\GateOpener.git.production.obj
-__end_of_USARTWriteLine 137E 0 CODE 0 text9 dist/default/production\GateOpener.git.production.obj
+__end_of_USARTWriteChar 11F2 0 CODE 0 text11 dist/default/production\GateOpener.git.production.obj
+__end_of_USARTWriteLine 1000 0 CODE 0 text9 dist/default/production\GateOpener.git.production.obj
 _LATAbits 10C 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 _LATBbits 10D 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 _LATCbits 10E 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 _password_empty 5F 0 BANK0 1 bssBANK0 dist/default/production\GateOpener.git.production.obj
 EEPROMCheckPassword@pass 31 0 BANK0 1 cstackBANK0 dist/default/production\GateOpener.git.production.obj
+__end_of_EEPROMUpdateVersion 1D0C 0 CODE 0 text29 dist/default/production\GateOpener.git.production.obj
 ___lwdiv@divisor 27 0 BANK0 1 cstackBANK0 dist/default/production\GateOpener.git.production.obj
 __size_of_EEPROMDeleteNumber 0 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 EEPROMSearchNumber@nmbrLenght 33 0 BANK0 1 cstackBANK0 dist/default/production\GateOpener.git.production.obj
 __size_of_SIM800ReadSms 0 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
-__end_of_GPIOPortInit FFC 0 CODE 0 text33 dist/default/production\GateOpener.git.production.obj
+__end_of_GPIOPortInit 1272 0 CODE 0 text28 dist/default/production\GateOpener.git.production.obj
 EepromRead@data 30 0 BANK0 1 cstackBANK0 dist/default/production\GateOpener.git.production.obj
-stackhi 2063 0 ABS 0 - C:\Users\e882742\AppData\Local\Temp\sffs.obj
-stacklo 2043 0 ABS 0 - C:\Users\e882742\AppData\Local\Temp\sffs.obj
+stackhi 2063 0 ABS 0 - C:\Users\e882742\AppData\Local\Temp\suss.obj
+stacklo 2043 0 ABS 0 - C:\Users\e882742\AppData\Local\Temp\suss.obj
 SIM800LClear@i 2B 0 BANK0 1 cstackBANK0 dist/default/production\GateOpener.git.production.obj
 USARTWriteInt@F3227 53 0 BANK0 1 bssBANK0 dist/default/production\GateOpener.git.production.obj
 __CFG_LVP$OFF 0 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
@@ -1062,8 +1080,8 @@ __HcstackBANK0 0 0 ABS 0 cstackBANK0 -
 _PIR1bits 11 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 __Lend_init 2C 0 CODE 0 end_init -
 __LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
-_SYSTEMInit 1464 0 CODE 0 text2 dist/default/production\GateOpener.git.production.obj
-_EEPROMEraseAll 141A 0 CODE 0 text17 dist/default/production\GateOpener.git.production.obj
+_SYSTEMInit 1358 0 CODE 0 text2 dist/default/production\GateOpener.git.production.obj
+_EEPROMEraseAll 130E 0 CODE 0 text17 dist/default/production\GateOpener.git.production.obj
 end_of_initialization 5C 0 CODE 0 cinit dist/default/production\GateOpener.git.production.obj
 __size_of_SIM800init 0 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 __Hintentry 2C 0 CODE 0 intentry -
@@ -1071,25 +1089,25 @@ SIM800Command@add 4F 0 BANK0 1 cstackBANK0 dist/default/production\GateOpener.gi
 __CFG_STVREN$ON 0 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 EEPROMUpdatePassword@pass 2B 0 BANK0 1 cstackBANK0 dist/default/production\GateOpener.git.production.obj
 __Lstrings 0 0 ABS 0 strings -
-__end_of_SIM800ReadSms 18CE 0 CODE 0 text4 dist/default/production\GateOpener.git.production.obj
+__end_of_SIM800ReadSms 17C2 0 CODE 0 text4 dist/default/production\GateOpener.git.production.obj
 ___lwdiv@dividend 29 0 BANK0 1 cstackBANK0 dist/default/production\GateOpener.git.production.obj
 ?___lwdiv 27 0 BANK0 1 cstackBANK0 dist/default/production\GateOpener.git.production.obj
 __Hreset_vec 4 0 CODE 0 reset_vec -
 __size_of_EEPROMCheckPassword 0 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
-_I2CRestart 12CA 0 CODE 0 text22 dist/default/production\GateOpener.git.production.obj
+_I2CRestart 11BC 0 CODE 0 text22 dist/default/production\GateOpener.git.production.obj
 __HbssBANK0 0 0 ABS 0 bssBANK0 -
 USARTHandleRxInt@end 21 0 BANK0 1 cstackBANK0 dist/default/production\GateOpener.git.production.obj
-__end_of_USARTWriteString 13AC 0 CODE 0 text10 dist/default/production\GateOpener.git.production.obj
-_SIM800SendSms 1976 0 CODE 0 text8 dist/default/production\GateOpener.git.production.obj
-__ptext1 17A4 0 CODE 0 text1 dist/default/production\GateOpener.git.production.obj
-__ptext2 1464 0 CODE 0 text2 dist/default/production\GateOpener.git.production.obj
-__ptext3 1C22 0 CODE 0 text3 dist/default/production\GateOpener.git.production.obj
-__ptext4 1838 0 CODE 0 text4 dist/default/production\GateOpener.git.production.obj
-__ptext5 1A50 0 CODE 0 text5 dist/default/production\GateOpener.git.production.obj
-__ptext6 1692 0 CODE 0 text6 dist/default/production\GateOpener.git.production.obj
+__end_of_USARTWriteString 12A0 0 CODE 0 text10 dist/default/production\GateOpener.git.production.obj
+_SIM800SendSms 186A 0 CODE 0 text8 dist/default/production\GateOpener.git.production.obj
+__ptext1 1698 0 CODE 0 text1 dist/default/production\GateOpener.git.production.obj
+__ptext2 1358 0 CODE 0 text2 dist/default/production\GateOpener.git.production.obj
+__ptext3 1B16 0 CODE 0 text3 dist/default/production\GateOpener.git.production.obj
+__ptext4 172C 0 CODE 0 text4 dist/default/production\GateOpener.git.production.obj
+__ptext5 1944 0 CODE 0 text5 dist/default/production\GateOpener.git.production.obj
+__ptext6 1586 0 CODE 0 text6 dist/default/production\GateOpener.git.production.obj
 __ptext7 6CC 0 CODE 0 text7 dist/default/production\GateOpener.git.production.obj
-__ptext8 1976 0 CODE 0 text8 dist/default/production\GateOpener.git.production.obj
-__ptext9 135E 0 CODE 0 text9 dist/default/production\GateOpener.git.production.obj
+__ptext8 186A 0 CODE 0 text8 dist/default/production\GateOpener.git.production.obj
+__ptext9 FE0 0 CODE 0 text9 dist/default/production\GateOpener.git.production.obj
 _password 58 0 BANK0 1 bssBANK0 dist/default/production\GateOpener.git.production.obj
 __size_of_USARTWriteString 0 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 __Lpowerup 0 0 CODE 0 powerup -
@@ -1103,32 +1121,32 @@ EEPROMSaveNumber@address 39 0 BANK0 1 cstackBANK0 dist/default/production\GateOp
 __CFG_CLKOUTEN$OFF 0 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 __CFG_WDTE$ON 0 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 __end_of__initialization 5C 0 CODE 0 cinit dist/default/production\GateOpener.git.production.obj
-__end_of_EEPROMEraseAll 1464 0 CODE 0 text17 dist/default/production\GateOpener.git.production.obj
+__end_of_EEPROMEraseAll 1358 0 CODE 0 text17 dist/default/production\GateOpener.git.production.obj
 __Lfunctab 0 0 CODE 0 functab -
 SIM800SendSms@msg 2F 0 BANK0 1 cstackBANK0 dist/default/production\GateOpener.git.production.obj
 GPIOGreenLedBlink@times 2A 0 BANK0 1 cstackBANK0 dist/default/production\GateOpener.git.production.obj
-__end_of_SYSTEMInit 14B4 0 CODE 0 text2 dist/default/production\GateOpener.git.production.obj
-_EEPROMCheckPassword 18CE 0 CODE 0 text19 dist/default/production\GateOpener.git.production.obj
+__end_of_SYSTEMInit 13A8 0 CODE 0 text2 dist/default/production\GateOpener.git.production.obj
+_EEPROMCheckPassword 17C2 0 CODE 0 text19 dist/default/production\GateOpener.git.production.obj
 __Lclrtext 0 0 ABS 0 clrtext -
 USARTHandleRxInt@ci 23 0 BANK0 1 cstackBANK0 dist/default/production\GateOpener.git.production.obj
 __CFG_PWRTE$ON 0 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 USARTWriteLine@str 2B 0 BANK0 1 cstackBANK0 dist/default/production\GateOpener.git.production.obj
-_EEPROMSaveNumber 1B38 0 CODE 0 text25 dist/default/production\GateOpener.git.production.obj
+_EEPROMSaveNumber 1A2C 0 CODE 0 text25 dist/default/production\GateOpener.git.production.obj
 EEPROMSaveNumber@count 37 0 BANK0 1 cstackBANK0 dist/default/production\GateOpener.git.production.obj
 __pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production\GateOpener.git.production.obj
 _TXSTAbits 19E 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
-__end_of_I2CRestart 12D4 0 CODE 0 text22 dist/default/production\GateOpener.git.production.obj
+__end_of_I2CRestart 11C6 0 CODE 0 text22 dist/default/production\GateOpener.git.production.obj
 _SSPCON2 216 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 _SSPSTAT 214 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 __Hend_init 30 0 CODE 0 end_init -
 __end_of_main 2000 0 CODE 0 maintext dist/default/production\GateOpener.git.production.obj
 __size_of_EEPROMUpdatePassword 0 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
-__end_of_SIM800DeleteSms 1712 0 CODE 0 text6 dist/default/production\GateOpener.git.production.obj
+__end_of_SIM800DeleteSms 1606 0 CODE 0 text6 dist/default/production\GateOpener.git.production.obj
 EEPROMSearchNumber@aux 3E 0 BANK0 1 cstackBANK0 dist/default/production\GateOpener.git.production.obj
 _ACKDT 10B5 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 _ACKEN 10B4 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 _RCREG 199 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
-_SIM800LClear 1A50 0 CODE 0 text5 dist/default/production\GateOpener.git.production.obj
+_SIM800LClear 1944 0 CODE 0 text5 dist/default/production\GateOpener.git.production.obj
 _SPBRG 19B 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 _TXREG 19A 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 __Hram 0 0 ABS 0 ram -
@@ -1137,8 +1155,8 @@ __pintentry 8 0 CODE 0 intentry dist/default/production\GateOpener.git.productio
 EepromWrite@address 28 0 BANK0 1 cstackBANK0 dist/default/production\GateOpener.git.production.obj
 __size_of_ISR 0 0 ABS 0 - dist/default/production\GateOpener.git.production.obj
 EEPROMAdd@nmbrLenght 3D 0 BANK0 1 cstackBANK0 dist/default/production\GateOpener.git.production.obj
-__end_of_GPIORedLedBlink 15BA 0 CODE 0 text12 dist/default/production\GateOpener.git.production.obj
-__end_of_EEPROMUpdatePassword 1E18 0 CODE 0 text14 dist/default/production\GateOpener.git.production.obj
+__end_of_GPIORedLedBlink 14AE 0 CODE 0 text12 dist/default/production\GateOpener.git.production.obj
+__end_of_EEPROMUpdatePassword 1E08 0 CODE 0 text14 dist/default/production\GateOpener.git.production.obj
 __initialization 30 0 CODE 0 cinit dist/default/production\GateOpener.git.production.obj
 __pbssBANK0 53 0 BANK0 1 bssBANK0 dist/default/production\GateOpener.git.production.obj
 __Hstringtext 0 0 ABS 0 stringtext -
@@ -1180,42 +1198,43 @@ _SIM800L 1 2064 0
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-text1 0 BD2 17A4 4A 2
-text2 0 A32 1464 28 2
-text3 0 E11 1C22 7D 2
-text4 0 C1C 1838 4B 2
-text5 0 D28 1A50 74 2
-text6 0 B49 1692 40 2
-text8 0 CBB 1976 6D 2
-text9 0 9AF 135E 10 2
-text10 0 9BF 137E 17 2
-text11 0 978 12F0 8 2
-text12 0 AB1 1562 2C 2
-text13 0 A85 150A 2C 2
-text14 0 E8E 1D1C 7E 2
-text15 0 768 ED0 96 2
-text16 0 ADD 15BA 35 2
-text17 0 A0D 141A 25 2
-text18 0 B12 1624 37 2
-text19 0 C67 18CE 54 2
-text20 0 B89 1712 49 2
-text21 0 A5A 14B4 2B 2
-text22 0 965 12CA 5 2
-text23 0 9A1 1342 E 2
-text24 0 96A 12D4 6 2
-text25 0 D9C 1B38 75 2
-text26 0 9F1 13E2 1C 2
-text27 0 9D6 13AC 1B 2
-text28 0 960 12C0 5 2
-text29 0 95B 12B6 5 2
-text30 0 980 1300 A 2
-text31 0 970 12E0 8 2
-text32 0 98A 1314 B 2
-maintext 0 F0C 1E18 F4 2
+text1 0 B4C 1698 4A 2
+text2 0 9AC 1358 28 2
+text3 0 D8B 1B16 7D 2
+text4 0 B96 172C 4B 2
+text5 0 CA2 1944 74 2
+text6 0 AC3 1586 40 2
+text8 0 C35 186A 6D 2
+text10 0 939 1272 17 2
+text11 0 8F1 11E2 8 2
+text12 0 A2B 1456 2C 2
+text13 0 9FF 13FE 2C 2
+text14 0 E86 1D0C 7E 2
+text15 0 76B ED6 95 2
+text16 0 A57 14AE 35 2
+text17 0 987 130E 25 2
+text18 0 A8C 1518 37 2
+text19 0 BE1 17C2 54 2
+text20 0 B03 1606 49 2
+text21 0 9D4 13A8 2B 2
+text22 0 8DE 11BC 5 2
+text23 0 91A 1234 E 2
+text24 0 8E3 11C6 6 2
+text25 0 D16 1A2C 75 2
+text26 0 96B 12D6 1C 2
+text27 0 903 1206 B 2
+text28 0 928 1250 11 2
+text29 0 E08 1C10 7E 2
+text30 0 950 12A0 1B 2
+text31 0 8D9 11B2 5 2
+text32 0 8D4 11A8 5 2
+text33 0 8F9 11F2 A 2
+text34 0 8E9 11D2 8 2
+maintext 0 F04 1E08 FC 2
 cstackCOMMON 1 70 70 D 1
 cstackBANK0 1 20 20 43 1
 intentry 0 4 8 634 2
 reset_vec 0 0 0 2 2
-stringtext 0 638 C70 130 2
-clrtext 0 995 132A C 2
+stringtext 0 638 C70 133 2
+clrtext 0 90E 121C C 2
 config 0 8007 1000E 2 2

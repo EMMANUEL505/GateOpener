@@ -36,6 +36,8 @@
 "243
 [v _EEPROMUpdatePassword EEPROMUpdatePassword `(v  1 e 1 0 ]
 "255
+[v _EEPROMUpdateVersion EEPROMUpdateVersion `(v  1 e 1 0 ]
+"267
 [v _EEPROMCheckPassword EEPROMCheckPassword `(uc  1 e 1 0 ]
 "5 C:\Users\e882742\Desktop\GateOpener.git\gpio.c
 [v _GPIOPortInit GPIOPortInit `(v  1 e 1 0 ]
@@ -98,7 +100,7 @@
 "477 C:\Program Files (x86)\Microchip\xc8\v1.38\include\pic16f1828.h
 [u S67 . 1 `S61 1 . 1 0 ]
 [v _PORTBbits PORTBbits `VES67  1 e 1 @13 ]
-[s S505 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[s S507 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
 `uc 1 SSP1IF 1 0 :1:3 
@@ -108,9 +110,9 @@
 `uc 1 TMR1GIF 1 0 :1:7 
 ]
 "579
-[u S514 . 1 `S505 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES514  1 e 1 @17 ]
-[s S375 . 1 `uc 1 SWDTEN 1 0 :1:0 
+[u S516 . 1 `S507 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES516  1 e 1 @17 ]
+[s S377 . 1 `uc 1 SWDTEN 1 0 :1:0 
 `uc 1 WDTPS0 1 0 :1:1 
 `uc 1 WDTPS1 1 0 :1:2 
 `uc 1 WDTPS2 1 0 :1:3 
@@ -118,14 +120,14 @@
 `uc 1 WDTPS4 1 0 :1:5 
 ]
 "1583
-[s S382 . 1 `uc 1 . 1 0 :1:0 
+[s S384 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 WDTPS 1 0 :5:1 
 ]
-[u S385 . 1 `S375 1 . 1 0 `S382 1 . 1 0 ]
-[v _WDTCONbits WDTCONbits `VES385  1 e 1 @151 ]
+[u S387 . 1 `S377 1 . 1 0 `S384 1 . 1 0 ]
+[v _WDTCONbits WDTCONbits `VES387  1 e 1 @151 ]
 "1679
 [v _OSCCON OSCCON `VEuc  1 e 1 @153 ]
-[s S285 . 1 `uc 1 LATA0 1 0 :1:0 
+[s S287 . 1 `uc 1 LATA0 1 0 :1:0 
 `uc 1 LATA1 1 0 :1:1 
 `uc 1 LATA2 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -133,8 +135,8 @@
 `uc 1 LATA5 1 0 :1:5 
 ]
 "2020
-[u S292 . 1 `S285 1 . 1 0 ]
-[v _LATAbits LATAbits `VES292  1 e 1 @268 ]
+[u S294 . 1 `S287 1 . 1 0 ]
+[v _LATAbits LATAbits `VES294  1 e 1 @268 ]
 [s S19 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 LATB4 1 0 :1:4 
 `uc 1 LATB5 1 0 :1:5 
@@ -156,15 +158,15 @@
 "2104
 [u S43 . 1 `S34 1 . 1 0 ]
 [v _LATCbits LATCbits `VES43  1 e 1 @270 ]
-[s S424 . 1 `uc 1 . 1 0 :2:0 
+[s S426 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 TXCKSEL 1 0 :1:2 
 `uc 1 T1GSEL 1 0 :1:3 
 `uc 1 . 1 0 :3:4 
 `uc 1 RXDTSEL 1 0 :1:7 
 ]
 "2772
-[u S430 . 1 `S424 1 . 1 0 ]
-[v _APFCON0bits APFCON0bits `VES430  1 e 1 @285 ]
+[u S432 . 1 `S426 1 . 1 0 ]
+[v _APFCON0bits APFCON0bits `VES432  1 e 1 @285 ]
 "2874
 [v _ANSELB ANSELB `VEuc  1 e 1 @397 ]
 "3153
@@ -173,7 +175,7 @@
 [v _TXREG TXREG `VEuc  1 e 1 @410 ]
 "3202
 [v _SPBRG SPBRG `VEuc  1 e 1 @411 ]
-[s S481 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S483 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -183,9 +185,9 @@
 `uc 1 SPEN 1 0 :1:7 
 ]
 "3304
-[u S490 . 1 `S481 1 . 1 0 ]
-[v _RCSTAbits RCSTAbits `VES490  1 e 1 @413 ]
-[s S460 . 1 `uc 1 TX9D 1 0 :1:0 
+[u S492 . 1 `S483 1 . 1 0 ]
+[v _RCSTAbits RCSTAbits `VES492  1 e 1 @413 ]
+[s S462 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -195,9 +197,9 @@
 `uc 1 CSRC 1 0 :1:7 
 ]
 "3365
-[u S469 . 1 `S460 1 . 1 0 ]
-[v _TXSTAbits TXSTAbits `VES469  1 e 1 @414 ]
-[s S439 . 1 `uc 1 ABDEN 1 0 :1:0 
+[u S471 . 1 `S462 1 . 1 0 ]
+[v _TXSTAbits TXSTAbits `VES471  1 e 1 @414 ]
+[s S441 . 1 `uc 1 ABDEN 1 0 :1:0 
 `uc 1 WUE 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 BRG16 1 0 :1:3 
@@ -207,8 +209,8 @@
 `uc 1 ABDOVF 1 0 :1:7 
 ]
 "3426
-[u S448 . 1 `S439 1 . 1 0 ]
-[v _BAUDCONbits BAUDCONbits `VES448  1 e 1 @415 ]
+[u S450 . 1 `S441 1 . 1 0 ]
+[v _BAUDCONbits BAUDCONbits `VES450  1 e 1 @415 ]
 "3638
 [v _SSPBUF SSPBUF `VEuc  1 e 1 @529 ]
 "3675
@@ -274,15 +276,15 @@
 [v _password password `[4]uc  1 e 4 0 ]
 "67
 [v _password_empty password_empty `[4]uc  1 e 4 0 ]
-[s S244 . 140 `uc 1 busy 1 0 `uc 1 uncomplete 1 1 `uc 1 ok 1 2 `uc 1 resp 1 3 `[15]uc 1 cell 15 4 `[15]uc 1 sender_cell 15 19 `uc 1 cell_lenght 1 34 `uc 1 unreadsms 1 35 `[5]uc 1 smsmem 5 36 `[64]uc 1 buffer 64 41 `[25]uc 1 command 25 105 `[5]uc 1 csq 5 130 `[5]uc 1 password 5 135 ]
+[s S246 . 140 `uc 1 busy 1 0 `uc 1 uncomplete 1 1 `uc 1 ok 1 2 `uc 1 resp 1 3 `[15]uc 1 cell 15 4 `[15]uc 1 sender_cell 15 19 `uc 1 cell_lenght 1 34 `uc 1 unreadsms 1 35 `[5]uc 1 smsmem 5 36 `[64]uc 1 buffer 64 41 `[25]uc 1 command 25 105 `[5]uc 1 csq 5 130 `[5]uc 1 password 5 135 ]
 "62 C:\Users\e882742\Desktop\GateOpener.git\sim800l.h
-[v _SIM800L SIM800L `S244  1 e 140 @8292 ]
+[v _SIM800L SIM800L `S246  1 e 140 @8292 ]
 "63
 [v _bufque bufque `uc  1 e 1 0 ]
 "14 C:\Users\e882742\Desktop\GateOpener.git\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"90
+"91
 } 0
 "6 C:\Users\e882742\Desktop\GateOpener.git\usart.c
 [v _USARTInit USARTInit `(v  1 e 1 0 ]
@@ -433,11 +435,11 @@
 [v EEPROMDeleteNumber@position position `ui  1 p 2 13 ]
 "173
 } 0
-"255
+"267
 [v _EEPROMCheckPassword EEPROMCheckPassword `(uc  1 e 1 0 ]
 {
 [v EEPROMCheckPassword@pass pass `*.39DCCuc  1 p 2 17 ]
-"269
+"281
 } 0
 "226
 [v _EEPROMAdd EEPROMAdd `(uc  1 e 1 0 ]
@@ -502,7 +504,23 @@
 [v ___wmul@multiplicand multiplicand `ui  1 p 2 9 ]
 "53
 } 0
-"84 C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+"9 C:\Users\e882742\Desktop\GateOpener.git\I2C.c
+[v _I2CInit I2CInit `(v  1 e 1 0 ]
+{
+"17
+} 0
+"5 C:\Users\e882742\Desktop\GateOpener.git\gpio.c
+[v _GPIOPortInit GPIOPortInit `(v  1 e 1 0 ]
+{
+"25
+} 0
+"255 C:\Users\e882742\Desktop\GateOpener.git\eeprom.c
+[v _EEPROMUpdateVersion EEPROMUpdateVersion `(v  1 e 1 0 ]
+{
+[v EEPROMUpdateVersion@ver ver `*.25DCCuc  1 p 2 11 ]
+"265
+} 0
+"84
 [v _EepromWrite EepromWrite `(v  1 e 1 0 ]
 {
 [v EepromWrite@address address `ui  1 p 2 8 ]
@@ -533,16 +551,6 @@
 {
 "93
 } 0
-"9
-[v _I2CInit I2CInit `(v  1 e 1 0 ]
-{
-"17
-} 0
-"5 C:\Users\e882742\Desktop\GateOpener.git\gpio.c
-[v _GPIOPortInit GPIOPortInit `(v  1 e 1 0 ]
-{
-"25
-} 0
 "6 C:\Users\e882742\Desktop\GateOpener.git\isr.c
 [v _ISR ISR `II(v  1 e 1 0 ]
 {
@@ -552,14 +560,14 @@
 [v _USARTHandleRxInt USARTHandleRxInt `(v  1 e 1 0 ]
 {
 "140
-[v USARTHandleRxInt@ci_598 ci `uc  1 a 1 6 ]
+[v USARTHandleRxInt@ci_600 ci `uc  1 a 1 6 ]
 [v USARTHandleRxInt@end end `uc  1 a 1 1 ]
 "130
-[v USARTHandleRxInt@ci_597 ci `uc  1 a 1 2 ]
+[v USARTHandleRxInt@ci_599 ci `uc  1 a 1 2 ]
 "120
-[v USARTHandleRxInt@ci_596 ci `uc  1 a 1 5 ]
+[v USARTHandleRxInt@ci_598 ci `uc  1 a 1 5 ]
 "108
-[v USARTHandleRxInt@ci_595 ci `uc  1 a 1 4 ]
+[v USARTHandleRxInt@ci_597 ci `uc  1 a 1 4 ]
 "96
 [v USARTHandleRxInt@ci ci `uc  1 a 1 3 ]
 "78

@@ -3079,21 +3079,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;usart.h: 26: void USARTWriteInt(int16_t val, int8_t field_length);
 [; ;usart.h: 27: void USARTHandleRxInt();
 [; ;usart.h: 28: void USARTGotoNewLine();
-[; ;eeprom.h: 47: void EepromStart();
-[; ;eeprom.h: 48: void EepromEnd();
-[; ;eeprom.h: 49: void EepromSend(uint8_t b);
-[; ;eeprom.h: 50: uint8_t EepromReceive();
-[; ;eeprom.h: 51: uint8_t EepromRead(uint16_t address);
-[; ;eeprom.h: 52: void EepromOpCode(uint8_t opcode, uint16_t address);
-[; ;eeprom.h: 53: void EepromWrite(uint16_t address, uint8_t data);
-[; ;eeprom.h: 54: uint8_t EEPROMSaveNumber(const char *nmbr, uint8_t nmbrLenght, uint16_t position);
-[; ;eeprom.h: 55: uint8_t EEPROMDeleteNumber(uint16_t position);
-[; ;eeprom.h: 56: uint16_t EEPROMSearchNumber(const char *nmbr, uint8_t nmbrLenght);
-[; ;eeprom.h: 57: void EEPROMEraseAll(void);
-[; ;eeprom.h: 58: uint8_t EEPROMAdd(const char *nmbr, uint8_t nmbrLenght);
-[; ;eeprom.h: 59: void EEPROMUpdatePassword(const char *pass);
-[; ;eeprom.h: 60: uint8_t EEPROMCheckPassword(const char *pass);
-[; ;eeprom.h: 61: void EEPROMPrint();
+[; ;eeprom.h: 52: void EepromStart();
+[; ;eeprom.h: 53: void EepromEnd();
+[; ;eeprom.h: 54: void EepromSend(uint8_t b);
+[; ;eeprom.h: 55: uint8_t EepromReceive();
+[; ;eeprom.h: 56: uint8_t EepromRead(uint16_t address);
+[; ;eeprom.h: 57: void EepromOpCode(uint8_t opcode, uint16_t address);
+[; ;eeprom.h: 58: void EepromWrite(uint16_t address, uint8_t data);
+[; ;eeprom.h: 59: uint8_t EEPROMSaveNumber(const char *nmbr, uint8_t nmbrLenght, uint16_t position);
+[; ;eeprom.h: 60: uint8_t EEPROMDeleteNumber(uint16_t position);
+[; ;eeprom.h: 61: uint16_t EEPROMSearchNumber(const char *nmbr, uint8_t nmbrLenght);
+[; ;eeprom.h: 62: void EEPROMEraseAll(void);
+[; ;eeprom.h: 63: uint8_t EEPROMAdd(const char *nmbr, uint8_t nmbrLenght);
+[; ;eeprom.h: 64: void EEPROMUpdatePassword(const char *pass);
+[; ;eeprom.h: 65: void EEPROMUpdateVersion(const char *ver);
+[; ;eeprom.h: 66: uint8_t EEPROMCheckPassword(const char *pass);
+[; ;eeprom.h: 67: void EEPROMPrint();
 [; ;I2C.h: 24: void I2CInit();
 [; ;I2C.h: 25: void I2CStart();
 [; ;I2C.h: 26: void I2CStop();
@@ -3863,122 +3864,161 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 413 ]
 }
 "255
-[v _EEPROMCheckPassword `(uc ~T0 @X0 1 ef1`*Cuc ]
+[v _EEPROMUpdateVersion `(v ~T0 @X0 1 ef1`*Cuc ]
 "256
 {
-[; ;eeprom.c: 255: uint8_t EEPROMCheckPassword(const char *pass)
+[; ;eeprom.c: 255: void EEPROMUpdateVersion(const char *ver)
 [; ;eeprom.c: 256: {
-[e :U _EEPROMCheckPassword ]
+[e :U _EEPROMUpdateVersion ]
 "255
-[v _pass `*Cuc ~T0 @X0 1 r1 ]
+[v _ver `*Cuc ~T0 @X0 1 r1 ]
 "256
 [f ]
-[; ;eeprom.c: 257: password[0]=EepromRead(7900);
+[; ;eeprom.c: 257: EepromWrite(7904,*(ver));
 "257
-[e = *U + &U _password * -> -> -> 0 `i `ui `ux -> -> # *U &U _password `ui `ux ( _EepromRead (1 -> -> 7900 `i `ui ]
-[; ;eeprom.c: 258: password[1]=EepromRead(7901);
+[e ( _EepromWrite (2 , -> -> 7904 `i `ui *U _ver ]
+[; ;eeprom.c: 258: _delay((unsigned long)((5)*(32000000/4000.0)));
 "258
-[e = *U + &U _password * -> -> -> 1 `i `ui `ux -> -> # *U &U _password `ui `ux ( _EepromRead (1 -> -> 7901 `i `ui ]
-[; ;eeprom.c: 259: password[2]=EepromRead(7902);
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
+[; ;eeprom.c: 259: EepromWrite(7905,*(ver+1));
 "259
-[e = *U + &U _password * -> -> -> 2 `i `ui `ux -> -> # *U &U _password `ui `ux ( _EepromRead (1 -> -> 7902 `i `ui ]
-[; ;eeprom.c: 260: password[3]=EepromRead(7903);
+[e ( _EepromWrite (2 , -> -> 7905 `i `ui *U + _ver * -> -> 1 `i `x -> -> # *U _ver `i `x ]
+[; ;eeprom.c: 260: _delay((unsigned long)((5)*(32000000/4000.0)));
 "260
-[e = *U + &U _password * -> -> -> 3 `i `ui `ux -> -> # *U &U _password `ui `ux ( _EepromRead (1 -> -> 7903 `i `ui ]
-[; ;eeprom.c: 261: if(*(pass)==password[0] && *(pass+1)==password[1] && *(pass+2)==password[2] && *(pass+3)==password[3])
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
+[; ;eeprom.c: 261: EepromWrite(7906,*(ver+2));
 "261
-[e $ ! && && && == -> *U _pass `i -> *U + &U _password * -> -> -> 0 `i `ui `ux -> -> # *U &U _password `ui `ux `i == -> *U + _pass * -> -> 1 `i `x -> -> # *U _pass `i `x `i -> *U + &U _password * -> -> -> 1 `i `ui `ux -> -> # *U &U _password `ui `ux `i == -> *U + _pass * -> -> 2 `i `x -> -> # *U _pass `i `x `i -> *U + &U _password * -> -> -> 2 `i `ui `ux -> -> # *U &U _password `ui `ux `i == -> *U + _pass * -> -> 3 `i `x -> -> # *U _pass `i `x `i -> *U + &U _password * -> -> -> 3 `i `ui `ux -> -> # *U &U _password `ui `ux `i 415  ]
-[; ;eeprom.c: 262: {
+[e ( _EepromWrite (2 , -> -> 7906 `i `ui *U + _ver * -> -> 2 `i `x -> -> # *U _ver `i `x ]
+[; ;eeprom.c: 262: _delay((unsigned long)((5)*(32000000/4000.0)));
 "262
-{
-[; ;eeprom.c: 263: return 1;
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
+[; ;eeprom.c: 263: EepromWrite(7907,*(ver+3));
 "263
-[e ) -> -> 1 `i `uc ]
-[e $UE 414  ]
+[e ( _EepromWrite (2 , -> -> 7907 `i `ui *U + _ver * -> -> 3 `i `x -> -> # *U _ver `i `x ]
+[; ;eeprom.c: 264: _delay((unsigned long)((5)*(32000000/4000.0)));
 "264
-}
-[; ;eeprom.c: 264: }
-[e $U 416  ]
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
+[; ;eeprom.c: 265: }
 "265
-[e :U 415 ]
-[; ;eeprom.c: 265: else
-[; ;eeprom.c: 266: {
-"266
-{
-[; ;eeprom.c: 267: return 0;
-"267
-[e ) -> -> 0 `i `uc ]
-[e $UE 414  ]
-"268
-}
-[e :U 416 ]
-[; ;eeprom.c: 268: }
-[; ;eeprom.c: 269: }
-"269
 [e :UE 414 ]
 }
-"271
-[v _EEPROMPrint `(v ~T0 @X0 1 ef ]
-"272
+"267
+[v _EEPROMCheckPassword `(uc ~T0 @X0 1 ef1`*Cuc ]
+"268
 {
-[; ;eeprom.c: 271: void EEPROMPrint()
-[; ;eeprom.c: 272: {
+[; ;eeprom.c: 267: uint8_t EEPROMCheckPassword(const char *pass)
+[; ;eeprom.c: 268: {
+[e :U _EEPROMCheckPassword ]
+"267
+[v _pass `*Cuc ~T0 @X0 1 r1 ]
+"268
+[f ]
+[; ;eeprom.c: 269: password[0]=EepromRead(7900);
+"269
+[e = *U + &U _password * -> -> -> 0 `i `ui `ux -> -> # *U &U _password `ui `ux ( _EepromRead (1 -> -> 7900 `i `ui ]
+[; ;eeprom.c: 270: password[1]=EepromRead(7901);
+"270
+[e = *U + &U _password * -> -> -> 1 `i `ui `ux -> -> # *U &U _password `ui `ux ( _EepromRead (1 -> -> 7901 `i `ui ]
+[; ;eeprom.c: 271: password[2]=EepromRead(7902);
+"271
+[e = *U + &U _password * -> -> -> 2 `i `ui `ux -> -> # *U &U _password `ui `ux ( _EepromRead (1 -> -> 7902 `i `ui ]
+[; ;eeprom.c: 272: password[3]=EepromRead(7903);
+"272
+[e = *U + &U _password * -> -> -> 3 `i `ui `ux -> -> # *U &U _password `ui `ux ( _EepromRead (1 -> -> 7903 `i `ui ]
+[; ;eeprom.c: 273: if(*(pass)==password[0] && *(pass+1)==password[1] && *(pass+2)==password[2] && *(pass+3)==password[3])
+"273
+[e $ ! && && && == -> *U _pass `i -> *U + &U _password * -> -> -> 0 `i `ui `ux -> -> # *U &U _password `ui `ux `i == -> *U + _pass * -> -> 1 `i `x -> -> # *U _pass `i `x `i -> *U + &U _password * -> -> -> 1 `i `ui `ux -> -> # *U &U _password `ui `ux `i == -> *U + _pass * -> -> 2 `i `x -> -> # *U _pass `i `x `i -> *U + &U _password * -> -> -> 2 `i `ui `ux -> -> # *U &U _password `ui `ux `i == -> *U + _pass * -> -> 3 `i `x -> -> # *U _pass `i `x `i -> *U + &U _password * -> -> -> 3 `i `ui `ux -> -> # *U &U _password `ui `ux `i 416  ]
+[; ;eeprom.c: 274: {
+"274
+{
+[; ;eeprom.c: 275: return 1;
+"275
+[e ) -> -> 1 `i `uc ]
+[e $UE 415  ]
+"276
+}
+[; ;eeprom.c: 276: }
+[e $U 417  ]
+"277
+[e :U 416 ]
+[; ;eeprom.c: 277: else
+[; ;eeprom.c: 278: {
+"278
+{
+[; ;eeprom.c: 279: return 0;
+"279
+[e ) -> -> 0 `i `uc ]
+[e $UE 415  ]
+"280
+}
+[e :U 417 ]
+[; ;eeprom.c: 280: }
+[; ;eeprom.c: 281: }
+"281
+[e :UE 415 ]
+}
+"283
+[v _EEPROMPrint `(v ~T0 @X0 1 ef ]
+"284
+{
+[; ;eeprom.c: 283: void EEPROMPrint()
+[; ;eeprom.c: 284: {
 [e :U _EEPROMPrint ]
 [f ]
-"273
+"285
 [v _x `ui ~T0 @X0 1 a ]
 [v _y `ui ~T0 @X0 1 a ]
-[; ;eeprom.c: 273: uint16_t x,y;
-[; ;eeprom.c: 274: for(x=0;x<1000;x++)
-"274
+[; ;eeprom.c: 285: uint16_t x,y;
+[; ;eeprom.c: 286: for(x=0;x<1000;x++)
+"286
 {
 [e = _x -> -> 0 `i `ui ]
-[e $ < _x -> -> 1000 `i `ui 418  ]
-[e $U 419  ]
-"275
-[e :U 418 ]
-[; ;eeprom.c: 275: {
+[e $ < _x -> -> 1000 `i `ui 419  ]
+[e $U 420  ]
+"287
+[e :U 419 ]
+[; ;eeprom.c: 287: {
 {
-[; ;eeprom.c: 276: USARTWriteInt(x,3);
-"276
+[; ;eeprom.c: 288: USARTWriteInt(x,3);
+"288
 [e ( _USARTWriteInt (2 , -> _x `i -> -> 3 `i `c ]
-[; ;eeprom.c: 277: USARTWriteLine("->");
-"277
+[; ;eeprom.c: 289: USARTWriteLine("->");
+"289
 [e ( _USARTWriteLine (1 :s 1C ]
-[; ;eeprom.c: 278: for(y=0;y<10;y++)
-"278
+[; ;eeprom.c: 290: for(y=0;y<10;y++)
+"290
 {
 [e = _y -> -> 0 `i `ui ]
-[e $ < _y -> -> 10 `i `ui 421  ]
-[e $U 422  ]
-"279
-[e :U 421 ]
-[; ;eeprom.c: 279: {
-{
-[; ;eeprom.c: 280: USARTWriteChar(EepromRead((x*10)+y));
-"280
-[e ( _USARTWriteChar (1 ( _EepromRead (1 + * _x -> -> 10 `i `ui _y ]
-"281
-}
-"278
-[e ++ _y -> -> 1 `i `ui ]
-[e $ < _y -> -> 10 `i `ui 421  ]
+[e $ < _y -> -> 10 `i `ui 422  ]
+[e $U 423  ]
+"291
 [e :U 422 ]
-"281
+[; ;eeprom.c: 291: {
+{
+[; ;eeprom.c: 292: USARTWriteChar(EepromRead((x*10)+y));
+"292
+[e ( _USARTWriteChar (1 ( _EepromRead (1 + * _x -> -> 10 `i `ui _y ]
+"293
 }
-"282
+"290
+[e ++ _y -> -> 1 `i `ui ]
+[e $ < _y -> -> 10 `i `ui 422  ]
+[e :U 423 ]
+"293
 }
-"274
+"294
+}
+"286
 [e ++ _x -> -> 1 `i `ui ]
-[e $ < _x -> -> 1000 `i `ui 418  ]
-[e :U 419 ]
-"282
+[e $ < _x -> -> 1000 `i `ui 419  ]
+[e :U 420 ]
+"294
 }
-[; ;eeprom.c: 281: }
-[; ;eeprom.c: 282: }
-[; ;eeprom.c: 284: }
-"284
-[e :UE 417 ]
+[; ;eeprom.c: 293: }
+[; ;eeprom.c: 294: }
+[; ;eeprom.c: 296: }
+"296
+[e :UE 418 ]
 }
 [a 1C 45 62 0 ]
 
