@@ -4359,18 +4359,19 @@ uint16_t aux=0;
 uint16_t count=0, result=0;
 
 aux=10-1;
-if(nmbrLenght>10) nmbrLenght=10;
 
-while(!result && aux<((250*10)-10))
+
+while(!result && aux<((450*10)-10))
 {
 count=0;
 do{
-if(EepromRead(aux-count)==*(nmbr+10-(count+1)))
+
+if(EepromRead(aux-count)==*(nmbr+nmbrLenght-(count+1)))
 {result=1;}
 else
 {result=0;}
 count++;
-}while(result && count<nmbrLenght);
+}while(result && count<nmbrLenght && count<10);
 aux=aux+10;
 }
 if(result==1)
@@ -4383,7 +4384,7 @@ else return 0;
 void EEPROMEraseAll(void)
 {
 
-# 214
+# 215
 uint16_t i;
 for(i=0;i<800;i++)
 {
@@ -4407,7 +4408,7 @@ if(aux<'0' || aux>'9')
 found=1;
 }
 empty++;
-}while(!found&& empty<250);
+}while(!found&& empty<450);
 EEPROMSaveNumber(nmbr,nmbrLenght,(empty-1));
 
 return 1;

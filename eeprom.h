@@ -42,7 +42,7 @@ extern "C" {
 //  EEPROM definitions
 
 #define EEPROM_NUMBER_LENGHT    10
-#define EEPROM_MAX             250
+#define EEPROM_MAX             450
 
 void EepromStart();
 void EepromEnd();

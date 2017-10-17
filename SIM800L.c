@@ -89,12 +89,12 @@ uint8_t SIM800Command()
                 if(!EEPROMSearchNumber(SIM800L.cell,SIM800L.cell_lenght))       //ADD new number if doesn't exist
                 {
                     EEPROMAdd(SIM800L.cell, SIM800L.cell_lenght);           //ADD new number to memory
-                    SIM800SendSms(SIM800L.cell, "Your number had been added","");
-                    SIM800SendSms(SIM800L.sender_cell, "You have added the number: ",SIM800L.cell);
+                    SIM800SendSms(SIM800L.cell, "Your number has been added","");
+                    SIM800SendSms(SIM800L.sender_cell, "You added the number: ",SIM800L.cell);
                 }
                 else
                 {
-                    SIM800SendSms(SIM800L.cell, "Your number already exist","");
+                    SIM800SendSms(SIM800L.cell, "Your number already exists","");
                     SIM800SendSms(SIM800L.sender_cell, "The number already exists: ",SIM800L.cell);
                 }
             }
@@ -113,8 +113,8 @@ uint8_t SIM800Command()
                 if(add)       //Delete number if exists
                 {
                     EEPROMDeleteNumber(add-1);
-                    SIM800SendSms(SIM800L.cell, "Your number had been deleted","");
-                    SIM800SendSms(SIM800L.sender_cell, "You have deleted the number: ",SIM800L.cell);
+                    SIM800SendSms(SIM800L.cell, "Your number has been deleted","");
+                    SIM800SendSms(SIM800L.sender_cell, "You deleted the number: ",SIM800L.cell);
                     
                 }
             }

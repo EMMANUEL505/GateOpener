@@ -177,18 +177,19 @@ uint16_t EEPROMSearchNumber(const char *nmbr, uint8_t nmbrLenght)
     uint16_t count=0, result=0;
 
     aux=EEPROM_NUMBER_LENGHT-1;
-    if(nmbrLenght>EEPROM_NUMBER_LENGHT) nmbrLenght=EEPROM_NUMBER_LENGHT;
+    //if(nmbrLenght>EEPROM_NUMBER_LENGHT) nmbrLenght=EEPROM_NUMBER_LENGHT;        //comment this line
     
     while(!result && aux<((EEPROM_MAX*EEPROM_NUMBER_LENGHT)-EEPROM_NUMBER_LENGHT))
     {
         count=0;
         do{
-            if(EepromRead(aux-count)==*(nmbr+EEPROM_NUMBER_LENGHT-(count+1)))
+            //if(EepromRead(aux-count)==*(nmbr+EEPROM_NUMBER_LENGHT-(count+1)))   //For different number lenght its necesary to use nmbrLenght instead of EEPROM_NUMBER_LENGHT
+            if(EepromRead(aux-count)==*(nmbr+nmbrLenght-(count+1)))    
                 {result=1;}
             else
                {result=0;}
             count++;
-        }while(result && count<nmbrLenght);
+        }while(result && count<nmbrLenght && count<EEPROM_NUMBER_LENGHT);//&& count<EEPROM_NUMBER_LENGHT);
         aux=aux+EEPROM_NUMBER_LENGHT;
     }
     if(result==TRUE)

@@ -4251,12 +4251,15 @@ switch(task)
 case 0:
 if(RCSTAbits.OERR==1) {CREN=0;_delay((unsigned long)((200)*(32000000/4000000.0)));RCSTAbits.CREN=1; }
 USARTWriteLine("AT+CSQ\r\n");
+while(SIM800L.ok!=1);
+SIM800L.ok=0;
 _delay((unsigned long)((2000)*(32000000/4000.0)));
 asm("clrwdt");
 break;
 
 case 1:
 USARTWriteLine("ATH\r\n");
+
 
 if(EEPROMSearchNumber(SIM800L.cell,SIM800L.cell_lenght))
 {

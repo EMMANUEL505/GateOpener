@@ -3377,10 +3377,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;sim800l.c: 91: EEPROMAdd(SIM800L.cell, SIM800L.cell_lenght);
 "91
 [e ( _EEPROMAdd (2 , -> &U . _SIM800L 4 `*Cuc . _SIM800L 6 ]
-[; ;sim800l.c: 92: SIM800SendSms(SIM800L.cell, "Your number had been added","");
+[; ;sim800l.c: 92: SIM800SendSms(SIM800L.cell, "Your number has been added","");
 "92
 [e ( _SIM800SendSms (3 , , -> &U . _SIM800L 4 `*Cuc :s 12C :s 13C ]
-[; ;sim800l.c: 93: SIM800SendSms(SIM800L.sender_cell, "You have added the number: ",SIM800L.cell);
+[; ;sim800l.c: 93: SIM800SendSms(SIM800L.sender_cell, "You added the number: ",SIM800L.cell);
 "93
 [e ( _SIM800SendSms (3 , , -> &U . _SIM800L 5 `*Cuc :s 14C -> &U . _SIM800L 4 `*Cuc ]
 "94
@@ -3393,7 +3393,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;sim800l.c: 96: {
 "96
 {
-[; ;sim800l.c: 97: SIM800SendSms(SIM800L.cell, "Your number already exist","");
+[; ;sim800l.c: 97: SIM800SendSms(SIM800L.cell, "Your number already exists","");
 "97
 [e ( _SIM800SendSms (3 , , -> &U . _SIM800L 4 `*Cuc :s 15C :s 16C ]
 [; ;sim800l.c: 98: SIM800SendSms(SIM800L.sender_cell, "The number already exists: ",SIM800L.cell);
@@ -3458,10 +3458,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;sim800l.c: 115: EEPROMDeleteNumber(add-1);
 "115
 [e ( _EEPROMDeleteNumber (1 -> - -> _add `i -> 1 `i `ui ]
-[; ;sim800l.c: 116: SIM800SendSms(SIM800L.cell, "Your number had been deleted","");
+[; ;sim800l.c: 116: SIM800SendSms(SIM800L.cell, "Your number has been deleted","");
 "116
 [e ( _SIM800SendSms (3 , , -> &U . _SIM800L 4 `*Cuc :s 18C :s 19C ]
-[; ;sim800l.c: 117: SIM800SendSms(SIM800L.sender_cell, "You have deleted the number: ",SIM800L.cell);
+[; ;sim800l.c: 117: SIM800SendSms(SIM800L.sender_cell, "You deleted the number: ",SIM800L.cell);
 "117
 [e ( _SIM800SendSms (3 , , -> &U . _SIM800L 5 `*Cuc :s 20C -> &U . _SIM800L 4 `*Cuc ]
 "119
@@ -3665,17 +3665,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 "166
 [e :UE 397 ]
 }
-[a 15C 89 111 117 114 32 110 117 109 98 101 114 32 97 108 114 101 97 100 121 32 101 120 105 115 116 0 ]
-[a 18C 89 111 117 114 32 110 117 109 98 101 114 32 104 97 100 32 98 101 101 110 32 100 101 108 101 116 101 100 0 ]
-[a 12C 89 111 117 114 32 110 117 109 98 101 114 32 104 97 100 32 98 101 101 110 32 97 100 100 101 100 0 ]
+[a 15C 89 111 117 114 32 110 117 109 98 101 114 32 97 108 114 101 97 100 121 32 101 120 105 115 116 115 0 ]
+[a 18C 89 111 117 114 32 110 117 109 98 101 114 32 104 97 115 32 98 101 101 110 32 100 101 108 101 116 101 100 0 ]
+[a 12C 89 111 117 114 32 110 117 109 98 101 114 32 104 97 115 32 98 101 101 110 32 97 100 100 101 100 0 ]
 [a 8C 65 84 43 67 77 71 82 61 0 ]
 [a 10C 65 84 43 67 77 71 68 61 0 ]
 [a 21C 49 50 51 52 0 ]
 [a 5C 65 84 43 67 77 71 83 61 34 0 ]
 [a 17C 84 104 101 32 110 117 109 98 101 114 32 97 108 114 101 97 100 121 32 101 120 105 115 116 115 58 32 0 ]
 [a 22C 84 104 101 32 115 105 103 110 97 108 32 113 117 97 108 105 116 121 32 105 115 58 32 0 ]
-[a 20C 89 111 117 32 104 97 118 101 32 100 101 108 101 116 101 100 32 116 104 101 32 110 117 109 98 101 114 58 32 0 ]
-[a 14C 89 111 117 32 104 97 118 101 32 97 100 100 101 100 32 116 104 101 32 110 117 109 98 101 114 58 32 0 ]
+[a 20C 89 111 117 32 100 101 108 101 116 101 100 32 116 104 101 32 110 117 109 98 101 114 58 32 0 ]
+[a 14C 89 111 117 32 97 100 100 101 100 32 116 104 101 32 110 117 109 98 101 114 58 32 0 ]
 [a 1C 65 84 13 10 0 ]
 [a 3C 65 84 43 67 76 73 80 61 49 13 10 0 ]
 [a 4C 65 84 43 67 77 71 70 32 61 32 49 13 10 0 ]

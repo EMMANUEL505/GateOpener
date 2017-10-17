@@ -44,6 +44,8 @@ void main()
             case WAITING:   
                 if(RCSTAbits.OERR==1)  {CREN=DISABLED;__delay_us(200);RCSTAbits.CREN=ENABLED; } //Check for overwrite
                 USARTWriteLine("AT+CSQ\r\n");   //Check signal Quality
+                while(SIM800L.ok!=TRUE);
+                SIM800L.ok=FALSE;
                 __delay_ms(2000);
                 CLRWDT();                
             break;
@@ -51,6 +53,7 @@ void main()
             case CALL_IN:
                 USARTWriteLine("ATH\r\n");      //Hang up
                 //USARTWriteLine("ATA\r\n");    //Answer
+                //__delay_ms(5000);
                 if(EEPROMSearchNumber(SIM800L.cell,SIM800L.cell_lenght))    //Check if authorized number is calling
                 {                                      
                     GPIORelaySet(); GPIOGreenLedBlink(5); ; GPIORelayClear();   //Relay enabled period of 1sec
