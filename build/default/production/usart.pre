@@ -4151,7 +4151,7 @@ typedef uint16_t uintptr_t;
 #pragma config LVP = OFF
 
 # 65
-uint8_t task,i,getsmsnumber;
+uint8_t task,i,getsmsnumber,chkcount;
 char password[4];
 char password_empty[4];
 
@@ -4228,7 +4228,7 @@ BAUDCONbits.BRG16=1;
 TXSTAbits.TX9=0;
 TXSTAbits.TXEN=1;
 TXSTAbits.SYNC=0;
-TXSTAbits.BRGH=1;
+TXSTAbits.BRGH=0;
 
 
 RCSTAbits.SPEN=1;

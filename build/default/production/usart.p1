@@ -3078,7 +3078,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _task `uc ~T0 @X0 1 e ]
 [v _i `uc ~T0 @X0 1 e ]
 [v _getsmsnumber `uc ~T0 @X0 1 e ]
-[; ;general.h: 65: uint8_t task,i,getsmsnumber;
+[v _chkcount `uc ~T0 @X0 1 e ]
+[; ;general.h: 65: uint8_t task,i,getsmsnumber,chkcount;
 "66
 [v _password `uc ~T0 @X0 -> 4 `i e ]
 [; ;general.h: 66: char password[4];
@@ -3217,9 +3218,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;usart.c: 35: TXSTAbits.SYNC=0;
 "35
 [e = . . _TXSTAbits 0 4 -> -> 0 `i `uc ]
-[; ;usart.c: 36: TXSTAbits.BRGH=1;
+[; ;usart.c: 36: TXSTAbits.BRGH=0;
 "36
-[e = . . _TXSTAbits 0 2 -> -> 1 `i `uc ]
+[e = . . _TXSTAbits 0 2 -> -> 0 `i `uc ]
 [; ;usart.c: 39: RCSTAbits.SPEN=1;
 "39
 [e = . . _RCSTAbits 0 7 -> -> 1 `i `uc ]
@@ -3698,8 +3699,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _field_length `c ~T0 @X0 1 r2 ]
 "176
 [f ]
-[v F3227 `uc ~T0 @X0 -> 5 `i s ]
-[i F3227
+[v F3228 `uc ~T0 @X0 -> 5 `i s ]
+[i F3228
 :U ..
 "177
 -> -> 0 `i `uc
@@ -3711,7 +3712,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 ]
 [v _str `uc ~T0 @X0 -> 5 `i a ]
 [; ;usart.c: 177: char str[5]={0,0,0,0,0};
-[e = _str F3227 ]
+[e = _str F3228 ]
 [v _i `c ~T0 @X0 1 a ]
 [; ;usart.c: 178: int8_t i=4,j=0;
 "178

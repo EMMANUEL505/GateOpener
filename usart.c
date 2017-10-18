@@ -10,7 +10,7 @@ void USARTInit(uint16_t baud_rate)
     {
      case 9600:
         //SPBRG=51;     //Use for 8MHZ
-         SPBRG=207;     //Use for 32MHZ
+         SPBRG=207;     //Use for 32MHZ w/sync=0 BRGH=0, BRG16=1
         break;
      case 19200:
         SPBRG=64;
@@ -33,7 +33,7 @@ void USARTInit(uint16_t baud_rate)
     TXSTAbits.TX9=0;  //8 bit transmission
     TXSTAbits.TXEN=1; //Transmit enable
     TXSTAbits.SYNC=0; //Async mode
-    TXSTAbits.BRGH=1; //High speed baud rate
+    TXSTAbits.BRGH=0; //High speed baud rate
 
     //RCSTA
     RCSTAbits.SPEN=1;   //Serial port enabled

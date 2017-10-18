@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=GateOpener.git
+PROJECTNAME=trunk
 
 # Active Configuration
 DEFAULTCONF=default

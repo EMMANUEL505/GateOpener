@@ -4151,7 +4151,7 @@ typedef uint16_t uintptr_t;
 #pragma config LVP = OFF
 
 # 65
-uint8_t task,i,getsmsnumber;
+uint8_t task,i,getsmsnumber,chkcount;
 char password[4];
 char password_empty[4];
 
@@ -4232,7 +4232,7 @@ LATCbits.LATC0=1;
 LATCbits.LATC2=1;
 SIM800init();
 
-EEPROMUpdateVersion("v1.1");
+EEPROMUpdateVersion("v1.2");
 password_empty[0]=0xFF; password_empty[1]=0xFF; password_empty[2]=0xFF; password_empty[3]=0xFF;
 if(EEPROMCheckPassword(password_empty))
 {
@@ -4252,10 +4252,18 @@ switch(task)
 {
 case 0:
 if(RCSTAbits.OERR==1) {CREN=0;_delay((unsigned long)((200)*(32000000/4000000.0)));RCSTAbits.CREN=1; }
+_delay((unsigned long)((200)*(32000000/4000.0)));
+if(chkcount<200) chkcount++;
+else{
+chkcount=0;
+USARTWriteLine("AT+CSQ\r\n");
+_delay((unsigned long)((500)*(32000000/4000.0)));
+if(SIM800L.ok!=1){
 USARTWriteLine("AT+CSQ\r\n");
 while(SIM800L.ok!=1);
-SIM800L.ok=0;
-_delay((unsigned long)((2000)*(32000000/4000.0)));
+}
+else SIM800L.ok=0;
+}
 asm("clrwdt");
 break;
 

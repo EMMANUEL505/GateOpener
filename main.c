@@ -24,7 +24,7 @@ void main()
     GPIOGreenLedSet();  //All LED's remain enabled during GSM initialization
     SIM800init();       //Initialize GSM module, 18 sec approx 
     
-    EEPROMUpdateVersion("v1.1");   //version writting
+    EEPROMUpdateVersion("v1.2");   //version writting
     password_empty[0]=0xFF; password_empty[1]=0xFF; password_empty[2]=0xFF; password_empty[3]=0xFF;//Empty password
     if(EEPROMCheckPassword(password_empty))   //If empty password use default password
     {
@@ -44,10 +44,18 @@ void main()
         {
             case WAITING:   
                 if(RCSTAbits.OERR==1)  {CREN=DISABLED;__delay_us(200);RCSTAbits.CREN=ENABLED; } //Check for overwrite
-                USARTWriteLine("AT+CSQ\r\n");   //Check signal Quality
-                while(SIM800L.ok!=TRUE);
-                SIM800L.ok=FALSE;
-                __delay_ms(2000);
+                __delay_ms(200);
+                if(chkcount<200) chkcount++;
+                else{
+                    chkcount=0;
+                    USARTWriteLine("AT+CSQ\r\n");   //Check signal Quality
+                    __delay_ms(500);
+                    if(SIM800L.ok!=TRUE){
+                        USARTWriteLine("AT+CSQ\r\n");   //Double check to avoid cycling due to send message error
+                        while(SIM800L.ok!=TRUE);
+                    }
+                    else SIM800L.ok=FALSE;
+                }
                 CLRWDT();                
             break;
             

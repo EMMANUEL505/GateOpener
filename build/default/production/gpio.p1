@@ -3053,7 +3053,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _task `uc ~T0 @X0 1 e ]
 [v _i `uc ~T0 @X0 1 e ]
 [v _getsmsnumber `uc ~T0 @X0 1 e ]
-[; ;general.h: 65: uint8_t task,i,getsmsnumber;
+[v _chkcount `uc ~T0 @X0 1 e ]
+[; ;general.h: 65: uint8_t task,i,getsmsnumber,chkcount;
 "66
 [v _password `uc ~T0 @X0 -> 4 `i e ]
 [; ;general.h: 66: char password[4];

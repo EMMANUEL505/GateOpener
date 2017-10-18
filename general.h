@@ -62,6 +62,6 @@ extern "C" {
 #define SMS_IN      2
 #define COMMAND     3
 
-uint8_t task,i,getsmsnumber;
+uint8_t task,i,getsmsnumber,chkcount;
 char password[4];
 char password_empty[4];

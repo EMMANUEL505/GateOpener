@@ -264,6 +264,7 @@ void EEPROMUpdateVersion(const char *ver)
     __delay_ms(TWC_DELAY);
 }
 
+
 uint8_t EEPROMCheckPassword(const char *pass)
 {
     password[0]=EepromRead(PASSWORD1);
