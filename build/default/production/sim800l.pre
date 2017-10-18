@@ -4154,6 +4154,7 @@ typedef uint16_t uintptr_t;
 uint8_t task,i,getsmsnumber,chkcount;
 char password[4];
 char password_empty[4];
+char ver[5];
 
 # 46 "sim800l.h"
 typedef struct{
@@ -4344,7 +4345,12 @@ if(i==14) EEPROMUpdatePassword(SIM800L.password);
 }
 if(SIM800L.command[6]=='C' && SIM800L.command[7]=='S' && SIM800L.command[8]=='Q' )
 {
-SIM800SendSms(SIM800L.cell,"The signal quality is: ",SIM800L.csq);
+SIM800SendSms(SIM800L.sender_cell,"The signal quality is: ",SIM800L.csq);
+}
+if(SIM800L.command[6]=='V' && SIM800L.command[7]=='E' && SIM800L.command[8]=='R' )
+{
+ver[0]=EepromRead(7904);ver[1]=EepromRead(7905);ver[2]=EepromRead(7906);ver[3]=EepromRead(7907);ver[4]='\0';
+SIM800SendSms(SIM800L.sender_cell,"The firmware version is: ",ver);
 }
 }
 else if(SIM800L.command[1]=='O' && SIM800L.command[2]=='P' && SIM800L.command[3]=='E' )

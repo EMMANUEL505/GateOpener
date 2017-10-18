@@ -3093,6 +3093,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "67
 [v _password_empty `uc ~T0 @X0 -> 4 `i e ]
 [; ;general.h: 67: char password_empty[4];
+"68
+[v _ver `uc ~T0 @X0 -> 5 `i e ]
+[; ;general.h: 68: char ver[5];
 [; ;system.h: 30: void SYSTEMInit(uint8_t freq);
 [; ;eeprom.h: 52: void EepromStart();
 [; ;eeprom.h: 53: void EepromEnd();
@@ -3183,7 +3186,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 25: SIM800init();
 "25
 [e ( _SIM800init ..  ]
-[; ;main.c: 27: EEPROMUpdateVersion("v1.2");
+[; ;main.c: 27: EEPROMUpdateVersion("v1.3");
 "27
 [e ( _EEPROMUpdateVersion (1 :s 1C ]
 [; ;main.c: 28: password_empty[0]=0xFF; password_empty[1]=0xFF; password_empty[2]=0xFF; password_empty[3]=0xFF;
@@ -3417,7 +3420,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [a 3C 54 49 52 49 54 53 52 56 49 56 0 ]
 [a 2C 49 50 51 52 0 ]
 [a 10C 52 0 ]
-[a 1C 118 49 46 50 0 ]
+[a 1C 118 49 46 51 0 ]
 [a 9C 49 0 ]
 [a 6C 65 84 43 67 83 81 13 10 0 ]
 [a 7C 65 84 43 67 83 81 13 10 0 ]

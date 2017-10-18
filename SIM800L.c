@@ -136,8 +136,13 @@ uint8_t SIM800Command()
             } 
             if(SIM800L.command[6]=='C' && SIM800L.command[7]=='S' && SIM800L.command[8]=='Q' )      //"CSQ" command
             {
-                SIM800SendSms(SIM800L.cell,"The signal quality is: ",SIM800L.csq);
-            }            
+                SIM800SendSms(SIM800L.sender_cell,"The signal quality is: ",SIM800L.csq);
+            }   
+            if(SIM800L.command[6]=='V' && SIM800L.command[7]=='E' && SIM800L.command[8]=='R' )      //"VER" command
+            {
+                ver[0]=EepromRead(VERSION1);ver[1]=EepromRead(VERSION2);ver[2]=EepromRead(VERSION3);ver[3]=EepromRead(VERSION4);ver[4]='\0';
+                SIM800SendSms(SIM800L.sender_cell,"The firmware version is: ",ver);
+            } 
         }
         else if(SIM800L.command[1]=='O' && SIM800L.command[2]=='P' && SIM800L.command[3]=='E' )
         {

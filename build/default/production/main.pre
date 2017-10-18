@@ -4154,6 +4154,7 @@ typedef uint16_t uintptr_t;
 uint8_t task,i,getsmsnumber,chkcount;
 char password[4];
 char password_empty[4];
+char ver[5];
 
 # 30 "system.h"
 void SYSTEMInit(uint8_t freq);
@@ -4232,7 +4233,7 @@ LATCbits.LATC0=1;
 LATCbits.LATC2=1;
 SIM800init();
 
-EEPROMUpdateVersion("v1.2");
+EEPROMUpdateVersion("v1.3");
 password_empty[0]=0xFF; password_empty[1]=0xFF; password_empty[2]=0xFF; password_empty[3]=0xFF;
 if(EEPROMCheckPassword(password_empty))
 {

@@ -3086,6 +3086,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "67
 [v _password_empty `uc ~T0 @X0 -> 4 `i e ]
 [; ;general.h: 67: char password_empty[4];
+"68
+[v _ver `uc ~T0 @X0 -> 5 `i e ]
+[; ;general.h: 68: char ver[5];
 [; ;usart.h: 22: void USARTInit(uint16_t baud_rate);
 [; ;usart.h: 23: void USARTWriteChar(char ch);
 [; ;usart.h: 24: void USARTWriteString(const char *str);
@@ -3699,8 +3702,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _field_length `c ~T0 @X0 1 r2 ]
 "176
 [f ]
-[v F3228 `uc ~T0 @X0 -> 5 `i s ]
-[i F3228
+[v F3229 `uc ~T0 @X0 -> 5 `i s ]
+[i F3229
 :U ..
 "177
 -> -> 0 `i `uc
@@ -3712,7 +3715,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 ]
 [v _str `uc ~T0 @X0 -> 5 `i a ]
 [; ;usart.c: 177: char str[5]={0,0,0,0,0};
-[e = _str F3228 ]
+[e = _str F3229 ]
 [v _i `c ~T0 @X0 1 a ]
 [; ;usart.c: 178: int8_t i=4,j=0;
 "178

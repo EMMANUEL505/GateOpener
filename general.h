@@ -65,3 +65,4 @@ extern "C" {
 uint8_t task,i,getsmsnumber,chkcount;
 char password[4];
 char password_empty[4];
+char ver[5];

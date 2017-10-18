@@ -3036,6 +3036,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "67
 [v _password_empty `uc ~T0 @X0 -> 4 `i e ]
 [; ;general.h: 67: char password_empty[4];
+"68
+[v _ver `uc ~T0 @X0 -> 5 `i e ]
+[; ;general.h: 68: char ver[5];
 [; ;system.h: 30: void SYSTEMInit(uint8_t freq);
 "24 system.c
 [v _SYSTEMInit `(v ~T0 @X0 1 ef1`uc ]

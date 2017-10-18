@@ -32,6 +32,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _EEPROMEraseAll `(v ~T0 @X0 0 ef ]
 "64
 [v _EEPROMUpdatePassword `(v ~T0 @X0 0 ef1`*Cuc ]
+"56
+[v _EepromRead `(uc ~T0 @X0 0 ef1`ui ]
 "2011 C:\Program Files (x86)\Microchip\xc8\v1.38\include\pic16f1828.h
 [s S106 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S106 . LATA0 LATA1 LATA2 . LATA4 LATA5 ]
@@ -3068,6 +3070,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "67
 [v _password_empty `uc ~T0 @X0 -> 4 `i e ]
 [; ;general.h: 67: char password_empty[4];
+"68
+[v _ver `uc ~T0 @X0 -> 5 `i e ]
+[; ;general.h: 68: char ver[5];
 [; ;sim800l.h: 46: typedef struct{
 [; ;sim800l.h: 47: uint8_t busy;
 [; ;sim800l.h: 48: uint8_t uncomplete;
@@ -3537,135 +3542,155 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;sim800l.c: 138: {
 "138
 {
-[; ;sim800l.c: 139: SIM800SendSms(SIM800L.cell,"The signal quality is: ",SIM800L.csq);
+[; ;sim800l.c: 139: SIM800SendSms(SIM800L.sender_cell,"The signal quality is: ",SIM800L.csq);
 "139
-[e ( _SIM800SendSms (3 , , -> &U . _SIM800L 4 `*Cuc :s 22C -> &U . _SIM800L 11 `*Cuc ]
+[e ( _SIM800SendSms (3 , , -> &U . _SIM800L 5 `*Cuc :s 22C -> &U . _SIM800L 11 `*Cuc ]
 "140
 }
 [e :U 391 ]
-"141
-}
 [; ;sim800l.c: 140: }
-[; ;sim800l.c: 141: }
-[e $U 392  ]
+[; ;sim800l.c: 141: if(SIM800L.command[6]=='V' && SIM800L.command[7]=='E' && SIM800L.command[8]=='R' )
+"141
+[e $ ! && && == -> *U + &U . _SIM800L 10 * -> -> -> 6 `i `ui `ux -> -> # *U &U . _SIM800L 10 `ui `ux `ui -> 86 `ui == -> *U + &U . _SIM800L 10 * -> -> -> 7 `i `ui `ux -> -> # *U &U . _SIM800L 10 `ui `ux `ui -> 69 `ui == -> *U + &U . _SIM800L 10 * -> -> -> 8 `i `ui `ux -> -> # *U &U . _SIM800L 10 `ui `ux `ui -> 82 `ui 392  ]
+[; ;sim800l.c: 142: {
 "142
-[e :U 373 ]
-[; ;sim800l.c: 142: else if(SIM800L.command[1]=='O' && SIM800L.command[2]=='P' && SIM800L.command[3]=='E' )
-[e $ ! && && == -> *U + &U . _SIM800L 10 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _SIM800L 10 `ui `ux `ui -> 79 `ui == -> *U + &U . _SIM800L 10 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _SIM800L 10 `ui `ux `ui -> 80 `ui == -> *U + &U . _SIM800L 10 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _SIM800L 10 `ui `ux `ui -> 69 `ui 393  ]
-[; ;sim800l.c: 143: {
+{
+[; ;sim800l.c: 143: ver[0]=EepromRead(7904);ver[1]=EepromRead(7905);ver[2]=EepromRead(7906);ver[3]=EepromRead(7907);ver[4]='\0';
 "143
-{
-[; ;sim800l.c: 144: if(EEPROMSearchNumber(SIM800L.sender_cell,SIM800L.cell_lenght))
+[e = *U + &U _ver * -> -> -> 0 `i `ui `ux -> -> # *U &U _ver `ui `ux ( _EepromRead (1 -> -> 7904 `i `ui ]
+[e = *U + &U _ver * -> -> -> 1 `i `ui `ux -> -> # *U &U _ver `ui `ux ( _EepromRead (1 -> -> 7905 `i `ui ]
+[e = *U + &U _ver * -> -> -> 2 `i `ui `ux -> -> # *U &U _ver `ui `ux ( _EepromRead (1 -> -> 7906 `i `ui ]
+[e = *U + &U _ver * -> -> -> 3 `i `ui `ux -> -> # *U &U _ver `ui `ux ( _EepromRead (1 -> -> 7907 `i `ui ]
+[e = *U + &U _ver * -> -> -> 4 `i `ui `ux -> -> # *U &U _ver `ui `ux -> -> 0 `ui `uc ]
+[; ;sim800l.c: 144: SIM800SendSms(SIM800L.sender_cell,"The firmware version is: ",ver);
 "144
-[e $ ! != ( _EEPROMSearchNumber (2 , -> &U . _SIM800L 5 `*Cuc . _SIM800L 6 -> -> 0 `i `ui 394  ]
-[; ;sim800l.c: 145: {
+[e ( _SIM800SendSms (3 , , -> &U . _SIM800L 5 `*Cuc :s 23C -> &U _ver `*Cuc ]
 "145
-{
-[; ;sim800l.c: 146: LATAbits.LATA5=1; GPIOGreenLedBlink(9); ; LATAbits.LATA5=0;
+}
+[e :U 392 ]
 "146
+}
+[; ;sim800l.c: 145: }
+[; ;sim800l.c: 146: }
+[e $U 393  ]
+"147
+[e :U 373 ]
+[; ;sim800l.c: 147: else if(SIM800L.command[1]=='O' && SIM800L.command[2]=='P' && SIM800L.command[3]=='E' )
+[e $ ! && && == -> *U + &U . _SIM800L 10 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _SIM800L 10 `ui `ux `ui -> 79 `ui == -> *U + &U . _SIM800L 10 * -> -> -> 2 `i `ui `ux -> -> # *U &U . _SIM800L 10 `ui `ux `ui -> 80 `ui == -> *U + &U . _SIM800L 10 * -> -> -> 3 `i `ui `ux -> -> # *U &U . _SIM800L 10 `ui `ux `ui -> 69 `ui 394  ]
+[; ;sim800l.c: 148: {
+"148
+{
+[; ;sim800l.c: 149: if(EEPROMSearchNumber(SIM800L.sender_cell,SIM800L.cell_lenght))
+"149
+[e $ ! != ( _EEPROMSearchNumber (2 , -> &U . _SIM800L 5 `*Cuc . _SIM800L 6 -> -> 0 `i `ui 395  ]
+[; ;sim800l.c: 150: {
+"150
+{
+[; ;sim800l.c: 151: LATAbits.LATA5=1; GPIOGreenLedBlink(9); ; LATAbits.LATA5=0;
+"151
 [e = . . _LATAbits 0 5 -> -> 1 `i `uc ]
 [e ( _GPIOGreenLedBlink (1 -> -> 9 `i `uc ]
 [e = . . _LATAbits 0 5 -> -> 0 `i `uc ]
-[; ;sim800l.c: 147: LATCbits.LATC2=1;
-"147
+[; ;sim800l.c: 152: LATCbits.LATC2=1;
+"152
 [e = . . _LATCbits 0 2 -> -> 1 `i `uc ]
-"148
+"153
 }
-[; ;sim800l.c: 148: }
-[e $U 395  ]
-"149
-[e :U 394 ]
-[; ;sim800l.c: 149: else { GPIORedLedBlink(5); }
+[; ;sim800l.c: 153: }
+[e $U 396  ]
+"154
+[e :U 395 ]
+[; ;sim800l.c: 154: else { GPIORedLedBlink(5); }
 {
 [e ( _GPIORedLedBlink (1 -> -> 5 `i `uc ]
 }
-[e :U 395 ]
-"150
-}
-[; ;sim800l.c: 150: }
-[e $U 396  ]
-"151
-[e :U 393 ]
-[; ;sim800l.c: 151: else GPIORedLedBlink(5);
-[e ( _GPIORedLedBlink (1 -> -> 5 `i `uc ]
 [e :U 396 ]
-[e :U 392 ]
-"152
+"155
+}
+[; ;sim800l.c: 155: }
+[e $U 397  ]
+"156
+[e :U 394 ]
+[; ;sim800l.c: 156: else GPIORedLedBlink(5);
+[e ( _GPIORedLedBlink (1 -> -> 5 `i `uc ]
+[e :U 397 ]
+[e :U 393 ]
+"157
 }
 [e :U 372 ]
-[; ;sim800l.c: 152: }
-[; ;sim800l.c: 153: return 1;
-"153
+[; ;sim800l.c: 157: }
+[; ;sim800l.c: 158: return 1;
+"158
 [e ) -> -> 1 `i `uc ]
 [e $UE 371  ]
-[; ;sim800l.c: 154: }
-"154
+[; ;sim800l.c: 159: }
+"159
 [e :UE 371 ]
 }
-"156
+"161
 [v _SIM800LClear `(v ~T0 @X0 1 ef ]
-"157
+"162
 {
-[; ;sim800l.c: 156: void SIM800LClear(void)
-[; ;sim800l.c: 157: {
+[; ;sim800l.c: 161: void SIM800LClear(void)
+[; ;sim800l.c: 162: {
 [e :U _SIM800LClear ]
 [f ]
 [v _i `uc ~T0 @X0 1 a ]
-[; ;sim800l.c: 158: uint8_t i;
-[; ;sim800l.c: 159: SIM800L.busy=0;
-"159
+[; ;sim800l.c: 163: uint8_t i;
+[; ;sim800l.c: 164: SIM800L.busy=0;
+"164
 [e = . _SIM800L 0 -> -> 0 `i `uc ]
-[; ;sim800l.c: 160: SIM800L.uncomplete=0;
-"160
+[; ;sim800l.c: 165: SIM800L.uncomplete=0;
+"165
 [e = . _SIM800L 1 -> -> 0 `i `uc ]
-[; ;sim800l.c: 161: SIM800L.cell_lenght=0;
-"161
+[; ;sim800l.c: 166: SIM800L.cell_lenght=0;
+"166
 [e = . _SIM800L 6 -> -> 0 `i `uc ]
-[; ;sim800l.c: 162: SIM800L.ok=0;
-"162
+[; ;sim800l.c: 167: SIM800L.ok=0;
+"167
 [e = . _SIM800L 2 -> -> 0 `i `uc ]
-[; ;sim800l.c: 163: for(i=0;i<15;i++){SIM800L.cell[i]='\0'; SIM800L.sender_cell[i]='\0';}
-"163
+[; ;sim800l.c: 168: for(i=0;i<15;i++){SIM800L.cell[i]='\0'; SIM800L.sender_cell[i]='\0';}
+"168
 {
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 15 `i 398  ]
-[e $U 399  ]
-[e :U 398 ]
+[e $ < -> _i `i -> 15 `i 399  ]
+[e $U 400  ]
+[e :U 399 ]
 {
 [e = *U + &U . _SIM800L 4 * -> _i `ux -> -> # *U &U . _SIM800L 4 `ui `ux -> -> 0 `ui `uc ]
 [e = *U + &U . _SIM800L 5 * -> _i `ux -> -> # *U &U . _SIM800L 5 `ui `ux -> -> 0 `ui `uc ]
 }
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 15 `i 398  ]
-[e :U 399 ]
+[e $ < -> _i `i -> 15 `i 399  ]
+[e :U 400 ]
 }
-[; ;sim800l.c: 164: for(i=0;i<64;i++) SIM800L.buffer[i]=0;
-"164
+[; ;sim800l.c: 169: for(i=0;i<64;i++) SIM800L.buffer[i]=0;
+"169
 {
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 64 `i 401  ]
-[e $U 402  ]
-[e :U 401 ]
+[e $ < -> _i `i -> 64 `i 402  ]
+[e $U 403  ]
+[e :U 402 ]
 [e = *U + &U . _SIM800L 9 * -> _i `ux -> -> # *U &U . _SIM800L 9 `ui `ux -> -> 0 `i `uc ]
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 64 `i 401  ]
-[e :U 402 ]
+[e $ < -> _i `i -> 64 `i 402  ]
+[e :U 403 ]
 }
-[; ;sim800l.c: 165: for(i=0;i<25;i++) SIM800L.command[i]=0;
-"165
+[; ;sim800l.c: 170: for(i=0;i<25;i++) SIM800L.command[i]=0;
+"170
 {
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 25 `i 404  ]
-[e $U 405  ]
-[e :U 404 ]
+[e $ < -> _i `i -> 25 `i 405  ]
+[e $U 406  ]
+[e :U 405 ]
 [e = *U + &U . _SIM800L 10 * -> _i `ux -> -> # *U &U . _SIM800L 10 `ui `ux -> -> 0 `i `uc ]
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 25 `i 404  ]
-[e :U 405 ]
+[e $ < -> _i `i -> 25 `i 405  ]
+[e :U 406 ]
 }
-[; ;sim800l.c: 166: }
-"166
-[e :UE 397 ]
+[; ;sim800l.c: 171: }
+"171
+[e :UE 398 ]
 }
 [a 15C 89 111 117 114 32 110 117 109 98 101 114 32 97 108 114 101 97 100 121 32 101 120 105 115 116 115 0 ]
 [a 18C 89 111 117 114 32 110 117 109 98 101 114 32 104 97 115 32 98 101 101 110 32 100 101 108 101 116 101 100 0 ]
@@ -3676,6 +3701,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [a 5C 65 84 43 67 77 71 83 61 34 0 ]
 [a 17C 84 104 101 32 110 117 109 98 101 114 32 97 108 114 101 97 100 121 32 101 120 105 115 116 115 58 32 0 ]
 [a 22C 84 104 101 32 115 105 103 110 97 108 32 113 117 97 108 105 116 121 32 105 115 58 32 0 ]
+[a 23C 84 104 101 32 102 105 114 109 119 97 114 101 32 118 101 114 115 105 111 110 32 105 115 58 32 0 ]
 [a 20C 89 111 117 32 100 101 108 101 116 101 100 32 116 104 101 32 110 117 109 98 101 114 58 32 0 ]
 [a 14C 89 111 117 32 97 100 100 101 100 32 116 104 101 32 110 117 109 98 101 114 58 32 0 ]
 [a 1C 65 84 13 10 0 ]
