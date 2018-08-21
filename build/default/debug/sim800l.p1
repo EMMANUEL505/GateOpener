@@ -3384,10 +3384,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;sim800l.c: 91: EEPROMAdd(SIM800L.cell, SIM800L.cell_lenght);
 "91
 [e ( _EEPROMAdd (2 , -> &U . _SIM800L 4 `*Cuc . _SIM800L 6 ]
-[; ;sim800l.c: 92: SIM800SendSms(SIM800L.cell, "Su numero ha sido agregado","");
+[; ;sim800l.c: 92: SIM800SendSms(SIM800L.cell, "Su número ha sido agregado","");
 "92
 [e ( _SIM800SendSms (3 , , -> &U . _SIM800L 4 `*Cuc :s 12C :s 13C ]
-[; ;sim800l.c: 93: SIM800SendSms(SIM800L.sender_cell, "Usted agrego el numero: ",SIM800L.cell);
+[; ;sim800l.c: 93: SIM800SendSms(SIM800L.sender_cell, "Usted agregó el número: ",SIM800L.cell);
 "93
 [e ( _SIM800SendSms (3 , , -> &U . _SIM800L 5 `*Cuc :s 14C -> &U . _SIM800L 4 `*Cuc ]
 "94
@@ -3400,10 +3400,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;sim800l.c: 96: {
 "96
 {
-[; ;sim800l.c: 97: SIM800SendSms(SIM800L.cell, "Su numero ya existe","");
+[; ;sim800l.c: 97: SIM800SendSms(SIM800L.cell, "Su número ya existe","");
 "97
 [e ( _SIM800SendSms (3 , , -> &U . _SIM800L 4 `*Cuc :s 15C :s 16C ]
-[; ;sim800l.c: 98: SIM800SendSms(SIM800L.sender_cell, "El numero ya existe: ",SIM800L.cell);
+[; ;sim800l.c: 98: SIM800SendSms(SIM800L.sender_cell, "El número ya existe: ",SIM800L.cell);
 "98
 [e ( _SIM800SendSms (3 , , -> &U . _SIM800L 5 `*Cuc :s 17C -> &U . _SIM800L 4 `*Cuc ]
 "99
@@ -3465,10 +3465,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;sim800l.c: 115: EEPROMDeleteNumber(add-1);
 "115
 [e ( _EEPROMDeleteNumber (1 -> - -> _add `i -> 1 `i `ui ]
-[; ;sim800l.c: 116: SIM800SendSms(SIM800L.cell, "Su numero ha sido borrado","");
+[; ;sim800l.c: 116: SIM800SendSms(SIM800L.cell, "Su número ha sido borrado","");
 "116
 [e ( _SIM800SendSms (3 , , -> &U . _SIM800L 4 `*Cuc :s 18C :s 19C ]
-[; ;sim800l.c: 117: SIM800SendSms(SIM800L.sender_cell, "Usted borro el numero: ",SIM800L.cell);
+[; ;sim800l.c: 117: SIM800SendSms(SIM800L.sender_cell, "Usted borró el número: ",SIM800L.cell);
 "117
 [e ( _SIM800SendSms (3 , , -> &U . _SIM800L 5 `*Cuc :s 20C -> &U . _SIM800L 4 `*Cuc ]
 "119
@@ -3586,10 +3586,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;sim800l.c: 150: {
 "150
 {
-[; ;sim800l.c: 151: LATAbits.LATA5=1; GPIOGreenLedBlink(9); ; LATAbits.LATA5=0;
+[; ;sim800l.c: 151: LATAbits.LATA5=1; GPIOGreenLedBlink(6); ; LATAbits.LATA5=0;
 "151
 [e = . . _LATAbits 0 5 -> -> 1 `i `uc ]
-[e ( _GPIOGreenLedBlink (1 -> -> 9 `i `uc ]
+[e ( _GPIOGreenLedBlink (1 -> -> 6 `i `uc ]
 [e = . . _LATAbits 0 5 -> -> 0 `i `uc ]
 [; ;sim800l.c: 152: LATCbits.LATC2=1;
 "152
@@ -3692,18 +3692,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 "171
 [e :UE 397 ]
 }
-[a 18C 83 117 32 110 117 109 101 114 111 32 104 97 32 115 105 100 111 32 98 111 114 114 97 100 111 0 ]
-[a 12C 83 117 32 110 117 109 101 114 111 32 104 97 32 115 105 100 111 32 97 103 114 101 103 97 100 111 0 ]
-[a 15C 83 117 32 110 117 109 101 114 111 32 121 97 32 101 120 105 115 116 101 0 ]
+[a 18C 83 117 32 110 250 109 101 114 111 32 104 97 32 115 105 100 111 32 98 111 114 114 97 100 111 0 ]
+[a 12C 83 117 32 110 250 109 101 114 111 32 104 97 32 115 105 100 111 32 97 103 114 101 103 97 100 111 0 ]
+[a 15C 83 117 32 110 250 109 101 114 111 32 121 97 32 101 120 105 115 116 101 0 ]
 [a 8C 65 84 43 67 77 71 82 61 0 ]
 [a 10C 65 84 43 67 77 71 68 61 0 ]
 [a 21C 49 50 51 52 0 ]
 [a 5C 65 84 43 67 77 71 83 61 34 0 ]
 [a 22C 84 104 101 32 115 105 103 110 97 108 32 113 117 97 108 105 116 121 32 105 115 58 32 0 ]
 [a 23C 84 104 101 32 102 105 114 109 119 97 114 101 32 118 101 114 115 105 111 110 32 105 115 58 32 0 ]
-[a 20C 85 115 116 101 100 32 98 111 114 114 111 32 101 108 32 110 117 109 101 114 111 58 32 0 ]
-[a 14C 85 115 116 101 100 32 97 103 114 101 103 111 32 101 108 32 110 117 109 101 114 111 58 32 0 ]
-[a 17C 69 108 32 110 117 109 101 114 111 32 121 97 32 101 120 105 115 116 101 58 32 0 ]
+[a 20C 85 115 116 101 100 32 98 111 114 114 243 32 101 108 32 110 250 109 101 114 111 58 32 0 ]
+[a 14C 85 115 116 101 100 32 97 103 114 101 103 243 32 101 108 32 110 250 109 101 114 111 58 32 0 ]
+[a 17C 69 108 32 110 250 109 101 114 111 32 121 97 32 101 120 105 115 116 101 58 32 0 ]
 [a 1C 65 84 13 10 0 ]
 [a 3C 65 84 43 67 76 73 80 61 49 13 10 0 ]
 [a 4C 65 84 43 67 77 71 70 32 61 32 49 13 10 0 ]

@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC LITE Macro Assembler V1.44 build -154322312 
-                                                                                               Mon Aug 20 22:25:31 2018
+                                                                                               Mon Aug 20 22:43:32 2018
 
 Microchip Technology Omniscient Code Generator v1.44 (Free mode) build 201709140600
      1                           	processor	16F1828
@@ -1452,7 +1452,7 @@ Microchip Technology Omniscient Code Generator v1.44 (Free mode) build 201709140
   1438  07EE  3475               	retlw	117	;'u'
   1439  07EF  3420               	retlw	32	;' '
   1440  07F0  346E               	retlw	110	;'n'
-  1441  07F1  3475               	retlw	117	;'u'
+  1441  07F1  34FA               	retlw	-6
   1442  07F2  346D               	retlw	109	;'m'
   1443  07F3  3465               	retlw	101	;'e'
   1444  07F4  3472               	retlw	114	;'r'
@@ -1513,7 +1513,7 @@ Microchip Technology Omniscient Code Generator v1.44 (Free mode) build 201709140
   1499  0823  3475               	retlw	117	;'u'
   1500  0824  3420               	retlw	32	;' '
   1501  0825  346E               	retlw	110	;'n'
-  1502  0826  3475               	retlw	117	;'u'
+  1502  0826  34FA               	retlw	-6
   1503  0827  346D               	retlw	109	;'m'
   1504  0828  3465               	retlw	101	;'e'
   1505  0829  3472               	retlw	114	;'r'
@@ -1550,13 +1550,13 @@ Microchip Technology Omniscient Code Generator v1.44 (Free mode) build 201709140
   1536  0844  3472               	retlw	114	;'r'
   1537  0845  3465               	retlw	101	;'e'
   1538  0846  3467               	retlw	103	;'g'
-  1539  0847  346F               	retlw	111	;'o'
+  1539  0847  34F3               	retlw	-13
   1540  0848  3420               	retlw	32	;' '
   1541  0849  3465               	retlw	101	;'e'
   1542  084A  346C               	retlw	108	;'l'
   1543  084B  3420               	retlw	32	;' '
   1544  084C  346E               	retlw	110	;'n'
-  1545  084D  3475               	retlw	117	;'u'
+  1545  084D  34FA               	retlw	-6
   1546  084E  346D               	retlw	109	;'m'
   1547  084F  3465               	retlw	101	;'e'
   1548  0850  3472               	retlw	114	;'r'
@@ -1578,13 +1578,13 @@ Microchip Technology Omniscient Code Generator v1.44 (Free mode) build 201709140
   1564  085C  346F               	retlw	111	;'o'
   1565  085D  3472               	retlw	114	;'r'
   1566  085E  3472               	retlw	114	;'r'
-  1567  085F  346F               	retlw	111	;'o'
+  1567  085F  34F3               	retlw	-13
   1568  0860  3420               	retlw	32	;' '
   1569  0861  3465               	retlw	101	;'e'
   1570  0862  346C               	retlw	108	;'l'
   1571  0863  3420               	retlw	32	;' '
   1572  0864  346E               	retlw	110	;'n'
-  1573  0865  3475               	retlw	117	;'u'
+  1573  0865  34FA               	retlw	-6
   1574  0866  346D               	retlw	109	;'m'
   1575  0867  3465               	retlw	101	;'e'
   1576  0868  3472               	retlw	114	;'r'
@@ -1628,7 +1628,7 @@ Microchip Technology Omniscient Code Generator v1.44 (Free mode) build 201709140
   1614  0886  346C               	retlw	108	;'l'
   1615  0887  3420               	retlw	32	;' '
   1616  0888  346E               	retlw	110	;'n'
-  1617  0889  3475               	retlw	117	;'u'
+  1617  0889  34FA               	retlw	-6
   1618  088A  346D               	retlw	109	;'m'
   1619  088B  3465               	retlw	101	;'e'
   1620  088C  3472               	retlw	114	;'r'
@@ -1654,7 +1654,7 @@ Microchip Technology Omniscient Code Generator v1.44 (Free mode) build 201709140
   1640  089C  3475               	retlw	117	;'u'
   1641  089D  3420               	retlw	32	;' '
   1642  089E  346E               	retlw	110	;'n'
-  1643  089F  3475               	retlw	117	;'u'
+  1643  089F  34FA               	retlw	-6
   1644  08A0  346D               	retlw	109	;'m'
   1645  08A1  3465               	retlw	101	;'e'
   1646  08A2  3472               	retlw	114	;'r'
@@ -4051,7 +4051,7 @@ Microchip Technology Omniscient Code Generator v1.44 (Free mode) build 201709140
   4033  041C  00BD               	movwf	EEPROMAdd@nmbrLenght
   4034  041D  318C  242C  3183   	fcall	_EEPROMAdd
   4035                           
-  4036                           ;sim800l.c: 92: SIM800SendSms(SIM800L.cell, "Su numero ha sido agregado","");
+  4036                           ;sim800l.c: 92: SIM800SendSms(SIM800L.cell, "Su número ha sido agregado","");
   4037  0420  3058               	movlw	88
   4038  0421  0020               	movlb	0	; select bank0
   4039  0422  00AD               	movwf	SIM800SendSms@nmbr
@@ -4067,7 +4067,7 @@ Microchip Technology Omniscient Code Generator v1.44 (Free mode) build 201709140
   4049  042C  00B2               	movwf	SIM800SendSms@msg2+1
   4050  042D  318C  24BF  3183   	fcall	_SIM800SendSms
   4051                           
-  4052                           ;sim800l.c: 93: SIM800SendSms(SIM800L.sender_cell, "Usted agrego el numero: ",SIM800L.ce
+  4052                           ;sim800l.c: 93: SIM800SendSms(SIM800L.sender_cell, "Usted agregó el número: ",SIM800L.ce
       +                          ll);
   4053  0430  3067               	movlw	103
   4054  0431  0020               	movlb	0	; select bank0
@@ -4084,7 +4084,7 @@ Microchip Technology Omniscient Code Generator v1.44 (Free mode) build 201709140
   4065                           
   4066                           ;sim800l.c: 95: else
   4067                           ;sim800l.c: 96: {
-  4068                           ;sim800l.c: 97: SIM800SendSms(SIM800L.cell, "Su numero ya existe","");
+  4068                           ;sim800l.c: 97: SIM800SendSms(SIM800L.cell, "Su número ya existe","");
   4069  0439  3058               	movlw	88
   4070  043A  0020               	movlb	0	; select bank0
   4071  043B  00AD               	movwf	SIM800SendSms@nmbr
@@ -4100,7 +4100,7 @@ Microchip Technology Omniscient Code Generator v1.44 (Free mode) build 201709140
   4081  0445  00B2               	movwf	SIM800SendSms@msg2+1
   4082  0446  318C  24BF  3183   	fcall	_SIM800SendSms
   4083                           
-  4084                           ;sim800l.c: 98: SIM800SendSms(SIM800L.sender_cell, "El numero ya existe: ",SIM800L.cell)
+  4084                           ;sim800l.c: 98: SIM800SendSms(SIM800L.sender_cell, "El número ya existe: ",SIM800L.cell)
       +                          ;
   4085  0449  3067               	movlw	103
   4086  044A  0020               	movlb	0	; select bank0
@@ -4317,7 +4317,7 @@ Microchip Technology Omniscient Code Generator v1.44 (Free mode) build 201709140
   4296  04FF  00AE               	movwf	EEPROMDeleteNumber@position+1
   4297  0500  318B  2370  3183   	fcall	_EEPROMDeleteNumber
   4298                           
-  4299                           ;sim800l.c: 116: SIM800SendSms(SIM800L.cell, "Su numero ha sido borrado","");
+  4299                           ;sim800l.c: 116: SIM800SendSms(SIM800L.cell, "Su número ha sido borrado","");
   4300  0503  3058               	movlw	88
   4301  0504  0020               	movlb	0	; select bank0
   4302  0505  00AD               	movwf	SIM800SendSms@nmbr
@@ -4333,7 +4333,7 @@ Microchip Technology Omniscient Code Generator v1.44 (Free mode) build 201709140
   4312  050F  00B2               	movwf	SIM800SendSms@msg2+1
   4313  0510  318C  24BF  3183   	fcall	_SIM800SendSms
   4314                           
-  4315                           ;sim800l.c: 117: SIM800SendSms(SIM800L.sender_cell, "Usted borro el numero: ",SIM800L.ce
+  4315                           ;sim800l.c: 117: SIM800SendSms(SIM800L.sender_cell, "Usted borró el número: ",SIM800L.ce
       +                          ll);
   4316  0513  3067               	movlw	103
   4317  0514  0020               	movlb	0	; select bank0
@@ -4736,10 +4736,10 @@ Microchip Technology Omniscient Code Generator v1.44 (Free mode) build 201709140
   4707  0676  2E80               	goto	l3018
   4708                           
   4709                           ;sim800l.c: 150: {
-  4710                           ;sim800l.c: 151: LATAbits.LATA5=1; GPIOGreenLedBlink(9); ; LATAbits.LATA5=0;
+  4710                           ;sim800l.c: 151: LATAbits.LATA5=1; GPIOGreenLedBlink(6); ; LATAbits.LATA5=0;
   4711  0677  0022               	movlb	2	; select bank2
   4712  0678  168C               	bsf	12,5	;volatile
-  4713  0679  3009               	movlw	9
+  4713  0679  3006               	movlw	6
   4714  067A  318A  22BC         	fcall	_GPIOGreenLedBlink
   4715  067C  0022               	movlb	2	; select bank2
   4716  067D  128C               	bcf	12,5	;volatile
@@ -9147,7 +9147,7 @@ SFR31                0      0       0      32        0.0%
 
 
 Microchip Technology PIC Macro Assembler V1.44 build -154322312 
-Symbol Table                                                                                   Mon Aug 20 22:25:31 2018
+Symbol Table                                                                                   Mon Aug 20 22:43:32 2018
 
       EEPROMCheckPassword@pass 0031                     __CFG_CP$ON 0000                              _i 005D  
                            _BF 10A0                    __CFG_CPD$ON 0000        __size_of_EEPROMEraseAll 0024  

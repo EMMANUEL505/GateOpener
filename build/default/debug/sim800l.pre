@@ -4312,13 +4312,13 @@ SIM800L.cell[i-10]='\0';
 if(!EEPROMSearchNumber(SIM800L.cell,SIM800L.cell_lenght))
 {
 EEPROMAdd(SIM800L.cell, SIM800L.cell_lenght);
-SIM800SendSms(SIM800L.cell, "Su numero ha sido agregado","");
-SIM800SendSms(SIM800L.sender_cell, "Usted agrego el numero: ",SIM800L.cell);
+SIM800SendSms(SIM800L.cell, "Su número ha sido agregado","");
+SIM800SendSms(SIM800L.sender_cell, "Usted agregó el número: ",SIM800L.cell);
 }
 else
 {
-SIM800SendSms(SIM800L.cell, "Su numero ya existe","");
-SIM800SendSms(SIM800L.sender_cell, "El numero ya existe: ",SIM800L.cell);
+SIM800SendSms(SIM800L.cell, "Su número ya existe","");
+SIM800SendSms(SIM800L.sender_cell, "El número ya existe: ",SIM800L.cell);
 }
 }
 if(SIM800L.command[6]=='D' && SIM800L.command[7]=='E' && SIM800L.command[8]=='L' )
@@ -4336,8 +4336,8 @@ uint8_t add=EEPROMSearchNumber(SIM800L.cell,SIM800L.cell_lenght);
 if(add)
 {
 EEPROMDeleteNumber(add-1);
-SIM800SendSms(SIM800L.cell, "Su numero ha sido borrado","");
-SIM800SendSms(SIM800L.sender_cell, "Usted borro el numero: ",SIM800L.cell);
+SIM800SendSms(SIM800L.cell, "Su número ha sido borrado","");
+SIM800SendSms(SIM800L.sender_cell, "Usted borró el número: ",SIM800L.cell);
 
 }
 }
@@ -4371,7 +4371,7 @@ else if(SIM800L.command[1]=='O' && SIM800L.command[2]=='P' && SIM800L.command[3]
 {
 if(EEPROMSearchNumber(SIM800L.sender_cell,SIM800L.cell_lenght))
 {
-LATAbits.LATA5=1; GPIOGreenLedBlink(9); ; LATAbits.LATA5=0;
+LATAbits.LATA5=1; GPIOGreenLedBlink(6); ; LATAbits.LATA5=0;
 LATCbits.LATC2=1;
 }
 else { GPIORedLedBlink(5); }
