@@ -10,6 +10,7 @@
 #include "sim800l.h"
 #include "gpio.h"
 #include "usart.h"
+#include "I2C.h"
 
 void main()
 {
@@ -24,7 +25,7 @@ void main()
     GPIOGreenLedSet();  //All LED's remain enabled during GSM initialization
     SIM800init();       //Initialize GSM module, 18 sec approx 
     
-    EEPROMUpdateVersion("v1.3");   //version writting
+    EEPROMUpdateVersion("v1.4");   //version writting
     password_empty[0]=0xFF; password_empty[1]=0xFF; password_empty[2]=0xFF; password_empty[3]=0xFF;//Empty password
     if(EEPROMCheckPassword(password_empty))   //If empty password use default password
     {
@@ -37,7 +38,7 @@ void main()
 
     ei();               //Enable interrupts
     RCSTAbits.CREN=ENABLED; //Enable USART receiver
-    SIM800SendSms("6141654818", "System enabled","");  //After initialize unit sends a message
+    //SIM800SendSms("6141654818", "System enabled","");  //After initialize unit sends a message
     while(TRUE) //Main loop
     {
         switch(task)

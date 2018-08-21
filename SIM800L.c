@@ -89,13 +89,13 @@ uint8_t SIM800Command()
                 if(!EEPROMSearchNumber(SIM800L.cell,SIM800L.cell_lenght))       //ADD new number if doesn't exist
                 {
                     EEPROMAdd(SIM800L.cell, SIM800L.cell_lenght);           //ADD new number to memory
-                    SIM800SendSms(SIM800L.cell, "Your number has been added","");
-                    SIM800SendSms(SIM800L.sender_cell, "You added the number: ",SIM800L.cell);
+                    SIM800SendSms(SIM800L.cell, "Su número ha sido agregado","");
+                    SIM800SendSms(SIM800L.sender_cell, "Usted agregó el número: ",SIM800L.cell);
                 }
                 else
                 {
-                    SIM800SendSms(SIM800L.cell, "Your number already exists","");
-                    SIM800SendSms(SIM800L.sender_cell, "The number already exists: ",SIM800L.cell);
+                    SIM800SendSms(SIM800L.cell, "Su número ya existe","");
+                    SIM800SendSms(SIM800L.sender_cell, "El número ya existe: ",SIM800L.cell);
                 }
             }
             if(SIM800L.command[6]=='D' && SIM800L.command[7]=='E' && SIM800L.command[8]=='L' )      //"ADD" command for new numbers
@@ -113,8 +113,8 @@ uint8_t SIM800Command()
                 if(add)       //Delete number if exists
                 {
                     EEPROMDeleteNumber(add-1);
-                    SIM800SendSms(SIM800L.cell, "Your number has been deleted","");
-                    SIM800SendSms(SIM800L.sender_cell, "You deleted the number: ",SIM800L.cell);
+                    SIM800SendSms(SIM800L.cell, "Su número ha sido borrado","");
+                    SIM800SendSms(SIM800L.sender_cell, "Usted borró el número: ",SIM800L.cell);
                     
                 }
             }
@@ -148,7 +148,7 @@ uint8_t SIM800Command()
         {
                 if(EEPROMSearchNumber(SIM800L.sender_cell,SIM800L.cell_lenght))    //Check if authorized number is calling
                 {                                      
-                    GPIOSecRelaySet(); GPIOGreenLedBlink(9); ; GPIOSecRelayClear();   //Relay enabled period of 1sec
+                    GPIOSecRelaySet(); GPIOGreenLedBlink(6); ; GPIOSecRelayClear();   //Relay enabled period of 1sec
                     GPIOGreenLedSet();          //Green LED remains enabled
                 } 
                 else {  GPIORedLedBlink(5);   } //Red LED blinking, indicating denied access

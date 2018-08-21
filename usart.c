@@ -154,7 +154,7 @@ void USARTHandleRxInt()
                             SIM800L.cell_lenght++;                  //Save cell number lenght
                         }
                         SIM800L.sender_cell[SIM800L.cell_lenght]='\0';   
-                        SIM800L.cell_lenght=0;
+                        //SIM800L.cell_lenght=0;
                    }
                 }
                else if(SIM800L.buffer[0]=='O' && SIM800L.buffer[1]=='K') SIM800L.ok=TRUE;
