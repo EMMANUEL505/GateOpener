@@ -3,7 +3,7 @@
 
 #include "usart.h"
 
-void interrupt ISR(void)
+interrupt ISR(void)
 {
     if (RCIE && RCIF) {
         USARTHandleRxInt();
